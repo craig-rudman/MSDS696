@@ -14,6 +14,10 @@ dependencies:
   - pyarrow
   - jupyterlab
   - ipykernel
+  # Regression suite for the pipeline modules — see tests/ and its README.
+  # Pinned in the same env as the notebooks so tests exercise the exact
+  # pandas/scikit-learn versions the recorded metrics were produced with.
+  - pytest
   # External climate covariates (TerraClimate via OPeNDAP) — see src/terraclimate.py
   - xarray
   - netcdf4
