@@ -1,0 +1,20 @@
+name: msds696
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - geopandas
+  - contextily
+  - folium
+  - pyarrow
+  - jupyterlab
+  - ipykernel
+  # External climate covariates (TerraClimate via OPeNDAP) — see src/terraclimate.py
+  - xarray
+  - netcdf4
+  - rasterio

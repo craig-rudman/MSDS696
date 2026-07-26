@@ -1,0 +1,20 @@
+# Data — large source files and generated artifacts.
+# The pipeline artifacts are reproducible from notebook/04_cleaning.ipynb; their
+# integrity is pinned by content fingerprints in tests/ rather than by tracking
+# the binaries here (see tests/test_artifacts.py).
+data/*.sqlite
+data/*.parquet
+data/*.baseline
+data/terraclimate_cache/
+
+# Ecoregion shapefiles (47M + 2.8M) — redistributable from the EPA, not ours to vendor.
+data/us_eco_l3_state_boundaries/
+data/ak_eco_l3/
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
