@@ -84,8 +84,14 @@ COVARIATES: dict[str, tuple[str, str]] = {
     "vpd": ("vpd", "vapor pressure deficit (kPa) - atmospheric dryness driver"),
 }
 
-SEASON_OFFSET = {"DJF": 0, "MAM": 1, "JJA": 2, "SON": 3}
-BASE_YEAR = 1992
+# The season ordinal and spine origin are project-wide constants, not properties of
+# the climate layer. They are sourced from `config` so the December rule has exactly
+# one definition: an off-by-one-year here leaks 12 months of future climate into
+# every winter cell, so a second copy of it is the last thing this module should own.
+# The module-level aliases are kept so existing callers keep working unchanged.
+from config import SEASON_ORDER as SEASON_OFFSET, ProjectConfig
+
+BASE_YEAR = ProjectConfig().base_year
 
 # Bounding boxes for the server-side subset. TerraClimate latitude descends from
 # +90, so lat slices are given high -> low. AK is split out rather than using one
