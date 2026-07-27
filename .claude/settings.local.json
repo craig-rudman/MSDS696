@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/Users/crudman/anaconda3/envs/msds696/bin/python -)"
+    ]
+  }
+}

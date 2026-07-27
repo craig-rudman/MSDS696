@@ -385,3 +385,28 @@ def test_temporal_spine_reproduces_the_artifact_keys(fires, cfg):
 @pytest.mark.requires_data
 def test_exclusion_already_applied_to_the_artifact(fires):
     assert not exclusion_mask(fires).any()
+
+
+@pytest.mark.requires_data
+def test_boundary_fires_are_a_negligible_share_of_acres(fires):
+    """Bounds the geodetic sensitivity documented in FINDINGS.md.
+
+    14 fires sit within centimetres of an ecoregion seam (0.06m-0.31m from the
+    adjacent polygon). The CONUS layer ships 1,631 polygons for 85 distinct Level
+    III names -- split by state -- so a point on a shared edge is classified by the
+    WGS84 -> Albers reprojection at sub-metre precision, and that decision moves
+    between PROJ/GEOS versions. It is a property of the source data, not of this
+    code: the pre-refactor `join_ecoregion` reproduces the current answer exactly
+    when re-run in this environment.
+
+    This test does not pin *which* region those fires get -- that is
+    environment-dependent by nature. It pins the thing that actually matters: that
+    such fires can never carry enough acreage to move a published result.
+    """
+    BOUNDARY_FODS = [
+        236919, 236954, 318539, 353458, 1072851, 1072852, 1275586,
+        1315358, 1316204, 1316716, 1443345, 201770710, 400084304, 400626650,
+    ]
+    affected = fires[fires["FOD_ID"].isin(BOUNDARY_FODS)]
+    share = affected["FIRE_SIZE"].sum() / fires["FIRE_SIZE"].sum()
+    assert share < 1e-5, f"boundary-sensitive fires now carry {share:.6%} of burned acres"
