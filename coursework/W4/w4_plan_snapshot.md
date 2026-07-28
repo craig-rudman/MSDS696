@@ -116,8 +116,13 @@ causes`; Unknown = `missing_acres` mass.
 ### `09_unknown_dataquality.ipynb` — Unknown → data quality (operational)
 - Target: **attribution quality** = `missing_acre_frac` by region-season (the Unknown-share signal).
 - First pass: characterize + a forward-chaining persistence forecast of `missing_acre_frac`;
-  confirm the design's key empirical claim — that **Unknown concentrates in the high-Natural West**
+  test the design's key empirical claim — that **Unknown concentrates in the high-Natural West**
   — by correlating `missing_acre_frac` with the Natural share across region-seasons.
+  > **Outcome (as built):** the claim was **refuted**. The correlation is negative
+  > (Pearson ≈ −0.64): Unknown concentrates in low-Natural, human-dominated regions
+  > (Central Great Plains, Southern Texas Plains, Flint Hills), while the high-Natural
+  > Alaskan/Arctic ecoregions are near-zero-missing. The Human-floor conclusion survives
+  > with the opposite mechanism. See collaboration log Entry 4.13.
 - Deliverable framed as an **operational recommendation** (which region-seasons have attribution
   too weak to trust), NOT a fire forecast.
 
@@ -148,8 +153,8 @@ all-four-models scope, both Tier-1 items, and the Natural external-data directio
    partials contaminating windows.
 3. **Tier 2:** each of `07/08/09` runs top-to-bottom on the manual run, prints its baseline score
    on the held-out tail, and produces its branch deliverable (Natural concentration forecast;
-   Human sub-cause profile + top-cause hit-rate; Unknown `missing_acre_frac` forecast + West
-   correlation).
+   Human sub-cause profile + top-cause hit-rate; Unknown `missing_acre_frac` forecast +
+   Natural-share × missing-share correlation).
 4. **Docs:** status report reads coherently with real numbers once run; collaboration log has the
    new entry.
 

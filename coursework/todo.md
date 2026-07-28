@@ -48,8 +48,13 @@ pipeline build and open questions that follow from it.
       Human→sub-cause composition, Unknown→data-quality recommendation. Build
       Tier 1 first (all branches hang off it). Throughout: forward-chaining
       temporal split; ablation ladder vs. persistence baseline.
-    - [ ] Confirm Unknown share concentrates in the high-Natural West (decides
-          whether the Human-22.7%-is-a-floor caveat is live or negligible).
+    - [x] Measure the Natural-share × missing-share relationship directly
+          (decides whether the Human-22.7%-is-a-floor caveat is live).
+          RESOLVED W4 in `09_unknown_dataquality.ipynb`: the correlation is
+          **negative** (Pearson ≈ −0.64) — Unknown concentrates in low-Natural,
+          human-dominated regions, NOT the high-Natural West. The floor caveat
+          is live, for the opposite reason: if unattributed acres are
+          disproportionately human, true Human share is *higher* than 22.7%.
 
 ## Homework (not agent tasks)
 

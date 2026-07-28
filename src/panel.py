@@ -239,6 +239,20 @@ class RegionSeasonPanel:
                .rename("nat_ac").reset_index())
         return self._sorted(nat)
 
+    def natural_starts(self) -> pd.DataFrame:
+        """Natural acres *and* ignition counts per cell: `nat_ac`, `nat_fires`.
+
+        The escape-propensity view needs both. `natural_acres()` is left alone
+        because 07's split masks are computed on its output and adding a column
+        would not change them -- but the two builders are kept separate so that
+        stays obviously true.
+        """
+        nat = (self.rsc[self.rsc["cause"] == NATURAL]
+               .groupby(self.keys, observed=True)[["acres", "fires"]].sum()
+               .rename(columns={"acres": "nat_ac", "fires": "nat_fires"})
+               .reset_index())
+        return self._sorted(nat)
+
     # ----------------------------------------------------------------------
     # Tier 2 -- Unknown: the attribution-quality target
     # ----------------------------------------------------------------------
