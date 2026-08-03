@@ -11,6 +11,13 @@ data/terraclimate_cache/
 data/us_eco_l3_state_boundaries/
 data/ak_eco_l3/
 
+# MTBS burned-area perimeters (W5) — redistributable from USGS/MTBS, not ours to
+# vendor. Fetched by src/mtbs.py; the join key (MTBS_ID) lives in the FPA-FOD source.
+data/mtbs_perimeters/
+
+# MODIS vegetation-index cache (W5) — reduced hex means, reproducible from src/modis.py.
+data/modis_cache/
+
 # Python
 __pycache__/
 *.py[cod]

@@ -22,3 +22,11 @@ dependencies:
   - xarray
   - netcdf4
   - rasterio
+  # W5 hexgrid probe — H3 tessellation for the sub-ecoregion grain.
+  # Installed from PyPI, not conda-forge: the conda package is named `h3-py` and
+  # lags at 4.4.1, so pip is the route to 4.5.x. Note this is the **v4** API
+  # (grid_disk / polygon_to_cells), NOT v3's k_ring / polyfill — the names differ.
+  # Analysis resolutions: res 4 ≈ 1,770 km² (26 km edge), res 5 ≈ 253 km² (10 km edge).
+  - pip
+  - pip:
+      - h3==4.5.0
