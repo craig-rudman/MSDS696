@@ -6,6 +6,10 @@ data/*.sqlite
 data/*.parquet
 data/*.baseline
 data/terraclimate_cache/
+# Hex-grain TerraClimate checkpoints (W6, ~315M). Same rule as the region-grain
+# cache above: reproducible from src/hex_climate.py, which resumes from whatever
+# units are already present.
+data/hex_climate_cache/
 
 # Ecoregion shapefiles (47M + 2.8M) — redistributable from the EPA, not ours to vendor.
 data/us_eco_l3_state_boundaries/
