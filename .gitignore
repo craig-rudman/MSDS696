@@ -13,6 +13,9 @@ data/terraclimate_cache/
 # cache above: reproducible from src/hex_climate.py, which resumes from whatever
 # units are already present.
 data/hex_climate_cache/
+# MODIS vegetation-index checkpoints (W6). Same rule again: reduced hex means,
+# reproducible from src/hex_ndvi.py, which resumes from whatever units are present.
+data/hex_ndvi_cache/
 
 # Ecoregion shapefiles (47M + 2.8M) — redistributable from the EPA, not ours to vendor.
 data/us_eco_l3_state_boundaries/

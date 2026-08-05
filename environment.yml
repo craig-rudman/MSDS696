@@ -8,6 +8,18 @@ dependencies:
   - matplotlib
   - seaborn
   - scikit-learn
+  # Declared explicitly although scikit-learn and geopandas already pull them in.
+  # A transitive dependency is not a guarantee: every Spearman score in the W6
+  # ignition work comes from scipy.stats, and shapely backs the hexgrid geometry
+  # in src/hex_burn.py plus a test in tests/test_cleaning.py. If a parent package
+  # ever drops or repins them the failure would look unrelated to its cause.
+  - scipy
+  - shapely
+  # Image composition for the figure builders (src/season_maps.py, src/w5_visuals.py)
+  # and the rich display calls in notebooks 01 and 11. Both arrive transitively via
+  # matplotlib/jupyterlab today; named here so that stays true by declaration.
+  - pillow
+  - ipython
   - geopandas
   - contextily
   - folium
@@ -27,6 +39,16 @@ dependencies:
   # lags at 4.4.1, so pip is the route to 4.5.x. Note this is the **v4** API
   # (grid_disk / polygon_to_cells), NOT v3's k_ring / polyfill — the names differ.
   # Analysis resolutions: res 4 ≈ 1,770 km² (26 km edge), res 5 ≈ 253 km² (10 km edge).
+  # W6 fuel-density probe — MODIS vegetation indices via the Microsoft Planetary
+  # Computer STAC API. Chosen over NASA Earthdata and Google Earth Engine because
+  # PC serves the MODIS collections **anonymously**: no account, no API key, no
+  # OAuth flow, which is what kept this rung blocked from W5 through W6.
+  # `planetary-computer` signs the blob URLs; `pystac-client` queries the catalog;
+  # `rioxarray` reads the COGs into the same xarray objects src/terraclimate.py
+  # already uses, so the reduction code is shared rather than duplicated.
+  - pystac-client
+  - planetary-computer
+  - rioxarray
   - pip
   - pip:
       - h3==4.5.0
