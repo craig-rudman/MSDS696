@@ -5,6 +5,9 @@
 data/*.sqlite
 data/*.parquet
 data/*.baseline
+# Cached score tables (W6). Derived from the panel by src/hex_panel.py, not
+# inputs — the numbers they hold are reported in notebook/12 and quoted there.
+data/*.csv
 data/terraclimate_cache/
 # Hex-grain TerraClimate checkpoints (W6, ~315M). Same rule as the region-grain
 # cache above: reproducible from src/hex_climate.py, which resumes from whatever
