@@ -7,8 +7,8 @@ Week 5 is graded on **executive visuals** (60 pts, see [assignment.md](assignmen
 | deliverable | pts | status |
 |---|---|---|
 | Status Report — 2–3 polished visuals, assertion headlines, report template | 20 | visuals rendered; writeup pending |
-| Practice Talk — present one visual, record, post, reply to podmates | 20 | pending |
-| Chart Redesign Activity — separate, uses D2L chart bank | 20 | pending |
+| Practice Talk — present one visual, record, post, reply to podmates | 20 | track written; recording pending |
+| Chart Redesign Activity — separate, uses D2L chart bank | 20 | done (Chart B) |
 
 The substantive goal: show that FPA-FOD alone cannot place burned area on the
 landscape, and that satellite-derived perimeters can.
@@ -45,7 +45,9 @@ resolve on its own.
   small. Point attribution would have misplaced ~half the burned area at this
   grain; two thirds of perimeter-backed fires span >1 hex.
 - **`src/w5_visuals.py`** + **`notebook/11_w5_visuals.ipynb`** — all five figures
-  rendered to `img/`, no headline text baked in.
+  rendered to `img/`. V1-A and V1-B now carry their headlines, panel labels, and
+  scale **in the figure**, so each reads standalone in a slide or a report; the
+  remaining figures are still bare.
 
 Artifacts on disk: `data/hex_grid_res5.parquet`, `data/hex_acres_res5.parquet`,
 `data/mtbs_perimeters/`.
@@ -54,8 +56,8 @@ Artifacts on disk: `data/hex_grid_res5.parquet`, `data/hex_acres_res5.parquet`,
 
 | file | headline | role |
 |---|---|---|
-| `w5_v1a_one_fire.png` | *"The record says a fire happened here. It burned all of this."* | **practice talk.** 5 Mile fire 2014, Blue Mountains, 4,620 ac — median-size large fire, chosen for honesty not drama |
-| `w5_v1b_before_after.png` | *"We knew how much burned. We didn't know where."* | same acres placed two ways: ignition-point vs. perimeter-distributed |
+| `w5_v1a_one_fire.png` | *"The record says a fire happened here ... it burned all of this."* | **practice talk.** Tepee Springs fire 2015, Idaho Batholith, 95,709 ac across 2 hexes — median-size fire *among those spanning >1 hex* (two thirds of perimeter-backed fires). Larger than the 62,494-ac cell it is filed under, so "cannot fit" is shown rather than asserted |
+| `w5_v1b_before_after.png` | *"We knew how much burned, but we didn't know where"* | same acres placed two ways: ignition-point vs. perimeter-distributed, BEFORE/AFTER panels, shared log scale with colorbar |
 | `w5_v2_national.png` | *"A tenth of the country carries three quarters of the burning."* | national concentration, 29 years pooled |
 | `w5_v2b_season_2020.png` | *"One fire season, everywhere it touched."* | 2020 alone, small/medium burns kept |
 
@@ -63,8 +65,11 @@ Artifacts on disk: `data/hex_grid_res5.parquet`, `data/hex_acres_res5.parquet`,
 no axes needed. Ablation ladders and sparsity plots are correct evidence in the
 wrong encoding; they belong in an appendix slide.
 
-**Status report picks 2–3.** Recommended: V1-A (the gap) → V1-B (the fix) → V2 or
-V2-B (what it reveals nationally).
+**Status report uses two: V1-A (the gap) → V1-B (the fix).** V2/V2-B are left out
+deliberately. The report is framed as an executive ask — fund the imagery arc — and
+the national concentration numbers (36,234 hexes, 99.61% of acres on-grid) carry
+that credibility better as one line of prose than as a third chart competing for
+the same attention.
 
 **The V3 timelapse is not committed.** `animate_national()` in
 [src/w5_visuals.py](../../src/w5_visuals.py) and the V3 cells in
@@ -74,28 +79,46 @@ repo for a figure the status report does not use.
 
 ## Remaining work
 
-1. **Status report** — `coursework/W5/MSDS696_W5_Status_Report.md` on the report
-   template, following [MSDS696_W4_Status_Report.md](../W4/MSDS696_W4_Status_Report.md).
-   Embed the chosen visuals under their assertion headlines. State the scope limit
-   plainly: national perimeter correction, no predictive result yet.
-2. **Practice talk** — present V1-A. Record, post with a short self-assessment,
-   reply to podmates via the Pod Feedback Card.
-3. **Chart Redesign Activity** — independent. One chart from the D2L bank, four-part
-   write-up per the handout (name the lie with a number, name the victim and the
-   decision, rebuild with each fix labelled, say what you preserved). Do **not** use
-   a project figure.
+1. **Status report** — drafted at
+   [MSDS696_W5_Status_Report.md](MSDS696_W5_Status_Report.md), on the W4 template.
+   Framed as an executive ask (fund the imagery arc) with honest status prose
+   around the two visuals. Scope limit stated: perimeter correction and the hex
+   frame, no predictive result yet. **Remaining:** final read-through.
+2. **Practice talk** — present V1-A. Track drafted at
+   [practice_talk_track.md](practice_talk_track.md): Describe/Interpret/Implication
+   beats, delivery notes, jargon blocklist, two anticipated pod questions, and the
+   self-assessment to post with the recording. **Remaining:** record it, post to the
+   pod discussion, reply to podmates via the Pod Feedback Card.
+3. **Chart Redesign Activity** — **done.** Chart B (highway fatalities), four-part
+   write-up plus rebuilt figure at
+   [chart_redesign/w5-chart-redesign.md](chart_redesign/w5-chart-redesign.md) and
+   the accompanying PDF.
 4. **Doc updates** — `CLAUDE.md` (MTBS perimeter join is a new data-source fact; the
    Natural→location grain question is now partly answered),
    [collaboration_log.md](../collaboration_log.md) incrementally per the established
-   cadence, [todo.md](../todo.md).
+   cadence. (The separate `todo.md` was folded into `CLAUDE.md` in W6; it is the
+   single requirements file now.)
 
 No plan snapshot — this file is under version control, so git history is the
 snapshot.
 
 ## Deferred — the imagery hypothesis
 
-Not started; no MODIS cache exists. Carried forward as the next arc, unblocked by
-W5 grading.
+> **Superseded in part, 2026-08-04 (W6).** This section is preserved as the W5
+> snapshot; two of its rungs have since been built and the target changed. See
+> `CLAUDE.md` and collaboration log Entries 6.1–6.6 for current state.
+>
+> - **"No climate layer" was wrong even at W5.** `src/terraclimate.py` was built and
+>   run 2026-07-26. Only *fuels imagery* is blocked on Earthdata/GEE credentials.
+> - **The prior-burn rung is built** (`src/burn_history.py`), and hex-grain climate
+>   has been re-fetched (`src/hex_climate.py`).
+> - **The target changed** from acres/burn-concentration to **hex-grain ignition
+>   likelihood**, which uses raw ignition points rather than the perimeters this
+>   week built. The perimeter work remains load-bearing — but for the *burn-history
+>   covariate*, not for the target itself.
+
+Not started as of W5; no MODIS cache exists. Carried forward as the next arc,
+unblocked by W5 grading.
 
 > Burn history reveals *where* fire recurs but cannot anticipate *when* a
 > region-season will burn big. **Pre-season fuel-condition imagery — how much fuel

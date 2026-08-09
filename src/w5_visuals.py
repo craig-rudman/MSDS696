@@ -112,13 +112,24 @@ def _strip(ax):
 
 
 def pick_solo_fire(fires: pd.DataFrame, perims, *, min_acres: float = 1000.0,
-                   mtbs_col: str = "MTBS_ID", require_point_inside: bool = True):
+                   mtbs_col: str = "MTBS_ID", require_point_inside: bool = True,
+                   require_spanning: bool = False, resolution: int = 5):
     """A large fire that is the ONLY FPA-FOD row on its perimeter.
 
     Returns the row nearest the median size among such fires. Choosing near the
     median rather than the maximum is deliberate: the visual should show what is
     typical, not what is most dramatic. Complex constituents are excluded because
     their perimeter is the complex's, not theirs.
+
+    `require_spanning` narrows the pool to fires whose perimeter touches more than
+    one hex at `resolution`, then takes the median *of those*. This matters for the
+    honesty of the claim. The overall median fire is a small fraction of a res-5
+    hex (~62,494 acres) and sits inside a single cell, so it cannot show the
+    multi-cell spread the figure is about. Selecting for spanning changes what the
+    fire is typical *of*: no longer "a typical mapped fire" but "a typical fire
+    among those that cross cells" — which is two thirds of perimeter-backed fires.
+    State that in the caption; the selection is defensible but it is not the median
+    of everything.
 
     `require_point_inside` additionally demands that the recorded ignition point
     actually falls within the fire's own perimeter. Only **75%** of solo large
@@ -156,11 +167,32 @@ def pick_solo_fire(fires: pd.DataFrame, perims, *, min_acres: float = 1000.0,
         if not inside.empty:
             cand = inside
 
+    if require_spanning:
+        geo = perims.copy()
+        geo["event_id"] = geo["event_id"].astype(str).str.strip()
+        geo = geo[geo["event_id"].isin(set(cand["_mid"]))]
+        geo = geo[~geo["event_id"].duplicated(keep="first")].set_index("event_id")
+        # Reuse the pipeline's own cell enumeration, so "spans more than one hex"
+        # here means exactly what it means in hex_burn. It expects lon/lat.
+        geo = geo.to_crs(4326)
+        n_cells = {
+            mid: len(hex_burn.hexes_for_polygon(g, resolution))
+            for mid, g in geo.geometry.items()
+        }
+        spanning = cand[cand["_mid"].map(n_cells).fillna(1) > 1]
+        if spanning.empty:
+            raise ValueError(
+                f"no solo perimeter-backed fire above {min_acres} acres spans "
+                f"more than one res-{resolution} hex"
+            )
+        cand = spanning
+
     target = cand["FIRE_SIZE"].median()
     return cand.iloc[(cand["FIRE_SIZE"] - target).abs().argsort().iloc[0]]
 
 
-def plot_one_fire(fire, perims, hexgrid, out_path: Path, *, pad_frac: float = 0.45):
+def plot_one_fire(fire, perims, hexgrid, out_path: Path, *, pad_frac: float = 0.45,
+                  v_pad_frac: float = 0.12):
     """V1-A — 'The record says a fire happened here. It burned all of this.'"""
     import geopandas as gpd
     import matplotlib.pyplot as plt
@@ -172,17 +204,33 @@ def plot_one_fire(fire, perims, hexgrid, out_path: Path, *, pad_frac: float = 0.
         geometry=[Point(fire["LONGITUDE"], fire["LATITUDE"])], crs=4326
     ).to_crs(hexgrid.crs)
 
+    # Horizontal and vertical padding are set separately. A tall narrow perimeter
+    # padded equally on all four sides yields a near-square window, which then has
+    # to be letterboxed inside the canvas because the map keeps an equal aspect —
+    # that letterboxing is the whitespace. Vertical padding only has to clear the
+    # title and footer, so it is much tighter than the horizontal.
     minx, miny, maxx, maxy = geom.total_bounds
-    padx, pady = (maxx - minx) * pad_frac, (maxy - miny) * pad_frac
-    pad = max(padx, pady)
-    win = (minx - pad, miny - pad, maxx + pad, maxy + pad)
+    w, h = maxx - minx, maxy - miny
+    pad_x = max(w, h) * pad_frac
+    pad_y = h * v_pad_frac
+    win = (minx - pad_x, miny - pad_y, maxx + pad_x, maxy + pad_y)
 
     near = hexgrid.cx[win[0]:win[2], win[1]:win[3]]
 
-    fig, ax = plt.subplots(figsize=(9, 8.2), facecolor=SURFACE)
+    # Canvas aspect tracks the window's aspect, so an equal-aspect map fills it
+    # instead of being letterboxed. Height is the fixed dimension and width
+    # follows, clamped so an extreme shape cannot produce a degenerate figure.
+    win_aspect = (win[2] - win[0]) / (win[3] - win[1])
+    fig_h = 8.2
+    fig_w = min(max(fig_h * win_aspect, 4.5), 16.0)
+    fig, ax = plt.subplots(figsize=(fig_w, fig_h), facecolor=SURFACE)
     _strip(ax)
 
-    near.boundary.plot(ax=ax, color=HEX_EDGE, linewidth=0.8, zorder=1)
+    # The grid is back, and it is the point of the figure now that the fire is
+    # selected for spanning: without cell boundaries there is nothing for the
+    # perimeter to visibly cross. It sits under the burn so the fire stays the
+    # subject and the grid stays reference.
+    near.boundary.plot(ax=ax, color=HEX_EDGE, linewidth=0.9, zorder=1)
     geom.plot(ax=ax, facecolor=PERIM_FILL, edgecolor=PERIM_FILL,
               alpha=0.30, linewidth=2.0, zorder=2)
     geom.boundary.plot(ax=ax, color=PERIM_FILL, linewidth=2.0, zorder=3)
@@ -194,28 +242,65 @@ def plot_one_fire(fire, perims, hexgrid, out_path: Path, *, pad_frac: float = 0.
     ax.set_xlim(win[0], win[2])
     ax.set_ylim(win[1], win[3])
 
-    # Labels are placed outside the shape and pointed in, so they never sit on top
-    # of each other or on the mark they describe. The point label leaves to the
-    # left, the area label to the right, regardless of where in the shape the
-    # ignition happens to fall.
+    # The first half of the assertion sits at the top as the figure's lead line,
+    # with an arrow dropping onto the ignition mark it describes.
     px, py = float(pt.geometry.x.iloc[0]), float(pt.geometry.y.iloc[0])
     ax.annotate(
-        "what the record stores:\na single point",
+        "The record says a fire happened here ...",
         xy=(px, py), xycoords="data",
-        xytext=(0.04, 0.30), textcoords="axes fraction",
-        fontsize=13, color=TEXT_PRIMARY, fontweight="700", ha="left", va="center",
-        arrowprops=dict(arrowstyle="-", color=TEXT_SECONDARY, linewidth=1.4,
-                        shrinkA=2, shrinkB=8, connectionstyle="arc3,rad=0.12"),
+        xytext=(0.5, 0.98), textcoords="axes fraction",
+        fontsize=15, color=TEXT_PRIMARY, fontweight="700", ha="center", va="top",
+        arrowprops=dict(arrowstyle="-|>", color=TEXT_SECONDARY, linewidth=1.6,
+                        shrinkA=6, shrinkB=9, mutation_scale=16,
+                        connectionstyle="arc3,rad=0.0"),
     )
+    # The magnitude sits inside the shape it measures, so no connector is needed.
+    # Rather than fix a height and hope the shape is wide there, the label is put
+    # where the burn is widest: sample horizontal slices through the polygon and
+    # take the one with the longest run of fill. That is both the most legible
+    # place for text and, on a lobed perimeter, reliably clear of the ignition
+    # mark and the connectors, which land on the narrow ends.
+    from shapely.geometry import LineString
+
+    shape = geom.geometry.union_all()
     b = geom.total_bounds
-    edge_x, edge_y = b[2], (b[1] + b[3]) / 2
+    best = None
+    for frac in np.linspace(0.15, 0.85, 29):
+        y = b[3] - (b[3] - b[1]) * frac
+        span = shape.intersection(LineString([(b[0], y), (b[2], y)]))
+        if span.is_empty:
+            continue
+        run = span.length
+        if best is None or run > best[0]:
+            best = (run, span.centroid.x, y)
+    if best is None:
+        rp = shape.representative_point()
+        label_x, label_y = rp.x, rp.y
+    else:
+        _, label_x, label_y = best
     ax.annotate(
-        f"what actually burned:\n{fire['FIRE_SIZE']:,.0f} acres",
-        xy=(edge_x, edge_y), xycoords="data",
-        xytext=(0.97, 0.72), textcoords="axes fraction",
-        fontsize=13, color="#0d366b", fontweight="700", ha="right", va="center",
-        arrowprops=dict(arrowstyle="-", color="#5598e7", linewidth=1.4,
-                        shrinkA=2, shrinkB=6, connectionstyle="arc3,rad=-0.12"),
+        f"{fire['FIRE_SIZE']:,.0f} acres",
+        xy=(label_x, label_y), xycoords="data",
+        fontsize=15, color="#0d366b", fontweight="700", ha="center", va="center",
+        zorder=6,
+    )
+
+    # The second half of the assertion sits out to the right, matched to the title
+    # in size and weight, with leading ellipses so the two read as one sentence
+    # picked up across the figure. It points at the perimeter's right edge at the
+    # height where the shape is widest, so the connector stays short and comes in
+    # level rather than crossing the fill.
+    right_y = (b[1] + b[3]) / 2
+    span_r = shape.intersection(LineString([(b[0], right_y), (b[2], right_y)]))
+    edge_x = span_r.bounds[2] if not span_r.is_empty else b[2]
+    ax.annotate(
+        "... it burned all of this.",
+        xy=(edge_x, right_y), xycoords="data",
+        xytext=(0.98, 0.62), textcoords="axes fraction",
+        fontsize=15, color=TEXT_PRIMARY, fontweight="700", ha="right", va="center",
+        arrowprops=dict(arrowstyle="-|>", color=TEXT_SECONDARY, linewidth=1.6,
+                        shrinkA=6, shrinkB=9, mutation_scale=16,
+                        connectionstyle="arc3,rad=0.0"),
     )
 
     # No headline or caption is drawn: the figure carries only marks and the two
@@ -232,6 +317,8 @@ def plot_one_fire(fire, perims, hexgrid, out_path: Path, *, pad_frac: float = 0.
         "region": fire["region"],
         "acres": float(fire["FIRE_SIZE"]),
         "hex_acres": hex_burn.hex_area_acres(5),
+        "n_hex": len(hex_burn.hexes_for_polygon(
+            geom.to_crs(4326).geometry.union_all(), 5)),
     }
 
 
@@ -294,17 +381,93 @@ def plot_before_after(hex_acres: pd.DataFrame, hexgrid, fires: pd.DataFrame,
                   edgecolor=HEX_EDGE, linewidth=0.4,
                   missing_kwds={"color": NO_BURN, "edgecolor": HEX_EDGE, "linewidth": 0.4})
 
-    # Panels are drawn bare. Which is left and which is right is stated in the
-    # notebook markdown, so the pair can be cropped or re-laid-out for a slide
-    # without fighting baked-in titles.
     # Each panel is set to the SAME extent so the two maps are directly
-    # comparable, then packed close: with no titles between them, wide spacing
-    # just reads as a gap.
+    # comparable, then packed close so the pair reads as one comparison.
     for ax in axes:
         ax.set_xlim(*g.total_bounds[[0, 2]])
         ax.set_ylim(*g.total_bounds[[1, 3]])
         ax.set_aspect("equal")
-    fig.subplots_adjust(left=0.01, right=0.99, top=0.99, bottom=0.01, wspace=-0.10)
+    # The top band is a stack: one headline line, a gap, then the panel labels,
+    # then the maps. Each element's height is derived from its font size in figure
+    # fractions (points -> inches -> fraction of figure height) rather than picked
+    # by hand, so the band cannot collide with itself when the figure is resized.
+    fig_h_in = fig.get_size_inches()[1]
+    head_pt, panel_pt = 17.0, 12.0
+    head_line = (head_pt / 72.0) * 1.45 / fig_h_in      # line box incl. leading
+    panel_line = (panel_pt / 72.0) * 1.45 / fig_h_in
+
+    head_y1 = 0.985
+    panel_y = head_y1 - head_line - (head_line * 0.55)  # gap below the headline
+    axes_top = panel_y - panel_line * 1.6               # clear air under the labels
+
+    # Positive wspace now that each panel carries a visible border: the negative
+    # value that packed the bare maps together makes the two frames overlap.
+    fig.subplots_adjust(left=0.03, right=0.97, top=axes_top, bottom=0.11,
+                        wspace=0.06)
+
+    # One colorbar for both panels, horizontal and centred beneath them: the two
+    # maps share a single norm, and a vertical bar on the right would read as
+    # belonging to the right panel alone. Ticks are labelled in plain acres rather
+    # than log notation — the scale is logarithmic because burn is heavy-tailed,
+    # but an executive reads "10,000", not "1e4".
+    from matplotlib.cm import ScalarMappable
+    from matplotlib.ticker import FixedLocator, FuncFormatter, NullLocator
+
+    cax = fig.add_axes([0.30, 0.055, 0.40, 0.022])
+    cb = fig.colorbar(ScalarMappable(norm=norm, cmap=cmap), cax=cax,
+                      orientation="horizontal")
+    decades = [t for t in (1, 10, 100, 1_000, 10_000, 100_000, 1_000_000)
+               if vmin <= t <= vmax]
+    cb.locator = FixedLocator(decades)
+    cb.formatter = FuncFormatter(lambda v, _: f"{v:,.0f}")
+    cb.update_ticks()
+    cb.set_label("acres burned per hex (each hex is ~62,500 acres)",
+                 fontsize=10.5, color=TEXT_SECONDARY, fontweight="700", labelpad=6)
+    # A LogNorm colorbar draws minor ticks at 2..9 inside every decade. They carry
+    # no information here and their log spacing reads as an irregular, broken rule,
+    # so only the labelled decades are kept.
+    cb.ax.xaxis.set_minor_locator(NullLocator())
+    cb.ax.tick_params(which="both", labelsize=10, colors=TEXT_SECONDARY,
+                      length=0, pad=3)
+    cb.outline.set_visible(False)
+
+    # The assertion is split across the two panels the way V1-A splits it across
+    # the figure: the clause naming the failure sits over the panel that shows it,
+    # the clause naming the fix over the panel that fixes it. Titles sit in figure
+    # coordinates rather than per-axes so they align with each other regardless of
+    # how the equal-aspect maps end up sized inside their subplots.
+    fig.text(0.5, head_y1, "We knew how much burned, but we didn't know where",
+             fontsize=head_pt, color=TEXT_PRIMARY, fontweight="700",
+             ha="center", va="top")
+
+    # Panel labels name what each map is. Without them the pair is unreadable to
+    # anyone who has not been told which side is which. They are centred on each
+    # axes' actual position, so they track the panels rather than assuming where
+    # an equal-aspect map lands inside its subplot.
+    # The border is drawn in DATA coordinates around the region's own bounds, with
+    # a small margin. Drawing it on the axes box does not work: the maps hold an
+    # equal aspect and sit inside a much wider box, so an axes-box frame misses the
+    # map on one side and clips it on the other. In data coordinates the frame is
+    # locked to the thing it frames, and both panels share one extent so the two
+    # frames come out identical.
+    from matplotlib.patches import Rectangle
+
+    bx0, by0, bx1, by1 = g.total_bounds
+    mx, my = (bx1 - bx0) * 0.06, (by1 - by0) * 0.02
+
+    for ax, label in zip(axes, ["BEFORE: acres credited to the ignition point",
+                                "AFTER: acres spread over what actually burned"]):
+        ax.add_patch(Rectangle(
+            (bx0 - mx, by0 - my), (bx1 - bx0) + 2 * mx, (by1 - by0) + 2 * my,
+            facecolor="none", edgecolor=HEX_EDGE, linewidth=1.2, zorder=10,
+        ))
+        # The label centres on the framed map, not on the subplot box, so it sits
+        # over the exhibit rather than over the empty half of the panel.
+        cx_disp = ax.transData.transform(((bx0 + bx1) / 2, by0))[0]
+        cx_fig = fig.transFigure.inverted().transform((cx_disp, 0))[0]
+        fig.text(cx_fig, panel_y, label,
+                 fontsize=panel_pt, color=TEXT_SECONDARY, fontweight="700",
+                 ha="center", va="top")
     fig.savefig(out_path, dpi=200, facecolor=SURFACE, bbox_inches="tight", pad_inches=0.25)
     plt.close(fig)
 
