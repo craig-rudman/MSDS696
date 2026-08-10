@@ -104,7 +104,7 @@ The useful distinction is between **regimes**, not causes. A hex can be **high-i
 **The point-vs-area asymmetry (W6 Entry 6.2 — load-bearing).** FPA-FOD stores a *pinpoint* `LATITUDE`/`LONGITUDE`, but `FIRE_SIZE` describes an *area*. That mismatch is what made an acres target expensive at hex grain and forced the MTBS perimeter build in W5. The same defect makes the **starts** target cheap: an ignition location is exactly what the record stores correctly. **Which geometry to use follows from the target, not from preference:**
 
 - **Ignition counts → raw points**, all ~2.27M fires, no MTBS join. Perimeter distribution would corrupt a count by smearing one ignition across ~26 hexes.
-- **Any acres quantity at hex grain → MTBS perimeters**, via `src/hex_burn.py`. A fire larger than 62,494 acres provably cannot fit in its assigned cell. MTBS-linked fires are 0.6% of rows but **81.6% of acres**; point-only fires average 14 acres, where point attribution is fine.
+- **Any acres quantity at hex grain → MTBS perimeters**, via `src/hex_burn.py`. A fire larger than 62,494 acres provably cannot fit in its assigned cell. MTBS-linked fires are 0.6% of rows but **81.6% of acres**; point-only fires average 14 acres, where point attribution is fine — **but the average hides a tail, and that tail is a known defect** (see *Point attribution of large unperimetered fires*, below).
 
 ## Method commitments
 
@@ -116,7 +116,7 @@ The useful distinction is between **regimes**, not causes. A hex can be **high-i
 
 ## What is built
 
-**Pipeline** — cleaning (`04`), EDA (`02`, `03`), features (`05`), analysis (`06`), Level III branch notebooks (`07`–`09`), hex burn distribution (`10`), W5 visuals (`11`), hex-grain modeling (`12`–`14`).
+**Pipeline** — cleaning (`04`), EDA (`02`, `03`), features (`05`), analysis (`06`), Level III branch notebooks (`07`–`09`), hex burn distribution (`10`), W5 visuals (`11`), hex-grain modeling (`12`–`14`), W6 visuals (`15`).
 
 **Perimeter correction and hex grid (W5)** — `src/hex_burn.py`, `notebook/10_hex_burn_demo.ipynb`. MTBS perimeters joined via the `MTBS_ID` foreign key in the `Fires` table; acres distributed across res-5 hexes with weights summing to 1.0 per fire, so acres are conserved by construction. National: 36,234 hexes, 105 ecoregions, **99.61% of acres on-grid** (loss is coastal). Two thirds of perimeter-backed fires span more than one hex. Artifacts: `data/hex_grid_res5.parquet`, `data/hex_acres_res5.parquet`, `data/mtbs_perimeters/`.
 
@@ -134,17 +134,31 @@ The useful distinction is between **regimes**, not causes. A hex can be **high-i
 - **Persistence is the model to beat, everywhere.** Ignition Spearman: Human **+0.526** all-season (+0.593 MAM), Natural **+0.344** (+0.411 JJA); shuffled controls within ±0.003 of zero on ignition and ±0.007 on acres, so the skill is spatial, not statistical luck.
 - **Five consecutive covariate nulls on ignition targets** (drought, prior burn, NDVI, and combinations, on both branches). The measured reason: these covariates identify dry *places*, not dry *years* — raw vs. within-hex anomaly, pdsi −0.137 → −0.073, NDVI +0.228 → +0.098 — and place is what history already knows. **Where fires start is a property of the place, not of the year.**
 - **One verified covariate gain, on burned area only:** climate + NDVI together **+0.0493**, **26.6 SD** above a shuffled control, holding across five split years. Neither part works alone — fuel load and fuel dryness are jointly necessary. **But it is not useful:** the gain lands in deciles 6–8 (1–20 acre fires) and the top decile goes 855× → 868×.
+- **A 0.1-acre reporting floor distorts the small end of any acres analysis.** 25.3% of all cleaned FPA-FOD rows are recorded at exactly 0.1 acres — **44.5% of natural fires against 19.0% of human ones** — a default entered for a fire too small to measure, not a measurement. The share of fires ≤1 acre also drifts up over the record (58.4% in 1992–2000 to 67.0% in 2011–2020). Restricting the decile analysis to cells ≥1 acre cuts the smallest decile's apparent error from 10.0x to 4.3x, so **the over-prediction of small cells is partly a records artefact.** Above the floor the picture sharpens: natural runs 2–3x worse than human *at matched cell size*, reaching 687x on a median 8,061-acre cell against human's 19x on 240.
 - **The two branches' tails differ by more than an order of magnitude.** **Quote the population with the number — the two natural figures are not interchangeable:** across all JJA natural burning cells the top decile is **269.8×** under-predicted on a median cell of 2,970 acres; restricted to the six forest ecoregions used for the covariate ladder it is **854.9×** on a median of 5,073. Human is **12.3×** on 135 acres, all seasons, all regions. The like-for-like comparison against Human is therefore **269.8×**, not 855×. This still licenses *different products*: Human can be ranked by expected acres, Natural cannot.
 - **Ignition is a gate, not a dial.** A hex-season that ignites at all is **22.8×** more likely to produce a ≥1,000-acre burn (6.7% vs 0.29%), but escape probability *per ignition* falls with count, and 49% of large fires came from hexes with exactly one natural ignition. The rule is binary — *does this place ignite* — not graded.
+
+### Known defect — point attribution of large unperimetered fires
+
+Found W6 while sanity-checking cell acreages against hex area. **A point-only fire puts its entire acreage on the single hex containing its ignition point**, which is correct at the 14-acre average and wrong in the tail:
+
+- **2,710 point fires exceed 1,000 acres and carry 8.9% of all acres**, each concentrated on one cell.
+- **23 point rows assign more than a full hex (62,494 ac) to one cell**, including the record's maximum: **606,945 acres — 971% of a hex.**
+- Across both sources, 81 hex-seasons exceed one hex of natural acres and hold **8.3% of natural acres**. The 69 perimeter-sourced cases are mostly legitimate — those fires *are* distributed (median 10 hexes, weights 0.10–1.0) and Alaska megafires are simply larger than a cell. The 23 point-sourced cases are the defect.
+
+**Why it does not move the W6 findings.** Beats 11 and 12 use rank statistics — median log error by decile, cumulative acre share — so redistributing a few thousand cells shifts the top percentile's median without changing shape, direction, or conclusion. No claim in the deck rests on an individual cell's acreage.
+
+**The W7 fix: impute a circular burn from the ignition point.** For a point-only fire, place a circle of the correct area centred on the ignition and distribute across the hexes it covers, reusing the weight machinery `hex_burn` already applies to perimeters. The geometry is favourable — a 606,945-acre circle has a **28 km radius against a hex's ~9.9 km circumradius**, so it spreads across ~10 cells instead of one. Two caveats to carry into the build: fires elongate along wind and terrain, so a circle over-assigns upwind and under-assigns downwind — a directional error in a product that sites work by location; and rebuilding `data/hex_acres_res5.parquet` invalidates notebooks 13–15 and every acres figure in the deck, so it is a re-run, not a patch.
 
 ## What is open
 
 - **Same-day escape conditions.** The one question the W6 nulls leave genuinely open: **pre-season** covariates do not predict which igniting hexes escape, which is narrower than "nothing does." Wind, timing, and suppression availability are a different model with a different data requirement — untested.
-- **A human sub-cause fingerprint at Level III.** The coarse Tier-1 fingerprint *lost* to the k=7 floor (TVD 0.489 → 0.588, top-1 54% → 36%): a region's coarse character does not recover its within-Human mix. A trailing fingerprint built from the cell's own human sub-cause history is the remaining untried rung.
+- **A human sub-cause fingerprint at Level III — closed, not open.** Two learned rungs were tried and both lost to the k=7 floor (0.489 TVD / 54.1% top-1). The coarse Tier-1 fingerprint scores 0.588 / 35.7%: a region's coarse character does not recover its within-Human mix. **The history-aware rung was also built** (`08_human_cause.ipynb`, cell 21) — the same model handed the 11 trailing human-mix columns as features, i.e. the exact quantity the floor averages — and scores 0.554 / 47.5%, still 7 points short of taking that feature's mean. An earlier version of this file described that rung as "the remaining untried rung"; it is not. What remains genuinely untried is a hyperparameter search, which nothing here rules out.
 - **Unknown triage by agency.** `09_unknown_dataquality.ipynb` ranks by region but not by reporting stream, and the missingness pattern is agency-shaped.
 - **Missing-cause sensitivity bound.** Reportable worst-case: does the spatial Natural-share contrast survive if all missing fires were, or were not, Natural?
 - **A higher-level allocation layer** that ranks region-seasons against each other, not just causes within one — deferred by design.
-- **No single planner walkthrough** joins Tier 1 to the branch products end to end.
+- **No single planner walkthrough** joins Tier 1 to the branch products end to end. *Partly measured W6:* composing Tier 1 × Human gives top-1 **0.4619** on 3,850 joined held-out cells — **identical to Human scored alone**, because Tier 1 contributes one scalar that multiplies all 11 sub-shares and cannot move their argmax. **The ranked profile therefore does not inherit Tier 1's error; the acre level does** (predicted human acres: median 1.01×, but 2× low at p10 and 8× high at p90). Do not quote Human's 54% as an end-to-end number — that is the Human floor on its own population.
+- **No uncertainty is propagated anywhere.** Every prediction is a point estimate. The natural next rung is a Dirichlet over the composition, and the argument for it is specific: the ranking is scale-invariant and does not need intervals, the acre level is not and does.
 
 **Closed in W6 — do not reopen.** Hex-grain cause scope and the exposure denominator (settled: counts on raw points, per-hex, no denominator). Burn history against ignitions (tested; null). Static vs. dynamic target (settled static: averaging beats `t-4`, and wider windows keep helping to k=7).
 
