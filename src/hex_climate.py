@@ -82,7 +82,7 @@ MASK_NAME = "hex_masks"
 
 
 def hex_centroids(hexgrid: pd.DataFrame) -> pd.DataFrame:
-    """Lat/lon centre of every hex, from the H3 id itself.
+    """Lat/lon center of every hex, from the H3 id itself.
 
     No geometry needed: `h3.cell_to_latlng` inverts the id. Cheap enough that it
     is not cached.
@@ -107,10 +107,10 @@ def build_hex_index(
     *,
     landmass: str,
 ) -> pd.DataFrame:
-    """Map every TerraClimate grid cell to the hex that contains its centre.
+    """Map every TerraClimate grid cell to the hex that contains its center.
 
     The inverse of `terraclimate._region_masks`, and cheaper: rather than
-    point-in-polygon against 36,234 hex geometries, each grid-cell centre is
+    point-in-polygon against 36,234 hex geometries, each grid-cell center is
     converted directly to its containing H3 cell with `latlng_to_cell`. That is
     an O(1) arithmetic operation per grid cell, so the whole grid resolves in one
     vectorised pass.
@@ -120,7 +120,7 @@ def build_hex_index(
     do not match and are dropped.
 
     Note the aggregation this implies: a hex's value is the mean of the grid
-    cells whose *centres* land inside it. At ~4 km grid against a ~9.9 km-edge
+    cells whose *centers* land inside it. At ~4 km grid against a ~9.9 km-edge
     hex that is 4-6 cells per hex. No cos(latitude) weighting is applied, unlike
     the region-grain module: a single res-5 hex spans too little latitude for the
     convergence of meridians to matter within it, and H3 cells are already

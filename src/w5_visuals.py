@@ -405,9 +405,9 @@ def plot_before_after(hex_acres: pd.DataFrame, hexgrid, fires: pd.DataFrame,
     fig.subplots_adjust(left=0.03, right=0.97, top=axes_top, bottom=0.11,
                         wspace=0.06)
 
-    # One colorbar for both panels, horizontal and centred beneath them: the two
+    # One colorbar for both panels, horizontal and centered beneath them: the two
     # maps share a single norm, and a vertical bar on the right would read as
-    # belonging to the right panel alone. Ticks are labelled in plain acres rather
+    # belonging to the right panel alone. Ticks are labeled in plain acres rather
     # than log notation — the scale is logarithmic because burn is heavy-tailed,
     # but an executive reads "10,000", not "1e4".
     from matplotlib.cm import ScalarMappable
@@ -425,7 +425,7 @@ def plot_before_after(hex_acres: pd.DataFrame, hexgrid, fires: pd.DataFrame,
                  fontsize=10.5, color=TEXT_SECONDARY, fontweight="700", labelpad=6)
     # A LogNorm colorbar draws minor ticks at 2..9 inside every decade. They carry
     # no information here and their log spacing reads as an irregular, broken rule,
-    # so only the labelled decades are kept.
+    # so only the labeled decades are kept.
     cb.ax.xaxis.set_minor_locator(NullLocator())
     cb.ax.tick_params(which="both", labelsize=10, colors=TEXT_SECONDARY,
                       length=0, pad=3)
@@ -441,7 +441,7 @@ def plot_before_after(hex_acres: pd.DataFrame, hexgrid, fires: pd.DataFrame,
              ha="center", va="top")
 
     # Panel labels name what each map is. Without them the pair is unreadable to
-    # anyone who has not been told which side is which. They are centred on each
+    # anyone who has not been told which side is which. They are centered on each
     # axes' actual position, so they track the panels rather than assuming where
     # an equal-aspect map lands inside its subplot.
     # The border is drawn in DATA coordinates around the region's own bounds, with
@@ -461,7 +461,7 @@ def plot_before_after(hex_acres: pd.DataFrame, hexgrid, fires: pd.DataFrame,
             (bx0 - mx, by0 - my), (bx1 - bx0) + 2 * mx, (by1 - by0) + 2 * my,
             facecolor="none", edgecolor=HEX_EDGE, linewidth=1.2, zorder=10,
         ))
-        # The label centres on the framed map, not on the subplot box, so it sits
+        # The label centers on the framed map, not on the subplot box, so it sits
         # over the exhibit rather than over the empty half of the panel.
         cx_disp = ax.transData.transform(((bx0 + bx1) / 2, by0))[0]
         cx_fig = fig.transFigure.inverted().transform((cx_disp, 0))[0]

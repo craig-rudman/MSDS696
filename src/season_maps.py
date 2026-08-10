@@ -41,7 +41,7 @@ MIN_CELL = 30              # min fires per region-season to render a value
 HIGH_MISS_THRESHOLD = 0.40  # regions >= this missing-cause rate get hatched
 DEFAULT_SAMPLE = 400_000
 
-# Categorical cause palette (brand-neutral, colour-blind aware ordering).
+# Categorical cause palette (brand-neutral, color-blind aware ordering).
 CAUSE_COLORS = {
     "Natural": "#C1440E",
     "Debris and open burning": "#4E79A7",
@@ -114,7 +114,7 @@ def load_joined(sample_size: int = DEFAULT_SAMPLE, seed: int | None = None):
     return joined, eco, high_miss
 
 
-# --- per-season value/colour producers -------------------------------------
+# --- per-season value/color producers -------------------------------------
 
 def _natural_share(usable, season):
     g = usable[usable.season == season].groupby("US_L3NAME")
@@ -168,7 +168,7 @@ def _legend(sequential):
 
 
 CAPTION = ("Hatched = >=40% cause-missing (read with caution). "
-           "Grey = insufficient sample. FPA-FOD 1992-2020.")
+           "Gray = insufficient sample. FPA-FOD 1992-2020.")
 
 # encoding registry: name -> (title, value-fn, sequential?)
 ENCODINGS = {
@@ -211,8 +211,8 @@ def render_gif(joined, eco, high_miss, encoding="natural_share", filename=None,
     `encoding` is one of ENCODINGS ('natural_share', 'dominant_count',
     'dominant_acres'). One frame per season, cycled Spring -> Summer -> Fall ->
     Winter in a repeating loop (the GIF loops, so it wraps Winter back to
-    Spring). Categorical encodings default to a slower frame (their 7-colour
-    patchwork is harder to track in motion than a colour ramp).
+    Spring). Categorical encodings default to a slower frame (their 7-color
+    patchwork is harder to track in motion than a color ramp).
     Returns the output Path.
     """
     title, value_fn, sequential = ENCODINGS[encoding]
@@ -317,8 +317,8 @@ def render_text_card(lines, filename, subtitle=None, dpi=130,
                      size=(11, 6.2), accent_first=True):
     """Render a simple title/data slide card as a PNG.
 
-    `lines` is a list of strings shown large and centred; the first is accent
-    coloured if accent_first. `subtitle` (optional) is a smaller line beneath.
+    `lines` is a list of strings shown large and centered; the first is accent
+    colored if accent_first. `subtitle` (optional) is a smaller line beneath.
     For Slide 1 (the question) and the provenance card.
     """
     fig = plt.figure(figsize=size)

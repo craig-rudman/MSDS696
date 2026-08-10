@@ -50,7 +50,7 @@ forecast holds up: acre-weighted MAE 0.167 against a global mean's 0.240.
 **The product.** `plot_siting_glance` ranks hexes by the persistence baseline
 and fills the ground that catches 30% of next season's starts: **12 of 198
 hexes, 6.1% of the region, a 5.2x lift** over treating ground at random. Two
-fills rather than graded tiers, because the W6 modelling settled that ignition
+fills rather than graded tiers, because the W6 modeling settled that ignition
 is a *gate, not a dial*. `plot_capture_curve` is its companion and the more
 sobering half — the whole ranking rather than its top, showing the return decay
 to 2.09x at 60% capture and 1.16x at 90%, which is near-uniform treatment. The
@@ -89,7 +89,7 @@ Encoding notes that cost several drafts to find
   hit/false-positive/miss reads as failure by arithmetic — with a fifth of the
   ground treatable and most hexes igniting, misses are guaranteed. Tiers ask the
   question a planner actually has: what do I do first?
-* **Tiers, not a smooth ramp.** The W6 modelling settled that ignition is a
+* **Tiers, not a smooth ramp.** The W6 modeling settled that ignition is a
   **gate, not a dial**, so priority order is real but graded intensity is not.
 * **Cut tiers by capture, not by a ground budget.** An invented top-20% decided
   by itself whether the figure looked like success or failure.
@@ -120,7 +120,7 @@ from w5_visuals import (POINT_ORANGE, PERIM_FILL, SURFACE, TEXT_MUTED,
 # hue here: NDVI *is* greenness, and borrowing the flame ramp would imply the
 # map shows burning, which it does not.
 # Week index of the first day of each calendar month (day-of-year / 7), for
-# labelling a 52-week axis in months. Non-integer by construction: months do not
+# labeling a 52-week axis in months. Non-integer by construction: months do not
 # start on week boundaries, and rounding them to the nearest week visibly drifts
 # by December.
 MONTH_START_WEEKS = np.array(
@@ -531,8 +531,8 @@ def plot_ignition_ladder(out_path: Path, *,
         ax.plot(x, vals, color=color, lw=2.6, marker="o", ms=9,
                 markerfacecolor=SURFACE, markeredgewidth=2.6,
                 markeredgecolor=color, zorder=3, clip_on=False)
-        # Labelled at the line's own left end rather than in a legend, so the
-        # eye never leaves the plot to decode a colour.
+        # Labeled at the line's own left end rather than in a legend, so the
+        # eye never leaves the plot to decode a color.
         ax.annotate(label, xy=(0, vals[0]), xytext=(-14, 0),
                     textcoords="offset points", ha="right", va="center",
                     fontsize=15.5, fontweight="bold", color=color)
@@ -606,7 +606,7 @@ def plot_acres_ladder(out_path: Path, *,
     labels, same axis, same left-hand series label, same zero-based scale. The
     beats are one experiment run against two targets, and the whole point is
     that the shape changes. A reader who has just learned to read beat 12's flat
-    line should recognise this one instantly and see the last point lift.
+    line should recognize this one instantly and see the last point lift.
 
     **Only the natural branch is drawn.** The acres ladder was run on natural
     magnitude; drawing a single line also stops the eye comparing two branches
@@ -654,7 +654,7 @@ def plot_acres_ladder(out_path: Path, *,
                 arrowprops=dict(arrowstyle="-|>", color=TEXT_PRIMARY, lw=2.2,
                                 shrinkA=1, shrinkB=1), zorder=4)
     # The size of the step, not a restatement of the x-axis. The rung is already
-    # labelled "+ both" underneath, so a callout saying the same thing in words
+    # labeled "+ both" underneath, so a callout saying the same thing in words
     # spends the deck's one annotation on information the reader has. The number
     # is the one thing the figure cannot otherwise show: the step is small in
     # absolute terms, and printing it keeps that visible rather than letting the
@@ -749,7 +749,7 @@ def plot_gain_landing(out_path: Path, *,
 
     better = model < floor
     # Shade the two verdicts separately. Same alpha for both so neither reads as
-    # more important than the other; colour carries the direction.
+    # more important than the other; color carries the direction.
     ax.fill_between(x, floor, model, where=better, interpolate=True,
                     color=PERIM_FILL, alpha=0.20, linewidth=0, zorder=1)
     ax.fill_between(x, floor, model, where=~better, interpolate=True,
@@ -761,7 +761,7 @@ def plot_gain_landing(out_path: Path, *,
             mfc=SURFACE, mew=1.9, mec=PERIM_FILL, zorder=4)
 
     # The one shaded region that carries the headline: name the win, in the
-    # blue lens, so a viewer is not left with two unexplained colours. The pink
+    # blue lens, so a viewer is not left with two unexplained colors. The pink
     # lens needs no label -- it sits above "history alone", and "worse" is
     # legible from position alone once the win is named.
     mid = int(np.argmax(np.where(better, floor / model, 0)))
@@ -867,16 +867,16 @@ def plot_ignition_gate(out_path: Path, *,
             (0.0, p_none, "no ignition recorded", TEXT_MUTED)]
     track = max(p_some, p_none) * 1.18
 
-    for y, p, label, colour in rows:
+    for y, p, label, color in rows:
         ax.barh(y, track, height=0.30, color="#efedea", edgecolor="none",
                 zorder=1)
-        ax.barh(y, p, height=0.30, color=colour, edgecolor="none", zorder=2)
+        ax.barh(y, p, height=0.30, color=color, edgecolor="none", zorder=2)
         ax.annotate(label, xy=(0, y + 0.235), xytext=(0, 0),
                     textcoords="offset points", ha="left", va="bottom",
-                    fontsize=14.5, fontweight="bold", color=colour)
+                    fontsize=14.5, fontweight="bold", color=color)
         ax.annotate(f"{p:.1%}", xy=(p, y), xytext=(12, 0),
                     textcoords="offset points", ha="left", va="center",
-                    fontsize=17, fontweight="bold", color=colour)
+                    fontsize=17, fontweight="bold", color=color)
 
     # One decimal, not zero: the report, CLAUDE.md and the storyboard all quote
     # 22.8x, and a slide reading "23x" is a discrepancy someone will catch.
@@ -944,7 +944,7 @@ def plot_one_is_enough(out_path: Path, *,
     segments follow by subtraction, so nothing here is a number the notebook did
     not print.
 
-    **Only the first segment carries colour.** It is the one the planner would
+    **Only the first segment carries color.** It is the one the planner would
     deprioritise by ranking on ignition count, and the figure's whole job is to
     make that ground impossible to overlook.
     """
@@ -963,15 +963,15 @@ def plot_one_is_enough(out_path: Path, *,
             (more, "#e6e3df", "three or more", TEXT_PRIMARY)]
 
     left = 0.0
-    for width, colour, label, text_colour in segs:
-        ax.barh(0, width, left=left, height=0.52, color=colour,
+    for width, color, label, text_colour in segs:
+        ax.barh(0, width, left=left, height=0.52, color=color,
                 edgecolor=SURFACE, lw=2.5, zorder=2)
         cx = left + width / 2
         ax.annotate(f"{width:.0%}", xy=(cx, 0.055), ha="center", va="center",
-                    fontsize=34 if colour == POINT_ORANGE else 21,
+                    fontsize=34 if color == POINT_ORANGE else 21,
                     fontweight="bold", color=text_colour, zorder=3)
         ax.annotate(label, xy=(cx, -0.13), ha="center", va="center",
-                    fontsize=15 if colour == POINT_ORANGE else 12.5,
+                    fontsize=15 if color == POINT_ORANGE else 12.5,
                     fontweight="bold", color=text_colour, zorder=3)
         left += width
 
@@ -997,6 +997,97 @@ def plot_one_is_enough(out_path: Path, *,
     return {"share_one": one, "share_exactly_two": two,
             "share_three_plus": more, "share_two_or_fewer": float(d["share_two"]),
             "n_big": d["n_big"], "source": DIAL_SOURCE,
+            "out_path": str(out_path)}
+
+
+def plot_recommendation(out_path: Path, *,
+                        figsize: tuple[float, float] = (11.0, 5.6)) -> dict:
+    """Beat 19 — the three products, closing the Tier-1 structure the deck opened.
+
+    **Not a chart, and deliberately so.** Beat 19's headline is three
+    instructions, each pointing at a different product at a different grain, so
+    any single figure has to pick one and demote the other two. Worse, every
+    candidate has already been shown -- the siting map is beat 7, the triage list
+    beat 18, the Tier-1 tiles beat 3 -- and re-showing one in the final position
+    asks the audience to re-read rather than to receive the conclusion.
+
+    What has *not* been shown is all three side by side. Drawing them that way
+    makes the closing point structural rather than rhetorical: the recommendation
+    is three products because the model has three classes, and the deck opened on
+    exactly that split. Beat 3 stated the allocator; this returns to it with each
+    class now carrying a deliverable.
+
+    **Shares are the full-record Tier 1 split** (`CLAUDE.md`): Natural 58.9%,
+    Human 22.7%, Unknown 18.5%. Printed because they say why the three legs are
+    not equal in weight, and because the Human figure is a floor -- Unknown
+    concentrates in human-dominated regions.
+
+    **Rows are ordered by share, not by the headline's clause order.** The
+    headline leads with cause because that is the project's research question;
+    the slide leads with Natural because that is where the acres are, and a
+    viewer scanning a table reads the top row as the biggest.
+    """
+    import matplotlib.pyplot as plt
+    from matplotlib.patches import FancyBboxPatch
+
+    fig, ax = plt.subplots(figsize=figsize, facecolor=SURFACE)
+    ax.set_facecolor(SURFACE)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis("off")
+
+    rows = [
+        ("NATURAL", 0.589, "Site the work by ignition",
+         "rank ground, treat what ignites at all", "hex-season", POINT_ORANGE),
+        ("HUMAN", 0.227, "Target causes by region",
+         "rank causes by the acres they drive", "ecoregion-season", PERIM_FILL),
+        ("UNKNOWN", 0.185, "Fix the record underneath",
+         "rank regions by unattributed acres", "ecoregion-season", TEXT_SECONDARY),
+    ]
+
+    y0, dy = 0.775, 0.255
+    for i, (cls, share, action, how, grain, color) in enumerate(rows):
+        y = y0 - i * dy
+
+        # class + share, left rail
+        ax.text(0.018, y + 0.030, cls, fontsize=13, fontweight="bold",
+                color=color, va="center")
+        ax.text(0.018, y - 0.048, f"{share:.1%} of acres", fontsize=11.5,
+                color=TEXT_MUTED, va="center")
+
+        # the instruction, carrying the row
+        ax.add_patch(FancyBboxPatch(
+            (0.205, y - 0.092), 0.545, 0.184,
+            boxstyle="round,pad=0.006,rounding_size=0.02",
+            facecolor="#f4f2ef", edgecolor=color, lw=1.6, zorder=1))
+        ax.text(0.232, y + 0.032, action, fontsize=17.5, fontweight="bold",
+                color=color, va="center", zorder=2)
+        ax.text(0.232, y - 0.044, how, fontsize=12.5, color=TEXT_SECONDARY,
+                style="italic", va="center", zorder=2)
+
+        ax.text(0.775, y, grain, fontsize=12.5, color=TEXT_MUTED,
+                va="center", ha="left")
+
+    # The slide has to *land* the talk, not summarize it. An earlier version
+    # closed on "three products, because the model has three classes" -- true,
+    # and a specification rather than a conclusion. The recommendation is the
+    # change in what gets targeted, so that is what the closing line says; the
+    # reliability caveat follows it, because a recommendation without its
+    # boundary is the thing this deck has spent five beats refusing to do.
+    ax.text(0.018, 0.082,
+            "Stop targeting how big it gets. Target where it starts.",
+            fontsize=16.5, fontweight="bold", color=TEXT_PRIMARY, va="center")
+    ax.text(0.018, 0.016,
+            "rank on all three \u2014 the order is trustworthy, the acre level much less so",
+            fontsize=12, color=TEXT_SECONDARY, style="italic", va="center")
+
+    fig.savefig(out_path, dpi=200, facecolor=SURFACE, bbox_inches="tight",
+                pad_inches=0.3)
+    plt.close(fig)
+
+    return {"classes": [r[0] for r in rows],
+            "shares": [r[1] for r in rows],
+            "grains": [r[4] for r in rows],
             "out_path": str(out_path)}
 
 
@@ -1033,29 +1124,29 @@ def plot_grain_parallel(out_path: Path, *,
     ax.set_ylim(0, 1)
     ax.axis("off")
 
-    def node(cx, cy, text, colour, filled, w=0.20, h=0.145):
+    def node(cx, cy, text, color, filled, w=0.20, h=0.145):
         ax.add_patch(FancyBboxPatch(
             (cx - w / 2, cy - h / 2), w, h,
             boxstyle="round,pad=0.008,rounding_size=0.03",
             facecolor="#efedea" if filled else "none",
-            edgecolor=colour, lw=1.8,
+            edgecolor=color, lw=1.8,
             linestyle="solid" if filled else (0, (5, 3.5)), zorder=2))
         ax.text(cx, cy, text, ha="center", va="center", fontsize=17,
-                fontweight="bold", color=colour, zorder=3)
+                fontweight="bold", color=color, zorder=3)
 
     rows = [
-        # y, axis label, coarse, fine, colour, solved
+        # y, axis label, coarse, fine, color, solved
         (0.700, "WHERE IT BURNS", "the region", "the hex", TEXT_SECONDARY, True),
         (0.290, "HOW BIG IT GETS", "the season", "the day", POINT_ORANGE, False),
     ]
 
-    for y, axis_label, coarse, fine, colour, solved in rows:
+    for y, axis_label, coarse, fine, color, solved in rows:
         ax.text(0.035, y, " ".join(axis_label), ha="left", va="center",
-                fontsize=10.5, fontweight="bold", color=colour)
-        node(0.455, y, coarse, colour, solved)
-        node(0.775, y, fine, colour, solved)
+                fontsize=10.5, fontweight="bold", color=color)
+        node(0.455, y, coarse, color, solved)
+        node(0.775, y, fine, color, solved)
         ax.annotate("", xy=(0.664, y), xytext=(0.566, y),
-                    arrowprops=dict(arrowstyle="-|>", color=colour, lw=2.2,
+                    arrowprops=dict(arrowstyle="-|>", color=color, lw=2.2,
                                     shrinkA=0, shrinkB=0))
         ax.text(0.930, y, "solved" if solved else "untested",
                 ha="left", va="center", fontsize=12.5,
@@ -1122,7 +1213,7 @@ def plot_siting_glance(panel: pd.DataFrame, grid: pd.DataFrame, out_path: Path, 
 
     **Two bands and a wide lightness gap, not a graded ramp.** An earlier
     three-tier version shaded 12 / 45 / 97 hexes in adjacent saturations of one
-    hue and read as continuous, which asserts the gradation the W6 modelling
+    hue and read as continuous, which asserts the gradation the W6 modeling
     denies -- ignition is a **gate, not a dial**. Two bands separated by a large
     lightness step read as two decisions, which is what they are: treat first,
     treat next, stop.
@@ -1177,15 +1268,15 @@ def plot_siting_glance(panel: pd.DataFrame, grid: pd.DataFrame, out_path: Path, 
 
     if label:
         # Leader lines onto the bands themselves rather than a legend: a reader
-        # should not have to match a swatch to a colour. Each label is the
+        # should not have to match a swatch to a color. Each label is the
         # shortest sentence saying what that ground buys -- no hex count, no
         # lift multiple, both of which the return value carries for a caption.
         # Sized and weighted to survive projection from the back of a room.
-        centres = np.array([np.array(r).mean(axis=0) for r in rings])
-        span = centres[:, 0].max() - centres[:, 0].min()
+        centers = np.array([np.array(r).mean(axis=0) for r in rings])
+        span = centers[:, 0].max() - centers[:, 0].min()
 
         def anchor(lo, hi, side):
-            """The band member closest to that band's own centre of mass.
+            """The band member closest to that band's own center of mass.
 
             Two rejected alternatives. The raw centroid lands on ground that is
             not in the band -- the light band wraps around the deep one -- so
@@ -1195,7 +1286,7 @@ def plot_siting_glance(panel: pd.DataFrame, grid: pd.DataFrame, out_path: Path, 
             Nearest-to-centroid keeps the leader on a real hex in the thick of
             the band.
             """
-            block = centres[lo:hi]
+            block = centers[lo:hi]
             c = block.mean(axis=0)
             return block[np.linalg.norm(block - c, axis=1).argmin()]
 
@@ -1203,7 +1294,7 @@ def plot_siting_glance(panel: pd.DataFrame, grid: pd.DataFrame, out_path: Path, 
         # goes thin and washed-out as bold type at this size.
         DEEP_INK, LIGHT_INK = DEEP, "#c2632f"
 
-        for lo, hi, colour, ink, text, dx in (
+        for lo, hi, color, ink, text, dx in (
             (0, cuts[0], DEEP, DEEP_INK,
              f"{bands[0]['ground']:.0%} of the region\n"
              f"{bands[0]['caught']:.0%} of the starts", -1.0),
@@ -1423,7 +1514,7 @@ def plot_branch_deciles(panel: pd.DataFrame, out_path: Path, *,
 
     **Minimal annotation, deliberately.** The headline carries the claim; the
     figure only has to show two curves together, then apart. Earlier drafts
-    labelled both tails with their multiples and their median acreage, which
+    labeled both tails with their multiples and their median acreage, which
     invited a reader to audit four numbers instead of seeing one shape.
 
     **Cells below `min_acres` are excluded** -- see `decile_error_table` for why
@@ -1442,14 +1533,14 @@ def plot_branch_deciles(panel: pd.DataFrame, out_path: Path, *,
     ax.set_facecolor(SURFACE)
     x = np.arange(1, 11)
 
-    for tbl, colour, label in ((hum, PERIM_FILL, "human"),
+    for tbl, color, label in ((hum, PERIM_FILL, "human"),
                                (nat, POINT_ORANGE, "natural")):
         y = tbl["x_off"].to_numpy()
-        ax.plot(x, y, color=colour, lw=2.8, marker="o", ms=7, mfc=SURFACE,
+        ax.plot(x, y, color=color, lw=2.8, marker="o", ms=7, mfc=SURFACE,
                 mew=1.9, zorder=3)
         ax.annotate(label, xy=(x[-1], y[-1]), xytext=(14, 0),
                     textcoords="offset points", ha="left", va="center",
-                    fontsize=13, fontweight="bold", color=colour)
+                    fontsize=13, fontweight="bold", color=color)
 
     ax.set_yscale("log")
     # Each point is a decile, so the axis is already a percentage of cells --
@@ -1508,7 +1599,7 @@ def plot_acres_concentration(panel: pd.DataFrame, out_path: Path, *,
     worst-burning; the axis says least to most.
 
     **Sub-acre cells stay in, unlike beat 11.** That figure drops them because
-    their *error* is a reporting artefact -- 25.3% of FPA-FOD rows sit at
+    their *error* is a reporting artifact -- 25.3% of FPA-FOD rows sit at
     exactly 0.1 acres. Here the quantity being counted is acres, and those acres
     are real however coarsely they were recorded. The cells matter enormously to
     this figure and not at all to the total: they are **46.9% of burning cells
@@ -1649,7 +1740,7 @@ def plot_seasonality(fires: pd.DataFrame, out_path: Path, *,
     mean across the 29 years for that week-of-year slot, and weekly acres are
     heavy-tailed enough that the mean is not a typical value: in the peak week
     the mean is 526k against a median of 237k, a 2.2x gap driven by 2015 alone
-    (4.38M acres in that one week). Labelling 526k as "typical" would assert
+    (4.38M acres in that one week). Labeling 526k as "typical" would assert
     exactly what the project's own tail analysis disproves. Starts do not have
     this problem — mean 2,458 against median 2,342 — but a magnitude on one
     curve and not the other would invite the comparison the missing axes are
@@ -1703,7 +1794,7 @@ def plot_seasonality(fires: pd.DataFrame, out_path: Path, *,
         a.set_yticks([])
         a.set_xticks([])
 
-    # A faint baseline for the calendar to sit on, and month letters centred
+    # A faint baseline for the calendar to sit on, and month letters centered
     # between true month starts -- "week 29" means nothing to an audience.
     ax.axhline(0, color=TEXT_MUTED, lw=0.8, alpha=0.55, zorder=1)
     edges = np.append(MONTH_START_WEEKS, 52.0)
@@ -1713,7 +1804,7 @@ def plot_seasonality(fires: pd.DataFrame, out_path: Path, *,
                     va="top", fontsize=11, color=TEXT_SECONDARY,
                     annotation_clip=False)
 
-    # The two callouts are the only text on the canvas. Each is coloured to its
+    # The two callouts are the only text on the canvas. Each is colored to its
     # own curve, which is what binds them -- no legend, no series labels.
     ax2.annotate(
         "most fires start in spring",
@@ -1762,8 +1853,8 @@ def plot_seasonality(fires: pd.DataFrame, out_path: Path, *,
 # Diverging ember <-> blue, through a desaturated middle. Blue and orange are
 # already the project's Human and Natural hues (`plot_branch_deciles`, the
 # seasonality figure), so the map inherits the deck's existing binding rather
-# than teaching a third colour language. The midpoint is deliberately pale and
-# slightly warm-grey: a region that genuinely splits its acres between causes
+# than teaching a third color language. The midpoint is deliberately pale and
+# slightly warm-gray: a region that genuinely splits its acres between causes
 # should recede, not compete with the committed ones.
 DIV_CAUSE = [
     "#2c5f9e", "#4f86c6", "#8fb3d9", "#ccd6db", "#e8dcd2",
@@ -1803,7 +1894,7 @@ def region_cause_dominance(panel, *, min_acres: float = 0.0) -> pd.DataFrame:
 
 def plot_cause_map(panel, out_path: Path, *, cfg=None,
                    figsize: tuple[float, float] = (12.0, 7.0)) -> dict:
-    """Beat 2 — cause is regional: one map, 105 ecoregions, two colours.
+    """Beat 2 — cause is regional: one map, 105 ecoregions, two colors.
 
     Every Level III ecoregion filled by its natural share of attributed acres.
     Deep blue is human-dominated, deep ember natural-dominated.
@@ -1813,7 +1904,7 @@ def plot_cause_map(panel, out_path: Path, *, cfg=None,
     fall in between. Regions largely commit to one cause or the other, which is
     what licenses a per-region prevention/mitigation split rather than a single
     national posture. A continuous ramp would let a viewer read a smooth
-    gradient that is not there, so the colour scale is stepped at the deciles
+    gradient that is not there, so the color scale is stepped at the deciles
     that matter and the two committed ends carry most of the range.
 
     Alaska is drawn inset rather than dropped. It is 20 of the 105 regions and
@@ -1856,7 +1947,7 @@ def plot_cause_map(panel, out_path: Path, *, cfg=None,
 
     # Horizontal bar under the map. Ticks are placed at the *bin edges* the
     # BoundaryNorm actually uses -- passing round numbers like 0.5 against uneven
-    # bins puts the label somewhere other than the colour it names.
+    # bins puts the label somewhere other than the color it names.
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
     cbar = fig.colorbar(sm, ax=ax, fraction=0.030, pad=0.02, shrink=0.52,
                         orientation="horizontal", ticks=bounds, spacing="uniform")
@@ -1865,13 +1956,13 @@ def plot_cause_map(panel, out_path: Path, *, cfg=None,
     cbar.outline.set_visible(False)
     cbar.ax.tick_params(length=0)
 
-    # The two ends carry the meaning, so they are labelled where the colour is
+    # The two ends carry the meaning, so they are labeled where the color is
     # rather than restated in a sentence underneath. Each sits outside its own
     # end of the bar, in its own hue, so the binding needs no reading order.
-    for x, ha, txt, colour in ((-0.03, "right", "human-dominated", PERIM_FILL),
+    for x, ha, txt, color in ((-0.03, "right", "human-dominated", PERIM_FILL),
                                (1.03, "left", "natural-dominated", POINT_ORANGE)):
         cbar.ax.annotate(txt, xy=(x, 0.5), xycoords="axes fraction",
-                         ha=ha, va="center", fontsize=11, color=colour)
+                         ha=ha, va="center", fontsize=11, color=color)
 
     fig.savefig(out_path, dpi=200, facecolor=SURFACE, bbox_inches="tight",
                 pad_inches=0.2)
@@ -1890,7 +1981,7 @@ def plot_cause_map(panel, out_path: Path, *, cfg=None,
 
 # Sequential purple, pale -> deep: year-to-year volatility of the cause mix.
 # Deliberately off both the ember and blue ramps -- volatility is not "more
-# natural" or "more human", it is a third quantity about a region's *behaviour*,
+# natural" or "more human", it is a third quantity about a region's *behavior*,
 # and reusing either cause hue would imply it takes a side.
 SEQ_VOLATILE = [
     "#f4f1f6", "#e2dcea", "#c9bedb", "#ac9bc7", "#8b76b0",
@@ -2202,7 +2293,7 @@ def plot_k_sweep(panel, out_path: Path, *, ks=range(1, 9), cfg=None,
     monotone line would be asserting a cleaner result than the data gives.
 
     Nothing else is drawn -- no marked winner, no shaded plateau, no annotation.
-    An earlier draft shaded k>=3 and labelled it, which restated the slide's own
+    An earlier draft shaded k>=3 and labeled it, which restated the slide's own
     headline inside the figure; the flattening is legible in the curve's shape
     without help. `plateau_from` is still returned for the caption.
     """
@@ -2710,22 +2801,22 @@ def plot_shuffled_control(panel, out_path: Path, *, branch: str = "human",
                 va="bottom", fontsize=9.5, color=TEXT_MUTED,
                 rotation=diag_deg, rotation_mode="anchor")
 
-    for frame, colour, text, dx, dy, ha, va in (
+    for frame, color, text, dx, dy, ha, va in (
         (shuf, "#b9b6b0", "shuffled", -14, 26, "right", "bottom"),
-        # Directly above its own last point, centred. Trailing the line to the
+        # Directly above its own last point, centered. Trailing the line to the
         # right pushed the label past the final x tick and out of the plot
         # frame; sitting it on the line's left flank put text on the path. The
         # gap between the curve (3.7) and the diagonal (5.4) at this x leaves
         # room to go straight up.
         (real, POINT_ORANGE, "forecast", 0, 16, "center", "bottom"),
     ):
-        ax.plot(frame["pred"], frame["actual"], color=colour, lw=2.4,
+        ax.plot(frame["pred"], frame["actual"], color=color, lw=2.4,
                 marker="o", ms=6, mfc=SURFACE, mew=1.6, zorder=3)
         x_end = float(frame["pred"].iloc[-1])
         y_end = float(frame["actual"].iloc[-1])
         ax.annotate(text, xy=(x_end, y_end), xytext=(dx, dy),
                     textcoords="offset points", ha=ha, va=va,
-                    fontsize=12.5, fontweight="bold", color=colour,
+                    fontsize=12.5, fontweight="bold", color=color,
                     linespacing=1.35, annotation_clip=False)
 
     ax.set_xlim(0, lim)
@@ -2757,7 +2848,7 @@ def season_predictability(panel, *, cfg=None, seed: int = 0,
     spread for free -- no resampling, no assumed error model.
 
     Also scores a shuffled control per stratum, so the figure can state that the
-    seasonal floors are not seasonal artefacts.
+    seasonal floors are not seasonal artifacts.
     """
     import hex_panel as hp
 
@@ -2825,7 +2916,7 @@ def plot_season_predictability(panel, out_path: Path, *, cfg=None, seed: int = 0
     ax.set_facecolor(SURFACE)
 
     summary = {}
-    for branch, colour, label in (("human", PERIM_FILL, "human"),
+    for branch, color, label in (("human", PERIM_FILL, "human"),
                                   ("natural", POINT_ORANGE, "natural")):
         sub = scores[scores["branch"] == branch]
         g = sub.groupby("season")["rho"]
@@ -2834,15 +2925,15 @@ def plot_season_predictability(panel, out_path: Path, *, cfg=None, seed: int = 0
         hi = g.max().reindex(order).to_numpy()
         summary[branch] = {"median": med, "min": lo, "max": hi}
 
-        # The band is the observed range across held-out years, not a modelled
+        # The band is the observed range across held-out years, not a modeled
         # interval -- no distributional assumption is being made.
-        ax.fill_between(x, lo, hi, color=colour, alpha=0.16, linewidth=0,
+        ax.fill_between(x, lo, hi, color=color, alpha=0.16, linewidth=0,
                         zorder=2)
-        ax.plot(x, med, color=colour, lw=2.8, marker="o", ms=8, mfc=SURFACE,
+        ax.plot(x, med, color=color, lw=2.8, marker="o", ms=8, mfc=SURFACE,
                 mew=2.0, zorder=3)
         ax.annotate(label, xy=(x[-1], med[-1]), xytext=(14, 0),
                     textcoords="offset points", ha="left", va="center",
-                    fontsize=13, fontweight="bold", color=colour)
+                    fontsize=13, fontweight="bold", color=color)
 
     ax.set_xticks(x)
     # Plain season names on the axis: DJF/MAM/JJA/SON is meteorological

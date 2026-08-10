@@ -7,7 +7,7 @@ with an INVERTED y-axis (300 at top, 700 at bottom) that is also truncated at
 This rebuild fixes both axis distortions and rewrites the title to state the
 direction of travel. The source series was never published, so values are
 recovered from the original PNG by pixel measurement against its own calibrated
-axes; they are approximate and are labelled as such. Source and provenance are
+axes; they are approximate and are labeled as such. Source and provenance are
 carried in the markdown deliverable's caption rather than drawn into the image.
 
 Design notes
@@ -19,18 +19,18 @@ below ~355. A line makes the level readable without implying accumulated
 quantity, and leaves the lower panel as whitespace rather than ink.
 
 Single series, so no legend: the title and y-label name what is plotted. Only
-the three points the write-up cites are labelled, rather than every point.
+the three points the write-up cites are labeled, rather than every point.
 
 Sized for projection, not print: 1920x1080, with type from 19pt up and 4px
-marks, so the back of a room can read it. That budget is what keeps the labelled
-points to three -- at this type size a fourth would collide with its neighbours.
+marks, so the back of a room can read it. That budget is what keeps the labeled
+points to three -- at this type size a fourth would collide with its neighbors.
 
 The title bounds the rise by its endpoints and says nothing about the
 intervention. Dating the rise *to* 2018 would imply the limit caused it; dating
 it *from* 2017 as a trend already underway would imply the opposite, that the
 limit arrived mid-trend and is incidental. Neither is supported (see the
 write-up's note on the missing control group). Naming both endpoints instead
-makes the claim checkable against the two labelled values on screen, and leaves
+makes the claim checkable against the two labeled values on screen, and leaves
 the 2018 marker sitting inside that span for the reader to interpret.
 
 The 2018 marker is drawn as a plain vertical rule with a neutral label. The
@@ -95,7 +95,7 @@ def plot_rebuild(out_path: Path | str | None = None):
             color=TEXT_PRIMARY, fontsize=19, va="top", ha="left")
 
     # --- selective direct labels --------------------------------------------
-    # 2017 is labelled below its point so the label clears the descending line.
+    # 2017 is labeled below its point so the label clears the descending line.
     for year, label in ANNOTATE.items():
         value = FATALITIES[YEARS.index(year)]
         offset = -34 if year == 2017 else 20
@@ -104,7 +104,7 @@ def plot_rebuild(out_path: Path | str | None = None):
                     fontweight="bold", color=TEXT_PRIMARY)
 
     # --- axes ----------------------------------------------------------------
-    # No gridlines: the three labelled points carry the message, and at
+    # No gridlines: the three labeled points carry the message, and at
     # projection distance the ruled lines competed with the series for
     # attention. The y tick labels stay as the remaining reference for the
     # unlabelled years, which now read as shape rather than as values.

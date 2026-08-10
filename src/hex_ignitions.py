@@ -41,7 +41,7 @@ Exposure: the offset, not a raw count
 --------------------------------------
 Student decision, W6. A raw count target would substantially rediscover which
 hexes are large and which are populated. `log_area` is returned so a count model
-can carry it as an **offset** — modelling starts per unit area rather than starts
+can carry it as an **offset** — modeling starts per unit area rather than starts
 — which also handles the partial hexes clipped by region boundaries or coastline
 that the burn-history work surfaced (land areas ~21k against a grid median of
 ~61.8k acres).

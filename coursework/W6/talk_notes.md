@@ -194,7 +194,7 @@ attributable to siting alone.
 > thing I broke is which hex each number belongs to.
 >
 > The orange line is the forecast: places I said would start more fires did start more fires. The
-> grey line is those same numbers in the wrong places, and it is flat. The hex I told you would
+> gray line is those same numbers in the wrong places, and it is flat. The hex I told you would
 > start five fires burns the same as the hex I told you would start none.
 >
 > So the skill is not in the numbers. It is in knowing which place they belong to.
@@ -303,14 +303,14 @@ what happened, and `CLAUDE.md`'s standing rule is that a null is publishable.
 
 ### "Did you choose your covariates poorly?"
 
-Partly fair, and the honest answer is a **scope** statement rather than a defence.
+Partly fair, and the honest answer is a **scope** statement rather than a defense.
 
 What rules out the easy explanations:
 
 - **Not the estimator.** A GBM given *only* the persistence feature reproduces the persistence floor
   almost exactly. The model class is capable; it is not underfitting.
-- **Not the modelling.** The raw-vs-anomaly decomposition is measured *before* any model is fit, so
-  the failure cannot be blamed on a modelling choice.
+- **Not the modeling.** The raw-vs-anomaly decomposition is measured *before* any model is fit, so
+  the failure cannot be blamed on a modeling choice.
 
 Where the criticism lands:
 

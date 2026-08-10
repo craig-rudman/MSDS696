@@ -57,7 +57,7 @@ Spatial reduction: an interior sample, NOT a true H3 aggregate
 This differs from `src/hex_climate.py` and the difference is deliberate, so it
 must not be read as parity. `hex_climate` maps every TerraClimate grid cell to
 its containing hex with `latlng_to_cell` and averages what falls inside — an
-exact H3 reduction. This module instead samples a **10 x 10 km box centred on
+exact H3 reduction. This module instead samples a **10 x 10 km box centered on
 the hex centroid**:
 
     box            100.0 km2
@@ -134,17 +134,17 @@ FOREST_REGIONS: tuple[str, ...] = (
     "Northwestern Great Plains",
 )
 
-# Half-width in metres of the sampling window around a hex centre. This makes the
+# Half-width in metres of the sampling window around a hex center. This makes the
 # sample a 10x10 km box = 100 km2 against the res-5 hex's 252.9 km2, so it covers
 # ~40% of the cell and is an *interior sample*, not a full aggregate — see
 # "Spatial reduction" in the module docstring for why that is accepted here and
 # where it could matter. Widening toward the 8.53 km inscribed radius would raise
-# coverage but start bleeding into neighbouring cells at the corners.
+# coverage but start bleeding into neighboring cells at the corners.
 HALF_WIN_M = 5000
 
 
 def hex_centroids(hexgrid: pd.DataFrame, regions: Sequence[str]) -> pd.DataFrame:
-    """Lat/lon centre of every hex in `regions`, inverted from the H3 id."""
+    """Lat/lon center of every hex in `regions`, inverted from the H3 id."""
     import h3
 
     sub = hexgrid[hexgrid["region"].isin(regions)]

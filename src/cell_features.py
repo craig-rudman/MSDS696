@@ -20,7 +20,7 @@ western region-seasons — exactly the ones a next-season forecast leans on) are
 flagged or down-weighted rather than silently trusted.
 
 That weight is a pure function of the record (`mean(is_missing)` within a cell,
-and the acre analogue), so it is never stored separately — it is recomputed here
+and the acre analog), so it is never stored separately — it is recomputed here
 alongside the target, from the same frame, at the same grain, so the two cannot
 drift out of sync. The only requirement upstream is that the cleaned artifact
 *keeps* the ordinary Missing rows (flagged, not dropped); `04_cleaning.ipynb` does

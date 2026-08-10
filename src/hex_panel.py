@@ -1,6 +1,6 @@
-"""The hex-season modelling panel: one assembly, one baseline, one scorer.
+"""The hex-season modeling panel: one assembly, one baseline, one scorer.
 
-This module exists because of a specific failure. Across the W6 modelling work
+This module exists because of a specific failure. Across the W6 modeling work
 the persistence baseline was re-typed inline roughly eight times — the same
 `groupby -> shift(1) -> rolling(k).mean()` idiom, each time in a throwaway
 script. The ablation numbers moved between runs (the same burn-history rung
@@ -51,7 +51,7 @@ from scipy.stats import spearmanr
 from config import ProjectConfig
 from trailing import TrailingMean
 
-# The hex-grain analogue of trailing.GROUP_KEYS. A hex's history is its own
+# The hex-grain analog of trailing.GROUP_KEYS. A hex's history is its own
 # same-season history.
 HEX_GROUP_KEYS: tuple[str, str] = ("hex_id", "season_ord")
 

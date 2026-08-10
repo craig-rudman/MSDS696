@@ -7,7 +7,7 @@ D2L Assignments → “Wk 5 · Chart Redesign Activity”
 ## Goal
 Take a chart that misleads on purpose, name exactly how it does it, and rebuild it so it tells the truth — without becoming boring.
 
-*Why this exists:* In class we practise making honest charts. This activity points the same skill the other way: at the charts other people put in front of you. You will be handed misleading visuals for the rest of your career — by vendors, by the news, by colleagues who didn't mean to. Spotting the move is the defence.
+*Why this exists:* In class we practice making honest charts. This activity points the same skill the other way: at the charts other people put in front of you. You will be handed misleading visuals for the rest of your career — by vendors, by the news, by colleagues who didn't mean to. Spotting the move is the defense.
 
 ## Step 1 — Get your chart
 Use one of the four charts in the chart bank, posted alongside this handout in D2L Content → Week 5 (chart_bank/). Each one contains one dominant, deliberate distortion. Pick whichever you like — you only need one.
@@ -46,12 +46,12 @@ Scored on the standard Participation Activity rubric.
 | --- | --- | --- |
 | Engagement & completion | 6 | All four parts present, on time, with both charts included. The rebuild is actually rebuilt — not described. |
 | Quality of thinking | 9 | The distortion is named precisely and its mechanism explained. The decision at risk is real and specific. Your fixes address the lie rather than just prettifying the chart. |
-| Constructiveness & specificity | 5 | Numbers, not adjectives. Each fix labelled. The preserved message is stated as a sentence someone could act on. |
+| Constructiveness & specificity | 5 | Numbers, not adjectives. Each fix labeled. The preserved message is stated as a sentence someone could act on. |
 
 You've nailed it when
 You can state the lie in one sentence, with a number in it
 A named person makes a named decision differently because of the distortion
-Every change to your rebuild is labelled and justified
+Every change to your rebuild is labeled and justified
 Your honest chart still says something worth hearing
 Common way to lose points: stopping at “the axis is misleading.” That's an observation, not an analysis. The points are in how much it distorts, who it fools, and what it costs them.
 This week's other two submissions are separate: your Status Report (2–3 polished visuals) and your Practice Talk (record, post, reply to podmates). Don't merge them with this.

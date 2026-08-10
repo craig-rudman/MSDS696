@@ -197,11 +197,11 @@ def distribute_perimeter_acres(perims, hexgrid, *, id_col: str = "event_id",
     redistributed) and a geometry. Returns tidy rows:
     `(fire_key, hex_id, hex_acres, w)`.
 
-    The weight `w` is intersected area / total intersected area — normalised over
+    The weight `w` is intersected area / total intersected area — normalized over
     the *intersection*, not the raw polygon. That distinction matters at the study
     boundary: a fire straddling the region edge has part of its footprint outside
-    the hexgrid, and normalising by raw polygon area would silently drop those
-    acres. Normalising by intersected area instead keeps every fire's acres summing
+    the hexgrid, and normalizing by raw polygon area would silently drop those
+    acres. Normalizing by intersected area instead keeps every fire's acres summing
     to `FIRE_SIZE` within the modeled extent, and the share falling outside is
     reported separately by `coverage_report`.
     """

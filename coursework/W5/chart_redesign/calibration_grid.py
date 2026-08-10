@@ -53,7 +53,7 @@ for value in range(300, 701, 10):
         d.text((col_for(2024.35) + 6, y - 8), str(value),
                fill=(150, 0, 0), font=font)
 
-# --- vertical: every year, heavier on the labelled even years ---------------
+# --- vertical: every year, heavier on the labeled even years ---------------
 for year in range(2012, 2025):
     x = col_for(year)
     major = year % 2 == 0
