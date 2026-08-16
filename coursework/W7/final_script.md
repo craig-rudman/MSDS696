@@ -2,11 +2,14 @@
 
 **Authoritative text for the W7 dry run and the W8 final.** Where this file and `coursework/W7/MSDS696_W7_Deck.pptx` disagree, this file wins and the deck is corrected to match. It supersedes `src/build_deck.py`'s `BEATS` list and the storyboard table in the W6 status report as the source of headline and note text.
 
-Twenty slides. The final is fifteen minutes with five for questions; the W7 dry run targets about ten minutes of talking, which is **~30 seconds per slide**.
+Nineteen slides. The final is fifteen minutes with five for questions; the W7 dry run targets about ten minutes of talking, which is **~30 seconds per slide**.
 
-Headings read **`Slide N · Beat K`**. The two numbers diverge from slide 9 on, because the seasonal-skill beat moved down two places so that beats 10 and 11 — a matched pair where neither survives alone — sit adjacent and unbroken. **Slide numbers give position in the deck; beat numbers are stable identities**, which is what the WATCH cross-references below ("matched pair with 11", "beat 11's axis again") point at. Do not renumber the beats.
+Headings read **`Slide N · Beat K`**, and the two numbers do not track each other. **Slide numbers give position in the deck; beat numbers are stable identities**, which is what the WATCH cross-references below ("matched pair with 11", "beat 11's axis again") point at. Do not renumber the beats. Two things pulled them apart:
 
-Sections are in delivery order. Beat 9 therefore appears between beats 11 and 12.
+- **Beat 4 was cut** — "A few years of rolling average is enough" tuned a parameter of beat 3's baseline rather than adding a claim, and the storyboard had already nominated it as the first thing to drop. Nothing else in the deck referred to it.
+- **Beat 9 moved down two places**, so that beats 10 and 11 — a matched pair where neither survives alone — sit adjacent and unbroken.
+
+Sections are in delivery order. Beat 9 therefore appears between beats 11 and 12, and there is no beat 4.
 
 **Be declarative. The headline has already made the claim** — a SAY block that opens by asking whether the claim is true ("So can you forecast that mix?") re-opens a question the slide has settled, and spends words doing it. Open on the substance instead. The same applies to deictics: the figures are captioned, so "the national average" points at its own tile and "notice the middle tile" is both redundant and a chance to point at the wrong one.
 
@@ -140,29 +143,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 4 · Beat 4 — A few years of rolling average is enough.
-
-*Figure:* `img/w6_k_sweep.png`
-
-**SAY**
-
-> *(none yet)*
-
-**EVIDENCE**
-
-- Acre-weighted TVD falls 0.331 -> 0.278 from one prior season to three, then flattens.
-- Every window from three up sits within 1.4 points of the best.
-- Cause composition is a standing property, not a yearly swing.
-
-**WATCH**
-
-- The compression candidate if the talk runs long — it tunes a parameter of beat 3's baseline rather than adding a claim.
-
-**TIME —** 0:20
-
----
-
-## Slide 5 · Beat 5 — For human-cause wildfires, history names the lead cause more often than not.
+## Slide 4 · Beat 5 — For human-cause wildfires, history names the lead cause more often than not.
 
 *Figure:* `img/w6_human_tiles.png`
 
@@ -184,7 +165,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 6 · Beat 6 — A learned model made naming the leading cause worse.
+## Slide 5 · Beat 6 — A learned model made naming the leading cause worse.
 
 *Figure:* `img/w6_human_ladder.png`
 
@@ -208,7 +189,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 7 · Beat 7 — Where fires start is predictable, but not at ecoregion scale.
+## Slide 6 · Beat 7 — Where fires start is predictable, but not at ecoregion scale.
 
 *Figure:* `img/w6_siting_glance.png`
 
@@ -232,7 +213,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 8 · Beat 8 — That skill is spatial, not statistical luck.
+## Slide 7 · Beat 8 — That skill is spatial, not statistical luck.
 
 *Figure:* `img/w6_shuffled_control.png`
 
@@ -256,7 +237,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 9 · Beat 10 — Almost all the area burned is in almost none of the cells.
+## Slide 8 · Beat 10 — Almost all the area burned is in almost none of the cells.
 
 *Figure:* `img/w6_acres_concentration.png`
 
@@ -277,7 +258,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 10 · Beat 11 — Up to a point, both are predictable. Past that point, natural fire is harder.
+## Slide 9 · Beat 11 — Up to a point, both are predictable. Past that point, natural fire is harder.
 
 *Figure:* `img/w6_branch_deciles.png`
 
@@ -300,7 +281,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 11 · Beat 9 — Human fire is predictable year-round; natural fires only in summer.
+## Slide 10 · Beat 9 — Human fire is predictable year-round; natural fires only in summer.
 
 *Figure:* `img/w6_season_skill.png`
 
@@ -322,7 +303,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 12 · Beat 12 — We tried to fix that with drought and fuel, but where fires start is a property of the place, not of the year.
+## Slide 11 · Beat 12 — We tried to fix that with drought and fuel, but where fires start is a property of the place, not of the year.
 
 *Figure:* `img/w6_ignition_ladder.png`
 
@@ -347,7 +328,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 13 · Beat 13 — The same data does predict how much burns.
+## Slide 12 · Beat 13 — The same data does predict how much burns.
 
 *Figure:* `img/w6_acres_ladder.png`
 
@@ -369,7 +350,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 14 · Beat 14 — But the gain misses where we need it most.
+## Slide 13 · Beat 14 — But the gain misses where we need it most.
 
 *Figure:* `img/w6_gain_landing.png`
 
@@ -392,7 +373,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 15 · Beat 15 — Predicting where fires start needed a finer spatial scale. Predicting size may need a shorter time scale.
+## Slide 14 · Beat 15 — Predicting where fires start needed a finer spatial scale. Predicting size may need a shorter time scale.
 
 *Figure:* `img/w6_grain_parallel.png`
 
@@ -416,7 +397,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 16 · Beat 16 — Most starts don’t become big fires.  But big fires usually burn in the hex where they started.
+## Slide 15 · Beat 16 — Most starts don’t become big fires.  But big fires usually burn in the hex where they started.
 
 > [!WARNING] **This headline may restate an artifact as a finding.** "Big fires usually burn in the hex where they started" is a spatial-containment claim, and per `CLAUDE.md` a point-only fire is assigned entirely to its ignition hex **by construction** — 2,710 point fires exceed 1,000 acres, and 23 assign more than a full hex to one cell. The figure below it measures the ignition *gate* (6.7% vs 0.29%, 22.8x), not containment. The earlier headline, "Every megafire was an ignition first," says what the figure shows. Decide before the dry run.
 
@@ -440,7 +421,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 17 · Beat 17 — One ignition is enough.
+## Slide 16 · Beat 17 — One ignition is enough.
 
 *Figure:* `img/w6_one_is_enough.png`
 
@@ -463,7 +444,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 18 · Beat 18 — Nearly a fifth of burned acres have no specific cause — and that gap is itself forecastable.
+## Slide 17 · Beat 18 — Nearly a fifth of burned acres have no specific cause — and that gap is itself forecastable.
 
 *Figure:* `img/w6_unknown_triage.png`
 
@@ -485,7 +466,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 19 · Beat 19 — Target causes by region. Site the pre-season work by ignition. Fix the record where it says neither.
+## Slide 18 · Beat 19 — Target causes by region. Site the pre-season work by ignition. Fix the record where it says neither.
 
 *Figure:* `img/w6_recommendation.png`
 
@@ -514,14 +495,14 @@ Each slide below carries four blocks:
 |---|---|---|
 | Title — setup + BLUF | 1 | 0:45 |
 | Beat 2 — explains the unit | 1 | 0:40 |
-| Beat 4 — compressed | 1 | 0:20 |
-| Remaining beats | 17 | 8:30 |
-| **Total** | **20** | **10:15** |
+| Beat 3 — names the Tier-1 classes | 1 | 0:40 |
+| Remaining beats | 16 | 8:05 |
+| **Total** | **19** | **10:10** |
 
-**Running 15 seconds over, and that is deliberate slack to spend, not a problem to solve yet.** Three slides carry more than a beat's share: the title is the deck's only setup (stakeholder, data source, missing-cause caveat), and beat 2 is the only slide that explains the ecoregion unit that beats 3–6 all run on. Beat 4 was cut to 0:20 to pay for beat 2, since it tunes a parameter rather than adding a claim.
+Three slides carry more than a beat's share: the title is the deck's only setup (stakeholder, data source, missing-cause caveat), beat 2 is the only slide that explains the ecoregion unit, and beat 3 is the only one that names the three Tier-1 classes. All three are load-bearing for everything after them.
 
-The remaining seventeen beats get **30 seconds each**, which is why every beat has to open on its assertion rather than on a wind-up. Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long.
+The remaining sixteen beats get **30 seconds each**, which is why every beat has to open on its assertion rather than on a wind-up. Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long.
 
-Compression candidates, in the order the W6 storyboard nominates them: **beat 4** (tunes a parameter of beat 3's baseline rather than adding a claim), then **beats 13–14** (a matched pair that can compress to one). Beats **10 and 11** are a matched pair and neither survives alone.
+**Next compression candidates**, now that beat 4 is cut: **beats 13–14** (a matched pair that can compress to one). Beats **10 and 11** are also a matched pair, but neither survives alone — cut both or neither.
 
 **Word budget.** At a measured 150 wpm, 10 minutes is about **1,500 words** total. Time each SAY block as it is written rather than at the end — a block that reads fast on the page runs 20% longer aloud.
