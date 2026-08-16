@@ -41,16 +41,27 @@ Each slide below carries four blocks:
 
 **SAY**
 
-> For pre-season planning: stop targeting how big fires get. Target where they start.
+> This is for a state or regional fire planner deciding, before the season
+> starts, where to concentrate a fixed prevention and mitigation budget.
+>
+> It comes out of the federal record of U.S. wildfire occurrence — two point
+> three million fires, 1992 through 2020, each with a date, a location, a size,
+> and a cause. About a quarter have no specific cause recorded, and that turned
+> out to be a finding rather than a nuisance.
+>
+> The recommendation, up front: **for pre-season planning, stop targeting how big
+> fires get. Target where they start.**
 
 **WATCH**
 
+- **Setup is 20 seconds, not a topic.** Three beats only — who it is for, what the data is, where it is weak — then the BLUF. Do not narrate the database schema; the grain and the joins belong in questions.
+- The missing-cause quarter is stated **here, voluntarily**, because a challenger will find it. Saying it first converts it from an ambush into evidence of rigor, and beat 18 pays it off as a product.
 - A TARGETING claim, not an efficacy one. Nothing in this project measures what a treatment achieves; the ranking says where fire is most likely to arrive, which is a necessary condition for sited work to pay off and not a sufficient one.
 - The deck closes on this same sentence at beat 19, so first and last statements match.
 - **"Pre-season" is the scope of every null in this deck and it is load-bearing.** Same-day conditions — wind, timing, suppression availability — were never tested. "The largest fires are unpredictable" is a much bigger claim than anything measured here, and it was the previous title.
 - Both halves are **instructions, not predictions**, which is why the opening needs no defense. The predictability claims arrive later, each with its own population.
 
-**TIME —** 0:30
+**TIME —** 0:45
 
 ---
 
@@ -495,11 +506,20 @@ Each slide below carries four blocks:
 
 | | slides | budget |
 |---|---|---|
-| Title | 1 | 0:30 |
-| Beats 1–19 | 19 | 9:30 |
+| Title — setup + BLUF | 1 | 0:45 |
+| Beats 1–19 | 19 | 9:15 |
 | **Total** | **20** | **10:00** |
+
+The title carries the only setup in the deck — stakeholder, data source, and the
+missing-cause caveat — so it runs long by design at **~90 words**. That leaves
+**29 seconds** per beat, which is why the beats have to open on their assertion
+rather than on a wind-up.
 
 Compression candidates, in the order the W6 storyboard nominates them:
 **beat 4** (tunes a parameter of beat 3's baseline rather than adding a claim),
 then **beats 13–14** (a matched pair that can compress to one).
 Beats **10 and 11** are a matched pair and neither survives alone.
+
+**Word budget.** At a measured 150 wpm, 10 minutes is about **1,500 words** total.
+Time each SAY block as it is written rather than at the end — a block that reads
+fast on the page runs 20% longer aloud.
