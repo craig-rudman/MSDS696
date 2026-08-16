@@ -120,7 +120,7 @@ Each slide below carries four blocks:
 
 > The mix is three classes splitting a region-season's burned acres — **natural**, **human**, and **unknown**, the ones whose cause was never determined. By acres, nationally: fifty-nine, twenty-three, eighteen. **Everything in this deck is weighted by acres, not by number of fires** — by fire count those first two numbers almost exactly swap.
 >
-> Three ways to predict that mix, worst to best. The national average mix — forty-two percent of the acres land on the right cause. An even split: fifty-two. That region's own recent history: seventy-three.
+> Three ways to predict that mix, worst to best. The national average mix — forty-two percent of the acres land on the right cause. An even split: fifty-two. That region's own seasonal history — its own past summers, or winters — seventy-three.
 >
 > Those are averages, and the range under each is the honest part: history runs sixty to ninety across region-seasons, the national average down to twenty. **And we can tell in advance which end a region-season lands on** — a place whose history has been settled forecasts well; one that's been swinging doesn't.
 >
@@ -128,7 +128,7 @@ Each slide below carries four blocks:
 
 **EVIDENCE**
 
-- Three tiles, worst to best: national average mix 42%, an even split 52%, the region's own history 73%.
+- Three tiles, worst to best: national average mix 42%, an even split 52%, the region's own seasonal history 73%.
 - Acre-weighted TVD 0.580 / 0.485 / 0.266, forward-chained on 2010+, 3,949 held-out region-seasons.
 - Tier-1 classes and their full-record acre shares: **Natural 58.9%, Human 22.7%, Unknown 18.5%**, on a total-acres denominator (resolved + missing) so the three sum to 1.
 
@@ -137,6 +137,8 @@ Each slide below carries four blocks:
 - Do NOT say "right 73% of the time." 73% is an error magnitude (1 - TVD), not a hit rate — there is no "of the time" to attach it to.
 - 72.7% top-1 agreement is a different number that DOES mean "of the time." Only use that phrasing if the slide on screen shows top-1.
 - **Confirmed: these tiles plot 1 − TVD, an error magnitude. Beats 5 and 6 use the same three-tile visual but plot top-1 hit rates.** Same look, different quantity — so "of the time" is wrong here and right there. If asked to compare the 73% with beat 5's 54%, say they are not on the same scale.
+- **"Seasonal history" means each season is its own series.** The grouping is `(region, season)`, so Klamath summer sees only prior Klamath summers — and **k=7 is seven prior *same-season* occurrences, about seven years back, not seven consecutive seasons.** Say "its own past summers" if the room looks unsure. If challenged "why not pool all four seasons?": beat 1 is the answer — seasonality is the strongest signal in the record, so pooling would average a region's human-dominated winter against its lightning-dominated summer and predict neither.
+- Consequence worth knowing: with k=7 the first seven same-season years of every series are unpredictable, which together with the 2010 split is why the held-out population is 3,949 cells rather than all 10,135.
 - **The span under each tile is a spread across region-seasons, NOT a confidence interval.** Say "typical range" or "where individual region-seasons land," never "plus or minus" or "we're 50% confident." Acre-weighted p25–p75, matching the headline's weighting: history **58–91%**, national **21–61%**, even split **36–67%**.
 - **The national tile's low end is the argument.** Its 42% is not a middling result evenly spread — the first quartile reaches down to 21%. That is beat 2's bimodality returning as forecast error: a national average describes almost no individual region.
 - **If asked "so which ones land at the bottom?"** — that is answered, and it is the strongest unpublished result in the project. A cell's own **pre-season** history dispersion predicts its error: Spearman **+0.484** here and **+0.577** on the human branch, **33 and 35 SD** above a shuffled control, holding *within* individual regions (74/93 and 80/92 series positive). By quartile of pre-season dispersion, accuracy runs **83% → 62%** on Tier 1 and **73% → 39%** on Human. `06_analysis.ipynb`, final section.
@@ -161,12 +163,12 @@ Each slide below carries four blocks:
 >
 > And that ranking isn't the obvious one. Debris burning starts the most fires of any human cause; it's only third in acres. Equipment starts a third as many and burns more. **What's worth preventing isn't what starts most often.**
 >
-> Same three predictors, one level down. An even guess across eleven names the top cause by acres nine percent of the time; the national human mix, sixteen; that region's own history — fifty-four.
+> Same three predictors, one level down. An even guess across eleven names the top cause by acres nine percent of the time; the national human mix, sixteen; that region's own seasonal history — fifty-four.
 
 **EVIDENCE**
 
 - Same three tiles as beat 3, one level deeper: how often the predicted leading human sub-cause is right out of 11.
-- An even split 9%, the national human mix 16%, the region's own history 54%.
+- An even split 9%, the national human mix 16%, the region's own seasonal history 54%.
 - Acre-weighted TVD 0.489 against the national mix's 0.643; 3,850 held-out region-seasons.
 - The 11 sub-causes by national acre share: **arson 26.5%, equipment and vehicle use 24.4%, debris and open burning 19.2%**, recreation and ceremony 11.4%, power generation/transmission 8.6%, railroads 2.3%, smoking 2.3%, firearms and explosives 1.6%, fireworks 1.3%, misuse of fire by a minor 1.2%, other 1.1%. 40.6M human acres.
 - **Counts rank differently from acres:** debris burning starts 535,832 fires (the most of any human cause) but is third in acres; equipment starts 190,253 — about a third as many — and burns more. Verified from `fires_clean.parquet`.

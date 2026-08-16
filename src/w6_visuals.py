@@ -2214,6 +2214,14 @@ def tier1_baseline_scores(panel, *, k: int = 7, cfg=None) -> pd.DataFrame:
     * **national** -- the record's overall composition, applied to every cell
     * **naive** -- an uninformed 1/3 on each class
 
+    **"History" groups by `(region, season)`, so each season is its own series.**
+    Klamath summer sees only prior Klamath summers; k=7 is therefore seven prior
+    *same-season* occurrences -- about seven years back, not seven consecutive
+    seasons. The tile label says "seasonal history" rather than "history" for
+    that reason. Pooling the four seasons would average a region's
+    human-dominated winter against its lightning-dominated summer and predict
+    neither, which is beat 1's seasonality reappearing as a modelling error.
+
     `correct` is `1 - TVD`, which for two compositions on a simplex is exactly
     their overlap (the sum of elementwise minima). "Share of the composition
     placed on the right cause" is therefore a literal reading of the number, not
@@ -2244,7 +2252,7 @@ def tier1_baseline_scores(panel, *, k: int = 7, cfg=None) -> pd.DataFrame:
     def score(pred):
         return float(np.average(per_cell(pred), weights=w))
 
-    rows = [("the region's own history", "history", score(hist)),
+    rows = [("the region's own seasonal history", "history", score(hist)),
             ("the national average mix", "national", score(national)),
             ("an even split across causes", "naive", score(naive))]
     out = pd.DataFrame(rows, columns=["label", "key", "tvd"]).set_index("key")
@@ -2469,7 +2477,7 @@ def human_subcause_scores(panel, *, k: int | None = None, cfg=None) -> pd.DataFr
 
     national = np.tile(prior, (len(hc), 1))
     rows = [
-        ("the region's own history", "history", hit(pred), tvd(pred)),
+        ("the region's own seasonal history", "history", hit(pred), tvd(pred)),
         ("the national human mix", "national", hit(national), tvd(national)),
         ("an even split across 11 causes", "chance", 1 / len(cols), np.nan),
     ]
