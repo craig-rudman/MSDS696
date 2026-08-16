@@ -77,7 +77,11 @@ Each slide below carries four blocks:
 
 **SAY**
 
-> *(none yet)*
+> The unit here isn't a state. Fire follows terrain, vegetation and climate, not county lines — so every fire is placed into an EPA Level III ecoregion, drawn from exactly those things. A hundred and five cover the country.
+>
+> Shade each by how much of its burned area is lightning-caused, and the map splits at about the hundredth meridian: natural in the West, human in the East, Alaska almost entirely natural. And it's not a gradient — fifty regions sit below twenty percent natural, twenty-eight above eighty, only twenty-seven in between.
+>
+> So there's no national answer to what starts fires. There are regional ones.
 
 **EVIDENCE**
 
@@ -85,7 +89,14 @@ Each slide below carries four blocks:
 - A West/East split at roughly the 100th meridian; Alaska almost entirely natural.
 - Bimodal: 50 regions below 20% natural, 28 above 80%, only 27 in between.
 
-**TIME —** 0:30
+**WATCH**
+
+- **The ecoregion choice is a design decision, not a tested result.** No state-boundary version was built and compared, so do not say ecoregions "work better than states." Say the unit was chosen because it is delineated from terrain, vegetation, soils and climate — the things that govern how fire behaves — where a state boundary is administrative. Omernik & Griffith (2014) is the framework; Stephens et al. (2026) models fire at Level III grain.
+- **This is the only slide that explains the unit,** and beats 3–6 all run on it. If it gets cut for time, the ecoregion grain arrives unexplained.
+- Bimodality is the load-bearing part, not the West/East split. A gradient would mean every region needs its own blended strategy; two modes mean most regions have a dominant cause and a planner can act on it.
+- Shares of **attributed** acres — the missing-cause mass named on the title slide is excluded from this shading. Beat 18 comes back for it.
+
+**TIME —** 0:40
 
 ---
 
@@ -130,7 +141,7 @@ Each slide below carries four blocks:
 
 - The compression candidate if the talk runs long — it tunes a parameter of beat 3's baseline rather than adding a claim.
 
-**TIME —** 0:30
+**TIME —** 0:20
 
 ---
 
@@ -485,10 +496,14 @@ Each slide below carries four blocks:
 | | slides | budget |
 |---|---|---|
 | Title — setup + BLUF | 1 | 0:45 |
-| Beats 1–19 | 19 | 9:15 |
-| **Total** | **20** | **10:00** |
+| Beat 2 — explains the unit | 1 | 0:40 |
+| Beat 4 — compressed | 1 | 0:20 |
+| Remaining beats | 17 | 8:30 |
+| **Total** | **20** | **10:15** |
 
-The title carries the only setup in the deck — stakeholder, data source, and the missing-cause caveat — so it runs long by design at **~90 words**. That leaves **29 seconds** per beat, which is why the beats have to open on their assertion rather than on a wind-up.
+**Running 15 seconds over, and that is deliberate slack to spend, not a problem to solve yet.** Three slides carry more than a beat's share: the title is the deck's only setup (stakeholder, data source, missing-cause caveat), and beat 2 is the only slide that explains the ecoregion unit that beats 3–6 all run on. Beat 4 was cut to 0:20 to pay for beat 2, since it tunes a parameter rather than adding a claim.
+
+The remaining seventeen beats get **30 seconds each**, which is why every beat has to open on its assertion rather than on a wind-up. Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long.
 
 Compression candidates, in the order the W6 storyboard nominates them: **beat 4** (tunes a parameter of beat 3's baseline rather than adding a claim), then **beats 13–14** (a matched pair that can compress to one). Beats **10 and 11** are a matched pair and neither survives alone.
 
