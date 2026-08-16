@@ -32,7 +32,7 @@ Each slide below carries four blocks:
 
 > This is for a state or regional fire planner deciding, before the season starts, where to concentrate a fixed prevention and mitigation budget.
 >
-> It comes out of the federal record of U.S. wildfire occurrence — two point three million fires, 1992 through 2020, each with a date, a location, a size, and a cause. About a quarter have no specific cause recorded, and that turned out to be a finding rather than a nuisance.
+> It comes out of the federal record of U.S. wildfire occurrence — two point three million fires, 1992 through 2020, each with a date, a location, a size in acres, and a cause. A quarter of those fires have no specific cause recorded — and by acres, nearly a fifth. That turned out to be a finding rather than a nuisance.
 >
 > The recommendation, up front: **for pre-season planning, stop targeting how big fires get. Target where they start.**
 
@@ -40,6 +40,7 @@ Each slide below carries four blocks:
 
 - **Setup is 20 seconds, not a topic.** Three beats only — who it is for, what the data is, where it is weak — then the BLUF. Do not narrate the database schema; the grain and the joins belong in questions.
 - The missing-cause quarter is stated **here, voluntarily**, because a challenger will find it. Saying it first converts it from an ambush into evidence of rigor, and beat 18 pays it off as a product.
+- **Both denominators are said aloud on purpose.** Exact figures: **566,210 of 2,271,343 fires = 24.9% by count**, but **33.2M of 179.4M acres = 18.5% by acres** — the missing fires are smaller than average. Beat 18's headline says "nearly a fifth of burned acres" and Tier 1's Unknown class is 18.5%; without the acres half of this sentence, an attentive listener hears slide 0 and beat 18 contradict each other. They do not — they are two correct numbers on different denominators.
 - A TARGETING claim, not an efficacy one. Nothing in this project measures what a treatment achieves; the ranking says where fire is most likely to arrive, which is a necessary condition for sited work to pay off and not a sufficient one.
 - The deck closes on this same sentence at beat 19, so first and last statements match.
 - **"Pre-season" is the scope of every null in this deck and it is load-bearing.** Same-day conditions — wind, timing, suppression availability — were never tested. "The largest fires are unpredictable" is a much bigger claim than anything measured here, and it was the previous title.
