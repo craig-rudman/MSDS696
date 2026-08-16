@@ -2106,7 +2106,8 @@ def plot_volatility_map(panel, out_path: Path, *, cfg=None,
 
 
 def _draw_score_tiles(labels, values, out_path: Path, *,
-                      figsize: tuple[float, float] = (11.0, 3.6)) -> None:
+                      figsize: tuple[float, float] = (11.0, 3.6),
+                      ranges=None) -> None:
     """Render one row of stat tiles. Shared by the Tier-1 and Human beats.
 
     One implementation, two slides: the beats are the same question one level
@@ -2119,6 +2120,15 @@ def _draw_score_tiles(labels, values, out_path: Path, *,
     comparison lives. The winner takes the ember accent; the rest sit in a
     recessive neutral, because the point is which one wins.
 
+    `ranges`, when given, is one `(low, high)` per tile in the same order as
+    `values`, drawn as a span beneath the bar with the headline mean marked on
+    it. **It is a spread across region-seasons, not a confidence interval** --
+    the tile's number is an average over thousands of cells and a planner
+    receives one of them, so the span answers "how much does this vary from
+    place to place", which is a different question from "how sure are we of the
+    average". The label drawn says "typical range" for that reason: no
+    inferential claim is being made.
+
     No title and no caption is drawn: the slide's headline supplies the framing,
     and the numbers a caption would need are returned by the caller.
     """
@@ -2127,6 +2137,8 @@ def _draw_score_tiles(labels, values, out_path: Path, *,
     order = np.argsort(np.asarray(values, dtype=float))
     labels = list(np.asarray(labels, dtype=object)[order])
     values = list(np.asarray(values, dtype=float)[order])
+    if ranges is not None:
+        ranges = [tuple(r) for r in np.asarray(ranges, dtype=float)[order]]
     best = len(values) - 1
 
     fig, axes = plt.subplots(1, len(values), figsize=figsize, facecolor=SURFACE,
@@ -2149,14 +2161,50 @@ def _draw_score_tiles(labels, values, out_path: Path, *,
                 ha="left", va="center", fontweight="bold")
 
         # A shared 0-100% track, so the bars are comparable across tiles.
-        ax.add_patch(plt.Rectangle((0, 0.17), 1.0, 0.05, facecolor="#eeece8",
+        bar_y = 0.17 if ranges is None else 0.30
+        ax.add_patch(plt.Rectangle((0, bar_y), 1.0, 0.05, facecolor="#eeece8",
                                    edgecolor="none"))
-        ax.add_patch(plt.Rectangle((0, 0.17), value, 0.05, facecolor=accent,
+        ax.add_patch(plt.Rectangle((0, bar_y), value, 0.05, facecolor=accent,
                                    edgecolor="none"))
+
+        if ranges is not None:
+            low, high = ranges[i]
+            span_y = 0.15
+            # The span sits on the SAME 0-100% track as the bar above it, so the
+            # eye reads width against the bar without a second scale to learn.
+            ax.plot([low, high], [span_y, span_y], color=accent, lw=2.4,
+                    solid_capstyle="butt", zorder=2)
+            for x in (low, high):
+                ax.plot([x, x], [span_y - 0.035, span_y + 0.035], color=accent,
+                        lw=1.4, zorder=3)
+            ax.text(0, 0.02, f"typical range {low:.0%}–{high:.0%}", fontsize=9.5,
+                    color=TEXT_SECONDARY, ha="left", va="bottom")
 
     fig.savefig(out_path, dpi=200, facecolor=SURFACE, bbox_inches="tight",
                 pad_inches=0.3)
     plt.close(fig)
+
+
+def _weighted_quantile(values, weights, q: float) -> float:
+    """Quantile of `values` under `weights`, by the cumulative-weight definition.
+
+    numpy has no weighted percentile. Sort by value, walk the cumulative weight,
+    and read off where it crosses `q` of the total -- with the cumulative taken
+    at interval midpoints so the result is symmetric between q and 1-q rather
+    than biased half a step toward the low end.
+
+    Exists so the tiles' spread carries the SAME acre weighting as the headline
+    mean above it. Mixing an acre-weighted mean with unweighted percentiles put a
+    42% headline over a 50-79% range on the national tile, which reads as a
+    mistake even though both numbers were correct.
+    """
+    values = np.asarray(values, dtype=float)
+    weights = np.asarray(weights, dtype=float)
+    order = np.argsort(values)
+    v, wt = values[order], weights[order]
+    cum = np.cumsum(wt) - 0.5 * wt
+    cum /= wt.sum()
+    return float(np.interp(q, cum, v))
 
 
 def tier1_baseline_scores(panel, *, k: int = 7, cfg=None) -> pd.DataFrame:
@@ -2189,14 +2237,36 @@ def tier1_baseline_scores(panel, *, k: int = 7, cfg=None) -> pd.DataFrame:
     national = national / national.sum(axis=1, keepdims=True)
     naive = np.full_like(act, 1 / 3)
 
+    def per_cell(pred):
+        """Per-cell TVD, kept rather than reduced -- the spread is the point."""
+        return 0.5 * np.abs(pred - act).sum(axis=1)
+
     def score(pred):
-        return float(np.average(0.5 * np.abs(pred - act).sum(axis=1), weights=w))
+        return float(np.average(per_cell(pred), weights=w))
 
     rows = [("the region's own history", "history", score(hist)),
             ("the national average mix", "national", score(national)),
             ("an even split across causes", "naive", score(naive))]
     out = pd.DataFrame(rows, columns=["label", "key", "tvd"]).set_index("key")
     out["correct"] = 1 - out["tvd"]
+
+    # Middle half of the per-cell distribution, on the same 1 - TVD scale as the
+    # headline. The tiles report a mean over thousands of held-out region-seasons
+    # and a planner receives exactly one of them, so the spread is what says how
+    # much a single number can be relied on.
+    #
+    # ACRE-WEIGHTED quantiles, matching the headline's weighting. Unweighted ones
+    # were tried first and produced a figure that reads as an error: the national
+    # tile came out at a 42% headline against a 50-79% range, because that
+    # predictor fails hardest on the big-burn cells the acre weighting is
+    # dominated by and does adequately on the many small ones. Both numbers were
+    # right and the pair was unreadable. One denominator throughout is the same
+    # discipline the spoken script applies to every share it quotes.
+    for key, pred in (("history", hist), ("national", national), ("naive", naive)):
+        acc = 1 - per_cell(pred)
+        for q in (25, 50, 75):
+            out.loc[key, f"p{q}"] = _weighted_quantile(acc, w, q / 100)
+
     out.attrs["n_cells"] = int(len(d))
     out.attrs["test_start"] = int(cfg.test_start)
     return out
@@ -2206,9 +2276,17 @@ def plot_tier1_tiles(panel, out_path: Path, *, k: int = 7, cfg=None,
                      figsize: tuple[float, float] = (11.0, 3.6)) -> dict:
     """Beat 3 — three tiles: does a region's own history forecast its cause mix?
 
-    Not a chart. Three numbers, compared once, with no distribution to show and
-    no time axis -- the form is a stat tile, and forcing it into a bar chart adds
-    an axis the reader does not need.
+    Not a chart. Three numbers compared once, with no time axis -- the form is a
+    stat tile, and forcing it into a bar chart adds an axis the reader does not
+    need.
+
+    **Each tile carries the middle half of its own per-cell distribution**
+    (p25-p75 of `1 - TVD`), added W7. The headline is an acre-weighted mean over
+    thousands of held-out region-seasons and a planner receives exactly one of
+    them, so a bare mean overstates what a single forecast is worth. The span is
+    variation across region-seasons, **not** a confidence interval on the mean --
+    the drawn label says "typical range" to keep that distinction in the figure
+    rather than only in the notes.
 
     **The value shown is `1 - TVD`, not TVD.** TVD is a distance, so lower is
     better, and a tile whose biggest number is the worst result reads backwards
@@ -2226,7 +2304,8 @@ def plot_tier1_tiles(panel, out_path: Path, *, k: int = 7, cfg=None,
     """
     scores = tier1_baseline_scores(panel, k=k, cfg=cfg)
     _draw_score_tiles(scores["label"], scores["correct"], out_path,
-                      figsize=figsize)
+                      figsize=figsize,
+                      ranges=scores[["p25", "p75"]].to_numpy())
 
     return {
         "n_cells": scores.attrs["n_cells"],
@@ -2234,6 +2313,8 @@ def plot_tier1_tiles(panel, out_path: Path, *, k: int = 7, cfg=None,
         "k": k,
         **{f"{key}_correct": float(r["correct"]) for key, r in scores.iterrows()},
         **{f"{key}_tvd": float(r["tvd"]) for key, r in scores.iterrows()},
+        **{f"{key}_p{q}": float(r[f"p{q}"])
+           for key, r in scores.iterrows() for q in (25, 50, 75)},
         "best": str(scores["correct"].idxmax()),
         "out_path": str(out_path),
     }

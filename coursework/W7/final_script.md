@@ -120,7 +120,9 @@ Each slide below carries four blocks:
 
 > The mix is three classes splitting a region-season's burned acres — **natural**, **human**, and **unknown**, the ones whose cause was never determined. By acres, nationally: fifty-nine, twenty-three, eighteen. **Everything in this deck is weighted by acres, not by number of fires** — by fire count those first two numbers almost exactly swap.
 >
-> Three ways to predict that mix, worst to best. Assume every region looks like the national average — forty-two percent of the acres land on the right cause. Assume an even split: fifty-two. Use nothing but that region's own recent history: seventy-three.
+> Three ways to predict that mix, worst to best. The national average mix — forty-two percent of the acres land on the right cause. An even split: fifty-two. That region's own recent history: seventy-three.
+>
+> Those are averages, and the range under each is the honest part: history runs sixty to ninety across region-seasons, the national average down to twenty. **And we can tell in advance which end a region-season lands on** — a place whose history has been settled forecasts well; one that's been swinging doesn't.
 >
 > The national average does worse than assuming you know nothing — that's the last slide's map showing up as forecast error.
 
@@ -135,13 +137,17 @@ Each slide below carries four blocks:
 - Do NOT say "right 73% of the time." 73% is an error magnitude (1 - TVD), not a hit rate — there is no "of the time" to attach it to.
 - 72.7% top-1 agreement is a different number that DOES mean "of the time." Only use that phrasing if the slide on screen shows top-1.
 - **Confirmed: these tiles plot 1 − TVD, an error magnitude. Beats 5 and 6 use the same three-tile visual but plot top-1 hit rates.** Same look, different quantity — so "of the time" is wrong here and right there. If asked to compare the 73% with beat 5's 54%, say they are not on the same scale.
+- **The span under each tile is a spread across region-seasons, NOT a confidence interval.** Say "typical range" or "where individual region-seasons land," never "plus or minus" or "we're 50% confident." Acre-weighted p25–p75, matching the headline's weighting: history **58–91%**, national **21–61%**, even split **36–67%**.
+- **The national tile's low end is the argument.** Its 42% is not a middling result evenly spread — the first quartile reaches down to 21%. That is beat 2's bimodality returning as forecast error: a national average describes almost no individual region.
+- **If asked "so which ones land at the bottom?"** — that is answered, and it is the strongest unpublished result in the project. A cell's own **pre-season** history dispersion predicts its error: Spearman **+0.484** here and **+0.577** on the human branch, **33 and 35 SD** above a shuffled control, holding *within* individual regions (74/93 and 80/92 series positive). By quartile of pre-season dispersion, accuracy runs **83% → 62%** on Tier 1 and **73% → 39%** on Human. `06_analysis.ipynb`, final section.
+- **State its limit in the same breath: it ranks confidence, it does not calibrate it.** "This cell is in the steadiest quartile, which historically scored 83%" — never "83% likely to be right." And 36 of 986 steadiest-quartile cells still scored below 25%, several at dispersion exactly 0.000: a settled history can precede a regime break.
 - **Unknown is a predicted class, not a discard.** It holds the missing-cause acre mass, and its share is a regional attribution-quality signal — which is what makes beat 18 a product rather than an apology. Do not describe the model as predicting "two causes plus leftovers."
 - **The comparison carries the weight, not any one tile:** the national mix (42%, left) is worse than the even split (52%, middle) — using the national average is worse than assuming you know nothing, which is beat 2 reappearing as forecast error. Do not say "the middle tile" for this point; the middle tile is the even split, and the claim is about the left one losing to it.
 - The 18.5% here and the "nearly a fifth" on the title slide are the same number — the acres denominator. Keep them consistent.
 - **The single most confusable pair of numbers in the deck.** Tier-1 shares by acres are Human 22.7 / Natural 58.8 / Unknown 18.5; **by fire count they are Human 60.7 / Natural 14.4 / Unknown 24.9** — Human and Natural almost exactly swap. Both are true. Verified from `fires_clean.parquet`. Every target and every score in this project is **acres** (`panel.tier1_composition()` divides `human_ac`/`natural_ac`/`unknown_ac` by `total_ac`; fire counts appear only under `with_counts=True`, and only as model *features*, never as a target). Name the denominator whenever these numbers are said aloud.
 - If challenged "isn't most fire human-caused?" — yes, by count, 61%. Humans start most fires; lightning burns most acres. The deck is about acres because acres are what a mitigation budget is sized against.
 
-**TIME —** 0:45
+**TIME —** 0:55
 
 ---
 
