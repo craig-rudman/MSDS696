@@ -1,29 +1,18 @@
 # MSDS 696 — Final Talk Script
 
-**Authoritative text for the W7 dry run and the W8 final.** Where this file and
-`coursework/W7/MSDS696_W7_Deck.pptx` disagree, this file wins and the deck is
-corrected to match. It supersedes `src/build_deck.py`'s `BEATS` list and the
-storyboard table in the W6 status report as the source of headline and note text.
+**Authoritative text for the W7 dry run and the W8 final.** Where this file and `coursework/W7/MSDS696_W7_Deck.pptx` disagree, this file wins and the deck is corrected to match. It supersedes `src/build_deck.py`'s `BEATS` list and the storyboard table in the W6 status report as the source of headline and note text.
 
-Twenty slides. The final is fifteen minutes with five for questions; the W7 dry
-run targets about ten minutes of talking, which is **~30 seconds per slide**.
+Twenty slides. The final is fifteen minutes with five for questions; the W7 dry run targets about ten minutes of talking, which is **~30 seconds per slide**.
 
-Headings read **`Slide N · Beat K`**. The two numbers diverge from slide 9 on,
-because the seasonal-skill beat moved down two places so that beats 10 and 11 —
-a matched pair where neither survives alone — sit adjacent and unbroken. **Slide
-numbers give position in the deck; beat numbers are stable identities**, which
-is what the WATCH cross-references below ("matched pair with 11", "beat 11's
-axis again") point at. Do not renumber the beats.
+Headings read **`Slide N · Beat K`**. The two numbers diverge from slide 9 on, because the seasonal-skill beat moved down two places so that beats 10 and 11 — a matched pair where neither survives alone — sit adjacent and unbroken. **Slide numbers give position in the deck; beat numbers are stable identities**, which is what the WATCH cross-references below ("matched pair with 11", "beat 11's axis again") point at. Do not renumber the beats.
 
 Sections are in delivery order. Beat 9 therefore appears between beats 11 and 12.
 
 Each slide below carries four blocks:
 
-- **SAY** — delivery prose, spoken more or less as written. Present only where it
-  has been written; the rest are marked *(none yet)*.
+- **SAY** — delivery prose, spoken more or less as written. Present only where it has been written; the rest are marked *(none yet)*.
 - **EVIDENCE** — the numbers and what the figure shows.
-- **WATCH** — traps, caveats and framing obligations, placed behind the slide
-  where they would be sprung.
+- **WATCH** — traps, caveats and framing obligations, placed behind the slide where they would be sprung.
 - **TIME** — the budget for this slide.
 
 ---
@@ -32,25 +21,20 @@ Each slide below carries four blocks:
 
 **On the slide:**
 
-> For pre-season planning:
-> **Stop targeting how big fires get.**
+> For pre-season planning:\
+> **Stop targeting how big fires get.**\
 > **Target where they start.**
 >
-> Predicting Region-Season Wildfire Cause Patterns to Target Prevention and Mitigation
+> Predicting Region-Season Wildfire Cause Patterns to Target Prevention and Mitigation\
 > Craig Rudman · MSDS 696 Practicum II · Week 7
 
 **SAY**
 
-> This is for a state or regional fire planner deciding, before the season
-> starts, where to concentrate a fixed prevention and mitigation budget.
+> This is for a state or regional fire planner deciding, before the season starts, where to concentrate a fixed prevention and mitigation budget.
 >
-> It comes out of the federal record of U.S. wildfire occurrence — two point
-> three million fires, 1992 through 2020, each with a date, a location, a size,
-> and a cause. About a quarter have no specific cause recorded, and that turned
-> out to be a finding rather than a nuisance.
+> It comes out of the federal record of U.S. wildfire occurrence — two point three million fires, 1992 through 2020, each with a date, a location, a size, and a cause. About a quarter have no specific cause recorded, and that turned out to be a finding rather than a nuisance.
 >
-> The recommendation, up front: **for pre-season planning, stop targeting how big
-> fires get. Target where they start.**
+> The recommendation, up front: **for pre-season planning, stop targeting how big fires get. Target where they start.**
 
 **WATCH**
 
@@ -405,14 +389,7 @@ Each slide below carries four blocks:
 
 ## Slide 16 · Beat 16 — Most starts don’t become big fires.  But big fires usually burn in the hex where they started.
 
-> [!WARNING]
-> **This headline may restate an artifact as a finding.** "Big fires usually burn
-> in the hex where they started" is a spatial-containment claim, and per
-> `CLAUDE.md` a point-only fire is assigned entirely to its ignition hex **by
-> construction** — 2,710 point fires exceed 1,000 acres, and 23 assign more than
-> a full hex to one cell. The figure below it measures the ignition *gate*
-> (6.7% vs 0.29%, 22.8x), not containment. The earlier headline, "Every megafire
-> was an ignition first," says what the figure shows. Decide before the dry run.
+> [!WARNING] **This headline may restate an artifact as a finding.** "Big fires usually burn in the hex where they started" is a spatial-containment claim, and per `CLAUDE.md` a point-only fire is assigned entirely to its ignition hex **by construction** — 2,710 point fires exceed 1,000 acres, and 23 assign more than a full hex to one cell. The figure below it measures the ignition *gate* (6.7% vs 0.29%, 22.8x), not containment. The earlier headline, "Every megafire was an ignition first," says what the figure shows. Decide before the dry run.
 
 *Figure:* `img/w6_ignition_gate.png`
 
@@ -510,16 +487,8 @@ Each slide below carries four blocks:
 | Beats 1–19 | 19 | 9:15 |
 | **Total** | **20** | **10:00** |
 
-The title carries the only setup in the deck — stakeholder, data source, and the
-missing-cause caveat — so it runs long by design at **~90 words**. That leaves
-**29 seconds** per beat, which is why the beats have to open on their assertion
-rather than on a wind-up.
+The title carries the only setup in the deck — stakeholder, data source, and the missing-cause caveat — so it runs long by design at **~90 words**. That leaves **29 seconds** per beat, which is why the beats have to open on their assertion rather than on a wind-up.
 
-Compression candidates, in the order the W6 storyboard nominates them:
-**beat 4** (tunes a parameter of beat 3's baseline rather than adding a claim),
-then **beats 13–14** (a matched pair that can compress to one).
-Beats **10 and 11** are a matched pair and neither survives alone.
+Compression candidates, in the order the W6 storyboard nominates them: **beat 4** (tunes a parameter of beat 3's baseline rather than adding a claim), then **beats 13–14** (a matched pair that can compress to one). Beats **10 and 11** are a matched pair and neither survives alone.
 
-**Word budget.** At a measured 150 wpm, 10 minutes is about **1,500 words** total.
-Time each SAY block as it is written rather than at the end — a block that reads
-fast on the page runs 20% longer aloud.
+**Word budget.** At a measured 150 wpm, 10 minutes is about **1,500 words** total. Time each SAY block as it is written rather than at the end — a block that reads fast on the page runs 20% longer aloud.
