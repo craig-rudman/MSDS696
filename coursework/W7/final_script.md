@@ -58,7 +58,7 @@ Each slide below carries four blocks:
 
 > Fire runs on a calendar, and the two peaks are months apart. The dashed line is when fires start, the solid one is how much burns. Spring and summer start about the same number of fires — summer burns almost four times the area.
 >
-> Fire management already works on a seasonal horizon — there's a national outlook issued every month, four months ahead, to support long-range decisions about staffing and allocation. Prevention and mitigation are sited work decided months ahead too, so they need the same anticipation — what to target, and where, before the season starts.
+> Fire management works on a seasonal horizon — there's a national outlook issued every month, four months ahead, to support long-range decisions about staffing and allocation. Prevention and mitigation are sited work decided months ahead. Planners need to decide what to target, and where, before the season starts.
 
 **EVIDENCE**
 
