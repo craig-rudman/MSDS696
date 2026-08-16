@@ -8,6 +8,8 @@ Headings read **`Slide N · Beat K`**. The two numbers diverge from slide 9 on, 
 
 Sections are in delivery order. Beat 9 therefore appears between beats 11 and 12.
 
+**Be declarative. The headline has already made the claim** — a SAY block that opens by asking whether the claim is true ("So can you forecast that mix?") re-opens a question the slide has settled, and spends words doing it. Open on the substance instead. The same applies to deictics: the figures are captioned, so "the national average" points at its own tile and "notice the middle tile" is both redundant and a chance to point at the wrong one.
+
 Each slide below carries four blocks:
 
 - **SAY** — delivery prose, spoken more or less as written. Present only where it has been written; the rest are marked *(none yet)*.
@@ -113,7 +115,7 @@ Each slide below carries four blocks:
 
 **SAY**
 
-> So can you forecast that mix a season ahead? The mix is three classes splitting a region-season's burned acres — **natural**, **human**, and **unknown**, the ones whose cause was never determined. Nationally: fifty-nine, twenty-three, eighteen.
+> The mix is three classes splitting a region-season's burned acres — **natural**, **human**, and **unknown**, the ones whose cause was never determined. Nationally: fifty-nine, twenty-three, eighteen.
 >
 > Three ways to predict it, worst to best. Assume every region looks like the national average — forty-two percent of the mix lands on the right cause. Assume an even split: fifty-two. Use nothing but that region's own recent history: seventy-three.
 >
