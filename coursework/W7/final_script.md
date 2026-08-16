@@ -113,20 +113,28 @@ Each slide below carries four blocks:
 
 **SAY**
 
-> About three-quarters of the mix lands on the right cause.
+> So can you forecast that mix a season ahead? The mix is three classes splitting a region-season's burned acres — **natural**, **human**, and **unknown**, the ones whose cause was never determined. Nationally: fifty-nine, twenty-three, eighteen.
+>
+> Three ways to predict it, worst to best. Assume every region looks like the national average — forty-two percent of the mix lands on the right cause. Assume an even split: fifty-two. Use nothing but that region's own recent history: seventy-three.
+>
+> Notice the middle tile. The national average does worse than assuming you know nothing — that's the last slide's map showing up as forecast error.
 
 **EVIDENCE**
 
 - Three tiles, worst to best: national average mix 42%, an even split 52%, the region's own history 73%.
 - Acre-weighted TVD 0.580 / 0.485 / 0.266, forward-chained on 2010+, 3,949 held-out region-seasons.
+- Tier-1 classes and their full-record acre shares: **Natural 58.9%, Human 22.7%, Unknown 18.5%**, on a total-acres denominator (resolved + missing) so the three sum to 1.
 
 **WATCH**
 
 - Do NOT say "right 73% of the time." 73% is an error magnitude (1 - TVD), not a hit rate — there is no "of the time" to attach it to.
 - 72.7% top-1 agreement is a different number that DOES mean "of the time." Only use that phrasing if the slide on screen shows top-1.
+- **Confirmed: these tiles plot 1 − TVD, an error magnitude. Beats 5 and 6 use the same three-tile visual but plot top-1 hit rates.** Same look, different quantity — so "of the time" is wrong here and right there. If asked to compare the 73% with beat 5's 54%, say they are not on the same scale.
+- **Unknown is a predicted class, not a discard.** It holds the missing-cause acre mass, and its share is a regional attribution-quality signal — which is what makes beat 18 a product rather than an apology. Do not describe the model as predicting "two causes plus leftovers."
 - The middle tile carries the weight: the national mix at 42% is worse than guessing, which is beat 2 reappearing as forecast error.
+- The 18.5% here and the "nearly a fifth" on the title slide are the same number — the acres denominator. Keep them consistent.
 
-**TIME —** 0:30
+**TIME —** 0:40
 
 ---
 
