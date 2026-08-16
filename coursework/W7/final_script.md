@@ -117,7 +117,7 @@ Each slide below carries four blocks:
 >
 > Three ways to predict it, worst to best. Assume every region looks like the national average — forty-two percent of the mix lands on the right cause. Assume an even split: fifty-two. Use nothing but that region's own recent history: seventy-three.
 >
-> Notice the middle tile. The national average does worse than assuming you know nothing — that's the last slide's map showing up as forecast error.
+> The national average does worse than assuming you know nothing — that's the last slide's map showing up as forecast error.
 
 **EVIDENCE**
 
@@ -131,7 +131,7 @@ Each slide below carries four blocks:
 - 72.7% top-1 agreement is a different number that DOES mean "of the time." Only use that phrasing if the slide on screen shows top-1.
 - **Confirmed: these tiles plot 1 − TVD, an error magnitude. Beats 5 and 6 use the same three-tile visual but plot top-1 hit rates.** Same look, different quantity — so "of the time" is wrong here and right there. If asked to compare the 73% with beat 5's 54%, say they are not on the same scale.
 - **Unknown is a predicted class, not a discard.** It holds the missing-cause acre mass, and its share is a regional attribution-quality signal — which is what makes beat 18 a product rather than an apology. Do not describe the model as predicting "two causes plus leftovers."
-- The middle tile carries the weight: the national mix at 42% is worse than guessing, which is beat 2 reappearing as forecast error.
+- **The comparison carries the weight, not any one tile:** the national mix (42%, left) is worse than the even split (52%, middle) — using the national average is worse than assuming you know nothing, which is beat 2 reappearing as forecast error. Do not say "the middle tile" for this point; the middle tile is the even split, and the claim is about the left one losing to it.
 - The 18.5% here and the "nearly a fifth" on the title slide are the same number — the acres denominator. Keep them consistent.
 
 **TIME —** 0:40
