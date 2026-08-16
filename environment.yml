@@ -49,6 +49,12 @@ dependencies:
   - pystac-client
   - planetary-computer
   - rioxarray
+  # W6 deck build — src/build_deck.py renders the nineteen storyboard beats
+  # (coursework/W6/MSDS696_W6_Status_Report.md) into an editable .pptx, one
+  # headline plus one figure per slide. Generated rather than hand-assembled so
+  # a rebuilt figure propagates by re-running the script instead of by re-pasting;
+  # the W7 point-attribution fix invalidates every acres figure in the deck.
+  - python-pptx
   - pip
   - pip:
       - h3==4.5.0
