@@ -163,7 +163,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 6 · Beat 6 — A learned model made it worse.
+## Slide 6 · Beat 6 — A learned model made naming the leading cause worse.
 
 *Figure:* `img/w6_human_ladder.png`
 
@@ -181,6 +181,7 @@ Each slide below carries four blocks:
 
 - Concede the fair part: the rungs were run once at standard settings and not tuned. What the result rules out is "you never gave it the right features."
 - Keep this beat — it is the only one conceding a model was tried and lost, which is what keeps the nulls credible.
+- The bars are a **hit rate** — how often the leading cause is named right, out of 11 — so "of the time" is the correct phrasing here, unlike beat 3. The TVDs (0.489 / 0.588 / 0.554) are in the evidence above but are **not what is plotted**; do not quote them off this figure.
 
 **TIME —** 0:30
 
