@@ -8,6 +8,15 @@ storyboard table in the W6 status report as the source of headline and note text
 Twenty slides. The final is fifteen minutes with five for questions; the W7 dry
 run targets about ten minutes of talking, which is **~30 seconds per slide**.
 
+Headings read **`Slide N · Beat K`**. The two numbers diverge from slide 9 on,
+because the seasonal-skill beat moved down two places so that beats 10 and 11 —
+a matched pair where neither survives alone — sit adjacent and unbroken. **Slide
+numbers give position in the deck; beat numbers are stable identities**, which
+is what the WATCH cross-references below ("matched pair with 11", "beat 11's
+axis again") point at. Do not renumber the beats.
+
+Sections are in delivery order. Beat 9 therefore appears between beats 11 and 12.
+
 Each slide below carries four blocks:
 
 - **SAY** — delivery prose, spoken more or less as written. Present only where it
@@ -19,7 +28,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Title slide
+## Slide 0 · Title slide
 
 **On the slide:**
 
@@ -48,7 +57,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 1 — Wildfires are seasonal.
+## Slide 1 · Beat 1 — Wildfires are seasonal.
 
 *Figure:* `img/w6_seasonality.png`
 
@@ -69,7 +78,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 2 — Cause is regional, not national.
+## Slide 2 · Beat 2 — Cause is regional, not national.
 
 *Figure:* `img/w6_cause_map.png`
 
@@ -87,7 +96,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 3 — A region's cause mix is stable enough to forecast.
+## Slide 3 · Beat 3 — A region's cause mix is stable enough to forecast.
 
 *Figure:* `img/w6_tier1_tiles.png`
 
@@ -110,7 +119,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 4 — A few years of rolling average is enough.
+## Slide 4 · Beat 4 — A few years of rolling average is enough.
 
 *Figure:* `img/w6_k_sweep.png`
 
@@ -132,7 +141,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 5 — For human-cause wildfires, history names the lead cause more often than not.
+## Slide 5 · Beat 5 — For human-cause wildfires, history names the lead cause more often than not.
 
 *Figure:* `img/w6_human_tiles.png`
 
@@ -154,7 +163,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 6 — A learned model made it worse.
+## Slide 6 · Beat 6 — A learned model made it worse.
 
 *Figure:* `img/w6_human_ladder.png`
 
@@ -177,7 +186,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 7 — Where fires start is predictable, but not at ecoregion scale.
+## Slide 7 · Beat 7 — Where fires start is predictable, but not at ecoregion scale.
 
 *Figure:* `img/w6_siting_glance.png`
 
@@ -201,7 +210,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 8 — That skill is spatial, not statistical luck.
+## Slide 8 · Beat 8 — That skill is spatial, not statistical luck.
 
 *Figure:* `img/w6_shuffled_control.png`
 
@@ -225,32 +234,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 9 — Human fire is predictable year-round; natural fires only in summer.
-
-*Figure:* `img/w6_season_skill.png`
-
-**SAY**
-
-> *(none yet)*
-
-**EVIDENCE**
-
-- Held-out Spearman by season, each branch scored separately in all 11 held-out years, band spanning the observed year-to-year range.
-- Human runs flat and high (median +0.47 to +0.61, peaking in spring); natural is a summer surface (+0.42 JJA, +0.07 DJF).
-- Human beats natural in all 44 season-years without exception.
-
-**WATCH**
-
-- The deck's only figure showing a distribution rather than a point estimate.
-
-**TIME —** 0:30
-
----
-
-## Beat 10 — Almost all the area burned are in almost none of the cells.
-
-> [!NOTE]
-> **Grammar:** "the area burned **are**" → "**is**". Fix in the deck.
+## Slide 9 · Beat 10 — Almost all the area burned is in almost none of the cells.
 
 *Figure:* `img/w6_acres_concentration.png`
 
@@ -271,7 +255,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 11 — Up to a point, both are predictable. Past that point, natural fire is harder.
+## Slide 10 · Beat 11 — Up to a point, both are predictable. Past that point, natural fire is harder.
 
 *Figure:* `img/w6_branch_deciles.png`
 
@@ -294,7 +278,29 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 12 — We tried to fix that with drought and fuel, but where fires start is a property of the place, not of the year.
+## Slide 11 · Beat 9 — Human fire is predictable year-round; natural fires only in summer.
+
+*Figure:* `img/w6_season_skill.png`
+
+**SAY**
+
+> *(none yet)*
+
+**EVIDENCE**
+
+- Held-out Spearman by season, each branch scored separately in all 11 held-out years, band spanning the observed year-to-year range.
+- Human runs flat and high (median +0.47 to +0.61, peaking in spring); natural is a summer surface (+0.42 JJA, +0.07 DJF).
+- Human beats natural in all 44 season-years without exception.
+
+**WATCH**
+
+- The deck's only figure showing a distribution rather than a point estimate.
+
+**TIME —** 0:30
+
+---
+
+## Slide 12 · Beat 12 — We tried to fix that with drought and fuel, but where fires start is a property of the place, not of the year.
 
 *Figure:* `img/w6_ignition_ladder.png`
 
@@ -319,7 +325,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 13 — The same data does predict how much burns.
+## Slide 13 · Beat 13 — The same data does predict how much burns.
 
 *Figure:* `img/w6_acres_ladder.png`
 
@@ -341,7 +347,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 14 — But the gain misses where we need it most.
+## Slide 14 · Beat 14 — But the gain misses where we need it most.
 
 *Figure:* `img/w6_gain_landing.png`
 
@@ -364,7 +370,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 15 — Predicting where fires start needed a finer spatial scale. Predicting size may need a shorter time scale.
+## Slide 15 · Beat 15 — Predicting where fires start needed a finer spatial scale. Predicting size may need a shorter time scale.
 
 *Figure:* `img/w6_grain_parallel.png`
 
@@ -388,7 +394,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 16 — Most starts don’t become big fires.  But big fires usually burn in the hex where they started.
+## Slide 16 · Beat 16 — Most starts don’t become big fires.  But big fires usually burn in the hex where they started.
 
 > [!WARNING]
 > **This headline may restate an artifact as a finding.** "Big fires usually burn
@@ -419,7 +425,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 17 — One ignition is enough.
+## Slide 17 · Beat 17 — One ignition is enough.
 
 *Figure:* `img/w6_one_is_enough.png`
 
@@ -442,7 +448,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 18 — Nearly a fifth of burned acres have no specific cause — and that gap is itself forecastable.
+## Slide 18 · Beat 18 — Nearly a fifth of burned acres have no specific cause — and that gap is itself forecastable.
 
 *Figure:* `img/w6_unknown_triage.png`
 
@@ -464,7 +470,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Beat 19 — Target causes by region. Site the pre-season work by ignition. Fix the record where it says neither.
+## Slide 19 · Beat 19 — Target causes by region. Site the pre-season work by ignition. Fix the record where it says neither.
 
 *Figure:* `img/w6_recommendation.png`
 
