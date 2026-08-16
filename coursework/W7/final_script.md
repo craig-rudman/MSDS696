@@ -149,19 +149,29 @@ Each slide below carries four blocks:
 
 **SAY**
 
-> *(none yet)*
+> "Mostly human" doesn't tell a planner what to do, so open that slice up: eleven specific causes — arson, equipment, debris burning, recreation, powerlines, and so on. The goal is to rank them per region and season, by the acres each one drives.
+>
+> And that ranking isn't the obvious one. Debris burning starts the most fires of any human cause; it's only third in acres. Equipment starts a third as many and burns more. **What's worth preventing isn't what starts most often.**
+>
+> Same three predictors, one level down. An even guess across eleven names the top cause nine percent of the time; the national human mix, sixteen; that region's own history — fifty-four.
 
 **EVIDENCE**
 
 - Same three tiles as beat 3, one level deeper: how often the predicted leading human sub-cause is right out of 11.
 - An even split 9%, the national human mix 16%, the region's own history 54%.
 - Acre-weighted TVD 0.489 against the national mix's 0.643; 3,850 held-out region-seasons.
+- The 11 sub-causes by national acre share: **arson 26.5%, equipment and vehicle use 24.4%, debris and open burning 19.2%**, recreation and ceremony 11.4%, power generation/transmission 8.6%, railroads 2.3%, smoking 2.3%, firearms and explosives 1.6%, fireworks 1.3%, misuse of fire by a minor 1.2%, other 1.1%. 40.6M human acres.
+- **Counts rank differently from acres:** debris burning starts 535,832 fires (the most of any human cause) but is third in acres; equipment starts 190,253 — about a third as many — and burns more. Verified from `fires_clean.parquet`.
 
 **WATCH**
 
 - 54% is the Human floor on Human's own population. Do NOT quote it as an end-to-end number — end to end is 46.2%.
+- **These tiles are a hit rate — "of the time" is correct here.** Beat 3's identical-looking tiles are 1 − TVD, an error magnitude, where it is not. Never compare the 54% here with beat 3's 73%; they are not on the same scale.
+- **This is the tier change, and it needs saying:** beat 3 predicted the three-class split, this predicts *within* the human class only. The denominator is human acres, not all acres.
+- Do not list all eleven aloud — name four or five and move. The full list is above for questions.
+- The counts-vs-acres inversion is the argument for ranking by acres rather than by ignition count. It is also the one place in the deck where a planner's intuition is most likely to be wrong, so it is worth the five seconds.
 
-**TIME —** 0:30
+**TIME —** 0:40
 
 ---
 
