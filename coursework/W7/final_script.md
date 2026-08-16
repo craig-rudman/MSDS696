@@ -164,11 +164,14 @@ Each slide below carries four blocks:
 > And that ranking isn't the obvious one. Debris burning starts the most fires of any human cause; it's only third in acres. Equipment starts a third as many and burns more. **What's worth preventing isn't what starts most often.**
 >
 > Same three predictors, one level down. An even guess across eleven names the top cause by acres nine percent of the time; the national human mix, sixteen; that region's own seasonal history — fifty-four.
+>
+> Same split, wider: settled past, sixty-eight percent. Swinging past, forty-three.
 
 **EVIDENCE**
 
 - Same three tiles as beat 3, one level deeper: how often the predicted leading human sub-cause is right out of 11.
 - An even split 9%, the national human mix 16%, the region's own seasonal history 54%.
+- Split by the cell's own **pre-season** dispersion: **68.2% top-1 in the steadiest quartile against 43.5% in the most volatile**, on 3,844 held-out cells. Acre-weighted, same window and grouping as the prediction.
 - Acre-weighted TVD 0.489 against the national mix's 0.643; 3,850 held-out region-seasons.
 - The 11 sub-causes by national acre share: **arson 26.5%, equipment and vehicle use 24.4%, debris and open burning 19.2%**, recreation and ceremony 11.4%, power generation/transmission 8.6%, railroads 2.3%, smoking 2.3%, firearms and explosives 1.6%, fireworks 1.3%, misuse of fire by a minor 1.2%, other 1.1%. 40.6M human acres.
 - **Counts rank differently from acres:** debris burning starts 535,832 fires (the most of any human cause) but is third in acres; equipment starts 190,253 — about a third as many — and burns more. Verified from `fires_clean.parquet`.
@@ -176,6 +179,8 @@ Each slide below carries four blocks:
 **WATCH**
 
 - 54% is the Human floor on Human's own population. Do NOT quote it as an end-to-end number — end to end is 46.2%.
+- **Why this tile shows a split and beat 3 shows a span.** Beat 3's metric is `1 − TVD`, continuous per cell, so quartiles are meaningful. Top-1 is **0/1 per cell** — its quartiles are 0 and 1 and an interval would say nothing. The stated split is the honest equivalent: the hit rate at each end of the signal that predicts it. Do not describe it as a confidence interval.
+- The confidence spread is **wider on this branch than on Tier 1** (25 points against 21 on the same metric family), which matters because this is the weaker product. Its failures are anticipated, not random.
 - **These tiles are a hit rate — "of the time" is correct here.** Beat 3's identical-looking tiles are 1 − TVD, an error magnitude, where it is not. Never compare the 54% here with beat 3's 73%; they are not on the same scale.
 - **This is the tier change, and it needs saying:** beat 3 predicted the three-class split, this predicts *within* the human class only. The denominator is human acres, not all acres.
 - Do not list all eleven aloud — name four or five and move. The full list is above for questions.

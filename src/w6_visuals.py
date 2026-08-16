@@ -105,6 +105,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import warnings
+
 import numpy as np
 import pandas as pd
 
@@ -2107,7 +2109,7 @@ def plot_volatility_map(panel, out_path: Path, *, cfg=None,
 
 def _draw_score_tiles(labels, values, out_path: Path, *,
                       figsize: tuple[float, float] = (11.0, 3.6),
-                      ranges=None) -> None:
+                      ranges=None, notes=None) -> None:
     """Render one row of stat tiles. Shared by the Tier-1 and Human beats.
 
     One implementation, two slides: the beats are the same question one level
@@ -2119,6 +2121,11 @@ def _draw_score_tiles(labels, values, out_path: Path, *,
     uninformed baselines end up adjacent -- which is where the sharpest
     comparison lives. The winner takes the ember accent; the rest sit in a
     recessive neutral, because the point is which one wins.
+
+    `notes`, when given, is one string per tile (empty for tiles that carry
+    none), drawn in the span's slot. It exists for beats whose metric admits no
+    per-cell interval -- a top-1 hit rate is 0/1 per cell, so its quartiles are 0
+    and 1 -- where the honest equivalent is a stated split rather than a span.
 
     `ranges`, when given, is one `(low, high)` per tile in the same order as
     `values`, drawn as a span beneath the bar with the headline mean marked on
@@ -2139,6 +2146,8 @@ def _draw_score_tiles(labels, values, out_path: Path, *,
     values = list(np.asarray(values, dtype=float)[order])
     if ranges is not None:
         ranges = [tuple(r) for r in np.asarray(ranges, dtype=float)[order]]
+    if notes is not None:
+        notes = list(np.asarray(notes, dtype=object)[order])
     best = len(values) - 1
 
     fig, axes = plt.subplots(1, len(values), figsize=figsize, facecolor=SURFACE,
@@ -2161,7 +2170,7 @@ def _draw_score_tiles(labels, values, out_path: Path, *,
                 ha="left", va="center", fontweight="bold")
 
         # A shared 0-100% track, so the bars are comparable across tiles.
-        bar_y = 0.17 if ranges is None else 0.30
+        bar_y = 0.17 if (ranges is None and notes is None) else 0.30
         ax.add_patch(plt.Rectangle((0, bar_y), 1.0, 0.05, facecolor="#eeece8",
                                    edgecolor="none"))
         ax.add_patch(plt.Rectangle((0, bar_y), value, 0.05, facecolor=accent,
@@ -2179,6 +2188,13 @@ def _draw_score_tiles(labels, values, out_path: Path, *,
                         lw=1.4, zorder=3)
             ax.text(0, 0.02, f"typical range {low:.0%}–{high:.0%}", fontsize=9.5,
                     color=TEXT_SECONDARY, ha="left", va="bottom")
+
+        if notes is not None and notes[i]:
+            # A single annotation line, used where the metric admits no interval
+            # (top-1 is 0/1 per cell). Same slot as the span's caption so the two
+            # beats still line up vertically at the same height.
+            ax.text(0, 0.02, notes[i], fontsize=9.5, color=ink if win else TEXT_SECONDARY,
+                    ha="left", va="bottom")
 
     fig.savefig(out_path, dpi=200, facecolor=SURFACE, bbox_inches="tight",
                 pad_inches=0.3)
@@ -2482,6 +2498,29 @@ def human_subcause_scores(panel, *, k: int | None = None, cfg=None) -> pd.DataFr
         ("an even split across 11 causes", "chance", 1 / len(cols), np.nan),
     ]
     out = pd.DataFrame(rows, columns=["label", "key", "top1", "tvd"]).set_index("key")
+
+    # Split the history rung by the cell's own PRE-SEASON dispersion -- the
+    # confidence signal from 06_analysis.ipynb. Beat 3 shows its range as a
+    # p25-p75 span, which this metric cannot carry: top-1 is a 0/1 outcome per
+    # cell, so its quartiles are 0 and 1 and an interval would say nothing. The
+    # honest equivalent is to report the hit rate at each end of the signal that
+    # predicts it. Dispersion reuses the SAME window, shift and grouping as the
+    # prediction, so it stays strictly pre-season information.
+    disp_all = TrailingMean(k, how="std", min_periods=2).predict(hc, cols).to_numpy()
+    # All-NaN rows are cells with fewer than two prior same-season observations;
+    # nanmean warns on them and yields NaN, which is the wanted behaviour (they
+    # are masked out below), so the warning is suppressed rather than the rows
+    # imputed -- a zero here would read as "perfectly steady" on no evidence.
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", RuntimeWarning)
+        dispersion = np.nanmean(disp_all, axis=1)
+    ok = m & ~np.isnan(dispersion)
+    hits = (pred[ok].argmax(axis=1) == act[ok].argmax(axis=1))
+    d, wd = dispersion[ok], w[ok]
+    lo, hi = np.percentile(d, [25, 75])
+    out.attrs["steadiest_top1"] = float(np.average(hits[d <= lo], weights=wd[d <= lo]))
+    out.attrs["volatile_top1"] = float(np.average(hits[d >= hi], weights=wd[d >= hi]))
+    out.attrs["split_n"] = int(ok.sum())
     out.attrs["n_cells"] = int(m.sum())
     out.attrs["n_classes"] = len(cols)
     out.attrs["test_start"] = int(cfg.test_start)
@@ -2511,8 +2550,16 @@ def plot_human_tiles(panel, out_path: Path, *, k: int | None = None, cfg=None,
     reference that makes 54% legible as a result rather than a bare number.
     """
     scores = human_subcause_scores(panel, k=k, cfg=cfg)
-    _draw_score_tiles(scores["label"], scores["top1"], out_path, figsize=figsize)
+    steady = scores.attrs["steadiest_top1"]
+    volatile = scores.attrs["volatile_top1"]
+    notes = [f"{steady:.0%} steadiest · {volatile:.0%} most volatile"
+             if key == "history" else "" for key in scores.index]
+    _draw_score_tiles(scores["label"], scores["top1"], out_path, figsize=figsize,
+                      notes=notes)
     return {
+        "steadiest_top1": steady,
+        "volatile_top1": volatile,
+        "split_n": scores.attrs["split_n"],
         "n_cells": scores.attrs["n_cells"],
         "n_classes": scores.attrs["n_classes"],
         "k": scores.attrs["k"],
