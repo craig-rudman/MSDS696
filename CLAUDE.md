@@ -138,6 +138,16 @@ The useful distinction is between **regimes**, not causes. A hex can be **high-i
 - **The two branches' tails differ by more than an order of magnitude.** **Quote the population with the number — the two natural figures are not interchangeable:** across all JJA natural burning cells the top decile is **269.8×** under-predicted on a median cell of 2,970 acres; restricted to the six forest ecoregions used for the covariate ladder it is **854.9×** on a median of 5,073. Human is **12.3×** on 135 acres, all seasons, all regions. The like-for-like comparison against Human is therefore **269.8×**, not 855×. This still licenses *different products*: Human can be ranked by expected acres, Natural cannot.
 - **Ignition is a gate, not a dial.** A hex-season that ignites at all is **22.8×** more likely to produce a ≥1,000-acre burn (6.7% vs 0.29%), but escape probability *per ignition* falls with count, and 49% of large fires came from hexes with exactly one natural ignition. The rule is binary — *does this place ignite* — not graded.
 
+### Per-cell confidence from trailing dispersion (W7)
+
+Settled in `06_analysis.ipynb`. `TrailingMean(k=7, how="std")` — the **same window, same `shift(1)`, same `(region, season)` grouping** as the prediction itself, so it is strictly pre-season information — predicts the error of the trailing mean.
+
+- **Spearman(dispersion, realized TVD): +0.484 Tier 1, +0.577 Human**, at **33 and 35 SD** above a 200-run shuffled control.
+- **Per-cell, not geography.** Holds *within* individual regions: 74/93 (Tier 1) and 80/92 (Human) of series with n≥20 are positive, median rho +0.175 / +0.267.
+- **Quartiles of pre-season dispersion,** steadiest → most volatile: Tier 1 **83.1% → 61.9%** accuracy, Human **72.5% → 39.4%**. The spread is widest on the Human branch, which is the weaker product — its failures are anticipated rather than random.
+- **Each season is its own series and carries its own confidence.** Klamath: DJF dispersion 0.121 at 75.8%, JJA 0.293 at 57.3%. One region, four different levels of trust.
+- **It ranks confidence; it does not calibrate it.** Say "this cell is in the steadiest quartile, which historically scored 83%," never "83% likely to be right." **36 of 986 steadiest-quartile cells (3.7%) still scored below 25%**, several at dispersion exactly 0.000 — a settled history can precede a regime break, and those are the confident-looking misses.
+
 ### Known defect — point attribution of large unperimetered fires
 
 Found W6 while sanity-checking cell acreages against hex area. **A point-only fire puts its entire acreage on the single hex containing its ignition point**, which is correct at the 14-acre average and wrong in the tail:
@@ -158,7 +168,7 @@ Found W6 while sanity-checking cell acreages against hex area. **A point-only fi
 - **Missing-cause sensitivity bound.** Reportable worst-case: does the spatial Natural-share contrast survive if all missing fires were, or were not, Natural?
 - **A higher-level allocation layer** that ranks region-seasons against each other, not just causes within one — deferred by design.
 - **No single planner walkthrough** joins Tier 1 to the branch products end to end. *Partly measured W6:* composing Tier 1 × Human gives top-1 **0.4619** on 3,850 joined held-out cells — **identical to Human scored alone**, because Tier 1 contributes one scalar that multiplies all 11 sub-shares and cannot move their argmax. **The ranked profile therefore does not inherit Tier 1's error; the acre level does** (predicted human acres: median 1.01×, but 2× low at p10 and 8× high at p90). Do not quote Human's 54% as an end-to-end number — that is the Human floor on its own population.
-- **No uncertainty is propagated anywhere.** Every prediction is a point estimate. The natural next rung is a Dirichlet over the composition, and the argument for it is specific: the ranking is scale-invariant and does not need intervals, the acre level is not and does.
+- **No *calibrated* uncertainty is propagated anywhere.** Every prediction is still a point estimate, and a Dirichlet over the composition remains the principled next rung — the ranking is scale-invariant and does not need intervals, the acre level is not and does. **But a per-cell confidence *ranking* now exists** (W7, `06_analysis.ipynb`, final section) and is free from the baseline already in use.
 
 **Closed in W6 — do not reopen.** Hex-grain cause scope and the exposure denominator (settled: counts on raw points, per-hex, no denominator). Burn history against ignitions (tested; null). Static vs. dynamic target (settled static: averaging beats `t-4`, and wider windows keep helping to k=7).
 
