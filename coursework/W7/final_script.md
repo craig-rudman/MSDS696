@@ -56,18 +56,25 @@ Each slide below carries four blocks:
 
 **SAY**
 
-> *(none yet)*
+> Fire runs on a calendar, and the two peaks are months apart. The dashed line is when fires start, the solid one is how much burns. Spring and summer start about the same number of fires — summer burns almost four times the area.
+>
+> Fire management already works on a seasonal horizon — there's a national outlook issued every month, four months ahead, to support long-range decisions about staffing and allocation. Prevention and mitigation are sited work decided months ahead too, so they need the same anticipation — what to target, and where, before the season starts.
 
 **EVIDENCE**
 
 - Most fires start in spring; most acres burn in summer.
 - MAM and JJA start nearly the same number of fires and differ 3.9x in acres.
+- The dashed curve is starts, the solid filled curve is acres. The narrow spike in early July is Independence Day.
 
 **WATCH**
 
 - No axes and no magnitudes on this one — it is a calendar, not a chart.
+- **The offset is the point, not the seasonality.** "Fire is seasonal" is not news to this audience. That starts and acres peak in *different months* is what says a count of ignitions is not a measure of consequence — which is the distinction beats 16 and 17 land on.
+- **Do not assert what agencies currently do.** What is cited is that a *product exists* with a *stated purpose*, not what anyone does with it. Sources: **NICC (2023), Predictive Services, Ch. 60 of the National Interagency Mobilization Guide** — the National Significant Wildland Fire Potential Outlook is issued monthly, covers four months, and the chapter states it "provides fire managers with the information needed to make long-range decisions concerning resource staffing and allocation"; and **NICC (2026)**, a live issue, whose Outlook Objectives state it is "intended as a decision support tool" for "proactive decisions."
+- **Three things the sources do NOT support, all of which earlier drafts of this line asserted:** that the outlook "positions crews and equipment" (the text says decisions *concerning* staffing and allocation, not that resources move); that this is a **suppression** practice (Ch. 60 scopes Predictive Services to "operational management of and strategic planning for" fire management resources, broader than suppression); and anything about what coordinators think or prioritize. Say "fire management already works on a seasonal horizon," never "suppression coordinators think seasonally."
+- If asked about the July spike: it is Independence Day. **July 4 is the single highest-start day in the record — 16,907 starts, 2.71x the median day — and July 5 is second at 15,141.** Verified from `fires_clean.parquet`. It is a good answer to "does human cause really show up in the data," but do not build on it: no analysis in this deck rests on it.
 
-**TIME —** 0:30
+**TIME —** 0:35
 
 ---
 
