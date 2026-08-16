@@ -118,9 +118,9 @@ Each slide below carries four blocks:
 
 **SAY**
 
-> The mix is three classes splitting a region-season's burned acres — **natural**, **human**, and **unknown**, the ones whose cause was never determined. Nationally: fifty-nine, twenty-three, eighteen.
+> The mix is three classes splitting a region-season's burned acres — **natural**, **human**, and **unknown**, the ones whose cause was never determined. By acres, nationally: fifty-nine, twenty-three, eighteen. **Everything in this deck is weighted by acres, not by number of fires** — by fire count those first two numbers almost exactly swap.
 >
-> Three ways to predict it, worst to best. Assume every region looks like the national average — forty-two percent of the mix lands on the right cause. Assume an even split: fifty-two. Use nothing but that region's own recent history: seventy-three.
+> Three ways to predict that mix, worst to best. Assume every region looks like the national average — forty-two percent of the acres land on the right cause. Assume an even split: fifty-two. Use nothing but that region's own recent history: seventy-three.
 >
 > The national average does worse than assuming you know nothing — that's the last slide's map showing up as forecast error.
 
@@ -138,8 +138,10 @@ Each slide below carries four blocks:
 - **Unknown is a predicted class, not a discard.** It holds the missing-cause acre mass, and its share is a regional attribution-quality signal — which is what makes beat 18 a product rather than an apology. Do not describe the model as predicting "two causes plus leftovers."
 - **The comparison carries the weight, not any one tile:** the national mix (42%, left) is worse than the even split (52%, middle) — using the national average is worse than assuming you know nothing, which is beat 2 reappearing as forecast error. Do not say "the middle tile" for this point; the middle tile is the even split, and the claim is about the left one losing to it.
 - The 18.5% here and the "nearly a fifth" on the title slide are the same number — the acres denominator. Keep them consistent.
+- **The single most confusable pair of numbers in the deck.** Tier-1 shares by acres are Human 22.7 / Natural 58.8 / Unknown 18.5; **by fire count they are Human 60.7 / Natural 14.4 / Unknown 24.9** — Human and Natural almost exactly swap. Both are true. Verified from `fires_clean.parquet`. Every target and every score in this project is **acres** (`panel.tier1_composition()` divides `human_ac`/`natural_ac`/`unknown_ac` by `total_ac`; fire counts appear only under `with_counts=True`, and only as model *features*, never as a target). Name the denominator whenever these numbers are said aloud.
+- If challenged "isn't most fire human-caused?" — yes, by count, 61%. Humans start most fires; lightning burns most acres. The deck is about acres because acres are what a mitigation budget is sized against.
 
-**TIME —** 0:40
+**TIME —** 0:45
 
 ---
 
@@ -153,7 +155,7 @@ Each slide below carries four blocks:
 >
 > And that ranking isn't the obvious one. Debris burning starts the most fires of any human cause; it's only third in acres. Equipment starts a third as many and burns more. **What's worth preventing isn't what starts most often.**
 >
-> Same three predictors, one level down. An even guess across eleven names the top cause nine percent of the time; the national human mix, sixteen; that region's own history — fifty-four.
+> Same three predictors, one level down. An even guess across eleven names the top cause by acres nine percent of the time; the national human mix, sixteen; that region's own history — fifty-four.
 
 **EVIDENCE**
 
@@ -170,8 +172,10 @@ Each slide below carries four blocks:
 - **This is the tier change, and it needs saying:** beat 3 predicted the three-class split, this predicts *within* the human class only. The denominator is human acres, not all acres.
 - Do not list all eleven aloud — name four or five and move. The full list is above for questions.
 - The counts-vs-acres inversion is the argument for ranking by acres rather than by ignition count. It is also the one place in the deck where a planner's intuition is most likely to be wrong, so it is worth the five seconds.
+- **This slide is the deck's only place where fire *counts* are quoted as a ranking, and that is deliberate** — it exists to justify ranking by acres. Say "by acres" on the 9/16/54 line immediately after, because the audience has just heard "starts the most fires" and could carry the count sense forward. `panel.human_subcause_shares()` sums `acres` on a human-acres denominator; counts are never a target.
+- **The denominators differ between the two tiers, by design.** Tier 1 divides by *total* acres including the Unknown mass; Human divides by *human* acres only and excludes Unknown entirely. Correct — Unknown is a Tier-1 class, not a human sub-cause — but a challenger with a modeling background will probe it.
 
-**TIME —** 0:40
+**TIME —** 0:45
 
 ---
 
