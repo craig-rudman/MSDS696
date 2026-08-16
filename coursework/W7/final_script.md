@@ -32,26 +32,23 @@ Each slide below carries four blocks:
 
 **On the slide:**
 
-> **The largest fires are unpredictable.**
-> **Focus resources where fires start.**
+> For pre-season planning:
+> **Stop targeting how big fires get.**
+> **Target where they start.**
 >
 > Predicting Region-Season Wildfire Cause Patterns to Target Prevention and Mitigation
-> Craig Rudman · MSDS 696 Practicum II · Week 6
-
-> [!NOTE]
-> **Open on this slide.** The byline still reads **Week 6** — update before the
-> W7 recording. And the BLUF here no longer matches the one spoken below or the
-> one beat 19 closes on; the deck was built to open and close on the same
-> sentence. Decide which sentence is the BLUF and make all three agree.
+> Craig Rudman · MSDS 696 Practicum II · Week 7
 
 **SAY**
 
-> Stop targeting how big it gets. Target where it starts.
+> For pre-season planning: stop targeting how big fires get. Target where they start.
 
 **WATCH**
 
 - A TARGETING claim, not an efficacy one. Nothing in this project measures what a treatment achieves; the ranking says where fire is most likely to arrive, which is a necessary condition for sited work to pay off and not a sufficient one.
 - The deck closes on this same sentence at beat 19, so first and last statements match.
+- **"Pre-season" is the scope of every null in this deck and it is load-bearing.** Same-day conditions — wind, timing, suppression availability — were never tested. "The largest fires are unpredictable" is a much bigger claim than anything measured here, and it was the previous title.
+- Both halves are **instructions, not predictions**, which is why the opening needs no defense. The predictability claims arrive later, each with its own population.
 
 **TIME —** 0:30
 
@@ -477,7 +474,7 @@ Each slide below carries four blocks:
 
 **SAY**
 
-> Stop targeting how big it gets. Target where it starts.
+> Stop targeting how big fires get. Target where they start.
 
 **EVIDENCE**
 
