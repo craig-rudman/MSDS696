@@ -412,7 +412,9 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> Raw: do greener hexes have more fires than browner hexes? Yes, moderately. Within-hex: when a hex is greener than its own normal, does it have more fires than its own normal? Barely. The first question is answered by which hex you are looking at; the second by which year it is — and a forecast needs the second.
+> So we tried to fix it — back to starts, adding what everyone expects to matter: drought, and how much fuel is standing. Nothing moved. The axis starts at zero, so a real effect would show, and the best gain here is four thousandths.
+>
+> Here's why. Do greener cells get more fires than browner ones? Yes, moderately. But when a cell is greener **than its own normal**, does it get more fires **than its own normal**? Barely. These covariates find dry *places* — and where the dry places are is something history already knows. **Where fires start is a property of the place, not of the year.**
 
 **EVIDENCE**
 
@@ -423,11 +425,15 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **WATCH**
 
-- Frame as a REPAIR ATTEMPT, not a new topic — slide 8 leaves a failure on the table and slides 10-12 are what was done about it.
+- Frame as a REPAIR ATTEMPT, not a new topic — slide 8 leaves a failure on the table and slides 10-12 are what was done about it. The SAY opens "so we tried to fix it" for that reason; without it this reads as an unrelated experiment rather than as a response.
+- **Target flips back to starts here**, after two acres slides. The SAY says "back to starts" in the first sentence. The figure's y-axis is ignition ranking, not acres.
 - Resist "fires happen where the fuel is" — fuel state added +0.004. The correct compression is "fires happen where fires have happened."
+- **The raw-versus-anomaly contrast is the mechanism and it is the only part worth saying slowly.** The numbers behind it, if asked: drought correlation with ignitions goes **-0.137 raw to -0.073** within-hex; NDVI **+0.228 to +0.098**. Both roughly halve. That is what "identifies places, not years" means numerically — strip out which cell you are looking at and most of the signal goes with it.
+- **This is a null and it should be delivered as a result, not an apology.** Five ablations across two branches, a zero-based axis, and a stated mechanism. If asked "did you try hard enough?" — pre-season covariates were tried hard; same-day conditions were not tried at all, and that is slide 13's open question rather than a gap here.
+- **Vocabulary note: this figure labels the branch "lightning fire" while slide 8's headline says "natural."** Both are in the deck. If it comes up, they are the same class — natural is the Tier-1 label, lightning is what it is. Prefer "natural" when speaking so it matches slides 3, 7, 8 and 17.
 - Q&A companion: img/w6_ndvi_variance.png, the place-vs-year split at 2.8x.
 
-**TIME —** 0:30
+**TIME —** 0:40
 
 ---
 
@@ -607,12 +613,13 @@ Summed from the per-slide **TIME** lines. Re-derive it from those rather than ed
 | 7 — acres concentration | 0:35 | sets the standard slide 8 is judged against |
 | 8 — branch deciles | 0:45 | the pivot: needs the log-scale warning to not undersell itself |
 | 9 — season skill | 0:35 | two branches x four seasons, and the program split |
-| 6, 10–17 | 0:30 each | 9 slides at the standard budget |
-| **Total** | **10:45** | against a ~10:00 target |
+| 10 — the covariate null | 0:40 | the null plus its mechanism, which is what makes it a result |
+| 6, 11–17 | 0:30 each | 8 slides at the standard budget |
+| **Total** | **10:55** | against a ~10:00 target |
 
-Nine slides carry more than an even share, and each is the only place its content appears. The other nine get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
+Ten slides carry more than an even share, and each is the only place its content appears. The other eight get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
 
-**Currently 45 seconds long.** Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
+**Currently 55 seconds long**, and the trim has to come off a measured run rather than off the page. Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
 
 **Next compression candidate: slides 11–12** (a matched pair that can compress to one). Slides **7 and 8** are also a matched pair, but neither survives alone — cut both or neither.
 
