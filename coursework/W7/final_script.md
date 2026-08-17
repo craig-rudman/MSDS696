@@ -25,6 +25,22 @@ Written out because notes are read under pressure, and a compressed line like "h
 | **top-1** | Did the single highest-ranked cause turn out to be the actual biggest? A yes/no per cell, so "of the time" is correct — unlike TVD. | "how often it names the right leading cause" |
 | **shuffled control** | Take the real predictions and deal them to the wrong cells. Everything is preserved except the pairing, so whatever collapses was doing real work. | "same numbers, wrong places" |
 
+### Name the target whenever it changes
+
+The deck predicts three different things and it is easy to hear them as one. **Every SAY block that changes the target from the slide before it must say so in its first sentence.** The three, and where each runs:
+
+| target | what is being predicted | slides |
+|---|---|---|
+| **cause mix** | which causes take a region-season's acres | 3, 4, 5, 16 |
+| **ignition counts** | how many fires start in a cell | 6, 9, 10, 14, 15 |
+| **burned acres** | how much a cell burns | 7, 8, 11, 12 |
+
+Read down the deck, the target goes: **cause · cause · cause — starts — acres · acres — starts · starts — acres · acres — starts · starts — cause.** It alternates in blocks, and every boundary is a place a listener can carry the wrong quantity forward.
+
+**The dangerous one is 6 → 7**, because nothing else changes: same hexes, same left-to-right ordering, same figure family. Only the quantity flips. Slide 7 opens with "that was where fires start; the other half is how much they burn" for exactly that reason, and that clause is protected in its WATCH.
+
+**8 → 9 flips back to starts** and is the next most likely to be missed, since slide 9 also plots a skill measure and could be heard as continuing slide 8's error story. **12 → 13** is safe (13 plots no data and is explicitly about method), and **13 → 14** is announced by the headline.
+
 **Two anchors worth carrying.** A Spearman of +0.53 sounds middling until you know the shuffled control scores **+0.0002** — that is what zero looks like in this data. And "SD above a shuffled control" (33, 35, 26.6 in various notes) means *how many standard deviations the real result sits above the spread of the shuffled ones*: past about 3 is convincing, so 26 and up is not a close call.
 
 ---
@@ -266,6 +282,7 @@ Written out because notes are read under pressure, and a compressed line like "h
 - **The headline asserts a scale, not a comparison — keep it that way.** No ignition model was ever built at ecoregion grain and beaten, so never say or imply the hex grain "scored better." The hex grain is a **design argument** — an ecoregion is too coarse to site work *inside* — exactly the same shape as slide 2's ecoregion choice, and it takes the same honest answer: the unit was chosen to match the decision. If asked why not ecoregions for this, say a planner cannot act on one number for an area the size of a small state; do not imply a head-to-head.
 - **The region is "Klamath Mountains/California High North Coast Range"** — verified from `data/hex_grid_res5.parquet`. The SAY shortens it to "the Klamath Mountains," which is fine as a spoken shorthand, but do not name states or add "northern California and southwest Oregon": the Level III unit also covers the California High North Coast Range, and the locator inset shows the full extent.
 - This is NOT an acres model. Unsaid, the audience reads the capture curve as "32% of the burn under 6% of the ground" — a much stronger claim than the one being made. It is 32% of the STARTS.
+- **The next slide switches back to acres**, on the same hexes and the same ordering. This slide is the deck's only ignition-target slide until slide 14; 7 and 8 are acres. Land "starts" hard here so the contrast is available when slide 7 announces the switch.
 - The return decays fast: 90% of starts needs 77.8% of the ground at 1.16x. The ranking concentrates return; it does not eliminate the tail.
 - **This slide's claim is defended nowhere else in the deck, so the control lives here.** If challenged that the ranking could be luck, the answer in one sentence is: **the identical predictions dealt to the wrong hexes go flat.** Then the numbers, on 1.59M held-out hex-seasons:
   - **The ranking collapses to nothing: +0.526 → +0.0002.** That second number is the useful one — it is what "no relationship at all" measures as in this data, which is the anchor for judging the +0.53.
@@ -285,9 +302,9 @@ Written out because notes are read under pressure, and a compressed line like "h
 
 **SAY**
 
-> Before asking how good a size forecast is, it's worth knowing where the acres actually are. Every burning cell in the country, ordered least-burned to most. If fire spread evenly, you'd get the dashed line.
+> That was where fires start. The other half is how much they burn — same cells, different target. And before asking how good a size forecast is, it's worth knowing where the acres are.
 >
-> Instead it stays flat across almost the whole country and goes vertical at the end. Ninety percent of cells hold two percent of the burn; **one percent of cells hold more than half.**
+> Every burning cell, ordered least-burned to most. Spread evenly, you'd get the dashed line. Instead it stays flat across almost the whole country and goes vertical at the end: ninety percent of cells hold two percent of the burn; **one percent hold more than half.**
 >
 > So a forecast is only as good as it is on the right-hand edge. Everywhere else, being right is cheap.
 
@@ -299,6 +316,7 @@ Written out because notes are read under pressure, and a compressed line like "h
 
 **WATCH**
 
+- **This slide switches the target back to acres, and the switch has to be said aloud.** Slide 6 is ignition *counts*; slides 7 and 8 are *acres*. Same hexes, same left-to-right ordering, different quantity — which is precisely the setup for a listener to carry "starts" forward and hear "1% of cells hold 55% of the starts." The SAY opens with "that was where fires start; the other half is how much they burn" for that reason. **Do not cut that clause for time.**
 - This sets the stakes for slide 8 — it names which cells a forecast has to get right BEFORE any error is shown. Matched pair with slide 8; neither survives alone.
 - **The last sentence is the whole reason the slide exists.** It converts a distribution into a standard for judging what comes next, and slide 8 opens against that standard. If it gets dropped for time, slide 8's decile chart arrives with nothing to be measured against.
 - **"Ninety percent of cells hold two percent" is the same fact as the printed "worst-burning 10% hold 98%"** — stated from the other end because the flat stretch is what the eye is looking at while you say it. Do not say both; they sound like two findings.
@@ -365,6 +383,7 @@ Written out because notes are read under pressure, and a compressed line like "h
 
 **WATCH**
 
+- **This slide flips the target back to ignition counts** after two acres slides, and it is the second most missable boundary in the deck — slide 8 also plotted a skill measure, so this can be heard as continuing its error story. It is not: this is how well *starts* were ranked, season by season. Say "starts" in the first sentence.
 - The deck's only figure showing a distribution rather than a point estimate.
 
 **TIME —** 0:30
