@@ -285,18 +285,30 @@ Written out because notes are read under pressure, and a compressed line like "h
 
 **SAY**
 
-> *(none yet)*
+> Before asking how good a size forecast is, it's worth knowing where the acres actually are. Every burning cell in the country, ordered least-burned to most. If fire spread evenly, you'd get the dashed line.
+>
+> Instead it stays flat across almost the whole country and goes vertical at the end. Ninety percent of cells hold two percent of the burn; **one percent of cells hold more than half.**
+>
+> So a forecast is only as good as it is on the right-hand edge. Everywhere else, being right is cheap.
 
 **EVIDENCE**
 
 - Cumulative share of natural acres, cells ordered by acres burned, least to most.
 - The worst-burning 10% of cells hold 98% of the acres; the worst-burning 1% hold 55%.
+- Both figures are printed on the plot, with the even-spread diagonal labelled — do not read them off aloud, land the shape.
 
 **WATCH**
 
 - This sets the stakes for slide 8 — it names which cells a forecast has to get right BEFORE any error is shown. Matched pair with slide 8; neither survives alone.
+- **The last sentence is the whole reason the slide exists.** It converts a distribution into a standard for judging what comes next, and slide 8 opens against that standard. If it gets dropped for time, slide 8's decile chart arrives with nothing to be measured against.
+- **"Ninety percent of cells hold two percent" is the same fact as the printed "worst-burning 10% hold 98%"** — stated from the other end because the flat stretch is what the eye is looking at while you say it. Do not say both; they sound like two findings.
+- **Natural acres only** — 167,768 burning cells, zero-burn cells excluded (96% of hex-seasons never burn, and including them would make the curve a statement about how rare fire is rather than how it concentrates once it happens).
+- **If asked whether human fire concentrates the same way: yes, and the ranking flips depending on where you look — so do not answer "more" or "less."** Measured from `hex_acres_panel.parquet`: human's worst 1% of burning cells hold **71%** of human acres against natural's **55%**, but human's worst 10% hold **93.5%** against natural's **98.2%**. Human is more top-heavy at the very tip, natural more so across the top decile. Both are extreme; neither branch is the concentrated one.
+- A concentration claim, not a predictability one. Nothing here says the big cells are *findable* in advance — slide 8 is where that gets answered, and the answer is partly no.
+- **"How do you know how much burned in a given cell?" — a fair question on this slide, and the answer is two rules.** A fire linked to an **MTBS perimeter** has its acres split across the hexes the perimeter covers, weighted by intersected area. A **point-only** fire puts all its acres on the hex containing the ignition. Perimeter-linked fires are 0.6% of records but **81.6% of acres**; point-only fires average 14 acres against a 62,494-acre hex, so crediting them whole is accurate. Per-fire weights sum to 1, so the hex panel reconciles exactly to the ecoregion totals — this redistributes acres, it never restates them. `src/hex_burn.py`.
+- **Volunteer the limitation if the question goes a second round.** The point rule breaks in the tail: **2,710 point fires exceed 1,000 acres and carry 8.9% of all acres**, each landing entirely on one cell, and 23 rows assign more than a full hex to a single cell. So some of this curve's sharpness at the very tip is the attribution rule rather than fire behavior. The fix — imputing a circular burn from the ignition point and distributing it the same way — is designed and not built. **It does not move the argument:** the claim is about shape across the whole distribution, and slide 8's decile statistics are rank-based, so redistributing a few thousand cells changes neither direction nor conclusion.
 
-**TIME —** 0:30
+**TIME —** 0:35
 
 ---
 
@@ -543,12 +555,13 @@ Summed from the per-slide **TIME** lines. Re-derive it from those rather than ed
 | 3 — Tier-1 tiles | 0:55 | names the three classes, the acres denominator, and the spread |
 | 4 — human tiles | 0:45 | the tier change, the 11 causes, and the counts-vs-acres inversion |
 | 5 — the ladder | 0:40 | four rungs and two model families |
-| 6–17 | 0:30 each | 12 slides at the standard budget |
-| **Total** | **10:20** | against a ~10:00 target |
+| 7 — acres concentration | 0:35 | sets the standard slide 8 is judged against |
+| 6, 8–17 | 0:30 each | 11 slides at the standard budget |
+| **Total** | **10:25** | against a ~10:00 target |
 
-Six slides carry more than an even share, and each is the only place its content appears. The other twelve get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
+Seven slides carry more than an even share, and each is the only place its content appears. The other eleven get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
 
-**Currently 20 seconds long**, after cutting the shuffled-control slide (the permutation control moved into slide 6's WATCH as a prepared answer with the figure held in reserve). Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
+**Currently 25 seconds long.** Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
 
 **Next compression candidate: slides 11–12** (a matched pair that can compress to one). Slides **7 and 8** are also a matched pair, but neither survives alone — cut both or neither.
 
