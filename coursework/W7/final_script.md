@@ -193,7 +193,7 @@ Each slide below carries four blocks:
 
 > A trailing mean is a low bar, so it's worth testing against something that learns. Gradient boosting, first on what kind of place the region is — thirty-six percent, well short of the history. Then the same model handed that history as a feature — the exact numbers the winning bar averages — forty-seven. Still short.
 >
-> The dashed line is the bar at the top, and it's the same fifty-four percent from the last slide. Nothing cleared it. **Given the winning quantity, the model could not beat taking its mean.**
+> The dashed line is the bar at the top, and it's the same fifty-four percent from the last slide. Nothing cleared it. **Given the winning quantity, gradient boosting could not beat taking its mean.**
 
 **EVIDENCE**
 
@@ -205,7 +205,12 @@ Each slide below carries four blocks:
 
 **WATCH**
 
-- Concede the fair part: the rungs were run once at standard settings and not tuned. What the result rules out is "you never gave it the right features."
+- **The family question is answered — a linear rung was run in W7 and also lost.** `08_human_cause.ipynb`, final section: ridge per sub-cause, same features, split, acre weights, held-out cells and simplex projection, only the learner changed. **Ridge with history scores 52.2% top-1 against gradient boosting's 47.5% — better — and still under the floor's 54.1%** (TVD 0.537 vs the floor's 0.489). So the booster *was* paying a variance cost on a small wide panel, and fixing that recovers five points and does not reach the trailing mean.
+- **The strongest anti-tuning evidence is the flat `alpha` sweep.** Across four orders of magnitude (0.1 → 1000) ridge's top-1 is **identical to six decimal places** and TVD moves in the fifth. A regularization sweep that changes nothing is what an information ceiling looks like, not what an under-tuned model looks like. Use this if someone presses "did you tune it?"
+- **Ridge is not just rediscovering the floor** — it sits 0.283 TVD units away per cell and names a different top cause in a quarter of them (75.2% argmax agreement). Two different learners arriving near the same score by different routes is stronger evidence than either alone.
+- **Still concede what remains untested:** a full hyperparameter search over the booster, and any family beyond these two. Say "gradient boosting and ridge both lost," never "machine learning doesn't work here." *Settings on the plotted rungs:* `SimplexRegressor()` bare — `HistGradientBoostingRegressor`, `max_iter=300`, `learning_rate=0.05`, `max_leaf_nodes=31`, `random_state=0`.
+- **The figure shows three bars; there are now five rungs.** The two ridge rungs are not plotted. If asked whether another model was tried, the answer is yes and it is in the notebook — do not imply the figure is the whole ladder.
+- **What the result does rule out is "you never gave it the right features."** The history-aware rung was handed the 11 trailing human-mix columns — the exact quantity the floor averages — so the floor is a function it could represent by ignoring its other features. It is **6.5 TVD points and 6.6 top-1 points short of a quantity it was given.** That gap is an order of magnitude past what tuning moves, which is the answer to "isn't this just a hyperparameter problem?"
 - **The figure's top bar is labelled "the region's own history"; slide 4's winning tile now says "the region's own *seasonal* history."** Same quantity, same 54%, two names two slides apart. Say "seasonal" aloud on both so the room hears one baseline, not two — or relabel the figure before the final.
 - **The middle rung is the whole argument and it is easy to skip.** Losing to history is unremarkable; losing *while holding history* is the finding. If only one sentence survives a time cut, keep that one.
 - Do not say "the model failed." It scored 47% out of 11 classes — far above the 9% even guess on slide 4. It lost to a cheaper thing, which is a different claim and the one the ablation ladder is built to make.
@@ -222,7 +227,11 @@ Each slide below carries four blocks:
 
 **SAY**
 
-> Everything so far has been a whole ecoregion — one number for an area the size of a small state. That is the right scale for deciding what to target, and the wrong one for deciding where to put anything. So from here the map breaks into cells of about sixty thousand acres, and the question changes with it: not how much will burn, but where fires start.
+> Everything so far has been a whole ecoregion — one number for an area the size of a small state. That is the right scale for deciding what to target, and the wrong one for deciding where to put anything. So from here the map breaks into cells of about sixty thousand acres, and the question changes with it: not how much burns, but where fires start. Counts of ignitions, per cell.
+>
+> This is one region — the Klamath Mountains, northern California and southwest Oregon, about two hundred cells. Rank them on their own history and the dark band is six percent of the region catching a third of next season's starts. Go wider, to the light band: twenty-nine percent of the ground for sixty percent of the starts.
+>
+> The return decays from there — chasing ninety percent of the starts takes seventy-eight percent of the ground, which is barely better than treating everywhere. Ranking concentrates the return; it doesn't eliminate the tail.
 
 **EVIDENCE**
 
