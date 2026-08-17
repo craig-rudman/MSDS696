@@ -2,7 +2,7 @@
 
 **Authoritative text for the W7 dry run and the W8 final.** Where this file and `coursework/W7/MSDS696_W7_Deck.pptx` disagree, this file wins and the deck is corrected to match. It supersedes `src/build_deck.py`'s `BEATS` list and the storyboard table in the W6 status report as the source of headline and note text.
 
-Nineteen slides, numbered 0–18 in delivery order, matching the deck. The final is fifteen minutes with five for questions; the W7 dry run targets about ten minutes of talking, which is **~30 seconds per slide**.
+Eighteen slides, numbered 0–17 in delivery order, matching the deck. The final is fifteen minutes with five for questions; the W7 dry run targets about ten minutes of talking, which is **~30 seconds per slide**.
 
 **Be declarative. The headline has already made the claim** — a SAY block that opens by asking whether the claim is true ("So can you forecast that mix?") re-opens a question the slide has settled, and spends words doing it. Open on the substance instead. The same applies to deictics: the figures are captioned, so "the national average" points at its own tile and "notice the middle tile" is both redundant and a chance to point at the wrong one.
 
@@ -37,10 +37,10 @@ Each slide below carries four blocks:
 **WATCH**
 
 - **Setup is 20 seconds, not a topic.** Three things only — who it is for, what the data is, where it is weak — then the BLUF. Do not narrate the database schema; the grain and the joins belong in questions.
-- The missing-cause quarter is stated **here, voluntarily**, because a challenger will find it. Saying it first converts it from an ambush into evidence of rigor, and slide 17 pays it off as a product.
-- **Both denominators are said aloud on purpose.** Exact figures: **566,210 of 2,271,343 fires = 24.9% by count**, but **33.2M of 179.4M acres = 18.5% by acres** — the missing fires are smaller than average. Slide 17's headline says "nearly a fifth of burned acres" and Tier 1's Unknown class is 18.5%; without the acres half of this sentence, an attentive listener hears slide 0 and slide 17 contradict each other. They do not — they are two correct numbers on different denominators.
+- The missing-cause quarter is stated **here, voluntarily**, because a challenger will find it. Saying it first converts it from an ambush into evidence of rigor, and slide 16 pays it off as a product.
+- **Both denominators are said aloud on purpose.** Exact figures: **566,210 of 2,271,343 fires = 24.9% by count**, but **33.2M of 179.4M acres = 18.5% by acres** — the missing fires are smaller than average. Slide 16's headline says "nearly a fifth of burned acres" and Tier 1's Unknown class is 18.5%; without the acres half of this sentence, an attentive listener hears slide 0 and slide 16 contradict each other. They do not — they are two correct numbers on different denominators.
 - A TARGETING claim, not an efficacy one. Nothing in this project measures what a treatment achieves; the ranking says where fire is most likely to arrive, which is a necessary condition for sited work to pay off and not a sufficient one.
-- The deck closes on this same sentence at slide 18, so first and last statements match.
+- The deck closes on this same sentence at slide 17, so first and last statements match.
 - **"Pre-season" is the scope of every null in this deck and it is load-bearing.** Same-day conditions — wind, timing, suppression availability — were never tested. "The largest fires are unpredictable" is a much bigger claim than anything measured here, and it was the previous title.
 - Both halves are **instructions, not predictions**, which is why the opening needs no defense. The predictability claims arrive later, each with its own population.
 
@@ -67,7 +67,7 @@ Each slide below carries four blocks:
 **WATCH**
 
 - No axes and no magnitudes on this one — it is a calendar, not a chart.
-- **The offset is the point, not the seasonality.** "Fire is seasonal" is not news to this audience. That starts and acres peak in *different months* is what says a count of ignitions is not a measure of consequence — which is the distinction slides 15 and 16 land on.
+- **The offset is the point, not the seasonality.** "Fire is seasonal" is not news to this audience. That starts and acres peak in *different months* is what says a count of ignitions is not a measure of consequence — which is the distinction slides 14 and 15 land on.
 - **Do not assert what agencies currently do.** What is cited is that a *product exists* with a *stated purpose*, not what anyone does with it. Sources: **NICC (2023), Predictive Services, Ch. 60 of the National Interagency Mobilization Guide** — the National Significant Wildland Fire Potential Outlook is issued monthly, covers four months, and the chapter states it "provides fire managers with the information needed to make long-range decisions concerning resource staffing and allocation"; and **NICC (2026)**, a live issue, whose Outlook Objectives state it is "intended as a decision support tool" for "proactive decisions."
 - **Three things the sources do NOT support, all of which earlier drafts of this line asserted:** that the outlook "positions crews and equipment" (the text says decisions *concerning* staffing and allocation, not that resources move); that this is a **suppression** practice (Ch. 60 scopes Predictive Services to "operational management of and strategic planning for" fire management resources, broader than suppression); and anything about what coordinators think or prioritize. Say "fire management already works on a seasonal horizon," never "suppression coordinators think seasonally."
 - If asked about the July spike: it is Independence Day. **July 4 is the single highest-start day in the record — 16,907 starts, 2.71x the median day — and July 5 is second at 15,141.** Verified from `fires_clean.parquet`. It is a good answer to "does human cause really show up in the data," but do not build on it: no analysis in this deck rests on it.
@@ -99,7 +99,7 @@ Each slide below carries four blocks:
 - **The ecoregion choice is a design decision, not a tested result.** No state-boundary version was built and compared, so do not say ecoregions "work better than states." Say the unit was chosen because it is delineated from terrain, vegetation, soils and climate — the things that govern how fire behaves — where a state boundary is administrative. Omernik & Griffith (2014) is the framework; Stephens et al. (2026) models fire at Level III grain.
 - **This is the only slide that explains the unit,** and slides 3–5 all run on it. If it gets cut for time, the ecoregion grain arrives unexplained.
 - Bimodality is the load-bearing part, not the West/East split. A gradient would mean every region needs its own blended strategy; two modes mean most regions have a dominant cause and a planner can act on it.
-- Shares of **attributed** acres — the missing-cause mass named on the title slide is excluded from this shading. Slide 17 comes back for it.
+- Shares of **attributed** acres — the missing-cause mass named on the title slide is excluded from this shading. Slide 16 comes back for it.
 
 **TIME —** 0:40
 
@@ -136,7 +136,7 @@ Each slide below carries four blocks:
 - **The national tile's low end is the argument.** Its 42% is not a middling result evenly spread — the first quartile reaches down to 21%. That is slide 2's bimodality returning as forecast error: a national average describes almost no individual region.
 - **If asked "so which ones land at the bottom?"** — that is answered, and it is the strongest unpublished result in the project. A cell's own **pre-season** history dispersion predicts its error: Spearman **+0.484** here and **+0.577** on the human branch, **33 and 35 SD** above a shuffled control, holding *within* individual regions (74/93 and 80/92 series positive). By quartile of pre-season dispersion, accuracy runs **83% → 62%** on Tier 1 and **73% → 39%** on Human. `06_analysis.ipynb`, final section.
 - **State its limit in the same breath: it ranks confidence, it does not calibrate it.** "This cell is in the steadiest quartile, which historically scored 83%" — never "83% likely to be right." And 36 of 986 steadiest-quartile cells still scored below 25%, several at dispersion exactly 0.000: a settled history can precede a regime break.
-- **Unknown is a predicted class, not a discard.** It holds the missing-cause acre mass, and its share is a regional attribution-quality signal — which is what makes slide 17 a product rather than an apology. Do not describe the model as predicting "two causes plus leftovers."
+- **Unknown is a predicted class, not a discard.** It holds the missing-cause acre mass, and its share is a regional attribution-quality signal — which is what makes slide 16 a product rather than an apology. Do not describe the model as predicting "two causes plus leftovers."
 - **The comparison carries the weight, not any one tile:** the national mix (42%, left) is worse than the even split (52%, middle) — using the national average is worse than assuming you know nothing, which is slide 2 reappearing as forecast error. Do not say "the middle tile" for this point; the middle tile is the even split, and the claim is about the left one losing to it.
 - The 18.5% here and the "nearly a fifth" on the title slide are the same number — the acres denominator. Keep them consistent.
 - **The single most confusable pair of numbers in the deck.** Tier-1 shares by acres are Human 22.7 / Natural 58.8 / Unknown 18.5; **by fire count they are Human 60.7 / Natural 14.4 / Unknown 24.9** — Human and Natural almost exactly swap. Both are true. Verified from `fires_clean.parquet`. Every target and every score in this project is **acres** (`panel.tier1_composition()` divides `human_ac`/`natural_ac`/`unknown_ac` by `total_ac`; fire counts appear only under `with_counts=True`, and only as model *features*, never as a target). Name the denominator whenever these numbers are said aloud.
@@ -250,37 +250,15 @@ Each slide below carries four blocks:
 - **The region is "Klamath Mountains/California High North Coast Range"** — verified from `data/hex_grid_res5.parquet`. The SAY shortens it to "the Klamath Mountains," which is fine as a spoken shorthand, but do not name states or add "northern California and southwest Oregon": the Level III unit also covers the California High North Coast Range, and the locator inset shows the full extent.
 - This is NOT an acres model. Unsaid, the audience reads the capture curve as "32% of the burn under 6% of the ground" — a much stronger claim than the one being made. It is 32% of the STARTS.
 - The return decays fast: 90% of starts needs 77.8% of the ground at 1.16x. The ranking concentrates return; it does not eliminate the tail.
-- Q&A companion: img/w6_capture_curve.png.
+- **The control for this claim is no longer on a slide — it moved here when the shuffled-control slide was cut, and this is now the deck's only place the skill is defended.** If challenged that the ranking could be luck: the identical predictions dealt to the wrong hexes go **flat**. Spearman **+0.526 → +0.0002**; MAE **0.43 → 0.77**, worse than a uniform baseline's 0.70, on 1.59M held-out hex-seasons. Shuffling changes exactly one thing — the pairing — so the collapse is attributable to siting alone. **Have `img/w6_shuffled_control.png` ready to pull up**; it is a calibration plot, predicted starts across, observed up, and the shuffled line is flat at ~0.4 (the all-hex average), not low.
+- **Say "it ranks well," never "it is accurate."** On that same figure the forecast line runs *below* the diagonal and under-predicts the busiest hexes — top stratum predicted 4.7 against 3.7 observed. The product is an ordering, not a promised count, and slide 17's closing line says the same thing about all three branches.
+- Q&A companions: `img/w6_capture_curve.png` (the full decay curve) and `img/w6_shuffled_control.png` (the permutation control).
 
 **TIME —** 0:30
 
 ---
 
-## Slide 7 — That skill is spatial, not statistical luck.
-
-*Figure:* `img/w6_shuffled_control.png`
-
-**SAY**
-
-> I am not changing how many fires I predict. I am only changing where I say they will be. Same numbers, wrong places — and the prediction stops working.
-
-**EVIDENCE**
-
-- Two lines, forecast and shuffled: mean observed starts against mean predicted for 20 equal-count strata.
-- The forecast climbs the diagonal (top stratum predicted 4.7, observed 3.7); the same predictions dealt to the wrong hexes go flat at ~0.4.
-- Spearman +0.526 -> +0.0002; MAE 0.43 -> 0.77, worse than the uniform baseline's 0.70. 1.59M held-out hex-seasons.
-
-**WATCH**
-
-- Avoid "the model is accurate" — the line runs below the diagonal and under-predicts the busiest hexes. Say: it ranks well, it does not promise counts.
-- The shuffled line is FLAT, not low. It sits at ~0.4, the average across all hexes.
-- Why shuffled and not random: shuffling changes exactly one thing (the pairing), so the collapse is attributable to siting alone.
-
-**TIME —** 0:30
-
----
-
-## Slide 8 — Almost all the area burned is in almost none of the cells.
+## Slide 7 — Almost all the area burned is in almost none of the cells.
 
 *Figure:* `img/w6_acres_concentration.png`
 
@@ -295,13 +273,13 @@ Each slide below carries four blocks:
 
 **WATCH**
 
-- This sets the stakes for slide 9 — it names which cells a forecast has to get right BEFORE any error is shown. Matched pair with slide 9; neither survives alone.
+- This sets the stakes for slide 8 — it names which cells a forecast has to get right BEFORE any error is shown. Matched pair with slide 8; neither survives alone.
 
 **TIME —** 0:30
 
 ---
 
-## Slide 9 — Up to a point, both are predictable. Past that point, natural fire is harder.
+## Slide 8 — Up to a point, both are predictable. Past that point, natural fire is harder.
 
 *Figure:* `img/w6_branch_deciles.png`
 
@@ -311,7 +289,7 @@ Each slide below carries four blocks:
 
 **EVIDENCE**
 
-- Typical forecast error against how much a cell burned, both branches on one axis — the same axis and direction as slide 8, so the right edge means "the big burns" on both slides.
+- Typical forecast error against how much a cell burned, both branches on one axis — the same axis and direction as slide 7, so the right edge means "the big burns" on both slides.
 - They track through the smallest third, then separate: natural runs 2-3x worse than human at the same cell size, reaching 687x on a median 8,061-acre cell against human's 19x on 240.
 - Cells under 1 acre excluded: 25.3% of FPA-FOD rows sit at exactly 0.1 acres (44.5% of natural fires), a reporting default rather than a measurement.
 
@@ -324,7 +302,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 10 — Human fire is predictable year-round; natural fires only in summer.
+## Slide 9 — Human fire is predictable year-round; natural fires only in summer.
 
 *Figure:* `img/w6_season_skill.png`
 
@@ -346,7 +324,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 11 — We tried to fix that with drought and fuel, but where fires start is a property of the place, not of the year.
+## Slide 10 — We tried to fix that with drought and fuel, but where fires start is a property of the place, not of the year.
 
 *Figure:* `img/w6_ignition_ladder.png`
 
@@ -363,7 +341,7 @@ Each slide below carries four blocks:
 
 **WATCH**
 
-- Frame as a REPAIR ATTEMPT, not a new topic — slide 9 leaves a failure on the table and slides 11-13 are what was done about it.
+- Frame as a REPAIR ATTEMPT, not a new topic — slide 8 leaves a failure on the table and slides 10-12 are what was done about it.
 - Resist "fires happen where the fuel is" — fuel state added +0.004. The correct compression is "fires happen where fires have happened."
 - Q&A companion: img/w6_ndvi_variance.png, the place-vs-year split at 2.8x.
 
@@ -371,7 +349,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 12 — The same data does predict how much burns.
+## Slide 11 — The same data does predict how much burns.
 
 *Figure:* `img/w6_acres_ladder.png`
 
@@ -381,19 +359,19 @@ Each slide below carries four blocks:
 
 **EVIDENCE**
 
-- Deliberately the same figure as slide 11: same rungs, same axis, same zero-based scale, one line instead of two. The shape is the argument.
+- Deliberately the same figure as slide 10: same rungs, same axis, same zero-based scale, one line instead of two. The shape is the argument.
 - Climate + NDVI together +0.049, 26.6 SD above a covariate-shuffled control, holding across five forward-chaining split years (+0.012 to +0.066).
 - Neither half works alone — drought alone -0.008, fuel alone +0.001. Wet heavy fuel will not carry fire; dry bare ground has nothing to burn.
 
 **WATCH**
 
-- Different target and population from slide 11 (7,799 burning JJA cells, burn-conditional baseline) — comparable in SHAPE, not cell for cell.
+- Different target and population from slide 10 (7,799 burning JJA cells, burn-conditional baseline) — comparable in SHAPE, not cell for cell.
 
 **TIME —** 0:30
 
 ---
 
-## Slide 13 — But the gain misses where we need it most.
+## Slide 12 — But the gain misses where we need it most.
 
 *Figure:* `img/w6_gain_landing.png`
 
@@ -403,20 +381,20 @@ Each slide below carries four blocks:
 
 **EVIDENCE**
 
-- Slide 9's axis again, with the covariate model laid over the baseline.
+- Slide 8's axis again, with the covariate model laid over the baseline.
 - The shaded lens opens in deciles 6-9 (1-200 acre cells) and closes at the right edge where the two lines finish together: 855x -> 868x on a median 5,073-acre cell.
 - Deciles 1-5 get materially worse — decile 1 nearly doubles, 18.8x -> 35.9x. 780 held-out cells per decile.
 
 **WATCH**
 
-- Slide 8 is what makes this fatal rather than disappointing: the improvement misses the cells holding 98% of the acres.
+- Slide 7 is what makes this fatal rather than disappointing: the improvement misses the cells holding 98% of the acres.
 - Third slide landing the eye on the same right edge — the argument for reframing rather than tuning.
 
 **TIME —** 0:30
 
 ---
 
-## Slide 14 — Predicting where fires start needed a finer spatial scale. Predicting size may need a shorter time scale.
+## Slide 13 — Predicting where fires start needed a finer spatial scale. Predicting size may need a shorter time scale.
 
 *Figure:* `img/w6_grain_parallel.png`
 
@@ -427,7 +405,7 @@ Each slide below carries four blocks:
 **EVIDENCE**
 
 - The deck's only figure that plots no data, and its only one about the method rather than the fire. The solved row is closed, the untested row dashed.
-- The fourth time the project has met the same lesson: W4's pooled climate null, slide 11's places-not-years, slide 6's grain drop, now this.
+- The fourth time the project has met the same lesson: W4's pooled climate null, slide 10's places-not-years, slide 6's grain drop, now this.
 
 **WATCH**
 
@@ -440,7 +418,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 15 — Most starts don’t become big fires.  But big fires usually burn in the hex where they started.
+## Slide 14 — Most starts don’t become big fires.  But big fires usually burn in the hex where they started.
 
 > [!WARNING] **This headline may restate an artifact as a finding.** "Big fires usually burn in the hex where they started" is a spatial-containment claim, and per `CLAUDE.md` a point-only fire is assigned entirely to its ignition hex **by construction** — 2,710 point fires exceed 1,000 acres, and 23 assign more than a full hex to one cell. The figure below it measures the ignition *gate* (6.7% vs 0.29%, 22.8x), not containment. The earlier headline, "Every megafire was an ignition first," says what the figure shows. Decide before the dry run.
 
@@ -458,13 +436,13 @@ Each slide below carries four blocks:
 **WATCH**
 
 - Do not oversell the gate: it is necessary, not sufficient. 93% of igniting hex-seasons still produce nothing large. It narrows the field; it does not identify the fire.
-- This is the door slide 14 left open — size is not forecastable, but the event upstream of it is.
+- This is the door slide 13 left open — size is not forecastable, but the event upstream of it is.
 
 **TIME —** 0:30
 
 ---
 
-## Slide 16 — One ignition is enough.
+## Slide 15 — One ignition is enough.
 
 *Figure:* `img/w6_one_is_enough.png`
 
@@ -487,7 +465,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 17 — Nearly a fifth of burned acres have no specific cause — and that gap is itself forecastable.
+## Slide 16 — Nearly a fifth of burned acres have no specific cause — and that gap is itself forecastable.
 
 *Figure:* `img/w6_unknown_triage.png`
 
@@ -509,7 +487,7 @@ Each slide below carries four blocks:
 
 ---
 
-## Slide 18 — Target causes by region. Site the pre-season work by ignition. Fix the record where it says neither.
+## Slide 17 — Target causes by region. Site the pre-season work by ignition. Fix the record where it says neither.
 
 *Figure:* `img/w6_recommendation.png`
 
@@ -544,13 +522,13 @@ Summed from the per-slide **TIME** lines. Re-derive it from those rather than ed
 | 3 — Tier-1 tiles | 0:55 | names the three classes, the acres denominator, and the spread |
 | 4 — human tiles | 0:45 | the tier change, the 11 causes, and the counts-vs-acres inversion |
 | 5 — the ladder | 0:40 | four rungs and two model families |
-| 6–18 | 0:30 each | 13 slides at the standard budget |
-| **Total** | **10:50** | against a ~10:00 target |
+| 6–17 | 0:30 each | 12 slides at the standard budget |
+| **Total** | **10:20** | against a ~10:00 target |
 
-Six slides carry more than an even share, and each is the only place its content appears. The other thirteen get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
+Six slides carry more than an even share, and each is the only place its content appears. The other twelve get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
 
-**Currently 50 seconds long.** Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
+**Currently 20 seconds long**, after cutting the shuffled-control slide (the permutation control moved into slide 6's WATCH as a prepared answer with the figure held in reserve). Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
 
-**Next compression candidates: slides 12–13** (a matched pair that can compress to one). Slides **8 and 9** are also a matched pair, but neither survives alone — cut both or neither.
+**Next compression candidate: slides 11–12** (a matched pair that can compress to one). Slides **7 and 8** are also a matched pair, but neither survives alone — cut both or neither.
 
 **Word budget.** At a measured 150 wpm, 10 minutes is about **1,500 words** total. Time each SAY block as it is written rather than at the end — a block that reads fast on the page runs 20% longer aloud.
