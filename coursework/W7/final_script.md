@@ -443,7 +443,11 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> *(none yet)*
+> Same rungs, same axis, same zero — one line this time, because this is lightning only. And it moves.
+>
+> Drought alone does nothing. Fuel load alone does nothing. Put the two together and you get a real gain — a fifth better than history on its own, and it holds across every way we split the years. That makes sense physically: wet heavy fuel won't carry fire, and dry bare ground has nothing to burn. **You need both, and only both.**
+>
+> So the data does know something about how much burns. The question is whether it knows it anywhere useful.
 
 **EVIDENCE**
 
@@ -453,9 +457,14 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **WATCH**
 
+- **Target flips back to acres.** The SAY says "this is lightning only" and the figure draws one line for that reason; slide 10 drew two. If the room is tracking branches rather than quantities, that single line is the visual cue.
 - Different target and population from slide 10 (7,799 burning JJA cells, burn-conditional baseline) — comparable in SHAPE, not cell for cell.
+- **Never quote the level, only the step.** The figure annotates **+0.049** rather than the level **0.3075** on purpose: the level invites comparison with slide 10's ~0.42–0.48, which is a different population and a different target. If asked "so it's worse than the ignition model?" — those numbers are not on the same scale and the comparison is meaningless. "A fifth better than history alone" is the safe relative statement, and it is within this slide.
+- **The conjunction is the finding, not the size of the gain.** Drought alone −0.008, fuel alone +0.001, both together +0.049. A viewer reading left to right will credit "+ both" to the last thing added rather than to the combination, which is why the SAY says "you need both, and only both."
+- **This is the deck's one verified covariate win and it must not be oversold**, because slide 12 takes it away. Say "it holds up" — 26.6 SD above a covariate-shuffled control, stable across five split years (+0.012 to +0.066) — and stop. The closing line hands off to slide 12 rather than banking the result.
+- **If asked why this worked when slide 10 failed:** different target. Where a fire *starts* is a property of the place, which history already knows. How much *burns* depends on conditions that vary year to year — which is exactly what these covariates measure. That contrast is the reason both slides exist.
 
-**TIME —** 0:30
+**TIME —** 0:40
 
 ---
 
@@ -465,7 +474,11 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> *(none yet)*
+> But look at where it lands. This is the same axis as before — small cells left, the big burns right — with the covariate model laid over the baseline.
+>
+> The blue lens in the middle is the gain. It's real, and it's on cells of one to two hundred acres. At the right edge, on the cells holding almost all of the burn, the two lines finish together.
+>
+> **We improved the forecast exactly where it doesn't matter.** And on the smallest cells it's actually worse. So a gain that survives every statistical test still doesn't buy a planner anything — which says the problem isn't the features.
 
 **EVIDENCE**
 
@@ -475,10 +488,13 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **WATCH**
 
-- Slide 7 is what makes this fatal rather than disappointing: the improvement misses the cells holding 98% of the acres.
-- Third slide landing the eye on the same right edge — the argument for reframing rather than tuning.
+- Slide 7 is what makes this fatal rather than disappointing: the improvement misses the cells holding 98% of the acres. **Say "the cells holding almost all of the burn" rather than a number** — slide 7 already established it, and re-quoting 98% spends a beat re-proving a settled point.
+- Third slide landing the eye on the same right edge — the argument for reframing rather than tuning. This is the payoff of having drawn 7, 8 and 12 on the same axis in the same direction.
+- **The left end getting worse is on the figure but not labelled, and it is worth saying.** Deciles 1-5 deteriorate — decile 1 nearly doubles, 18.8x to 35.9x. The pink lens is that damage. It matters because it rules out "well, it helps a bit everywhere": the model trades accuracy on small cells for accuracy on medium ones and buys nothing where the acres are.
+- **The closing line is the deck's turn.** "The problem isn't the features" is what licenses slide 13's grain argument and, through it, the whole recommendation. Without it, three slides of covariate work read as a dead end rather than as a diagnosis.
+- **Do not say the covariate model "failed."** It produced a verified gain at 26.6 SD that held across five split years — slide 11 is not retracted here. It failed to be *useful*, which is a different and more interesting claim, and the distinction is what keeps the deck honest rather than defeatist.
 
-**TIME —** 0:30
+**TIME —** 0:40
 
 ---
 
@@ -614,12 +630,14 @@ Summed from the per-slide **TIME** lines. Re-derive it from those rather than ed
 | 8 — branch deciles | 0:45 | the pivot: needs the log-scale warning to not undersell itself |
 | 9 — season skill | 0:35 | two branches x four seasons, and the program split |
 | 10 — the covariate null | 0:40 | the null plus its mechanism, which is what makes it a result |
-| 6, 11–17 | 0:30 each | 8 slides at the standard budget |
-| **Total** | **10:55** | against a ~10:00 target |
+| 11 — the acres ladder | 0:40 | the one covariate win, and the conjunction that carries it |
+| 12 — where the gain lands | 0:40 | takes 11 away; the deck's turn toward grain |
+| 6, 13–17 | 0:30 each | 6 slides at the standard budget |
+| **Total** | **11:15** | against a ~10:00 target |
 
-Ten slides carry more than an even share, and each is the only place its content appears. The other eight get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
+Twelve slides carry more than an even share, and each is the only place its content appears. The other six get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
 
-**Currently 55 seconds long**, and the trim has to come off a measured run rather than off the page. Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
+**Currently 75 seconds long, with three SAY blocks still unwritten.** A content-editing pass for length is planned once they are all drafted — the trim comes off measured prose, not off estimates. Slides 11–12 remain the standing candidate: a matched pair that can compress to one, worth roughly 40 seconds. Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
 
 **Next compression candidate: slides 11–12** (a matched pair that can compress to one). Slides **7 and 8** are also a matched pair, but neither survives alone — cut both or neither.
 
