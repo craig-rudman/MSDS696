@@ -322,20 +322,30 @@ Written out because notes are read under pressure, and a compressed line like "h
 
 **SAY**
 
-> *(none yet)*
+> Same ordering as the last slide — the big burns on the right — but now it's how far off the forecast was. Human fire in blue, lightning in orange.
+>
+> Across the left two thirds they track together and they're close. Then they split — and watch the scale, because every gridline is ten times the one below. At the right edge, on the cells that hold the acres, human fire is off by a factor of nineteen. Lightning, by nearly seven hundred.
+>
+> **So these ship as two different products.** Human burn you can rank by expected acres. Lightning you can't — which means for lightning the answer has to be something other than how much.
 
 **EVIDENCE**
 
 - Typical forecast error against how much a cell burned, both branches on one axis — the same axis and direction as slide 7, so the right edge means "the big burns" on both slides.
 - They track through the smallest third, then separate: natural runs 2-3x worse than human at the same cell size, reaching 687x on a median 8,061-acre cell against human's 19x on 240.
 - Cells under 1 acre excluded: 25.3% of FPA-FOD rows sit at exactly 0.1 acres (44.5% of natural fires), a reporting default rather than a measurement.
+- Populations differ by an order of magnitude: 18,633 natural cells against 149,949 human.
 
 **WATCH**
 
+- **Say the y-axis is logarithmic, or the figure understates itself.** Every gridline is 10x the one below, so the visual gap at the right edge — which looks like a moderate separation — is **687x against 19x, a 37-fold difference in error.** This is the one slide where the honest reading is *worse* than the eye's, and the SAY calls out the scale for exactly that reason.
+- **The two top-decile numbers are not on the same cells.** Natural's 687x is on a median **8,061-acre** cell; human's 19x is on a median **240-acre** cell. So the headline pair is not like-for-like — natural's worst decile is a far bigger fire. The defensible statement is the one in the SAY's third paragraph plus this: *at matched cell size natural still runs 2–3x worse.* Do not present 687-vs-19 as a controlled comparison.
 - Quote the population with the number. Across ALL JJA natural burning cells the top decile is 269.8x on a median 2,970-acre cell; 854.9x is the six-forest-ecoregion population used for the covariate ladder. The like-for-like against Human is 269.8x, not 855x.
 - This licenses shipping two DIFFERENT products: Human can be ranked by expected acres, Natural cannot.
+- **The closing line is the deck's pivot, not a summary of this slide.** "For lightning the answer has to be something other than how much" is what sends the argument to ignition — slides 14 and 15 — and eventually to the recommendation. Slide 7 set the stakes, this slide fails them, and that failure is the reason the product changes shape.
+- **Sub-acre cells are excluded here but kept on slide 7**, and the reason differs by figure: here their *error* is a records artifact (25.3% of rows sit at exactly 0.1 acres, 44.5% of natural fires), while there the quantity is acres, which are real however coarsely recorded. If challenged on inconsistency, that is the answer — the exclusion follows what is being measured.
+- Do not say "the model fails on large fires" without "before the season." Same-day conditions were never tested, and that scope caveat is what keeps this from being a much bigger claim than was measured.
 
-**TIME —** 0:30
+**TIME —** 0:45
 
 ---
 
@@ -560,12 +570,13 @@ Summed from the per-slide **TIME** lines. Re-derive it from those rather than ed
 | 4 — human tiles | 0:45 | the tier change, the 11 causes, and the counts-vs-acres inversion |
 | 5 — the ladder | 0:40 | four rungs and two model families |
 | 7 — acres concentration | 0:35 | sets the standard slide 8 is judged against |
-| 6, 8–17 | 0:30 each | 11 slides at the standard budget |
-| **Total** | **10:25** | against a ~10:00 target |
+| 8 — branch deciles | 0:45 | the pivot: needs the log-scale warning to not undersell itself |
+| 6, 9–17 | 0:30 each | 10 slides at the standard budget |
+| **Total** | **10:40** | against a ~10:00 target |
 
-Seven slides carry more than an even share, and each is the only place its content appears. The other eleven get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
+Eight slides carry more than an even share, and each is the only place its content appears. The other ten get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
 
-**Currently 25 seconds long.** Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
+**Currently 40 seconds long.** Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
 
 **Next compression candidate: slides 11–12** (a matched pair that can compress to one). Slides **7 and 8** are also a matched pair, but neither survives alone — cut both or neither.
 
