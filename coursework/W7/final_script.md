@@ -41,6 +41,8 @@ Read down the deck, the target goes: **cause · cause · cause — starts — ac
 
 **8 → 9 flips back to starts** and is the next most likely to be missed, since slide 9 also plots a skill measure and could be heard as continuing slide 8's error story. **12 → 13** is safe (13 plots no data and is explicitly about method), and **13 → 14** is announced by the headline.
 
+**Headlines have to name the quantity too, not just the SAY.** Slide 8's read "Up to a point, both are predictable" — where *both* could mean starts-vs-acres and *predictable* could mean starts, so a listener two slides into an acres run had two ways to lose the thread from the headline alone. It now names the branches and the quantity: "human and natural burned area." Check any headline using "predictable," "both," or "it" against this table before the dry run.
+
 **Two anchors worth carrying.** A Spearman of +0.53 sounds middling until you know the shuffled control scores **+0.0002** — that is what zero looks like in this data. And "SD above a shuffled control" (33, 35, 26.6 in various notes) means *how many standard deviations the real result sits above the spread of the shuffled ones*: past about 3 is convincing, so 26 and up is not a close call.
 
 ---
@@ -334,13 +336,13 @@ Read down the deck, the target goes: **cause · cause · cause — starts — ac
 
 ---
 
-## Slide 8 — Up to a point, both are predictable. Past that point, natural fire is harder.
+## Slide 8 — Up to a point, human and natural burned area is equally predictable. Past that point, natural is harder.
 
 *Figure:* `img/w6_branch_deciles.png`
 
 **SAY**
 
-> Same ordering as the last slide — the big burns on the right — but now it's how far off the forecast was. Human fire in blue, lightning in orange.
+> Still acres, not starts — same cells, same ordering, big burns on the right. What's new is how far off the acres forecast was. Human in blue, natural in orange.
 >
 > Across the left two thirds they track together and they're close. Then they split — and watch the scale, because every gridline is ten times the one below. At the right edge, on the cells that hold the acres, human fire is off by a factor of nineteen. Lightning, by nearly seven hundred.
 >
@@ -355,6 +357,7 @@ Read down the deck, the target goes: **cause · cause · cause — starts — ac
 
 **WATCH**
 
+- **"Predictable" here means the acres forecast, and the headline had to say so.** "Both are predictable" invited two wrong readings at once: *both* could mean starts-vs-acres (the contrast slide 6 just set up) rather than human-vs-natural, and *predictable* could mean starts. The headline now names the branches and the quantity, and the SAY opens "still acres, not starts." This is the third slide in a row on acres, and the one where a listener is most likely to have drifted.
 - **Say the y-axis is logarithmic, or the figure understates itself.** Every gridline is 10x the one below, so the visual gap at the right edge — which looks like a moderate separation — is **687x against 19x, a 37-fold difference in error.** This is the one slide where the honest reading is *worse* than the eye's, and the SAY calls out the scale for exactly that reason.
 - **The two top-decile numbers are not on the same cells.** Natural's 687x is on a median **8,061-acre** cell; human's 19x is on a median **240-acre** cell. So the headline pair is not like-for-like — natural's worst decile is a far bigger fire. The defensible statement is the one in the SAY's third paragraph plus this: *at matched cell size natural still runs 2–3x worse.* Do not present 687-vs-19 as a controlled comparison.
 - Quote the population with the number. Across ALL JJA natural burning cells the top decile is 269.8x on a median 2,970-acre cell; 854.9x is the six-forest-ecoregion population used for the covariate ladder. The like-for-like against Human is 269.8x, not 855x.
@@ -383,6 +386,7 @@ Read down the deck, the target goes: **cause · cause · cause — starts — ac
 
 **WATCH**
 
+- **The headline says "predictable" without naming the quantity, and this is the worst place in the deck for that.** "Human fire is predictable year-round" arrives after two acres slides and means **ignition counts**. Candidate replacement, matching what slide 8 now does: *"Human fires start predictably year-round; natural only in summer."* Decide before the dry run — the SAY can carry it, but the headline is what stays on screen while the audience thinks.
 - **This slide flips the target back to ignition counts** after two acres slides, and it is the second most missable boundary in the deck — slide 8 also plotted a skill measure, so this can be heard as continuing its error story. It is not: this is how well *starts* were ranked, season by season. Say "starts" in the first sentence.
 - The deck's only figure showing a distribution rather than a point estimate.
 
