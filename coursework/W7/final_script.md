@@ -191,17 +191,18 @@ Each slide below carries four blocks:
 
 **SAY**
 
-> A trailing mean is a low bar, so it's worth testing against something that learns. Gradient boosting, first on what kind of place the region is — thirty-six percent, well short of the history. Then the same model handed that history as a feature — the exact numbers the winning bar averages — forty-seven. Still short.
+> A trailing mean is a low bar, so it's worth testing against something that learns. Gradient boosting, first on what kind of place the region is — thirty-six percent, well short of the history. Then the same model handed that history as a feature — the exact numbers the winning bar averages — forty-seven. A second kind of model, given that same history, gets to fifty-two.
 >
-> The dashed line is the bar at the top, and it's the same fifty-four percent from the last slide. Nothing cleared it. **Given the winning quantity, gradient boosting could not beat taking its mean.**
+> The dashed line is the bar at the top, and it's the same fifty-four percent from the last slide. **Two families, and neither one beat taking the average of the thing we handed it.**
 
 **EVIDENCE**
 
-- Three rungs against the floor line: the region's own history names the leading human cause 54% of the time; gradient boosting on region character 36%; the same model given that history as a feature 47%.
-- Bars read bottom to top, worst to best: 36%, 47%, 54%. The dashed vertical is the 54% floor.
+- Four rungs against the floor line: the region's own seasonal history names the leading human cause 54% of the time; ridge given that history 52%; gradient boosting given that history 47%; gradient boosting on region character 36%.
+- Bars read top to bottom, best to worst: 54%, 52%, 47%, 36%. The dashed vertical is the 54% floor.
 - The top bar is slide 4's winning tile, replotted — not a new measurement.
-- Acre-weighted TVD 0.489 / 0.588 / 0.554.
-- Even handed the winning quantity, the model cannot beat taking its mean.
+- Acre-weighted TVD, same order: 0.489 / 0.537 / 0.554 / 0.588. 3,846 held-out cells.
+- **Ridge beats gradient boosting by 4.7 points of top-1**, which is the W7 addition. Everything else about the two rungs is identical — features, split, acre weights, held-out cells, simplex projection — so the gap is the learner alone.
+- Even handed the winning quantity, neither family beats taking its mean.
 
 **WATCH**
 
@@ -209,27 +210,30 @@ Each slide below carries four blocks:
 - **The strongest anti-tuning evidence is the flat `alpha` sweep.** Across four orders of magnitude (0.1 → 1000) ridge's top-1 is **identical to six decimal places** and TVD moves in the fifth. A regularization sweep that changes nothing is what an information ceiling looks like, not what an under-tuned model looks like. Use this if someone presses "did you tune it?"
 - **Ridge is not just rediscovering the floor** — it sits 0.283 TVD units away per cell and names a different top cause in a quarter of them (75.2% argmax agreement). Two different learners arriving near the same score by different routes is stronger evidence than either alone.
 - **Still concede what remains untested:** a full hyperparameter search over the booster, and any family beyond these two. Say "gradient boosting and ridge both lost," never "machine learning doesn't work here." *Settings on the plotted rungs:* `SimplexRegressor()` bare — `HistGradientBoostingRegressor`, `max_iter=300`, `learning_rate=0.05`, `max_leaf_nodes=31`, `random_state=0`.
-- **The figure shows three bars; there are now five rungs.** The two ridge rungs are not plotted. If asked whether another model was tried, the answer is yes and it is in the notebook — do not imply the figure is the whole ladder.
+- **The figure shows four bars; the ladder has five rungs.** Ridge on the coarse fingerprints (35.67%) is not plotted — it duplicates the gradient-boosting coarse bar (35.66%) to within a rounding step, and two identical-length bars both reading "36%" cost a beat of reading time to discover they say the same thing. Notebook 08 has the full table. Do not imply the figure is the whole ladder.
 - **What the result does rule out is "you never gave it the right features."** The history-aware rung was handed the 11 trailing human-mix columns — the exact quantity the floor averages — so the floor is a function it could represent by ignoring its other features. It is **6.5 TVD points and 6.6 top-1 points short of a quantity it was given.** That gap is an order of magnitude past what tuning moves, which is the answer to "isn't this just a hyperparameter problem?"
-- **The figure's top bar is labelled "the region's own history"; slide 4's winning tile now says "the region's own *seasonal* history."** Same quantity, same 54%, two names two slides apart. Say "seasonal" aloud on both so the room hears one baseline, not two — or relabel the figure before the final.
-- **The middle rung is the whole argument and it is easy to skip.** Losing to history is unremarkable; losing *while holding history* is the finding. If only one sentence survives a time cut, keep that one.
-- Do not say "the model failed." It scored 47% out of 11 classes — far above the 9% even guess on slide 4. It lost to a cheaper thing, which is a different claim and the one the ablation ladder is built to make.
+- **The top bar now reads "the region's own seasonal history," matching slide 4's tile** — the two-names-for-one-baseline mismatch is fixed in the figure rather than papered over in delivery. Both slides say the same words for the same 54%.
+- **The two "given that history" rungs are the whole argument and they are easy to skip.** Losing to history is unremarkable; losing *while holding history* is the finding — twice, with two different learners. If only one sentence survives a time cut, keep that one.
+- **Do not name ridge aloud unless asked.** The SAY says "a second kind of model" because the bar is labelled and the audience is executives; the word buys nothing spoken and costs a beat. The label is there for anyone who wants it.
+- Do not say "the model failed." The best learned rung scored 52% out of 11 classes — far above the 9% even guess on slide 4. It lost to a cheaper thing, which is a different claim and the one the ablation ladder is built to make.
 - Keep this slide — it is the only one conceding a model was tried and lost, which is what keeps the nulls credible.
-- The bars are a **hit rate** — how often the leading cause is named right, out of 11 — so "of the time" is the correct phrasing here, unlike slide 3. The TVDs (0.489 / 0.588 / 0.554) are in the evidence above but are **not what is plotted**; do not quote them off this figure.
+- The bars are a **hit rate** — how often the leading cause is named right, out of 11 — so "of the time" is the correct phrasing here, unlike slide 3. The TVDs are in the evidence above but are **not what is plotted**; do not quote them off this figure.
 
-**TIME —** 0:30
+**TIME —** 0:40
 
 ---
 
-## Slide 6 — Where fires start is predictable, but not at ecoregion scale.
+## Slide 6 — Where fires start is predictable, at the scale where you'd site the work.
 
 *Figure:* `img/w6_siting_glance.png`
 
 **SAY**
 
-> Everything so far has been a whole ecoregion — one number for an area the size of a small state. That is the right scale for deciding what to target, and the wrong one for deciding where to put anything. So from here the map breaks into cells of about sixty thousand acres, and the question changes with it: not how much burns, but where fires start. Counts of ignitions, per cell.
+> Everything so far has been a whole ecoregion — one number for an area the size of a small state. That is the right scale for deciding what to target, and the wrong one for deciding where to put anything.
 >
-> This is one region — the Klamath Mountains, northern California and southwest Oregon, about two hundred cells. Rank them on their own history and the dark band is six percent of the region catching a third of next season's starts. Go wider, to the light band: twenty-nine percent of the ground for sixty percent of the starts.
+> So the question changes — and it isn't a finer-grained version of the last one. The map breaks into cells of about sixty thousand acres, and the target changes with it: not shares of burned area, but counts of ignitions, per cell.
+>
+> This is one region — the Klamath Mountains, about two hundred cells. Rank them on their own history and the dark band is six percent of the region catching a third of next season's starts. Go wider, to the light band: twenty-nine percent of the ground for sixty percent of the starts.
 >
 > The return decays from there — chasing ninety percent of the starts takes seventy-eight percent of the ground, which is barely better than treating everywhere. Ranking concentrates the return; it doesn't eliminate the tail.
 
@@ -241,6 +245,9 @@ Each slide below carries four blocks:
 **WATCH**
 
 - The deck's ONE grain change, and three things change at once: unit (105 ecoregions -> 36,234 hexes), target (acres -> ignition counts), answer (shares -> counts). The headline announces only the first; say the others.
+- **This is a distinct sub-project, not a rescue of slide 5.** Delivered in sequence — a null, then a grain drop — the room will infer that the ecoregion model underperformed so the analysis went looking at a finer grain for a better number. It did not: per `CLAUDE.md` the hex ignition surface is "methodologically distinct," a different target at a different grain answering a different planner question, and the Human product ships at 54% on its own terms. The SAY blocks this with "it isn't a finer-grained version of the last one"; if asked directly, say the two are different questions and neither result depends on the other. Do NOT defend it by re-arguing 54%.
+- **The headline asserts a scale, not a comparison — keep it that way.** It previously read "but not at ecoregion scale," which claims a tested result that does not exist: no ignition model was ever built at ecoregion grain and beaten. The hex grain is a **design argument** — an ecoregion is too coarse to site work *inside* — exactly the same shape as slide 2's ecoregion choice, and it takes the same honest answer: the unit was chosen to match the decision, never because it "scored better." If asked why not ecoregions for this, say a planner cannot act on one number for an area the size of a small state; do not imply a head-to-head.
+- **The region is "Klamath Mountains/California High North Coast Range"** — verified from `data/hex_grid_res5.parquet`. The SAY shortens it to "the Klamath Mountains," which is fine as a spoken shorthand, but do not name states or add "northern California and southwest Oregon": the Level III unit also covers the California High North Coast Range, and the locator inset shows the full extent.
 - This is NOT an acres model. Unsaid, the audience reads the capture curve as "32% of the burn under 6% of the ground" — a much stronger claim than the one being made. It is 32% of the STARTS.
 - The return decays fast: 90% of starts needs 77.8% of the ground at 1.16x. The ranking concentrates return; it does not eliminate the tail.
 - Q&A companion: img/w6_capture_curve.png.
@@ -527,17 +534,22 @@ Each slide below carries four blocks:
 
 ## Timing
 
-| | slides | budget |
+Summed from the per-slide **TIME** lines. Re-derive it from those rather than editing this table by hand — the total has drifted from it twice already.
+
+| slide | budget | why it is over 0:30 |
 |---|---|---|
-| Title — setup + BLUF | 1 | 0:45 |
-| Slide 2 — explains the unit | 1 | 0:40 |
-| Slide 3 — names the Tier-1 classes | 1 | 0:40 |
-| Remaining slides | 16 | 8:05 |
-| **Total** | **19** | **10:10** |
+| 0 — title | 0:45 | the deck's only setup: stakeholder, data source, missing-cause caveat |
+| 1 — seasonality | 0:35 | carries the seasonal-horizon citation |
+| 2 — the cause map | 0:40 | the only slide that explains the ecoregion unit |
+| 3 — Tier-1 tiles | 0:55 | names the three classes, the acres denominator, and the spread |
+| 4 — human tiles | 0:45 | the tier change, the 11 causes, and the counts-vs-acres inversion |
+| 5 — the ladder | 0:40 | four rungs and two model families |
+| 6–18 | 0:30 each | 13 slides at the standard budget |
+| **Total** | **10:50** | against a ~10:00 target |
 
-Three slides carry more than an even share: the title is the deck's only setup (stakeholder, data source, missing-cause caveat), slide 2 is the only slide that explains the ecoregion unit, and slide 3 is the only one that names the three Tier-1 classes. All three are load-bearing for everything after them.
+Six slides carry more than an even share, and each is the only place its content appears. The other thirteen get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
 
-The remaining sixteen slides get **30 seconds each**, which is why every slide has to open on its assertion rather than on a wind-up. Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long.
+**Currently 50 seconds long.** Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
 
 **Next compression candidates: slides 12–13** (a matched pair that can compress to one). Slides **8 and 9** are also a matched pair, but neither survives alone — cut both or neither.
 

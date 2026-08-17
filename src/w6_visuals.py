@@ -2661,8 +2661,9 @@ def plot_ablation_ladder(labels, values, out_path: Path, *,
             "out_path": str(out_path)}
 
 
-def human_rung_scores(panel, *, k: int | None = None, cfg=None) -> pd.DataFrame:
-    """The Human branch's three rungs, scored on one held-out set.
+def human_rung_scores(panel, *, k: int | None = None, cfg=None,
+                      include_ridge: bool = True) -> pd.DataFrame:
+    """The Human branch's rungs, scored on one held-out set.
 
     Reproduces `08_human_cause.ipynb`'s ladder by calling the same
     `models.SimplexRegressor` and `trailing.TrailingMean`, so the figure cannot
@@ -2673,9 +2674,30 @@ def human_rung_scores(panel, *, k: int | None = None, cfg=None) -> pd.DataFrame:
       (`f_*`) plus season, with no view of the cell's human past
     * **history-aware** -- the same model, additionally handed the 11 trailing
       human-mix columns as features: the very quantity the floor averages
+    * **ridge_history** -- a *different model family* on that same history-aware
+      feature set (W7; `include_ridge`)
 
-    Fits 22 gradient-boosted regressors, so it takes a couple of minutes.
+    **Why the ridge rung is here.** With only the three gradient-boosting rungs,
+    the figure invites "you picked a learner that overfits" -- and every bar on
+    it being the same family made "a learned model made it worse" read as a
+    claim about learned models generally. Ridge answers it *on the figure*: it
+    beats the booster (the booster was paying a variance cost on a small wide
+    panel -- ~5,300 training cells, 23 features, 11 correlated targets) and
+    still stops short of the floor. Two families converging just below a
+    trailing mean is the evidence for an information ceiling.
+
+    The **coarse** ridge rung is deliberately not returned: it scores 0.3567
+    against gradient boosting's 0.3566, and two bars of identical length
+    reading "36%" twice is noise. The five-rung table lives in
+    `08_human_cause.ipynb`, which is the complete record.
+
+    Fits 22 gradient-boosted regressors (plus 11 near-instant ridges), so it
+    takes a couple of minutes.
     """
+    from sklearn.linear_model import Ridge
+    from sklearn.pipeline import make_pipeline
+    from sklearn.preprocessing import StandardScaler
+
     from models import SimplexRegressor
     from trailing import TrailingMean
 
@@ -2706,17 +2728,45 @@ def human_rung_scores(panel, *, k: int | None = None, cfg=None) -> pd.DataFrame:
                                  weights=w[te])))
 
     base = d[fcols + scols].to_numpy().astype(float)
-    rows = [("the region's own history", "floor") + score(F)]
+    X_hist = np.column_stack([base, F])
+
+    # "seasonal" is load-bearing, not decoration: the grouping is (region, season),
+    # so a cell sees only its own prior same-season occurrences. The tiles figure
+    # says "seasonal history" too -- one baseline must not carry two names across
+    # two consecutive slides.
+    rows = [("the region's own seasonal history", "floor") + score(F)]
     for label, key_, X in (
         ("gradient boosting on region character", "coarse", base),
-        ("gradient boosting, given that history", "history_aware",
-         np.column_stack([base, F])),
+        ("gradient boosting, given that history", "history_aware", X_hist),
     ):
         # Acre weights in the fit, matching `08_human_cause.ipynb`. Without them
         # the learned rungs score differently -- the model spends its capacity on
         # cells that carry almost no acres.
         model = SimplexRegressor().fit(X[tr], act[tr], sample_weight=w[tr])
         rows.append((label, key_) + score(model.predict(X)))
+
+    if include_ridge:
+        # Same clip-and-renormalize projection SimplexRegressor applies, so the
+        # only thing differing from the rung above is the learner. Scaled first:
+        # the fingerprints put acres beside shares, and ridge penalizes raw
+        # coefficients, so unscaled the penalty would land almost entirely on
+        # whichever feature happens to be small-valued.
+        #
+        # Predicted on the test rows only, then scattered back. The gradient-boosting
+        # rungs above predict the whole frame because HistGradientBoosting accepts NaN
+        # natively; ridge does not, and rows outside `ok` carry NaN fingerprints. Only
+        # `te` rows are ever scored, so restricting the predict is a fix rather than a
+        # compromise -- but it means this block cannot be collapsed into the loop above.
+        P = np.full_like(act, np.nan, dtype=float)
+        P[te] = np.column_stack([
+            make_pipeline(StandardScaler(), Ridge(alpha=1.0))
+            .fit(X_hist[tr], act[tr, j], ridge__sample_weight=w[tr])
+            .predict(X_hist[te])
+            for j in range(act.shape[1])
+        ])
+        P[te] = np.clip(P[te], 0, None)         # ridge is unbounded; negatives are not shares
+        P[te] /= P[te].sum(axis=1, keepdims=True)
+        rows.append(("ridge, given that history", "ridge_history") + score(P))
 
     out = pd.DataFrame(rows, columns=["label", "key", "tvd", "top1"]).set_index("key")
     out.attrs["n_test"] = int(te.sum())
