@@ -13,6 +13,20 @@ Each slide below carries four blocks:
 - **WATCH** — traps, caveats and framing obligations, placed behind the slide where they would be sprung.
 - **TIME** — the budget for this slide.
 
+### The five terms these notes keep using
+
+Written out because notes are read under pressure, and a compressed line like "held-out Spearman +0.53" is one more thing to decode at the moment you can least afford it. **None of these words go in a SAY block** — they are for answering questions, not for the talk.
+
+| shorthand | what it means | how to say it aloud |
+|---|---|---|
+| **held-out** | Scored on years the model never saw: trained on 1992–2009, graded on 2010–2020. The guard against grading your own homework. | "on years the model had never seen" |
+| **Spearman** | A rank correlation, −1 to +1. Asks *did the cells I ranked high turn out high* — ordering only, not counts. The right measure here because the product is a ranked list. | "how well the ranking held up" |
+| **TVD** (total variation distance) | For a **mix**: how much of the composition sat on the wrong cause. 0 = perfect, 1 = entirely wrong. Slides 3–5 plot `1 − TVD`, so higher is better. | "how much of the mix landed on the right cause" |
+| **top-1** | Did the single highest-ranked cause turn out to be the actual biggest? A yes/no per cell, so "of the time" is correct — unlike TVD. | "how often it names the right leading cause" |
+| **shuffled control** | Take the real predictions and deal them to the wrong cells. Everything is preserved except the pairing, so whatever collapses was doing real work. | "same numbers, wrong places" |
+
+**Two anchors worth carrying.** A Spearman of +0.53 sounds middling until you know the shuffled control scores **+0.0002** — that is what zero looks like in this data. And "SD above a shuffled control" (33, 35, 26.6 in various notes) means *how many standard deviations the real result sits above the spread of the shuffled ones*: past about 3 is convincing, so 26 and up is not a close call.
+
 ---
 
 ## Slide 0 · Title slide
@@ -240,7 +254,10 @@ Each slide below carries four blocks:
 **EVIDENCE**
 
 - Klamath hexes in two bands: the deep band is 6% of the region catching 32% of next season's starts (5.2x); the light band 29% for 60% (2.1x).
-- Held-out Spearman: Human +0.53, Natural +0.34.
+- **How well the ranking holds up on years the model never saw: human ignitions +0.53, natural +0.34.** These are rank correlations (Spearman), scored on 2010–2020 after training on 1992–2009.
+  - *What the number is:* a score from −1 to +1 for **whether the hexes ranked high turned out high**. It looks only at the ordering, not the counts — which is the right measure because the product is a ranked list of where to site work, not a promised number of fires per cell.
+  - *What counts as good:* the honest anchor is this project's own control, not a textbook band. Dealing the same predictions to the wrong hexes scores **+0.0002**. That is what zero looks like in this data, so +0.53 is a long way from luck.
+  - *Why human beats natural:* people ignite in the same places year after year — roads, structures, recreation sites. Lightning is more nearly random across a landscape. Slide 9 is where that gap gets its own slide.
 
 **WATCH**
 
@@ -250,7 +267,11 @@ Each slide below carries four blocks:
 - **The region is "Klamath Mountains/California High North Coast Range"** — verified from `data/hex_grid_res5.parquet`. The SAY shortens it to "the Klamath Mountains," which is fine as a spoken shorthand, but do not name states or add "northern California and southwest Oregon": the Level III unit also covers the California High North Coast Range, and the locator inset shows the full extent.
 - This is NOT an acres model. Unsaid, the audience reads the capture curve as "32% of the burn under 6% of the ground" — a much stronger claim than the one being made. It is 32% of the STARTS.
 - The return decays fast: 90% of starts needs 77.8% of the ground at 1.16x. The ranking concentrates return; it does not eliminate the tail.
-- **The control for this claim is no longer on a slide — it moved here when the shuffled-control slide was cut, and this is now the deck's only place the skill is defended.** If challenged that the ranking could be luck: the identical predictions dealt to the wrong hexes go **flat**. Spearman **+0.526 → +0.0002**; MAE **0.43 → 0.77**, worse than a uniform baseline's 0.70, on 1.59M held-out hex-seasons. Shuffling changes exactly one thing — the pairing — so the collapse is attributable to siting alone. **Have `img/w6_shuffled_control.png` ready to pull up**; it is a calibration plot, predicted starts across, observed up, and the shuffled line is flat at ~0.4 (the all-hex average), not low.
+- **The control for this claim is no longer on a slide — it moved here when the shuffled-control slide was cut, and this is now the deck's only place the skill is defended.** If challenged that the ranking could be luck, the answer in one sentence is: **the identical predictions dealt to the wrong hexes go flat.** Then the numbers, on 1.59M held-out hex-seasons:
+  - **The ranking collapses to nothing: +0.526 → +0.0002.** That second number is the useful one — it is what "no relationship at all" measures as in this data, which is the anchor for judging the +0.53.
+  - **The typical miss gets worse: 0.43 → 0.77 fires per cell** (mean absolute error — average size of the gap between predicted and actual, in the units of the thing predicted). The shuffled version is worse than **0.70**, which is what you get predicting the same national average everywhere. Misplaced predictions are worse than no predictions.
+  - **Why shuffling rather than random numbers:** it preserves everything — the same values, the same total, the same distribution — and breaks only which cell each one is attached to. So whatever collapses was being done by the placement, and nothing else.
+  - **Have `img/w6_shuffled_control.png` ready to pull up.** Predicted starts along the bottom, what actually happened up the side, twenty groups of cells. The forecast line climbs; the shuffled line is **flat at about 0.4** — the all-hex average — not low. Flat is the tell: it means the prediction carries no information about which cell is which.
 - **Say "it ranks well," never "it is accurate."** On that same figure the forecast line runs *below* the diagonal and under-predicts the busiest hexes — top stratum predicted 4.7 against 3.7 observed. The product is an ordering, not a promised count, and slide 17's closing line says the same thing about all three branches.
 - Q&A companions: `img/w6_capture_curve.png` (the full decay curve) and `img/w6_shuffled_control.png` (the permutation control).
 
@@ -312,7 +333,7 @@ Each slide below carries four blocks:
 
 **EVIDENCE**
 
-- Held-out Spearman by season, each branch scored separately in all 11 held-out years, band spanning the observed year-to-year range.
+- **How well the ranking held up, season by season** (Spearman, on years the model never saw). Each branch is scored separately in all 11 held-out years; the band spans the observed year-to-year range rather than being an error bar.
 - Human runs flat and high (median +0.47 to +0.61, peaking in spring); natural is a summer surface (+0.42 JJA, +0.07 DJF).
 - Human beats natural in all 44 season-years without exception.
 
@@ -459,7 +480,7 @@ Each slide below carries four blocks:
 
 - The rule is binary: does this place ignite, not how often.
 - If asked "doesn't a cell with more ignitions carry more risk?" — the rate does rise (19.1% at 11-20 ignitions vs 5.4% at one), but risk PER ignition falls 0.054 -> 0.014, and 49% of large-fire cells had exactly one ignition.
-- Ignition count ranks burned area worse than the hex's own burn history does: Spearman +0.253 against +0.357.
+- Ignition count ranks burned area **worse** than the hex's own burn history does — +0.253 against +0.357 on the same ranking measure. Counting starts is a poorer guide to where acres will burn than knowing what has burned there before.
 
 **TIME —** 0:30
 
