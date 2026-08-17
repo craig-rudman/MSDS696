@@ -370,13 +370,17 @@ Read down the deck, the target goes: **cause · cause · cause — starts — ac
 
 ---
 
-## Slide 9 — Human fire is predictable year-round; natural fires only in summer.
+## Slide 9 — Where human fires start is predictable year-round; natural only in summer.
 
 *Figure:* `img/w6_season_skill.png`
 
 **SAY**
 
-> *(none yet)*
+> Back to where fires start — and this splits by season. Human in blue, natural in orange, each dot a season, the band showing the spread across eleven separate years.
+>
+> Human fire is rankable all year. It peaks in spring, but it never drops far. Natural fire is a summer phenomenon — good in July, and by winter it's essentially nothing.
+>
+> That matters because they call for different work. **Human ignition is a year-round program. Lightning is a seasonal one**, and the season it needs is the one that burns.
 
 **EVIDENCE**
 
@@ -386,11 +390,15 @@ Read down the deck, the target goes: **cause · cause · cause — starts — ac
 
 **WATCH**
 
-- **The headline says "predictable" without naming the quantity, and this is the worst place in the deck for that.** "Human fire is predictable year-round" arrives after two acres slides and means **ignition counts**. Candidate replacement, matching what slide 8 now does: *"Human fires start predictably year-round; natural only in summer."* Decide before the dry run — the SAY can carry it, but the headline is what stays on screen while the audience thinks.
-- **This slide flips the target back to ignition counts** after two acres slides, and it is the second most missable boundary in the deck — slide 8 also plotted a skill measure, so this can be heard as continuing its error story. It is not: this is how well *starts* were ranked, season by season. Say "starts" in the first sentence.
+- **This slide flips the target back to ignition counts** after two acres slides, and it is the second most missable boundary in the deck — slide 8 also plotted a skill measure, so this can be heard as continuing its error story. It is not: this is how well *starts* were ranked, season by season. The SAY opens "back to where fires start" and the y-axis says so too.
+- **The strongest number is not on the figure: human beats natural in all 44 season-years, without a single exception.** 11 held-out years x 4 seasons, and the ranking never once reverses. Use it if challenged that the gap could be noise — the bands overlap slightly in summer, and this is what closes that door.
+- **The bands are min-to-max across the 11 held-out years, not confidence intervals.** Say "the spread across eleven years" or "the best and worst year." Never "plus or minus," never "we're confident to within." Human ran 0.32-0.67 across all season-years, natural 0.06-0.46; a shuffled control stayed inside +/-0.014.
+- **Do not overclaim winter natural.** Median 0.072 with a best year of 0.180 — that is near-nothing, and "essentially nothing" is the honest phrasing. It is not a weak signal to be improved; it is the season where lightning ignition is rare enough that there is little to rank.
+- **The medians, if quoted:** human DJF 0.529, MAM 0.605 (its peak), JJA 0.483, SON 0.469. Natural DJF 0.072, MAM 0.201, JJA 0.422 (its peak), SON 0.190. Human's worst season still beats natural's best.
+- **The operational reading is the closing line and it is a real product difference**, not a rhetorical flourish: a year-round program versus a seasonal one. It is also the one place in the deck where seasonality returns as an *implementation* question rather than as a data pattern, which is what makes slide 1 pay off.
 - The deck's only figure showing a distribution rather than a point estimate.
 
-**TIME —** 0:30
+**TIME —** 0:35
 
 ---
 
@@ -594,12 +602,13 @@ Summed from the per-slide **TIME** lines. Re-derive it from those rather than ed
 | 5 — the ladder | 0:40 | four rungs and two model families |
 | 7 — acres concentration | 0:35 | sets the standard slide 8 is judged against |
 | 8 — branch deciles | 0:45 | the pivot: needs the log-scale warning to not undersell itself |
-| 6, 9–17 | 0:30 each | 10 slides at the standard budget |
-| **Total** | **10:40** | against a ~10:00 target |
+| 9 — season skill | 0:35 | two branches x four seasons, and the program split |
+| 6, 10–17 | 0:30 each | 9 slides at the standard budget |
+| **Total** | **10:45** | against a ~10:00 target |
 
-Eight slides carry more than an even share, and each is the only place its content appears. The other ten get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
+Nine slides carry more than an even share, and each is the only place its content appears. The other nine get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
 
-**Currently 40 seconds long.** Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
+**Currently 45 seconds long.** Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
 
 **Next compression candidate: slides 11–12** (a matched pair that can compress to one). Slides **7 and 8** are also a matched pair, but neither survives alone — cut both or neither.
 
