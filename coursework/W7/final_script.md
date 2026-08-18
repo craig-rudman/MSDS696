@@ -66,7 +66,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 > This is for a state or regional fire planner deciding, before the season starts, where to concentrate a fixed prevention and mitigation budget.
 >
-> It comes out of the federal record of U.S. wildfire occurrence — two point three million fires, 1992 through 2020, each with a date, a location, a size in acres, and a cause. A quarter of those fires have no specific cause recorded — and by acres, nearly a fifth. That turned out to be a finding rather than a nuisance.
+> It comes out of the federal record of U.S. wildfire occurrence — two point three million fires, 1992 through 2020, each with a date, a location, a size, and a cause. A quarter have no cause recorded; by acres, nearly a fifth. That turned out to be a finding rather than a nuisance.
 >
 > The recommendation, up front: **for pre-season planning, stop targeting how big fires get. Target where they start.**
 
@@ -92,7 +92,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 > Fire runs on a calendar, and the two peaks are months apart. The dashed line is when fires start, the solid one is how much burns. Spring and summer start about the same number of fires — summer burns almost four times the area.
 >
-> Fire management works on a seasonal horizon — there's a national outlook issued every month, four months ahead, to support long-range decisions about staffing and allocation. Prevention and mitigation are sited work decided months ahead. Planners need to decide what to target, and where, before the season starts.
+> Fire management already works on a seasonal horizon — there's a national outlook issued monthly, four months ahead, to support long-range decisions about staffing and allocation. Planners have to decide what to target, and where, before the season starts.
 
 **EVIDENCE**
 
@@ -108,7 +108,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **Three things the sources do NOT support, and all three are easy to drift into:** that the outlook "positions crews and equipment" (the text says decisions *concerning* staffing and allocation, not that resources move); that this is a **suppression** practice (Ch. 60 scopes Predictive Services to "operational management of and strategic planning for" fire management resources, broader than suppression); and anything about what coordinators think or prioritize. Say "fire management already works on a seasonal horizon," never "suppression coordinators think seasonally."
 - If asked about the July spike: it is Independence Day. **July 4 is the single highest-start day in the record — 16,907 starts, 2.71x the median day — and July 5 is second at 15,141.** Verified from `fires_clean.parquet`. It is a good answer to "does human cause really show up in the data," but do not build on it: no analysis in this deck rests on it.
 
-**TIME —** 0:40
+**TIME —** 0:35
 
 ---
 
@@ -120,7 +120,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 > The unit here isn't a state. Fire follows terrain, vegetation and climate, not county lines — so every fire is placed into an EPA Level III ecoregion, drawn from exactly those things. A hundred and five cover the country.
 >
-> Shade each by how much of its burned area is lightning-caused, and the map splits at about the hundredth meridian: natural in the West, human in the East, Alaska almost entirely natural. And it's not a gradient — fifty regions sit below twenty percent natural, twenty-eight above eighty, only twenty-seven in between.
+> Shade each by how much of its burned area is lightning-caused and the map splits at about the hundredth meridian — natural in the West, human in the East. And it's not a gradient: fifty regions sit below twenty percent natural, twenty-eight above eighty, only twenty-seven in between.
 >
 > So there's no national answer to what starts fires. There are regional ones.
 
@@ -137,7 +137,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - Bimodality is the load-bearing part, not the West/East split. A gradient would mean every region needs its own blended strategy; two modes mean most regions have a dominant cause and a planner can act on it.
 - Shares of **attributed** acres — the missing-cause mass named on the title slide is excluded from this shading. Slide 15 comes back for it.
 
-**TIME —** 0:45
+**TIME —** 0:40
 
 ---
 
@@ -147,13 +147,11 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> The mix is three classes splitting a region-season's burned acres — **natural**, **human**, and **unknown**, the ones whose cause was never determined. By acres, nationally: fifty-nine, twenty-three, eighteen. **Everything in this deck is weighted by acres, not by number of fires** — by fire count those first two numbers almost exactly swap.
+> The mix is three classes splitting a region-season's burned acres — **natural**, **human**, and **unknown**, the ones whose cause was never determined. Nationally: fifty-nine, twenty-three, eighteen. **Everything here is weighted by acres, not fire counts** — by count, the first two nearly swap.
 >
-> Three ways to predict that mix, worst to best. The national average mix — forty-two percent of the acres land on the right cause. An even split: fifty-two. That region's own seasonal history — its own past summers, or winters — seventy-three.
+> Three ways to predict that mix, worst to best. The national average: forty-two percent of the acres land on the right cause. An even split, fifty-two. The region's own seasonal history — its own past summers, or winters — seventy-three.
 >
-> Those are averages, and the range under each is the honest part: history runs sixty to ninety across region-seasons, the national average down to twenty. **And we can tell in advance which end a region-season lands on** — a place whose history has been settled forecasts well; one that's been swinging doesn't.
->
-> The national average does worse than assuming you know nothing — that's the last slide's map showing up as forecast error.
+> The ranges under each are the honest part: history runs sixty to ninety, the national average down to twenty. **And we can tell in advance which end a region-season lands on** — a settled history forecasts well, a swinging one doesn't.
 
 **EVIDENCE**
 
@@ -178,7 +176,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **The single most confusable pair of numbers in the deck.** Tier-1 shares by acres are Human 22.7 / Natural 58.8 / Unknown 18.5; **by fire count they are Human 60.7 / Natural 14.4 / Unknown 24.9** — Human and Natural almost exactly swap. Both are true. Verified from `fires_clean.parquet`. Every target and every score in this project is **acres** (`panel.tier1_composition()` divides `human_ac`/`natural_ac`/`unknown_ac` by `total_ac`; fire counts appear only under `with_counts=True`, and only as model *features*, never as a target). Name the denominator whenever these numbers are said aloud.
 - If challenged "isn't most fire human-caused?" — yes, by count, 61%. Humans start most fires; lightning burns most acres. The deck is about acres because acres are what a mitigation budget is sized against.
 
-**TIME —** 1:05
+**TIME —** 0:50
 
 ---
 
@@ -188,13 +186,11 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> "Mostly human" doesn't tell a planner what to do, so open that slice up: eleven specific causes — arson, equipment, debris burning, recreation, powerlines, and so on. The goal is to rank them per region and season, by the acres each one drives.
+> "Mostly human" doesn't tell a planner what to do, so open that slice up — eleven causes: arson, equipment, debris burning, powerlines, and so on. Rank them per region-season by the acres each drives.
 >
-> And that ranking isn't the obvious one. Debris burning starts the most fires of any human cause; it's only third in acres. Equipment starts a third as many and burns more. **What's worth preventing isn't what starts most often.**
+> And that ranking isn't the obvious one. Debris burning starts the most fires of any human cause and is only third in acres. Equipment starts a third as many and burns more. **What's worth preventing isn't what starts most often.**
 >
-> Same three predictors, one level down. An even guess across eleven names the top cause by acres nine percent of the time; the national human mix, sixteen; that region's own seasonal history — fifty-four.
->
-> Same split, wider: settled past, sixty-eight percent. Swinging past, forty-three.
+> Same three predictors, one level down: nine percent, sixteen, and fifty-four. And the same confidence split, wider — sixty-eight where the past is settled, forty-three where it isn't.
 
 **EVIDENCE**
 
@@ -217,7 +213,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **This slide is the deck's only place where fire *counts* are quoted as a ranking, and that is deliberate** — it exists to justify ranking by acres. Say "by acres" on the 9/16/54 line immediately after, because the audience has just heard "starts the most fires" and could carry the count sense forward. `panel.human_subcause_shares()` sums `acres` on a human-acres denominator; counts are never a target.
 - **The denominators differ between the two tiers, by design.** Tier 1 divides by *total* acres including the Unknown mass; Human divides by *human* acres only and excludes Unknown entirely. Correct — Unknown is a Tier-1 class, not a human sub-cause — but a challenger with a modeling background will probe it.
 
-**TIME —** 0:50
+**TIME —** 0:40
 
 ---
 
@@ -227,9 +223,9 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> A trailing mean is a low bar, so it's worth testing against something that learns. Gradient boosting, first on what kind of place the region is — thirty-six percent, well short of the history. Then the same model handed that history as a feature — the exact numbers the winning bar averages — forty-seven. A second kind of model, given that same history, gets to fifty-two.
+> A trailing mean is a low bar, so it's worth testing against something that learns. Gradient boosting on what kind of place the region is: thirty-six percent. The same model handed that history as a feature — the exact numbers the winning bar averages — forty-seven. A different model, same history, fifty-two.
 >
-> The dashed line is the bar at the top, and it's the same fifty-four percent from the last slide. **Two families, and neither one beat taking the average of the thing we handed it.**
+> The dashed line is the top bar, the same fifty-four from the last slide. **Two families, and neither beat taking the average of what we handed it.**
 
 **EVIDENCE**
 
@@ -255,7 +251,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - Keep this slide — it is the only one conceding a model was tried and lost, which is what keeps the nulls credible.
 - The bars are a **hit rate** — how often the leading cause is named right, out of 11 — so "of the time" is the correct phrasing here, unlike slide 3. The TVDs are in the evidence above but are **not what is plotted**; do not quote them off this figure.
 
-**TIME —** 0:40
+**TIME —** 0:35
 
 ---
 
@@ -265,13 +261,11 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> Everything so far has been a whole ecoregion — one number for an area the size of a small state. That is the right scale for deciding what to target, and the wrong one for deciding where to put anything.
+> Everything so far has been a whole ecoregion — the right scale for deciding what to target, the wrong one for deciding where to put anything. So the map breaks into cells of about sixty thousand acres, and the target changes with it: not shares of burned area, but counts of ignitions.
 >
-> So the question changes — and it isn't a finer-grained version of the last one. The map breaks into cells of about sixty thousand acres, and the target changes with it: not shares of burned area, but counts of ignitions, per cell.
+> One region here — the Klamath Mountains, about two hundred cells. Rank them on their own history and the dark band is six percent of the ground catching a third of next season's starts. The lighter band: twenty-nine percent for sixty percent of the starts.
 >
-> This is one region — the Klamath Mountains, about two hundred cells. Rank them on their own history and the dark band is six percent of the region catching a third of next season's starts. Go wider, to the light band: twenty-nine percent of the ground for sixty percent of the starts.
->
-> The return decays from there — chasing ninety percent of the starts takes seventy-eight percent of the ground, which is barely better than treating everywhere. Ranking concentrates the return; it doesn't eliminate the tail.
+> It decays from there. Ranking concentrates the return; it doesn't eliminate the tail.
 
 **EVIDENCE**
 
@@ -298,7 +292,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **Say "it ranks well," never "it is accurate."** On that same figure the forecast line runs *below* the diagonal and under-predicts the busiest hexes — top stratum predicted 4.7 against 3.7 observed. The product is an ordering, not a promised count, and slide 16's closing line says the same thing about all three branches.
 - Q&A companions: `img/w6_capture_curve.png` (the full decay curve) and `img/w6_shuffled_control.png` (the permutation control).
 
-**TIME —** 1:10
+**TIME —** 0:45
 
 ---
 
@@ -414,7 +408,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 > So we tried to fix it — back to starts, adding what everyone expects to matter: drought, and how much fuel is standing. Nothing moved. The axis starts at zero, so a real effect would show, and the best gain here is four thousandths.
 >
-> Here's why. Do greener cells get more fires than browner ones? Yes, moderately. But when a cell is greener **than its own normal**, does it get more fires **than its own normal**? Barely. These covariates find dry *places* — and where the dry places are is something history already knows. **Where fires start is a property of the place, not of the year.**
+> Here's why. Greener cells do get more fires than browner ones. But when a cell is greener **than its own normal**, it barely gets more fires than its own normal. These covariates find dry *places* — and where those are, history already knows. **Where fires start is a property of the place, not of the year.**
 
 **EVIDENCE**
 
@@ -433,7 +427,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **Vocabulary note: this figure labels the branch "lightning fire" while slide 8's headline says "natural."** Both are in the deck. If it comes up, they are the same class — natural is the Tier-1 label, lightning is what it is. Prefer "natural" when speaking so it matches slides 3, 7, 8 and 17.
 - Q&A companion: img/w6_ndvi_variance.png, the place-vs-year split at 2.8x.
 
-**TIME —** 0:45
+**TIME —** 0:40
 
 ---
 
@@ -445,7 +439,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 > Same rungs, same axis, same zero — one line this time, because this is lightning only. And it moves.
 >
-> Drought alone does nothing. Fuel load alone does nothing. Put the two together and you get a real gain — a fifth better than history on its own, and it holds across every way we split the years. That makes sense physically: wet heavy fuel won't carry fire, and dry bare ground has nothing to burn. **You need both, and only both.**
+> Drought alone does nothing. Fuel alone does nothing. Together they give a real gain — a fifth better than history, holding across every way we split the years. Which makes sense: wet heavy fuel won't carry fire, dry bare ground has nothing to burn. **You need both.**
 >
 > So the data does know something about how much burns. The question is whether it knows it anywhere useful.
 
@@ -464,7 +458,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **This is the deck's one verified covariate win and it must not be oversold**, because slide 12 takes it away. Say "it holds up" — 26.6 SD above a covariate-shuffled control, stable across five split years (+0.012 to +0.066) — and stop. The closing line hands off to slide 12 rather than banking the result.
 - **If asked why this worked when slide 10 failed:** different target. Where a fire *starts* is a property of the place, which history already knows. How much *burns* depends on conditions that vary year to year — which is exactly what these covariates measure. That contrast is the reason both slides exist.
 
-**TIME —** 0:40
+**TIME —** 0:35
 
 ---
 
@@ -474,9 +468,9 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> But look at where it lands. This is the same axis as before — small cells left, the big burns right — with the covariate model laid over the baseline.
+> But look at where it lands. Same axis as before, with the covariate model laid over the baseline.
 >
-> The blue lens in the middle is the gain. It's real, and it's on cells of one to two hundred acres. At the right edge, on the cells holding almost all of the burn, the two lines finish together.
+> The blue lens is the gain. It's real, and it's on cells of one to two hundred acres. At the right edge, where almost all the burn is, the two lines finish together.
 >
 > **We improved the forecast exactly where it doesn't matter.** And on the smallest cells it's actually worse. So a gain that survives every statistical test still doesn't buy a planner anything — which says the problem isn't the features.
 
@@ -494,7 +488,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **The closing line is the deck's turn.** "The problem isn't the features" is what licenses slide 13's grain argument and, through it, the whole recommendation. Without it, three slides of covariate work read as a dead end rather than as a diagnosis.
 - **Do not say the covariate model "failed."** It produced a verified gain at 26.6 SD that held across five split years — slide 11 is not retracted here. It failed to be *useful*, which is a different and more interesting claim, and the distinction is what keeps the deck honest rather than defeatist.
 
-**TIME —** 0:45
+**TIME —** 0:40
 
 ---
 
@@ -504,7 +498,9 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> Remember what we did to make siting work: the region was too coarse to put anything anywhere, so we dropped down to a hex. This is the same problem on the other axis. We asked how big a fire gets over a whole season, and a season is too coarse a unit to answer that — what makes a fire run is the wind on a particular afternoon, whether crews were already committed, what time of day it started. We could not test that here, because same-day data is a different project. But the shape of the failure tells you where to look.
+> Siting worked once we stopped asking about a whole region and dropped to a hex. This is the same problem on the other axis. We asked how big a fire gets over a whole season — and what makes a fire run is the wind on a particular afternoon, whether crews were already committed. A season is too coarse a unit to see that.
+>
+> We couldn't test it here; same-day data is a different project. But the shape of the failure tells you where to look.
 
 **EVIDENCE**
 
@@ -518,7 +514,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - If asked "did you try hard enough?" — pre-season data was tried hard, same-day data was not tried at all. The second half is the open question, not a gap.
 - If the room needs "stop targeting it" said aloud, say it as the last sentence rather than the headline.
 
-**TIME —** 0:45
+**TIME —** 0:35
 
 ---
 
@@ -609,37 +605,43 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 ## Timing
 
-**Derived from the SAY blocks, not maintained by hand.** Every budget below is the measured word count at 150 wpm, rounded up to the nearest five seconds. Re-derive after any edit rather than adjusting a cell — the total drifted twice when it was hand-kept.
+**Derived from the SAY blocks, not maintained by hand.** Budgets are the measured word count at 150 wpm rounded up to five seconds. Re-derive after any edit rather than adjusting a cell — the hand-kept total drifted twice, once by nearly two minutes.
 
 | slide | words | budget | |
 |---|---|---|---|
-| 0 | 98 | 0:40 | Title slide |
-| 1 | 90 | 0:40 | Wildfires are seasonal |
-| 2 | 102 | 0:45 | Cause is regional, not national |
-| 3 | 160 | 1:05 | A region's cause mix is stable enough to forec |
-| 4 | 124 | 0:50 | For human-cause wildfires, history names the l |
-| 5 | 97 | 0:40 | A learned model made naming the leading cause  |
-| 6 | 164 | 1:10 | Where fires start is predictable, at the scale |
-| 7 | 98 | 0:40 | Almost all the area burned is in almost none o |
-| 8 | 113 | 0:50 | Up to a point, human and natural burned area i |
-| 9 | 88 | 0:40 | Where human fires start is predictable year-ro |
-| 10 | 105 | 0:45 | We tried to fix that with drought and fuel, bu |
-| 11 | 98 | 0:40 | The same data does predict how much burns |
-| 12 | 105 | 0:45 | But the gain misses where we need it most |
-| 13 | 102 | 0:45 | Predicting where fires start needed a finer sp |
+| 0 | 91 | 0:40 | Title slide |
+| 1 | 81 | 0:35 | Wildfires are seasonal |
+| 2 | 98 | 0:40 | Cause is regional, not national |
+| 3 | 119 | 0:50 | A region's cause mix is stable enough to for |
+| 4 | 100 | 0:40 | For human-cause wildfires, history names the |
+| 5 | 77 | 0:35 | A learned model made naming the leading caus |
+| 6 | 108 | 0:45 | Where fires start is predictable, at the sca |
+| 7 | 98 | 0:40 | Almost all the area burned is in almost none |
+| 8 | 113 | 0:50 | Up to a point, human and natural burned area |
+| 9 | 88 | 0:40 | Where human fires start is predictable year- |
+| 10 | 98 | 0:40 | We tried to fix that with drought and fuel,  |
+| 11 | 83 | 0:35 | The same data does predict how much burns |
+| 12 | 89 | 0:40 | But the gain misses where we need it most |
+| 13 | 85 | 0:35 | Predicting where fires start needed a finer  |
 | 14 | 100 | 0:40 | One ignition is enough |
-| 15 | 92 | 0:40 | Nearly a fifth of burned acres have no specifi |
-| 16 | 10 | 0:30 | Target causes by region. Site the pre-season w |
-| **Total** | **1746** | **12:45** | against a ~10:00 target |
+| 15 | 92 | 0:40 | Nearly a fifth of burned acres have no speci |
+| 16 | 10 | 0:30 | Target causes by region. Site the pre-season |
+| **Total** | **1530** | **11:15** | against a ~10:00 target |
 
-**The deck is 2:45 over, and that is the honest number.** An earlier version of this table read 11:00 because five slides kept a stale budget after their SAY was written — slide 6 was labelled 0:30 against 66 seconds of prose. Trimming has to come off word counts, and the column above is the list of where the words are.
+**1530 spoken words, cut from 1,746.** The rounded budget total is 11:15; the raw prose is shorter, because per-slide rounding adds about a minute of slack across seventeen slides. Treat the rounded figure as the planning number.
 
-**Where the time actually is.** Slides **6** (164 words) and **3** (160) are the two heaviest and both are load-bearing: 6 is the deck's only grain change and 3 is the only slide naming the Tier-1 classes. Slide **4** (124) is next. Those three carry 448 words — a quarter of the deck — and are the first place to look.
+**What it runs at, by pace — and the pace is the unmeasured variable:**
 
-**Structural candidates**, in order of least damage:
+| pace | runs | |
+|---|---|---|
+| 170 wpm | 9:00 | brisk |
+| 150 wpm | 10:12 | the script's assumption |
+| 130 wpm | 11:46 | deliberate, numbers-heavy delivery |
 
-1. **Slides 11–12** compress to one — a matched pair making one argument (the covariate gain exists; it lands in the wrong place). Worth ~80 seconds and the standing recommendation.
-2. **Slide 13** (102 words) plots no data and restates the method lesson. It is the deck's clearest single cut if the argument can survive going straight from 12 to 14.
-3. **Slides 7–8** are also a matched pair, but neither survives alone — cut both or neither, and cutting both removes the failure that motivates the recommendation.
+**Measure before cutting further.** Record slide 3 alone — 119 words, the densest in the deck — and time it. At 48 seconds you are at 150 wpm and the deck is fine. At 55 you are at 130 and need roughly another 170 words out. That one measurement replaces every estimate in this table.
 
-**Word budget.** At 150 wpm, 10 minutes is about **1,500 words**; the deck is at **1746**. Cutting to target means removing roughly **246 words**, which is a real edit rather than tightening.
+**If more has to go, in order of least damage:**
+
+1. **Compress slides 11–12 into one** — a matched pair making one argument (the covariate gain is real; it lands in the wrong deciles). Worth ~80 words. Costs the shape rhyme with slide 10, which is what makes the null legible.
+2. **Cut slide 13** (85 words) — the deck's only slide that plots no data. It bridges the covariate failure to the ignition answer, so cutting it makes 12 → 14 an abrupt turn.
+3. **Slides 7–8** are a matched pair where neither survives alone. Cutting both removes the failure that motivates the recommendation, so this is a last resort.
