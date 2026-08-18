@@ -80,7 +80,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **"Pre-season" is the scope of every null in this deck and it is load-bearing.** Same-day conditions — wind, timing, suppression availability — were never tested. Never let the claim widen to "the largest fires are unpredictable": that is a much bigger statement than anything measured here.
 - Both halves are **instructions, not predictions**, which is why the opening needs no defense. The predictability claims arrive later, each with its own population.
 
-**TIME —** 0:45
+**TIME —** 0:40
 
 ---
 
@@ -108,7 +108,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **Three things the sources do NOT support, and all three are easy to drift into:** that the outlook "positions crews and equipment" (the text says decisions *concerning* staffing and allocation, not that resources move); that this is a **suppression** practice (Ch. 60 scopes Predictive Services to "operational management of and strategic planning for" fire management resources, broader than suppression); and anything about what coordinators think or prioritize. Say "fire management already works on a seasonal horizon," never "suppression coordinators think seasonally."
 - If asked about the July spike: it is Independence Day. **July 4 is the single highest-start day in the record — 16,907 starts, 2.71x the median day — and July 5 is second at 15,141.** Verified from `fires_clean.parquet`. It is a good answer to "does human cause really show up in the data," but do not build on it: no analysis in this deck rests on it.
 
-**TIME —** 0:35
+**TIME —** 0:40
 
 ---
 
@@ -137,7 +137,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - Bimodality is the load-bearing part, not the West/East split. A gradient would mean every region needs its own blended strategy; two modes mean most regions have a dominant cause and a planner can act on it.
 - Shares of **attributed** acres — the missing-cause mass named on the title slide is excluded from this shading. Slide 15 comes back for it.
 
-**TIME —** 0:40
+**TIME —** 0:45
 
 ---
 
@@ -178,7 +178,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **The single most confusable pair of numbers in the deck.** Tier-1 shares by acres are Human 22.7 / Natural 58.8 / Unknown 18.5; **by fire count they are Human 60.7 / Natural 14.4 / Unknown 24.9** — Human and Natural almost exactly swap. Both are true. Verified from `fires_clean.parquet`. Every target and every score in this project is **acres** (`panel.tier1_composition()` divides `human_ac`/`natural_ac`/`unknown_ac` by `total_ac`; fire counts appear only under `with_counts=True`, and only as model *features*, never as a target). Name the denominator whenever these numbers are said aloud.
 - If challenged "isn't most fire human-caused?" — yes, by count, 61%. Humans start most fires; lightning burns most acres. The deck is about acres because acres are what a mitigation budget is sized against.
 
-**TIME —** 0:55
+**TIME —** 1:05
 
 ---
 
@@ -217,7 +217,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **This slide is the deck's only place where fire *counts* are quoted as a ranking, and that is deliberate** — it exists to justify ranking by acres. Say "by acres" on the 9/16/54 line immediately after, because the audience has just heard "starts the most fires" and could carry the count sense forward. `panel.human_subcause_shares()` sums `acres` on a human-acres denominator; counts are never a target.
 - **The denominators differ between the two tiers, by design.** Tier 1 divides by *total* acres including the Unknown mass; Human divides by *human* acres only and excludes Unknown entirely. Correct — Unknown is a Tier-1 class, not a human sub-cause — but a challenger with a modeling background will probe it.
 
-**TIME —** 0:45
+**TIME —** 0:50
 
 ---
 
@@ -298,7 +298,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **Say "it ranks well," never "it is accurate."** On that same figure the forecast line runs *below* the diagonal and under-predicts the busiest hexes — top stratum predicted 4.7 against 3.7 observed. The product is an ordering, not a promised count, and slide 16's closing line says the same thing about all three branches.
 - Q&A companions: `img/w6_capture_curve.png` (the full decay curve) and `img/w6_shuffled_control.png` (the permutation control).
 
-**TIME —** 0:30
+**TIME —** 1:10
 
 ---
 
@@ -336,7 +336,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **The full version, if pressed — two rules chosen per fire.** A fire linked to an **MTBS perimeter** has its acres split across the hexes the perimeter covers, weighted by intersected area. A **point-only** fire puts all its acres on the hex containing the ignition. Perimeter-linked fires are 0.6% of records but **81.6% of acres**; point-only fires average 14 acres against a 62,494-acre hex, so crediting them whole is accurate. Per-fire weights sum to 1, so the hex panel reconciles exactly to the ecoregion totals — this redistributes acres, it never restates them. `src/hex_burn.py`.
 - **Volunteer the limitation if the question goes a second round.** The point rule breaks in the tail: **2,710 point fires exceed 1,000 acres and carry 8.9% of all acres**, each landing entirely on one cell, and 23 rows assign more than a full hex to a single cell. So some of this curve's sharpness at the very tip is the attribution rule rather than fire behavior. The fix — imputing a circular burn from the ignition point and distributing it the same way — is designed and not built. **It does not move the argument:** the claim is about shape across the whole distribution, and slide 8's decile statistics are rank-based, so redistributing a few thousand cells changes neither direction nor conclusion.
 
-**TIME —** 0:35
+**TIME —** 0:40
 
 ---
 
@@ -370,7 +370,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **Sub-acre cells are excluded here but kept on slide 7**, and the reason differs by figure: here their *error* is a records artifact (25.3% of rows sit at exactly 0.1 acres, 44.5% of natural fires), while there the quantity is acres, which are real however coarsely recorded. If challenged on inconsistency, that is the answer — the exclusion follows what is being measured.
 - Do not say "the model fails on large fires" without "before the season." Same-day conditions were never tested, and that scope caveat is what keeps this from being a much bigger claim than was measured.
 
-**TIME —** 0:45
+**TIME —** 0:50
 
 ---
 
@@ -402,7 +402,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **The operational reading is the closing line and it is a real product difference**, not a rhetorical flourish: a year-round program versus a seasonal one. It is also the one place in the deck where seasonality returns as an *implementation* question rather than as a data pattern, which is what makes slide 1 pay off.
 - The deck's only figure showing a distribution rather than a point estimate.
 
-**TIME —** 0:35
+**TIME —** 0:40
 
 ---
 
@@ -433,7 +433,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **Vocabulary note: this figure labels the branch "lightning fire" while slide 8's headline says "natural."** Both are in the deck. If it comes up, they are the same class — natural is the Tier-1 label, lightning is what it is. Prefer "natural" when speaking so it matches slides 3, 7, 8 and 17.
 - Q&A companion: img/w6_ndvi_variance.png, the place-vs-year split at 2.8x.
 
-**TIME —** 0:40
+**TIME —** 0:45
 
 ---
 
@@ -494,7 +494,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **The closing line is the deck's turn.** "The problem isn't the features" is what licenses slide 13's grain argument and, through it, the whole recommendation. Without it, three slides of covariate work read as a dead end rather than as a diagnosis.
 - **Do not say the covariate model "failed."** It produced a verified gain at 26.6 SD that held across five split years — slide 11 is not retracted here. It failed to be *useful*, which is a different and more interesting claim, and the distinction is what keeps the deck honest rather than defeatist.
 
-**TIME —** 0:40
+**TIME —** 0:45
 
 ---
 
@@ -518,7 +518,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - If asked "did you try hard enough?" — pre-season data was tried hard, same-day data was not tried at all. The second half is the open question, not a gap.
 - If the room needs "stop targeting it" said aloud, say it as the last sentence rather than the headline.
 
-**TIME —** 0:30
+**TIME —** 0:45
 
 ---
 
@@ -559,7 +559,11 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> *(none yet)*
+> One thing left — the quarter of fires I mentioned at the start with no cause on record, nearly a fifth by acres. That's been a class to predict all along, not a gap to apologise for.
+>
+> Because predicting where the record goes dark gives you a worklist: the region-seasons where the most acres will go unattributed next season. Southwestern Tablelands in spring, about a million.
+>
+> **Ranked by acres, not by rate.** Central Great Plains is worse — two thirds unattributed — and sits fourth, because fixing the record where little burns buys you nothing.
 
 **EVIDENCE**
 
@@ -570,8 +574,13 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 **WATCH**
 
 - The third leg of the recommendation, delivered where it is actionable rather than as a finding in its own right.
+- **This pays off the title slide's voluntary disclosure**, and the SAY says "I mentioned at the start" to close that loop out loud. Stating the weakness first and returning to it as a product is the deck's whole posture on this data; without the callback, slide 0 sounds like a caveat and this sounds like a change of subject.
+- **The denominator trap returns here.** Slide 0 says "a quarter of fires" (24.9% by count) and this headline says "nearly a fifth of burned acres" (18.5%). Both correct, different denominators, and the SAY carries both in one sentence for that reason. If challenged, the missing fires are smaller than average — that is why the acre share is lower.
+- **Ranked by acres, not by rate — say why, or the ordering looks wrong.** Central Great Plains at 66% unattributed sits below Southwestern Tablelands at 51%, and an attentive listener will notice. The rate is a data-quality statistic; the acres are what a records fix would recover.
+- **This is an operational recommendation, not a forecast of fire.** The branch predicts where attribution will be weak — `CLAUDE.md` scopes it as "operational recommendation, not a forecast," and it is a different kind of product from the other two. Do not let it get quoted as a burned-area prediction.
+- **Do not claim a cause for the missing data.** The project has never established *why* attribution fails in these region-seasons — the missingness is agency-shaped and that triage is explicitly open work. Say where the record is weak; never say who is failing to record it.
 
-**TIME —** 0:30
+**TIME —** 0:40
 
 ---
 
@@ -600,30 +609,37 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 ## Timing
 
-Summed from the per-slide **TIME** lines. Re-derive it from those rather than editing this table by hand — the total has drifted from it twice already.
+**Derived from the SAY blocks, not maintained by hand.** Every budget below is the measured word count at 150 wpm, rounded up to the nearest five seconds. Re-derive after any edit rather than adjusting a cell — the total drifted twice when it was hand-kept.
 
-| slide | budget | why it is over 0:30 |
-|---|---|---|
-| 0 — title | 0:45 | the deck's only setup: stakeholder, data source, missing-cause caveat |
-| 1 — seasonality | 0:35 | carries the seasonal-horizon citation |
-| 2 — the cause map | 0:40 | the only slide that explains the ecoregion unit |
-| 3 — Tier-1 tiles | 0:55 | names the three classes, the acres denominator, and the spread |
-| 4 — human tiles | 0:45 | the tier change, the 11 causes, and the counts-vs-acres inversion |
-| 5 — the ladder | 0:40 | four rungs and two model families |
-| 7 — acres concentration | 0:35 | sets the standard slide 8 is judged against |
-| 8 — branch deciles | 0:45 | the pivot: needs the log-scale warning to not undersell itself |
-| 9 — season skill | 0:35 | two branches x four seasons, and the program split |
-| 10 — the covariate null | 0:40 | the null plus its mechanism, which is what makes it a result |
-| 11 — the acres ladder | 0:40 | the one covariate win, and the conjunction that carries it |
-| 12 — where the gain lands | 0:40 | takes 11 away; the deck's turn toward grain |
-| 14 — one ignition is enough | 0:40 | carries both the gate and the binary rule |
-| 6, 13, 15–16 | 0:30 each | 4 slides at the standard budget |
-| **Total** | **10:55** | against a ~10:00 target |
+| slide | words | budget | |
+|---|---|---|---|
+| 0 | 98 | 0:40 | Title slide |
+| 1 | 90 | 0:40 | Wildfires are seasonal |
+| 2 | 102 | 0:45 | Cause is regional, not national |
+| 3 | 160 | 1:05 | A region's cause mix is stable enough to forec |
+| 4 | 124 | 0:50 | For human-cause wildfires, history names the l |
+| 5 | 97 | 0:40 | A learned model made naming the leading cause  |
+| 6 | 164 | 1:10 | Where fires start is predictable, at the scale |
+| 7 | 98 | 0:40 | Almost all the area burned is in almost none o |
+| 8 | 113 | 0:50 | Up to a point, human and natural burned area i |
+| 9 | 88 | 0:40 | Where human fires start is predictable year-ro |
+| 10 | 105 | 0:45 | We tried to fix that with drought and fuel, bu |
+| 11 | 98 | 0:40 | The same data does predict how much burns |
+| 12 | 105 | 0:45 | But the gain misses where we need it most |
+| 13 | 102 | 0:45 | Predicting where fires start needed a finer sp |
+| 14 | 100 | 0:40 | One ignition is enough |
+| 15 | 92 | 0:40 | Nearly a fifth of burned acres have no specifi |
+| 16 | 10 | 0:30 | Target causes by region. Site the pre-season w |
+| **Total** | **1746** | **12:45** | against a ~10:00 target |
 
-Thirteen slides carry more than an even share, and each is the only place its content appears. The other four get **30 seconds**, which is why every one of them has to open on its assertion rather than a wind-up.
+**The deck is 2:45 over, and that is the honest number.** An earlier version of this table read 11:00 because five slides kept a stale budget after their SAY was written — slide 6 was labelled 0:30 against 66 seconds of prose. Trimming has to come off word counts, and the column above is the list of where the words are.
 
-**Currently 55 seconds long, with two SAY blocks still unwritten.** A content-editing pass for length is planned once they are all drafted — the trim comes off measured prose, not off estimates. Slides 11–12 remain the standing candidate: a matched pair that can compress to one, worth roughly 40 seconds. Re-time after the first full run — measured pace beats estimated pace, and the trim comes out of whatever actually ran long rather than out of whatever looks longest on the page.
+**Where the time actually is.** Slides **6** (164 words) and **3** (160) are the two heaviest and both are load-bearing: 6 is the deck's only grain change and 3 is the only slide naming the Tier-1 classes. Slide **4** (124) is next. Those three carry 448 words — a quarter of the deck — and are the first place to look.
 
-**Next compression candidate: slides 11–12** (a matched pair that can compress to one, worth ~40 seconds). Slides **7 and 8** are also a matched pair, but neither survives alone — cut both or neither.
+**Structural candidates**, in order of least damage:
 
-**Word budget.** At a measured 150 wpm, 10 minutes is about **1,500 words** total. Time each SAY block as it is written rather than at the end — a block that reads fast on the page runs 20% longer aloud.
+1. **Slides 11–12** compress to one — a matched pair making one argument (the covariate gain exists; it lands in the wrong place). Worth ~80 seconds and the standing recommendation.
+2. **Slide 13** (102 words) plots no data and restates the method lesson. It is the deck's clearest single cut if the argument can survive going straight from 12 to 14.
+3. **Slides 7–8** are also a matched pair, but neither survives alone — cut both or neither, and cutting both removes the failure that motivates the recommendation.
+
+**Word budget.** At 150 wpm, 10 minutes is about **1,500 words**; the deck is at **1746**. Cutting to target means removing roughly **246 words**, which is a real edit rather than tightening.
