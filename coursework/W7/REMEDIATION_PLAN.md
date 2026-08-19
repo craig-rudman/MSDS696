@@ -100,17 +100,18 @@ written as Q&A defenses, and the densest are slide 3 (per-cell confidence), slid
 
 ---
 
-## Phase 5 — Status Report · 20 pts
+## Phase 5 — Status Report · 20 pts — COMPLETE
 
 D2L Assignments → "Wk 7 · Status Report". **Template is `coursework/W6/MSDS696_W6_Status_Report.md`** —
 copy its structure forward, per `CLAUDE.md`.
 
 Four required elements, per the assignment: near-final deck, repo link, decision log,
-draft LLM reflection.
+draft LLM reflection. **Written 2026-08-18 to `coursework/W7/MSDS696_W7_Status_Report.md`**
+(log Entry 7.44).
 
-- [ ] **Near-final deck** — attach or link `coursework/W7/MSDS696_W7_Deck.pptx`.
-- [ ] **Repo link.**
-- [ ] **Decision log** — W7's decisions are already written contemporaneously as
+- [x] **Near-final deck** — attach or link `coursework/W7/MSDS696_W7_Deck.pptx`.
+- [x] **Repo link.**
+- [x] **Decision log** — W7's decisions are already written contemporaneously as
       collaboration-log entries 7.1–7.36. The report needs a *summary*, not a re-listing.
       The load-bearing ones:
   - The script became authoritative over the deck and over `build_deck.py` (7.2).
@@ -123,7 +124,7 @@ draft LLM reflection.
     relocated rather than discarded (7.25, 7.29).
   - The retitle: "Rank the ground, not the fire" (7.34).
   - 1,746 → 1,405 words after the content pass (7.31, 7.36).
-- [ ] **Draft LLM reflection.** Material the log already supports, with entry numbers:
+- [x] **Draft LLM reflection.** Material the log already supports, with entry numbers:
   - **Where the agent was wrong and I overrode it:** the 43%/68% reading (7.12), the
     natural-vs-human concentration claim it asserted and had to measure and retract
     (7.19), and my cutting slides it argued to keep (7.25, 7.29).
@@ -134,7 +135,7 @@ draft LLM reflection.
     verification — and I made the judgment calls about what earns its place (7.31).
   - **The verification habit that paid off:** every number in the script was a dry-run
     prediction until the notebooks ran; all of it held (7.26).
-- [ ] **Next week's To Do** — see Phase 7.
+- [x] **Next week's To Do** — see Phase 7.
 
 ---
 
