@@ -29,11 +29,11 @@ Check items off in place as they are done.
 
 Both are submitted artifacts and both currently misrepresent the code.
 
-- [ ] **Run `notebook/16_w7_visuals.ipynb` top to bottom.**
-  Six cells are unexecuted: the slide-16 recommendation regeneration and the new
-  slide-17 data-sources figure. Its ladder cell asserts all four rungs against
-  notebook 08's published numbers, so a mismatch fails loudly rather than silently.
-  *Expect:* `cross-check vs 08_human_cause.ipynb: all four rungs match`.
+- [x] **Run `notebook/16_w7_visuals.ipynb` top to bottom.** — done 2026-08-17.
+  All 6 code cells executed. The cross-check printed
+  `cross-check vs 08_human_cause.ipynb: all four rungs match`, and every regenerated
+  figure came out byte-identical to what is already embedded in the deck, so no
+  re-embedding was needed.
 
 - [ ] **Re-run `notebook/06_analysis.ipynb`.**
   One cell only needs it — cell 26's stored output still shows

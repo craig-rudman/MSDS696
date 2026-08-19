@@ -1667,3 +1667,11 @@ Week 4 opens the modeling design against the cleaned analysis grain (`data/regio
 - **A first render had colliding text** — the long MTBS and MODIS citations ran under the right-aligned contribution column. Fixed by giving the contribution its own column and shortening two citations. Worth noting that the agent caught this by rendering and *looking*, not by reasoning about it.
 - **Deck is 18 slides, 1,405 words, 9:58 at 150 wpm** with transitions. The reference slide costs 30 seconds and I am comfortable spending it.
 - **What this changed:** `plot_data_sources` in `src/w6_visuals.py`; `img/w6_data_sources.png`; slide 17 in the deck and script; three cells in `notebook/16_w7_visuals.ipynb` (unexecuted); the deck fully reconciled to the script — 18 slides, all headlines, all 17 figures hash-identical, all 18 notes panes regenerated.
+
+### Entry 7.37
+- **Date:** 2026-08-17
+- **What was going on:** Running notebook 16 — the first phase of the remediation plan, and the first execution of the two figures added since the deck was last touched.
+- **Clean run, and the guard did its job.** The ladder cell asserts all four rungs against notebook 08's published numbers and printed **"cross-check vs 08_human_cause.ipynb: all four rungs match"** — 0.4887/0.5405, 0.5877/0.3566, 0.5536/0.4748, 0.5366/0.5215. Two independently written code paths, agreeing on live data. That check has now paid off twice: once catching a NaN-handling bug the notebook path never had, and once here confirming nothing drifted while the figures were being rewritten.
+- **The result I wanted to see and did:** every regenerated figure is **byte-identical** to what is already embedded in the deck. The matplotlib renders are deterministic, so the deck needed no re-embedding and the sync from Entry 7.36 still holds. Verified by SHA-1 across all 17 figures rather than by eye.
+- **Everything else reproduced exactly** — the tier-1 tiles at 42.0/51.5/73.4 with their spreads, the human tiles at 68.2/43.5 on 3,844 cells, and both new figures rendering their expected content.
+- **What this changed:** executed outputs committed for `notebook/16_w7_visuals.ipynb`; Phase 1's first item checked off in the remediation plan.
