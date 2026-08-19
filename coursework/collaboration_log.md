@@ -1710,3 +1710,14 @@ Week 4 opens the modeling design against the cleaned analysis grain (`data/regio
 - **What the swap cost in maintenance**, which the agent handled: two script sections exchanged and renumbered, three cross-references repointed (the title's rhyme note and slide 6's "ranks well, not accurate" line both named the closing slide by number), the timing table regenerated, and all eighteen notes panes re-synced. Verified: 18 slides, 18 sections, 17 figures hash-identical, no empty notes.
 - **The audit is now cheap enough that I reorder without hesitating**, which was not true three weeks ago. Reordering used to mean hand-checking every reference; it now means one command and a pass/fail.
 - **What this changed:** slides 16 and 17 exchanged in deck and script; three cross-references; timing table; all notes panes.
+
+### Entry 7.42
+- **Date:** 2026-08-17
+- **What was going on:** Two changes to stick the landing. First, pull the closing phrases off the recommendation figure and give them their own slide in large type. Second, strip the deck's speaker notes back to SAY only.
+- **Why the closer needed its own slide.** "Rank the ground, not the fire" was printed beneath three product rows, competing with them for the same glance and landing as neither. A closing line has to be the only thing on screen or it is just a caption. The figure now does one job — show the three products — and slide 18 does the other.
+- **Built as PowerPoint text, not as an image**, cloned from the title slide so the type treatment matches exactly. Two lines at 48pt, the finding beneath at 20pt as context rather than a third claim.
+- **This is the one slide in the deck where reading it aloud is correct.** Everywhere else that is duplication and I have been cutting it all week; here the repetition *is* the delivery — the audience should hear and see the same words at the same moment, and the silence afterward is the point.
+- **The bookend is now exact:** the title slide and the final slide print the same first line, with the boundary added at the end. Opens on the instruction, closes on the instruction plus its limit.
+- **On the notes: I asked for SAY only, nothing else.** The panes had been carrying SAY + EVIDENCE + WATCH, which is 2,000–6,000 characters a slide. That is the right density for *preparing*, and exactly wrong for presenting — under a clock I need the line I am about to say, not a wall of caveats to scan past. The WATCH blocks stay in `final_script.md`, which is what I study from; the deck is what I deliver from. **Different artifacts, different jobs.**
+- **Deck is 19 slides, 1,418 words, 10:05 at 150 wpm** with transitions. The closer costs 15 seconds and buys the ending.
+- **What this changed:** `plot_recommendation` loses its two closing lines and re-centres its rows; `img/w6_recommendation.png` regenerated and re-embedded; new slide 18 in deck and script; all 19 notes panes reduced to SAY; header and timing table.

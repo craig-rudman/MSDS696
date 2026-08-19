@@ -2,7 +2,7 @@
 
 **Authoritative text for the W7 dry run and the W8 final.** Where this file and `coursework/W7/MSDS696_W7_Deck.pptx` disagree, this file wins and the deck is corrected to match. It supersedes the storyboard table in the W6 status report as the source of headline and note text. (`src/build_deck.py`, which generated the W6 deck from that storyboard, was deleted in W7 — the deck is now maintained directly and this file is its source.)
 
-Eighteen slides, numbered 0–17 in delivery order, matching the deck. Slide 16 is a data-sources reference; the recommendation closes at 17, so the talk ends on what to do rather than on a bibliography. The final is fifteen minutes with five for questions; the W7 dry run targets about ten minutes of talking, which is **~30 seconds per slide**.
+Nineteen slides, numbered 0–18 in delivery order, matching the deck. Slide 16 is a data-sources reference, 17 carries the three products, and **18 is a text-only closer** — two lines, no figure, so the last thing on screen is the instruction rather than a chart. The final is fifteen minutes with five for questions; the W7 dry run targets about ten minutes of talking, which is **~30 seconds per slide**.
 
 **Be declarative. The headline has already made the claim** — a SAY block that opens by asking whether the claim is true ("So can you forecast that mix?") re-opens a question the slide has settled, and spends words doing it. Open on the substance instead. The same applies to deictics: the figures are captioned, so "the national average" points at its own tile and "notice the middle tile" is both redundant and a chance to point at the wrong one.
 
@@ -629,6 +629,32 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 ---
 
+## Slide 18 · Closing slide
+
+**On the slide:**
+
+> **Rank the ground, not the fire.**\
+> **Trust the order, not the number.**
+>
+> Where fires start is predictable. How big they get, before the season, is not.
+
+**SAY**
+
+> Rank the ground, not the fire — and trust the order, not the number.
+
+**WATCH**
+
+- **This slide is a full stop, not a summary.** Two lines, no figure, nothing to read while you talk. Say the two sentences and stop; the silence after them is the point, and filling it is what makes a closing land as a trailing-off instead.
+- **Both lines are already on screen, so this is the one place in the deck where reading the slide aloud is correct.** Elsewhere it is duplication; here the repetition *is* the delivery, and the audience should hear and see the same words at the same moment.
+- **The first line is the title slide, verbatim.** The bookend is exact and deliberate — the deck opens on the instruction and closes on it, with the boundary added.
+- **The second line is the deck's most important limitation** and it earns equal weight for that reason. Every product ships as a ranking: the composed Human acre level runs 2x low at p10 and 8x high at p90, and the ignition surface under-predicts the busiest cells. The ordering survives that; the numbers do not.
+- **The small line is context, not a third claim.** Do not read it — it is there so the sentence stays available while questions start.
+- **Slide 17 carries the three products, this carries the instruction.** If a question arrives about what to actually do, go back one slide rather than answering against this one.
+
+**TIME —** 0:15
+
+---
+
 ## Timing
 
 **Derived from the SAY blocks, not maintained by hand.** Budgets are the measured word count at 150 wpm rounded up to five seconds. Re-derive after any edit rather than adjusting a cell.
@@ -653,18 +679,19 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 | 15 | 92 | 0:40 | Nearly a fifth of burned acres have no spe |
 | 16 | 81 | 0:35 | We started with one record of every U.S. w |
 | 17 | 77 | 0:35 | Target causes by region. Site the pre-seas |
-| **Total** | **1405** | **10:20** | against a ~10:00 target |
+| 18 | 13 | 0:15 | Closing slide |
+| **Total** | **1418** | **10:35** | against a ~10:00 target |
 
-**1405 spoken words, cut from 1,746 in the W7 content pass.** The rounded budget total is 10:20; raw prose is shorter, because per-slide rounding adds about a minute of slack across 18 slides.
+**1418 spoken words, cut from 1,746 in the W7 content pass.** The rounded budget total is 10:35; raw prose is shorter, because per-slide rounding adds about a minute of slack across 19 slides.
 
-**What it runs at, by pace.** The second column adds two seconds per slide for advancing and letting a claim land — 18 slides, so 36 seconds.
+**What it runs at, by pace.** The second column adds two seconds per slide for advancing and letting a claim land — 19 slides, so 38 seconds.
 
 | pace | prose | + transitions |
 |---|---|---|
-| 130 wpm | 10:48 | 11:24 |
-| 140 wpm | 10:02 | 10:38 |
-| **150 wpm** | **9:22** | **9:58** |
-| 160 wpm | 8:46 | 9:22 |
+| 130 wpm | 10:54 | 11:32 |
+| 140 wpm | 10:07 | 10:45 |
+| **150 wpm** | **9:27** | **10:05** |
+| 160 wpm | 8:51 | 9:29 |
 
 **Inside ten minutes at every pace tested**, including a deliberate 130 wpm. **Measure before cutting anything else:** record slide 3 alone — 102 words, the densest in the deck — and time it. Around 41 seconds means 150 wpm; 47 seconds means 130.
 

@@ -1047,7 +1047,9 @@ def plot_recommendation(out_path: Path, *,
          "rank regions by unattributed acres", "ecoregion-season", TEXT_SECONDARY),
     ]
 
-    y0, dy = 0.775, 0.255
+    # Rows fill the frame: the closing line that used to sit beneath them moved to
+    # its own slide in W7, so there is no longer a band to reserve at the bottom.
+    y0, dy = 0.845, 0.30
     for i, (cls, share, action, how, grain, color) in enumerate(rows):
         y = y0 - i * dy
 
@@ -1073,17 +1075,10 @@ def plot_recommendation(out_path: Path, *,
     # The slide has to *land* the talk, not summarize it. An earlier version
     # closed on "three products, because the model has three classes" -- true,
     # and a specification rather than a conclusion. The recommendation is the
-    # The closing line repeats the title verbatim, so the deck opens and closes
-    # on the same words while the SPOKEN closer carries the boundary ("trust the
-    # order, not the number"). Printing the boundary here as well duplicated the
-    # narration in the same ten seconds; the subtitle now states the finding the
-    # recommendation rests on instead, which nothing else on this figure says.
-    ax.text(0.018, 0.082,
-            "Rank the ground, not the fire.",
-            fontsize=16.5, fontweight="bold", color=TEXT_PRIMARY, va="center")
-    ax.text(0.018, 0.016,
-            "where fires start is predictable; how big they get, before the season, is not",
-            fontsize=12, color=TEXT_SECONDARY, style="italic", va="center")
+    # No closing line on this figure. It carried "Rank the ground, not the fire"
+    # and the finding beneath it until W7, when both moved to a text-only slide of
+    # their own -- a closer competing with three product rows for the same glance
+    # lands as neither. This figure now does one job: show the three products.
 
     fig.savefig(out_path, dpi=200, facecolor=SURFACE, bbox_inches="tight",
                 pad_inches=0.3)
