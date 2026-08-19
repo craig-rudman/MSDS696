@@ -2,7 +2,7 @@
 
 **Authoritative text for the W7 dry run and the W8 final.** Where this file and `coursework/W7/MSDS696_W7_Deck.pptx` disagree, this file wins and the deck is corrected to match. It supersedes `src/build_deck.py`'s `BEATS` list and the storyboard table in the W6 status report as the source of headline and note text.
 
-Seventeen slides, numbered 0–16 in delivery order, matching the deck. The final is fifteen minutes with five for questions; the W7 dry run targets about ten minutes of talking, which is **~30 seconds per slide**.
+Eighteen slides, numbered 0–17 in delivery order, matching the deck. Slide 17 is a data-sources reference, delivered after the recommendation. The final is fifteen minutes with five for questions; the W7 dry run targets about ten minutes of talking, which is **~30 seconds per slide**.
 
 **Be declarative. The headline has already made the claim** — a SAY block that opens by asking whether the claim is true ("So can you forecast that mix?") re-opens a question the slide has settled, and spends words doing it. Open on the substance instead. The same applies to deictics: the figures are captioned, so "the national average" points at its own tile and "notice the middle tile" is both redundant and a chance to point at the wrong one.
 
@@ -597,6 +597,38 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 ---
 
+## Slide 17 — We started with one record of every U.S. wildfire, then layered on what it could not see.
+
+*Figure:* `img/w6_data_sources.png`
+
+**SAY**
+
+> Everything here starts from one federal record — every U.S. wildfire, nineteen ninety-two to twenty twenty. It knows when a fire started, where, how big it got and what caused it.
+>
+> What it doesn't know is the shape of the burn, what the ground was like, or how dry the season had been. So four things were joined onto it: ecoregions for the regional unit, satellite perimeters so a fire is an area rather than a dot, drought, and fuel load.
+
+**EVIDENCE**
+
+- One base record, four joined layers, each labelled with what it contributed.
+- **FPA-FOD 6th ed.** — Short (2022), Forest Service Research Data Archive, `doi.org/10.2737/RDS-2013-0009.6`. 2.27M fires, 1992–2020.
+- **EPA Level III ecoregions** — U.S. EPA (2025); framework from Omernik & Griffith (2014). The regional unit, 105 regions.
+- **MTBS burned-area perimeters** — Eidenshink et al. (2007), USGS, `doi.org/10.5066/P9IED7RZ`. 0.6% of fires, 81.6% of acres.
+- **TerraClimate** — Abatzoglou et al. (2018), Climatology Lab. ~4 km monthly grids; PDSI, soil moisture, deficit, VPD.
+- **MODIS MOD13A1 v6.1** — Didan (2021), NASA LP DAAC, `doi.org/10.5067/MODIS/MOD13A1.061`, accessed via the Microsoft Planetary Computer. 500 m, 16-day vegetation index.
+
+**WATCH**
+
+- **This slide exists to show the layering, not to be read.** Every citation is on screen; say the shape of the stack and stop. Reading DOIs aloud is the worst possible use of thirty seconds.
+- **The order is the method, and it is worth landing:** FPA-FOD is the spine, everything else is joined onto it. Each layer was added because the base record could not answer a specific question — the perimeters because FPA-FOD stores a *point* with an *area* attached, the covariates because the record says nothing about conditions.
+- **Two of these produced nulls, and that is not a failure of the sourcing.** TerraClimate and MODIS were joined, tested on both branches, and did not improve ignition prediction. If asked why they are still on the slide: they are what makes slides 10–12 a measured result rather than an untested assumption.
+- **The Planetary Computer is an access route, not a source.** MODIS is NASA's; the Planetary Computer is how it was fetched without Earthdata credentials. Do not cite it as the data's origin.
+- **If asked about LANDFIRE or a fuels model:** pre-rejected for this panel — circa-2001 base map, discrete vintages, and Alaska only from the 2016 Remap, so it carries almost no interannual variance. That is a deliberate exclusion, not an oversight.
+- **The full literature review is in the repo** (`literature/literature.md`), with the method precedents as well as the data sources. This slide is the data only.
+
+**TIME —** 0:35
+
+---
+
 ## Timing
 
 **Derived from the SAY blocks, not maintained by hand.** Budgets are the measured word count at 150 wpm rounded up to five seconds. Re-derive after any edit rather than adjusting a cell.
@@ -620,19 +652,20 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 | 14 | 100 | 0:40 | One ignition is enough |
 | 15 | 92 | 0:40 | Nearly a fifth of burned acres have no spe |
 | 16 | 77 | 0:35 | Target causes by region. Site the pre-seas |
-| **Total** | **1324** | **9:45** | against a ~10:00 target |
+| 17 | 81 | 0:35 | We started with one record of every U.S. w |
+| **Total** | **1405** | **10:20** | against a ~10:00 target |
 
-**1324 spoken words, cut from 1,746 in the W7 content pass.** The rounded budget total is 9:45; raw prose is shorter, because per-slide rounding adds about a minute of slack across seventeen slides.
+**1405 spoken words, cut from 1,746 in the W7 content pass.** The rounded budget total is 10:20; raw prose is shorter, because per-slide rounding adds about a minute of slack across 18 slides.
 
-**What it runs at, by pace.** The second column adds two seconds per slide for advancing and letting a claim land — seventeen slides, so 34 seconds.
+**What it runs at, by pace.** The second column adds two seconds per slide for advancing and letting a claim land — 18 slides, so 36 seconds.
 
 | pace | prose | + transitions |
 |---|---|---|
-| 130 wpm | 10:11 | 10:45 |
-| 140 wpm | 9:27 | 10:01 |
-| **150 wpm** | **8:49** | **9:23** |
-| 160 wpm | 8:16 | 8:50 |
+| 130 wpm | 10:48 | 11:24 |
+| 140 wpm | 10:02 | 10:38 |
+| **150 wpm** | **9:22** | **9:58** |
+| 160 wpm | 8:46 | 9:22 |
 
 **Inside ten minutes at every pace tested**, including a deliberate 130 wpm. **Measure before cutting anything else:** record slide 3 alone — 102 words, the densest in the deck — and time it. Around 41 seconds means 150 wpm; 47 seconds means 130.
 
-**Headroom exists.** The deck was 2:45 over before this pass. Further cuts should be driven by what does not earn its place rather than by the clock. The heaviest remaining are slides **3** (102 words) and **14** (100).
+**Headroom exists.** The deck was 2:45 over before the content pass. Further cuts should be driven by what does not earn its place rather than by the clock. The heaviest remaining are slides **3** (102 words) and **14** (100).

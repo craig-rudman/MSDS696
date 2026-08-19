@@ -3157,3 +3157,87 @@ def plot_season_predictability(panel, out_path: Path, *, cfg=None, seed: int = 0
                            float(scores["shuffled"].max())),
         "out_path": str(out_path),
     }
+
+
+def plot_data_sources(out_path: Path, *,
+                      figsize: tuple[float, float] = (11.6, 6.2)) -> dict:
+    """The closing reference slide — one record, four layers joined onto it.
+
+    **Structure carries the argument, so the layout is a stack rather than a
+    list.** The talk's whole method is that FPA-FOD is the spine and everything
+    else is joined onto it; a flat bibliography would present five equal
+    datasets and lose that. The base record sits in its own emphasized band,
+    the four joined layers below it, each labelled with what it contributed and
+    at which grain.
+
+    **Attribution, not provenance-in-full.** Every row carries author, year and
+    a resolvable identifier (DOI where one exists, else the canonical URL),
+    which is what an audience needs to find the data. Access dates, file names
+    and API endpoints belong in the repository, not on a slide read from ten
+    feet away.
+
+    Deliberately no figure numbers, no citation keys and no bracketed
+    superscripts: nothing else in this deck cross-references a bibliography, so
+    numbering would imply a machinery that does not exist.
+    """
+    import matplotlib.pyplot as plt
+
+    base = ("FPA-FOD, 6th edition",
+            "Short (2022) · Forest Service Research Data Archive",
+            "doi.org/10.2737/RDS-2013-0009.6",
+            "2.27M fires, 1992–2020 — the spine:\ndate, location, size, cause")
+
+    layers = [
+        ("EPA Level III ecoregions",
+         "U.S. EPA (2025) · Omernik & Griffith (2014)",
+         "epa.gov/eco-research/ecoregions",
+         "the regional unit — 105 regions, drawn\nfrom terrain, vegetation and climate"),
+        ("MTBS burned-area perimeters",
+         "Eidenshink et al. (2007) · USGS",
+         "doi.org/10.5066/P9IED7RZ",
+         "fire as an area, not a point —\n81.6% of acres, spread across cells"),
+        ("TerraClimate",
+         "Abatzoglou et al. (2018) · Climatology Lab",
+         "climatologylab.org/terraclimate",
+         "drought before the season —\nPDSI, soil moisture, deficit, VPD"),
+        ("MODIS MOD13A1 v6.1",
+         "Didan (2021) · NASA LP DAAC",
+         "doi.org/10.5067/MODIS/MOD13A1.061",
+         "fuel load — 500 m vegetation index,\nvia Microsoft Planetary Computer"),
+    ]
+
+    fig, ax = plt.subplots(figsize=figsize, facecolor=SURFACE)
+    ax.set_facecolor(SURFACE)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis("off")
+
+    def row(y, name, cite, ident, contrib, *, accent):
+        colour = POINT_ORANGE if accent else TEXT_PRIMARY
+        ax.text(0.022, y + 0.038, name, fontsize=15 if accent else 13.5,
+                fontweight="bold", color=colour, va="center")
+        ax.text(0.022, y - 0.006, cite, fontsize=10.5,
+                color=TEXT_SECONDARY, va="center")
+        ax.text(0.022, y - 0.045, ident, fontsize=9.5,
+                color=TEXT_MUTED, va="center", family="monospace")
+        # The contribution gets its own column rather than sharing the citation
+        # line: the longest citations (MTBS, MODIS) otherwise run under it and
+        # the two texts overlap. Left-aligned at a fixed x so the eye can read
+        # straight down and answer "what did each of these buy?"
+        ax.text(0.585, y + 0.030, contrib, fontsize=10.5, style="italic",
+                color=TEXT_SECONDARY, va="top", linespacing=1.5)
+
+    row(0.88, *base, accent=True)
+    ax.plot([0.022, 0.985], [0.775, 0.775], color=POINT_ORANGE,
+            linewidth=1.2, alpha=0.55)
+    ax.text(0.022, 0.735, "joined onto it", fontsize=10.5,
+            color=TEXT_MUTED, style="italic", va="center")
+
+    for k, spec in enumerate(layers):
+        row(0.60 - k * 0.165, *spec, accent=False)
+
+    fig.savefig(out_path, dpi=200, facecolor=SURFACE, bbox_inches="tight",
+                pad_inches=0.3)
+    plt.close(fig)
+    return {"base": base[0], "layers": [s[0] for s in layers],
+            "out_path": str(out_path)}
