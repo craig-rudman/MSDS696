@@ -56,8 +56,8 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 **On the slide:**
 
 > For pre-season planning:\
-> **Stop targeting how big fires get.**\
-> **Target where they start.**
+> **Rank the ground,**\
+> **not the fire.**
 >
 > Predicting Region-Season Wildfire Cause Patterns to Target Prevention and Mitigation\
 > Craig Rudman · MSDS 696 Practicum II · Week 7
@@ -68,19 +68,19 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 >
 > It comes out of the federal record of U.S. wildfire occurrence — two point three million fires, 1992 through 2020, each with a date, a location, a size, and a cause. A quarter have no cause recorded; by acres, nearly a fifth.
 >
-> The recommendation, up front: **for pre-season planning, stop targeting how big fires get. Target where they start.**
+> The recommendation, up front: **for pre-season planning, rank the ground — not the fire.** Where fires start is predictable. How big they get, before the season, is not.
 
 **WATCH**
 
 - **Setup is 20 seconds, not a topic.** Three things only — who it is for, what the data is, where it is weak — then the BLUF. Do not narrate the database schema; the grain and the joins belong in questions.
 - The missing-cause quarter is stated **here, voluntarily**, because a challenger will find it. Saying it first converts it from an ambush into evidence of rigor, and slide 15 pays it off as a product.
 - **Both denominators are said aloud on purpose.** Exact figures: **566,210 of 2,271,343 fires = 24.9% by count**, but **33.2M of 179.4M acres = 18.5% by acres** — the missing fires are smaller than average. Slide 15's headline says "nearly a fifth of burned acres" and Tier 1's Unknown class is 18.5%; without the acres half of this sentence, an attentive listener hears slide 0 and slide 15 contradict each other. They do not — they are two correct numbers on different denominators.
-- A TARGETING claim, not an efficacy one. Nothing in this project measures what a treatment achieves; the ranking says where fire is most likely to arrive, which is a necessary condition for sited work to pay off and not a sufficient one.
-- **The deck no longer closes on this sentence aloud** — slide 16's figure prints it, and its SAY spends the time on the trust-the-order boundary instead. The bookend is visual rather than spoken. If the room needs it said, the closing line is available and costs six seconds.
+- A TARGETING claim, not an efficacy one. Nothing in this project measures what a treatment achieves; the ranking says where fire is most likely to arrive, which is a necessary condition for sited work to pay off and not a sufficient one. **"Rank the ground" is the honest verb** — it promises an ordering, where "target" edged toward promising an outcome.
+- **The title rhymes with slide 16's closing boundary, deliberately.** "Rank the ground, not the fire" and "trust the order, not the number" are the same shape and the same claim: every product is a **ranking**, and rankings are what this data supports. The bookend is that rhyme, not a repeated sentence.
 - **"Pre-season" is the scope of every null in this deck and it is load-bearing.** Same-day conditions — wind, timing, suppression availability — were never tested. Never let the claim widen to "the largest fires are unpredictable": that is a much bigger statement than anything measured here.
-- Both halves are **instructions, not predictions**, which is why the opening needs no defense. The predictability claims arrive later, each with its own population.
+- **The second sentence is where the deck's whole argument sits**: where fires start is predictable, how big they get is not — with "before the season" carried by the "for pre-season planning" line above it. Both nulls and both wins hang off that split, so it is worth saying slowly.
 
-**TIME —** 0:35
+**TIME —** 0:40
 
 ---
 
@@ -590,7 +590,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - A TARGETING claim, not an efficacy one. Nothing here measures what a treatment achieves — no before/after, no control, no counterfactual.
 - If asked "so if we treat those hexes, we cut the burn?" — say no, plainly. Davis et al. (2024) on severity reduction is separate evidence from someone else's study; cite it if asked, do not fold it in.
 - If they remember one thing: site the work against where fires start, because that is the one stage of the escalation this data can see in advance.
-- **The figure prints the closing line, so the SAY does not read it.** "Stop targeting how big it gets. Target where it starts." is on screen beneath the three rows. If the room wants it landed aloud, say it after the boundary — but it is a repetition, not new information.
+- **The figure prints "Stop targeting how big it gets. Target where it starts." beneath the three rows, and the SAY does not read it.** The title slide no longer carries that sentence — it says "rank the ground, not the fire" — so this is the only place the imperative appears, and it appears in writing. Saying it aloud is available if the room wants it landed, but the SAY's boundary line is the better use of the time.
 - **"Trust the order, not the number" is the deck's most important limitation and this is its last statement.** Every product ships as a ranking. The Human branch's composed acre level runs 2x low at p10 and 8x high at p90; the ignition surface ranks well and under-predicts the busiest cells. Rankings are scale-invariant and survive that; acre counts do not.
 
 **TIME —** 0:35
@@ -603,7 +603,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 | slide | words | budget | |
 |---|---|---|---|
-| 0 | 80 | 0:35 | Title slide |
+| 0 | 90 | 0:40 | Title slide |
 | 1 | 80 | 0:35 | Wildfires are seasonal |
 | 2 | 65 | 0:30 | Cause is regional, not national |
 | 3 | 102 | 0:45 | A region's cause mix is stable enough to f |
@@ -620,18 +620,18 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 | 14 | 100 | 0:40 | One ignition is enough |
 | 15 | 92 | 0:40 | Nearly a fifth of burned acres have no spe |
 | 16 | 77 | 0:35 | Target causes by region. Site the pre-seas |
-| **Total** | **1314** | **9:40** | against a ~10:00 target |
+| **Total** | **1324** | **9:45** | against a ~10:00 target |
 
-**1314 spoken words, cut from 1,746 in the W7 content pass.** The rounded budget total is 9:40; raw prose is shorter, because per-slide rounding adds about a minute of slack across seventeen slides.
+**1324 spoken words, cut from 1,746 in the W7 content pass.** The rounded budget total is 9:45; raw prose is shorter, because per-slide rounding adds about a minute of slack across seventeen slides.
 
 **What it runs at, by pace.** The second column adds two seconds per slide for advancing and letting a claim land — seventeen slides, so 34 seconds.
 
 | pace | prose | + transitions |
 |---|---|---|
-| 130 wpm | 10:06 | 10:40 |
-| 140 wpm | 9:23 | 9:57 |
-| **150 wpm** | **8:45** | **9:19** |
-| 160 wpm | 8:12 | 8:46 |
+| 130 wpm | 10:11 | 10:45 |
+| 140 wpm | 9:27 | 10:01 |
+| **150 wpm** | **8:49** | **9:23** |
+| 160 wpm | 8:16 | 8:50 |
 
 **Inside ten minutes at every pace tested**, including a deliberate 130 wpm. **Measure before cutting anything else:** record slide 3 alone — 102 words, the densest in the deck — and time it. Around 41 seconds means 150 wpm; 47 seconds means 130.
 

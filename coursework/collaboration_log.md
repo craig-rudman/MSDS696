@@ -1633,3 +1633,15 @@ Week 4 opens the modeling design against the cleaned analysis grain (`data/regio
 - **Slide 0's WATCH was corrected rather than left to rot.** It now says the bookend is visual, not spoken, and that the closing line is available if the room needs it landed aloud. That is the kind of note that would otherwise contradict the deck six months from now.
 - **Deck is 1,314 words**, up 67 from the trough because this slide went from 10 words to 77 — a case where the length pass had cut past the point of usefulness and the right move was to spend words back. Runs **9:20 at 150 wpm** with transitions, **10:41 at 130**.
 - **What this changed:** slide 16 SAY rewritten, two WATCH lines added there and one corrected on slide 0; timing table regenerated.
+
+### Entry 7.34
+- **Date:** 2026-08-17
+- **What was going on:** Having rewritten slide 16 to end on *"trust the order, not the number,"* I said I liked where the deck lands more than I liked the title — and that the title should be changed to rhyme with the findings rather than the other way round.
+- **This is the inverse of how the deck was built.** The title was set in W6 and every slide since has been written toward it. Now that seventeen slides have settled what the project actually shows, the promise on slide 0 was the thing out of date. Changing the conclusion to fit the title would have been the mistake.
+- **New title: "Rank the ground, not the fire."** It is the same grammatical shape as the closing boundary and the same claim underneath — **every product this project ships is a ranking**, and a ranking is what the data supports. "Stop targeting how big fires get / target where they start" was an instruction; this names the thing I am actually handing over.
+- **The bookend is now a rhyme rather than a repetition**, which I prefer. The old version said the identical sentence at both ends; this opens on "rank the ground, not the fire" and closes on "trust the order, not the number." Same shape, different content, and the second one is the caveat the first one earns.
+- **"Rank" is also the more honest verb.** "Target" edges toward promising an outcome, and nothing in this project measures what a treatment achieves. The WATCH line about it being a targeting claim and not an efficacy one now says so explicitly.
+- **The SAY gained a sentence rather than losing one:** *"Where fires start is predictable. How big they get, before the season, is not."* That split is the entire deck — both nulls and both wins hang off it — and slide 0 was previously stating a recommendation without the finding that justifies it.
+- **One stale note caught in the sweep.** Slide 16's WATCH still described the figure's printed line as a repetition of the title. It is no longer a repetition, so the note now says this is the only place that imperative appears and it appears in writing.
+- **Deck at 1,324 words**, 9:23 at 150 wpm with transitions, 10:45 at 130. The `.pptx` title slide is updated; the formal project title and byline are untouched.
+- **What this changed:** title slide text in the deck and script, slide 0's SAY and three WATCH lines, one WATCH line on slide 16, timing table.
