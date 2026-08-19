@@ -1623,3 +1623,13 @@ Week 4 opens the modeling design against the cleaned analysis grain (`data/regio
 - **Timing table regenerated from the file again**, and it caught that my own direct edits to slides 9 and 10 had moved the count without anyone re-measuring. Deriving rather than hand-keeping is now paying for itself.
 - **What is left before the dry run:** sync the speaker notes into the .pptx (the batched pass deferred since the start of W7), re-run notebook 06 once to clear a stale warning, and time slide 3 out loud to replace the pace estimate with a measurement.
 - **What this changed:** ten SAY blocks cut to my targets; timing table and every TIME line regenerated.
+
+### Entry 7.33
+- **Date:** 2026-08-17
+- **What was going on:** Rewriting slide 16, the recommendation. Its SAY was a single line — *"Stop targeting how big fires get. Target where they start."* — which is **printed on the figure**. After a whole pass spent removing prose that reads the screen aloud, the closing slide was the worst offender.
+- **What the figure already carries:** three labelled rows, each with its instruction and its grain, the acre shares, and the bottom line. Reading any of that aloud is duplication.
+- **What it cannot carry, and what the SAY now spends its time on:** the boundary. *"Trust the order, not the number. These will tell you which region, which cause, which ground comes first. They won't tell you how many acres you'll save."* That is the single most important limitation in the project — every product ships as a **ranking**, and rankings are scale-invariant in a way acre counts are not.
+- **A real cost I accepted deliberately.** Slide 0's notes had established that the deck opens and closes on the same sentence, and this drops the spoken closer. The agent flagged it and offered to restore it. I chose to end on the limitation instead: the bookend still exists **visually** — the line is on screen while I say something else — and ending a talk to executives on what the product cannot do is a stronger finish than repeating a slogan they can read.
+- **Slide 0's WATCH was corrected rather than left to rot.** It now says the bookend is visual, not spoken, and that the closing line is available if the room needs it landed aloud. That is the kind of note that would otherwise contradict the deck six months from now.
+- **Deck is 1,314 words**, up 67 from the trough because this slide went from 10 words to 77 — a case where the length pass had cut past the point of usefulness and the right move was to spend words back. Runs **9:20 at 150 wpm** with transitions, **10:41 at 130**.
+- **What this changed:** slide 16 SAY rewritten, two WATCH lines added there and one corrected on slide 0; timing table regenerated.

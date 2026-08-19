@@ -76,7 +76,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - The missing-cause quarter is stated **here, voluntarily**, because a challenger will find it. Saying it first converts it from an ambush into evidence of rigor, and slide 15 pays it off as a product.
 - **Both denominators are said aloud on purpose.** Exact figures: **566,210 of 2,271,343 fires = 24.9% by count**, but **33.2M of 179.4M acres = 18.5% by acres** — the missing fires are smaller than average. Slide 15's headline says "nearly a fifth of burned acres" and Tier 1's Unknown class is 18.5%; without the acres half of this sentence, an attentive listener hears slide 0 and slide 15 contradict each other. They do not — they are two correct numbers on different denominators.
 - A TARGETING claim, not an efficacy one. Nothing in this project measures what a treatment achieves; the ranking says where fire is most likely to arrive, which is a necessary condition for sited work to pay off and not a sufficient one.
-- The deck closes on this same sentence at slide 16, so first and last statements match.
+- **The deck no longer closes on this sentence aloud** — slide 16's figure prints it, and its SAY spends the time on the trust-the-order boundary instead. The bookend is visual rather than spoken. If the room needs it said, the closing line is available and costs six seconds.
 - **"Pre-season" is the scope of every null in this deck and it is load-bearing.** Same-day conditions — wind, timing, suppression availability — were never tested. Never let the claim widen to "the largest fires are unpredictable": that is a much bigger statement than anything measured here.
 - Both halves are **instructions, not predictions**, which is why the opening needs no defense. The predictability claims arrive later, each with its own population.
 
@@ -576,7 +576,9 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> Stop targeting how big fires get. Target where they start.
+> Three products, one per class, ordered by where the acres are. For lightning — the majority of the burn — rank the ground and treat what ignites. For human fire, rank the causes by the acres they drive. And where the record says neither, fix the record.
+>
+> One boundary on all three: **trust the order, not the number.** These will tell you which region, which cause, which ground comes first. They won't tell you how many acres you'll save.
 
 **EVIDENCE**
 
@@ -588,8 +590,10 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - A TARGETING claim, not an efficacy one. Nothing here measures what a treatment achieves — no before/after, no control, no counterfactual.
 - If asked "so if we treat those hexes, we cut the burn?" — say no, plainly. Davis et al. (2024) on severity reduction is separate evidence from someone else's study; cite it if asked, do not fold it in.
 - If they remember one thing: site the work against where fires start, because that is the one stage of the escalation this data can see in advance.
+- **The figure prints the closing line, so the SAY does not read it.** "Stop targeting how big it gets. Target where it starts." is on screen beneath the three rows. If the room wants it landed aloud, say it after the boundary — but it is a repetition, not new information.
+- **"Trust the order, not the number" is the deck's most important limitation and this is its last statement.** Every product ships as a ranking. The Human branch's composed acre level runs 2x low at p10 and 8x high at p90; the ignition surface ranks well and under-predicts the busiest cells. Rankings are scale-invariant and survive that; acre counts do not.
 
-**TIME —** 0:20
+**TIME —** 0:35
 
 ---
 
@@ -615,20 +619,20 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 | 13 | 85 | 0:35 | Predicting where fires start needed a fine |
 | 14 | 100 | 0:40 | One ignition is enough |
 | 15 | 92 | 0:40 | Nearly a fifth of burned acres have no spe |
-| 16 | 10 | 0:20 | Target causes by region. Site the pre-seas |
-| **Total** | **1247** | **9:25** | against a ~10:00 target |
+| 16 | 77 | 0:35 | Target causes by region. Site the pre-seas |
+| **Total** | **1314** | **9:40** | against a ~10:00 target |
 
-**1247 spoken words, cut from 1,746 in the W7 content pass.** The rounded budget total is 9:25; raw prose is shorter, because per-slide rounding adds about a minute of slack across seventeen slides.
+**1314 spoken words, cut from 1,746 in the W7 content pass.** The rounded budget total is 9:40; raw prose is shorter, because per-slide rounding adds about a minute of slack across seventeen slides.
 
 **What it runs at, by pace.** The second column adds two seconds per slide for advancing and letting a claim land — seventeen slides, so 34 seconds.
 
 | pace | prose | + transitions |
 |---|---|---|
-| 130 wpm | 9:35 | 10:09 |
-| 140 wpm | 8:54 | 9:28 |
-| **150 wpm** | **8:18** | **8:52** |
-| 160 wpm | 7:47 | 8:21 |
+| 130 wpm | 10:06 | 10:40 |
+| 140 wpm | 9:23 | 9:57 |
+| **150 wpm** | **8:45** | **9:19** |
+| 160 wpm | 8:12 | 8:46 |
 
-**Inside ten minutes at every pace tested**, including a deliberate 130 wpm. **Measure before cutting anything else:** record slide 3 alone — 102 words, the densest in the deck — and time it. Around 41 seconds means 150 wpm and the deck is fine; 47 seconds means 130.
+**Inside ten minutes at every pace tested**, including a deliberate 130 wpm. **Measure before cutting anything else:** record slide 3 alone — 102 words, the densest in the deck — and time it. Around 41 seconds means 150 wpm; 47 seconds means 130.
 
-**Headroom now exists.** The deck was 2:45 over before this pass and is inside its budget at a normal pace, so further cuts should be driven by what does not earn its place rather than by the clock. Slides **3** (102 words) and **14** (100) are the only two over 95 words.
+**Headroom exists.** The deck was 2:45 over before this pass. Further cuts should be driven by what does not earn its place rather than by the clock. The heaviest remaining are slides **3** (102 words) and **14** (100).
