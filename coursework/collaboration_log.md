@@ -1675,3 +1675,12 @@ Week 4 opens the modeling design against the cleaned analysis grain (`data/regio
 - **The result I wanted to see and did:** every regenerated figure is **byte-identical** to what is already embedded in the deck. The matplotlib renders are deterministic, so the deck needed no re-embedding and the sync from Entry 7.36 still holds. Verified by SHA-1 across all 17 figures rather than by eye.
 - **Everything else reproduced exactly** — the tier-1 tiles at 42.0/51.5/73.4 with their spreads, the human tiles at 68.2/43.5 on 3,844 cells, and both new figures rendering their expected content.
 - **What this changed:** executed outputs committed for `notebook/16_w7_visuals.ipynb`; Phase 1's first item checked off in the remediation plan.
+
+### Entry 7.38
+- **Date:** 2026-08-17
+- **What was going on:** Deciding what to do about `src/build_deck.py`, which had been flagged as stale since the first week of W7 and sat as an open item in the remediation plan.
+- **The measurement that decided it:** of the 88 headline and note strings in its `BEATS` list, **two still matched the current script.** It carried both slides I cut this week, the pre-retitle title, the "beat" numbering retired in Entry 7.13, and pre-W7 headlines on most slides.
+- **It was a live hazard, not just dead code.** A runnable script whose stated purpose is building the deck — running it would have produced a 19-slide W6 deck on top of the 18-slide W7 one and silently reverted a week of work. That is a worse failure mode than a stale document, because the file name invites exactly the command that destroys the deliverable.
+- **Deleted rather than archived.** The agent offered `archive/` or a `sys.exit()` guard as compromises. I took the deletion: git holds the code permanently, and a file sitting in `src/` reads as current no matter what its header says. The one argument for keeping it — that it documents how the W6 deck was assembled — is satisfied by history.
+- **Confirmed nothing imported it** before deleting, and `final_script.md`'s header now records *why* it is gone rather than merely that it is superseded. That matters because a future me finding "supersedes build_deck.py" with no such file would wonder what was lost.
+- **What this changed:** `src/build_deck.py` deleted; `final_script.md` header; Phase 6's first item checked off in the remediation plan.

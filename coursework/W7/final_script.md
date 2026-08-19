@@ -1,6 +1,6 @@
 # MSDS 696 — Final Talk Script
 
-**Authoritative text for the W7 dry run and the W8 final.** Where this file and `coursework/W7/MSDS696_W7_Deck.pptx` disagree, this file wins and the deck is corrected to match. It supersedes `src/build_deck.py`'s `BEATS` list and the storyboard table in the W6 status report as the source of headline and note text.
+**Authoritative text for the W7 dry run and the W8 final.** Where this file and `coursework/W7/MSDS696_W7_Deck.pptx` disagree, this file wins and the deck is corrected to match. It supersedes the storyboard table in the W6 status report as the source of headline and note text. (`src/build_deck.py`, which generated the W6 deck from that storyboard, was deleted in W7 — the deck is now maintained directly and this file is its source.)
 
 Eighteen slides, numbered 0–17 in delivery order, matching the deck. Slide 17 is a data-sources reference, delivered after the recommendation. The final is fifteen minutes with five for questions; the W7 dry run targets about ten minutes of talking, which is **~30 seconds per slide**.
 

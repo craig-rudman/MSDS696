@@ -138,11 +138,11 @@ draft LLM reflection.
 
 ## Phase 6 — Repository hygiene (before final submission, not before the dry run)
 
-- [ ] **Decide `src/build_deck.py`'s fate.** It is stale and would revert the deck if
-      run: it still lists the cut ignition-gate slide, the pre-retitle title, and
-      pre-W7 headlines. Either delete it, or add a header saying the deck is now
-      maintained directly and this script is historical. Leaving a runnable script that
-      destroys the deliverable is the risk.
+- [x] **`src/build_deck.py` deleted** — done 2026-08-17. Only 2 of its 88 headline and
+      note strings still matched the script; it carried both cut slides, the pre-retitle
+      title, and the retired "beat" numbering. Nothing imported it, and running it would
+      have rebuilt a 19-slide W6 deck over the W7 one. The code stays in git history;
+      `final_script.md`'s header now records why it is gone.
 - [ ] **Add the three missing data sources to `literature/literature.md`** — MTBS
       (Eidenshink et al. 2007), TerraClimate (Abatzoglou et al. 2018), MODIS MOD13A1
       (Didan 2021). Slide 17 cites them; the literature review does not list them.
