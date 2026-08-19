@@ -66,7 +66,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 > This is for a state or regional fire planner deciding, before the season starts, where to concentrate a fixed prevention and mitigation budget.
 >
-> It comes out of the federal record of U.S. wildfire occurrence — two point three million fires, 1992 through 2020, each with a date, a location, a size, and a cause. A quarter have no cause recorded; by acres, nearly a fifth. That turned out to be a finding rather than a nuisance.
+> It comes out of the federal record of U.S. wildfire occurrence — two point three million fires, 1992 through 2020, each with a date, a location, a size, and a cause. A quarter have no cause recorded; by acres, nearly a fifth.
 >
 > The recommendation, up front: **for pre-season planning, stop targeting how big fires get. Target where they start.**
 
@@ -80,7 +80,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **"Pre-season" is the scope of every null in this deck and it is load-bearing.** Same-day conditions — wind, timing, suppression availability — were never tested. Never let the claim widen to "the largest fires are unpredictable": that is a much bigger statement than anything measured here.
 - Both halves are **instructions, not predictions**, which is why the opening needs no defense. The predictability claims arrive later, each with its own population.
 
-**TIME —** 0:40
+**TIME —** 0:35
 
 ---
 
@@ -92,7 +92,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 > Fire runs on a calendar, and the two peaks are months apart. The dashed line is when fires start, the solid one is how much burns. Spring and summer start about the same number of fires — summer burns almost four times the area.
 >
-> Fire management already works on a seasonal horizon — there's a national outlook issued monthly, four months ahead, to support long-range decisions about staffing and allocation. Planners have to decide what to target, and where, before the season starts.
+> Fire management works on a seasonal horizon — there's a national outlook issued monthly, four months ahead, to support long-range decisions about staffing and allocation. Planners have to decide what to target, and where, before the season starts.
 
 **EVIDENCE**
 
@@ -118,9 +118,9 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> The unit here isn't a state. Fire follows terrain, vegetation and climate, not county lines — so every fire is placed into an EPA Level III ecoregion, drawn from exactly those things. A hundred and five cover the country.
+> Fire follows terrain, vegetation and climate — so every fire is placed into an EPA Level III ecoregion. A hundred and five cover the country.
 >
-> Shade each by how much of its burned area is lightning-caused and the map splits at about the hundredth meridian — natural in the West, human in the East. And it's not a gradient: fifty regions sit below twenty percent natural, twenty-eight above eighty, only twenty-seven in between.
+> Shade each by how much of its burned area is lightning-caused and the map splits at about the hundredth meridian — natural in the West, human in the East.
 >
 > So there's no national answer to what starts fires. There are regional ones.
 
@@ -137,7 +137,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - Bimodality is the load-bearing part, not the West/East split. A gradient would mean every region needs its own blended strategy; two modes mean most regions have a dominant cause and a planner can act on it.
 - Shares of **attributed** acres — the missing-cause mass named on the title slide is excluded from this shading. Slide 15 comes back for it.
 
-**TIME —** 0:40
+**TIME —** 0:30
 
 ---
 
@@ -149,9 +149,9 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 > The mix is three classes splitting a region-season's burned acres — **natural**, **human**, and **unknown**, the ones whose cause was never determined. Nationally: fifty-nine, twenty-three, eighteen. **Everything here is weighted by acres, not fire counts** — by count, the first two nearly swap.
 >
-> Three ways to predict that mix, worst to best. The national average: forty-two percent of the acres land on the right cause. An even split, fifty-two. The region's own seasonal history — its own past summers, or winters — seventy-three.
+> Three ways to predict that mix, worst to best. The national average: forty-two percent of the acres land on the right cause. An even split, fifty-two. The region's own seasonal history — its own past summers, or winters — seventy-three. Ranges shown below.
 >
-> The ranges under each are the honest part: history runs sixty to ninety, the national average down to twenty. **And we can tell in advance which end a region-season lands on** — a settled history forecasts well, a swinging one doesn't.
+> **We can tell in advance which end a region-season lands on** — a settled history forecasts well, a swinging one doesn't.
 
 **EVIDENCE**
 
@@ -176,7 +176,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **The single most confusable pair of numbers in the deck.** Tier-1 shares by acres are Human 22.7 / Natural 58.8 / Unknown 18.5; **by fire count they are Human 60.7 / Natural 14.4 / Unknown 24.9** — Human and Natural almost exactly swap. Both are true. Verified from `fires_clean.parquet`. Every target and every score in this project is **acres** (`panel.tier1_composition()` divides `human_ac`/`natural_ac`/`unknown_ac` by `total_ac`; fire counts appear only under `with_counts=True`, and only as model *features*, never as a target). Name the denominator whenever these numbers are said aloud.
 - If challenged "isn't most fire human-caused?" — yes, by count, 61%. Humans start most fires; lightning burns most acres. The deck is about acres because acres are what a mitigation budget is sized against.
 
-**TIME —** 0:50
+**TIME —** 0:45
 
 ---
 
@@ -186,11 +186,9 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> "Mostly human" doesn't tell a planner what to do, so open that slice up — eleven causes: arson, equipment, debris burning, powerlines, and so on. Rank them per region-season by the acres each drives.
+> Human-caused fires break down to eleven causes: arson, equipment, debris burning, powerlines, and so on. Rank them per region-season by the acres each drives.
 >
 > And that ranking isn't the obvious one. Debris burning starts the most fires of any human cause and is only third in acres. Equipment starts a third as many and burns more. **What's worth preventing isn't what starts most often.**
->
-> Same three predictors, one level down: nine percent, sixteen, and fifty-four. And the same confidence split, wider — sixty-eight where the past is settled, forty-three where it isn't.
 
 **EVIDENCE**
 
@@ -213,7 +211,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **This slide is the deck's only place where fire *counts* are quoted as a ranking, and that is deliberate** — it exists to justify ranking by acres. Say "by acres" on the 9/16/54 line immediately after, because the audience has just heard "starts the most fires" and could carry the count sense forward. `panel.human_subcause_shares()` sums `acres` on a human-acres denominator; counts are never a target.
 - **The denominators differ between the two tiers, by design.** Tier 1 divides by *total* acres including the Unknown mass; Human divides by *human* acres only and excludes Unknown entirely. Correct — Unknown is a Tier-1 class, not a human sub-cause — but a challenger with a modeling background will probe it.
 
-**TIME —** 0:40
+**TIME —** 0:30
 
 ---
 
@@ -223,9 +221,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> A trailing mean is a low bar, so it's worth testing against something that learns. Gradient boosting on what kind of place the region is: thirty-six percent. The same model handed that history as a feature — the exact numbers the winning bar averages — forty-seven. A different model, same history, fifty-two.
->
-> The dashed line is the top bar, the same fifty-four from the last slide. **Two families, and neither beat taking the average of what we handed it.**
+> We tried training a few different models on a few different feature sets. **None of them beat the region's own seasonal history** — including the ones we handed that history to.
 
 **EVIDENCE**
 
@@ -251,7 +247,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - Keep this slide — it is the only one conceding a model was tried and lost, which is what keeps the nulls credible.
 - The bars are a **hit rate** — how often the leading cause is named right, out of 11 — so "of the time" is the correct phrasing here, unlike slide 3. The TVDs are in the evidence above but are **not what is plotted**; do not quote them off this figure.
 
-**TIME —** 0:35
+**TIME —** 0:20
 
 ---
 
@@ -261,11 +257,9 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> Everything so far has been a whole ecoregion — the right scale for deciding what to target, the wrong one for deciding where to put anything. So the map breaks into cells of about sixty thousand acres, and the target changes with it: not shares of burned area, but counts of ignitions.
+> Ecoregion is the right scale for deciding what to target, but the wrong one for deciding where to focus resources. Layer in a hexmap of cells, about sixty thousand acres each, and the target changes with it: not shares of burned area, but counts of ignitions.
 >
-> One region here — the Klamath Mountains, about two hundred cells. Rank them on their own history and the dark band is six percent of the ground catching a third of next season's starts. The lighter band: twenty-nine percent for sixty percent of the starts.
->
-> It decays from there. Ranking concentrates the return; it doesn't eliminate the tail.
+> One region here — the Klamath Mountains, about two hundred cells. The darker cells show six percent of the ground catches a third of next season's starts; the lighter band, twenty-nine percent for sixty percent of the starts.
 
 **EVIDENCE**
 
@@ -292,7 +286,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **Say "it ranks well," never "it is accurate."** On that same figure the forecast line runs *below* the diagonal and under-predicts the busiest hexes — top stratum predicted 4.7 against 3.7 observed. The product is an ordering, not a promised count, and slide 16's closing line says the same thing about all three branches.
 - Q&A companions: `img/w6_capture_curve.png` (the full decay curve) and `img/w6_shuffled_control.png` (the permutation control).
 
-**TIME —** 0:45
+**TIME —** 0:35
 
 ---
 
@@ -302,11 +296,9 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> That was where fires start. The other half is how much they burn — same cells, different target. And before asking how good a size forecast is, it's worth knowing where the acres are.
+> Now acres instead of starts — same cells. Ninety percent of them hold two percent of the burn; **one percent hold more than half.**
 >
-> Every burning cell, ordered least-burned to most. Spread evenly, you'd get the dashed line. Instead it stays flat across almost the whole country and goes vertical at the end: ninety percent of cells hold two percent of the burn; **one percent hold more than half.**
->
-> So a forecast is only as good as it is on the right-hand edge. Everywhere else, being right is cheap.
+> So a forecast only matters at the right-hand edge.
 
 **EVIDENCE**
 
@@ -330,7 +322,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **The full version, if pressed — two rules chosen per fire.** A fire linked to an **MTBS perimeter** has its acres split across the hexes the perimeter covers, weighted by intersected area. A **point-only** fire puts all its acres on the hex containing the ignition. Perimeter-linked fires are 0.6% of records but **81.6% of acres**; point-only fires average 14 acres against a 62,494-acre hex, so crediting them whole is accurate. Per-fire weights sum to 1, so the hex panel reconciles exactly to the ecoregion totals — this redistributes acres, it never restates them. `src/hex_burn.py`.
 - **Volunteer the limitation if the question goes a second round.** The point rule breaks in the tail: **2,710 point fires exceed 1,000 acres and carry 8.9% of all acres**, each landing entirely on one cell, and 23 rows assign more than a full hex to a single cell. So some of this curve's sharpness at the very tip is the attribution rule rather than fire behavior. The fix — imputing a circular burn from the ignition point and distributing it the same way — is designed and not built. **It does not move the argument:** the claim is about shape across the whole distribution, and slide 8's decile statistics are rank-based, so redistributing a few thousand cells changes neither direction nor conclusion.
 
-**TIME —** 0:40
+**TIME —** 0:20
 
 ---
 
@@ -340,11 +332,9 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> Still acres, not starts — same cells, same ordering, big burns on the right. What's new is how far off the acres forecast was. Human in blue, natural in orange.
+> Still on acres burned — same cells, same ordering. Across the left two thirds they track together more or less. Then they split — and watch the scale, because every gridline is ten times the one below. At the right edge, on the cells that hold the acres, human fire is off by a factor of nineteen. Lightning, by nearly seven hundred.
 >
-> Across the left two thirds they track together and they're close. Then they split — and watch the scale, because every gridline is ten times the one below. At the right edge, on the cells that hold the acres, human fire is off by a factor of nineteen. Lightning, by nearly seven hundred.
->
-> **So these ship as two different products.** Human burn you can rank by expected acres. Lightning you can't — which means for lightning the answer has to be something other than how much.
+> **So these ship as two different products.** Human acres burned you can rank by expected acres. Nature fires you can't — which means for lightning the answer has to be something other than acres.
 
 **EVIDENCE**
 
@@ -364,7 +354,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **Sub-acre cells are excluded here but kept on slide 7**, and the reason differs by figure: here their *error* is a records artifact (25.3% of rows sit at exactly 0.1 acres, 44.5% of natural fires), while there the quantity is acres, which are real however coarsely recorded. If challenged on inconsistency, that is the answer — the exclusion follows what is being measured.
 - Do not say "the model fails on large fires" without "before the season." Same-day conditions were never tested, and that scope caveat is what keeps this from being a much bigger claim than was measured.
 
-**TIME —** 0:50
+**TIME —** 0:40
 
 ---
 
@@ -374,11 +364,11 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> Back to where fires start — and this splits by season. Human in blue, natural in orange, each dot a season, the band showing the spread across eleven separate years.
+> Ranking cells by where fires start splits by season. Human in blue, natural in orange.
 >
 > Human fire is rankable all year. It peaks in spring, but it never drops far. Natural fire is a summer phenomenon — good in July, and by winter it's essentially nothing.
 >
-> That matters because they call for different work. **Human ignition is a year-round program. Lightning is a seasonal one**, and the season it needs is the one that burns.
+> That matters because they call for different work. **Human ignition is a year-round program. Lightning is a seasonal one**, and its the one that burns the most.
 
 **EVIDENCE**
 
@@ -396,17 +386,17 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **The operational reading is the closing line and it is a real product difference**, not a rhetorical flourish: a year-round program versus a seasonal one. It is also the one place in the deck where seasonality returns as an *implementation* question rather than as a data pattern, which is what makes slide 1 pay off.
 - The deck's only figure showing a distribution rather than a point estimate.
 
-**TIME —** 0:40
+**TIME —** 0:30
 
 ---
 
-## Slide 10 — We tried to fix that with drought and fuel, but where fires start is a property of the place, not of the year.
+## Slide 10 — We tried to improve that with drought and fuel, but where fires start is a property of the place, not of the year.
 
 *Figure:* `img/w6_ignition_ladder.png`
 
 **SAY**
 
-> So we tried to fix it — back to starts, adding what everyone expects to matter: drought, and how much fuel is standing. Nothing moved. The axis starts at zero, so a real effect would show, and the best gain here is four thousandths.
+> I layered in data about drought and fuel density over time. Nothing moved. The axis starts at zero, so a real effect would show, and the best gain here is four thousandths.
 >
 > Here's why. Greener cells do get more fires than browner ones. But when a cell is greener **than its own normal**, it barely gets more fires than its own normal. These covariates find dry *places* — and where those are, history already knows. **Where fires start is a property of the place, not of the year.**
 
@@ -427,7 +417,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **Vocabulary note: this figure labels the branch "lightning fire" while slide 8's headline says "natural."** Both are in the deck. If it comes up, they are the same class — natural is the Tier-1 label, lightning is what it is. Prefer "natural" when speaking so it matches slides 3, 7, 8 and 17.
 - Q&A companion: img/w6_ndvi_variance.png, the place-vs-year split at 2.8x.
 
-**TIME —** 0:40
+**TIME —** 0:35
 
 ---
 
@@ -599,49 +589,46 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - If asked "so if we treat those hexes, we cut the burn?" — say no, plainly. Davis et al. (2024) on severity reduction is separate evidence from someone else's study; cite it if asked, do not fold it in.
 - If they remember one thing: site the work against where fires start, because that is the one stage of the escalation this data can see in advance.
 
-**TIME —** 0:30
+**TIME —** 0:20
 
 ---
 
 ## Timing
 
-**Derived from the SAY blocks, not maintained by hand.** Budgets are the measured word count at 150 wpm rounded up to five seconds. Re-derive after any edit rather than adjusting a cell — the hand-kept total drifted twice, once by nearly two minutes.
+**Derived from the SAY blocks, not maintained by hand.** Budgets are the measured word count at 150 wpm rounded up to five seconds. Re-derive after any edit rather than adjusting a cell.
 
 | slide | words | budget | |
 |---|---|---|---|
-| 0 | 91 | 0:40 | Title slide |
-| 1 | 81 | 0:35 | Wildfires are seasonal |
-| 2 | 98 | 0:40 | Cause is regional, not national |
-| 3 | 119 | 0:50 | A region's cause mix is stable enough to for |
-| 4 | 100 | 0:40 | For human-cause wildfires, history names the |
-| 5 | 77 | 0:35 | A learned model made naming the leading caus |
-| 6 | 108 | 0:45 | Where fires start is predictable, at the sca |
-| 7 | 98 | 0:40 | Almost all the area burned is in almost none |
-| 8 | 113 | 0:50 | Up to a point, human and natural burned area |
-| 9 | 88 | 0:40 | Where human fires start is predictable year- |
-| 10 | 98 | 0:40 | We tried to fix that with drought and fuel,  |
+| 0 | 80 | 0:35 | Title slide |
+| 1 | 80 | 0:35 | Wildfires are seasonal |
+| 2 | 65 | 0:30 | Cause is regional, not national |
+| 3 | 102 | 0:45 | A region's cause mix is stable enough to f |
+| 4 | 64 | 0:30 | For human-cause wildfires, history names t |
+| 5 | 30 | 0:20 | A learned model made naming the leading ca |
+| 6 | 83 | 0:35 | Where fires start is predictable, at the s |
+| 7 | 32 | 0:20 | Almost all the area burned is in almost no |
+| 8 | 93 | 0:40 | Up to a point, human and natural burned ar |
+| 9 | 72 | 0:30 | Where human fires start is predictable yea |
+| 10 | 87 | 0:35 | We tried to improve that with drought and  |
 | 11 | 83 | 0:35 | The same data does predict how much burns |
 | 12 | 89 | 0:40 | But the gain misses where we need it most |
-| 13 | 85 | 0:35 | Predicting where fires start needed a finer  |
+| 13 | 85 | 0:35 | Predicting where fires start needed a fine |
 | 14 | 100 | 0:40 | One ignition is enough |
-| 15 | 92 | 0:40 | Nearly a fifth of burned acres have no speci |
-| 16 | 10 | 0:30 | Target causes by region. Site the pre-season |
-| **Total** | **1530** | **11:15** | against a ~10:00 target |
+| 15 | 92 | 0:40 | Nearly a fifth of burned acres have no spe |
+| 16 | 10 | 0:20 | Target causes by region. Site the pre-seas |
+| **Total** | **1247** | **9:25** | against a ~10:00 target |
 
-**1530 spoken words, cut from 1,746.** The rounded budget total is 11:15; the raw prose is shorter, because per-slide rounding adds about a minute of slack across seventeen slides. Treat the rounded figure as the planning number.
+**1247 spoken words, cut from 1,746 in the W7 content pass.** The rounded budget total is 9:25; raw prose is shorter, because per-slide rounding adds about a minute of slack across seventeen slides.
 
-**What it runs at, by pace — and the pace is the unmeasured variable:**
+**What it runs at, by pace.** The second column adds two seconds per slide for advancing and letting a claim land — seventeen slides, so 34 seconds.
 
-| pace | runs | |
+| pace | prose | + transitions |
 |---|---|---|
-| 170 wpm | 9:00 | brisk |
-| 150 wpm | 10:12 | the script's assumption |
-| 130 wpm | 11:46 | deliberate, numbers-heavy delivery |
+| 130 wpm | 9:35 | 10:09 |
+| 140 wpm | 8:54 | 9:28 |
+| **150 wpm** | **8:18** | **8:52** |
+| 160 wpm | 7:47 | 8:21 |
 
-**Measure before cutting further.** Record slide 3 alone — 119 words, the densest in the deck — and time it. At 48 seconds you are at 150 wpm and the deck is fine. At 55 you are at 130 and need roughly another 170 words out. That one measurement replaces every estimate in this table.
+**Inside ten minutes at every pace tested**, including a deliberate 130 wpm. **Measure before cutting anything else:** record slide 3 alone — 102 words, the densest in the deck — and time it. Around 41 seconds means 150 wpm and the deck is fine; 47 seconds means 130.
 
-**If more has to go, in order of least damage:**
-
-1. **Compress slides 11–12 into one** — a matched pair making one argument (the covariate gain is real; it lands in the wrong deciles). Worth ~80 words. Costs the shape rhyme with slide 10, which is what makes the null legible.
-2. **Cut slide 13** (85 words) — the deck's only slide that plots no data. It bridges the covariate failure to the ignition answer, so cutting it makes 12 → 14 an abrupt turn.
-3. **Slides 7–8** are a matched pair where neither survives alone. Cutting both removes the failure that motivates the recommendation, so this is a last resort.
+**Headroom now exists.** The deck was 2:45 over before this pass and is inside its budget at a normal pace, so further cuts should be driven by what does not earn its place rather than by the clock. Slides **3** (102 words) and **14** (100) are the only two over 95 words.
