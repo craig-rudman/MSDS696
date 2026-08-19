@@ -2549,7 +2549,10 @@ def plot_human_tiles(panel, out_path: Path, *, k: int | None = None, cfg=None,
     scores = human_subcause_scores(panel, k=k, cfg=cfg)
     steady = scores.attrs["steadiest_top1"]
     volatile = scores.attrs["volatile_top1"]
-    notes = [f"{steady:.0%} steadiest · {volatile:.0%} most volatile"
+    # Worst first, matching the tiles above it: those run national -> even split
+    # -> history, i.e. weakest to strongest. Leading with the volatile figure keeps
+    # the eye travelling the same direction on both rows.
+    notes = [f"{volatile:.0%} most volatile · {steady:.0%} steadiest"
              if key == "history" else "" for key in scores.index]
     _draw_score_tiles(scores["label"], scores["top1"], out_path, figsize=figsize,
                       notes=notes)

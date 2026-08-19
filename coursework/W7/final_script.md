@@ -194,7 +194,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 - Same three tiles as slide 3, one level deeper: how often the predicted leading human sub-cause is right out of 11.
 - An even split 9%, the national human mix 16%, the region's own seasonal history 54%.
-- Split by the cell's own **pre-season** dispersion: **68.2% top-1 in the steadiest quartile against 43.5% in the most volatile**, on 3,844 held-out cells. Acre-weighted, same window and grouping as the prediction.
+- Split by the cell's own **pre-season** dispersion: **43.5% top-1 in the most volatile quartile against 68.2% in the steadiest**, on 3,844 held-out cells. Acre-weighted, same window and grouping as the prediction. **The figure prints it worst-first**, matching the tiles above it — do not reverse the pair when reading it aloud.
 - Acre-weighted TVD 0.489 against the national mix's 0.643; 3,850 held-out region-seasons.
 - The 11 sub-causes by national acre share: **arson 26.5%, equipment and vehicle use 24.4%, debris and open burning 19.2%**, recreation and ceremony 11.4%, power generation/transmission 8.6%, railroads 2.3%, smoking 2.3%, firearms and explosives 1.6%, fireworks 1.3%, misuse of fire by a minor 1.2%, other 1.1%. 40.6M human acres.
 - **Counts rank differently from acres:** debris burning starts 535,832 fires (the most of any human cause) but is third in acres; equipment starts 190,253 — about a third as many — and burns more. Verified from `fires_clean.parquet`.
