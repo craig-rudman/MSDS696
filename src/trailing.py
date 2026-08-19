@@ -50,8 +50,6 @@ from typing import Sequence
 import numpy as np
 import pandas as pd
 
-from config import SORT_KEYS
-
 # The panel's series identity: a prediction for a cell may only draw on earlier
 # cells sharing these keys. `season_idx` (the third sort key) orders within a series.
 GROUP_KEYS: tuple[str, ...] = ("region", "season")

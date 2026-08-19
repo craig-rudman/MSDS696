@@ -14,7 +14,6 @@ touching the 918 MB SQLite or repeating a spatial join.
 """
 from __future__ import annotations
 
-import numpy as np
 import pandas as pd
 import pytest
 

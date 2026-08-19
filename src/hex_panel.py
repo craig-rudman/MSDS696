@@ -300,7 +300,6 @@ if __name__ == "__main__":
 # to prevent.
 
 PANEL_CACHE = "hex_panel_modelling.parquet"
-LADDER_CACHE = "hex_ladder_scores.csv"
 
 
 def build_cached(

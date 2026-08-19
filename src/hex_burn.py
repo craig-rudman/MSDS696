@@ -59,8 +59,6 @@ geometry column is CRS-specific, which is why `build_national_grid` returns
 """
 from __future__ import annotations
 
-from typing import Iterable, Sequence
-
 import numpy as np
 import pandas as pd
 

@@ -57,7 +57,7 @@ opens; nothing inside S is ever read.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Iterable, Sequence
+from typing import Sequence
 
 import numpy as np
 import pandas as pd
@@ -69,7 +69,6 @@ from terraclimate import (
     BBOX_AK,
     BBOX_CONUS,
     COVARIATES,
-    THREDDS,
     preseason_months,
     season_index,
     _open,
