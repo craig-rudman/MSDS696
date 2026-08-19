@@ -26,7 +26,7 @@ Check items off in place as they are done.
 
 ---
 
-## Phase 1 — Notebooks (~10 min, student-run)
+## Phase 1 — Notebooks (~10 min, student-run) — COMPLETE
 
 Both are submitted artifacts and both currently misrepresent the code.
 
@@ -36,12 +36,13 @@ Both are submitted artifacts and both currently misrepresent the code.
   figure came out byte-identical to what is already embedded in the deck, so no
   re-embedding was needed.
 
-- [ ] **Re-run `notebook/06_analysis.ipynb`.**
-  One cell only needs it — cell 26's stored output still shows
-  `RuntimeWarning: Mean of empty slice`, which was fixed with
-  `warnings.catch_warnings()` after that output was captured. Nothing numeric changes.
+- [x] **Re-run `notebook/06_analysis.ipynb`** — done 2026-08-17. The
+  `RuntimeWarning: Mean of empty slice` is gone from cell 26's stored output, and all
+  17 checked figures reproduce identically (+0.484 / +0.577, 33 / 35 SD, the two
+  quartile ladders, 74/93 and 80/92, n=3,941 and 3,844, 36 of 986, and Klamath's four
+  seasons). The fix was cosmetic, as intended.
 
-- [ ] **Commit the executed outputs.**
+- [x] **Commit the executed outputs** — done.
 
 ---
 

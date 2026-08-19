@@ -1693,3 +1693,11 @@ Week 4 opens the modeling design against the cleaned analysis grain (`data/regio
 - **Untracked it and added a gitignore rule** for `~$*.pptx`, `.docx` and `.xlsx`, with a why-comment matching the file's existing convention. Verified with a probe file that the rule actually matches — the pattern has a `$` in it and I wanted to see it work rather than assume shell quoting had behaved.
 - **The plan now says to re-run the git-status check at the start of any session that edits the deck**, not just once. A single confirmation does not protect against the same collision happening again next week.
 - **What this changed:** lock file untracked; `.gitignore` gains Office lock patterns; Phase 0 fully checked off with the reasoning recorded.
+
+### Entry 7.40
+- **Date:** 2026-08-17
+- **What was going on:** Re-running notebook 06 to clear the spurious `RuntimeWarning` from cell 26's stored output, the last item in Phase 1.
+- **The warning is gone and nothing else moved.** I had the agent check all seventeen reported figures against the previous run rather than eyeballing the notebook: +0.484 and +0.577, the 33 and 35 SD controls, both quartile ladders, the 74/93 and 80/92 within-region counts, n=3,941 and 3,844, the 36-of-986 counterexample, and all four Klamath seasons. Every one identical.
+- **That is the outcome I wanted from a cosmetic fix** — it should change what the notebook *prints about itself* and nothing about what it found. A warning suppression that moved a number would have meant I had suppressed something real.
+- **Phase 1 is complete.** Both notebooks executed, both committed, and the figure-vs-deck hashes verified after notebook 16. Every number quoted in the script and in `CLAUDE.md` now traces to an executed cell rather than to a dry run.
+- **What this changed:** executed outputs committed for `notebook/06_analysis.ipynb`; Phase 1 closed in the remediation plan.
