@@ -36,5 +36,13 @@ __pycache__/
 # macOS
 .DS_Store
 
+# Office lock files. PowerPoint writes ~$Name.pptx beside an open deck and deletes
+# it on close, so a tracked one is a snapshot of a moment the deck was open rather
+# than anything about the project. One was committed in W7 and its later deletion
+# showed up as a spurious change.
+~$*.pptx
+~$*.docx
+~$*.xlsx
+
 # Local, machine-specific Claude Code permissions (not shared).
 .claude/settings.local.json

@@ -1684,3 +1684,12 @@ Week 4 opens the modeling design against the cleaned analysis grain (`data/regio
 - **Deleted rather than archived.** The agent offered `archive/` or a `sys.exit()` guard as compromises. I took the deletion: git holds the code permanently, and a file sitting in `src/` reads as current no matter what its header says. The one argument for keeping it — that it documents how the W6 deck was assembled — is satisfied by history.
 - **Confirmed nothing imported it** before deleting, and `final_script.md`'s header now records *why* it is gone rather than merely that it is superseded. That matters because a future me finding "supersedes build_deck.py" with no such file would wonder what was lost.
 - **What this changed:** `src/build_deck.py` deleted; `final_script.md` header; Phase 6's first item checked off in the remediation plan.
+
+### Entry 7.39
+- **Date:** 2026-08-17
+- **What was going on:** Cleaning up a PowerPoint lock file (`~$MSDS696_W7_Deck.pptx`) that had been committed to the repo.
+- **It turned out to explain the deck reversion.** PowerPoint writes `~$Name.pptx` beside an open deck and deletes it on close, so a *committed* lock file means the deck was open and being written to while the repo was being changed underneath it. That is the mechanism behind Entry 7.36's discovery that the deck had silently drifted back to a pre-edit state with all eighteen notes panes stale — not a mystery, just two writers.
+- **Its deletion is also the confirmation I needed for Phase 0.** The lock file is gone from disk, which means the deck is closed, which means the committed version is the real one. Both Phase 0 items are now checked off with that evidence rather than an assumption.
+- **Untracked it and added a gitignore rule** for `~$*.pptx`, `.docx` and `.xlsx`, with a why-comment matching the file's existing convention. Verified with a probe file that the rule actually matches — the pattern has a `$` in it and I wanted to see it work rather than assume shell quoting had behaved.
+- **The plan now says to re-run the git-status check at the start of any session that edits the deck**, not just once. A single confirmation does not protect against the same collision happening again next week.
+- **What this changed:** lock file untracked; `.gitignore` gains Office lock patterns; Phase 0 fully checked off with the reasoning recorded.

@@ -11,14 +11,15 @@ Check items off in place as they are done.
 
 ## Phase 0 — Do before anything else touches a file
 
-- [ ] **Close `MSDS696_W7_Deck.pptx` in PowerPoint.**
-  The deck silently reverted to a pre-edit state once this week; an open PowerPoint
-  session writing over a synced file is the only mechanism that explains it. Every
-  later phase assumes the committed deck is the real one.
+- [x] **Close `MSDS696_W7_Deck.pptx` in PowerPoint** — done 2026-08-17, confirmed by
+  the disappearance of its `~$` lock file. That lock file had been committed at some
+  point, which is also how the revert happened: an open PowerPoint session writing
+  over a synced file. Lock files are now gitignored.
 
-- [ ] **Confirm the deck is what git says it is.**
+- [x] **Confirm the deck is what git says it is** — done 2026-08-17, working tree
+  clean. Re-run this check at the start of any session that edits the deck:
   ```
-  git status --short coursework/W7/MSDS696_W7_Deck.pptx     # expect: clean
+  git status --short coursework/W7/MSDS696_W7_Deck.pptx     # expect: no output
   ```
   If it shows modified, the working copy is a PowerPoint save. Decide which to keep
   before proceeding — `git checkout` discards, and the scratchpad holds pre-cut backups.
