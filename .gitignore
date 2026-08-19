@@ -46,3 +46,10 @@ __pycache__/
 
 # Local, machine-specific Claude Code permissions (not shared).
 .claude/settings.local.json
+
+# Recorded presentation videos. The W7 deck recording is 137M, over GitHub's 100M
+# hard limit, so committing one gets the push rejected — and removing it after the
+# fact means rewriting history rather than a plain delete. Submitted through the
+# course LMS, not the repo.
+*.mp4
+*.mov
