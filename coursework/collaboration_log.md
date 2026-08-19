@@ -1701,3 +1701,12 @@ Week 4 opens the modeling design against the cleaned analysis grain (`data/regio
 - **That is the outcome I wanted from a cosmetic fix** — it should change what the notebook *prints about itself* and nothing about what it found. A warning suppression that moved a number would have meant I had suppressed something real.
 - **Phase 1 is complete.** Both notebooks executed, both committed, and the figure-vs-deck hashes verified after notebook 16. Every number quoted in the script and in `CLAUDE.md` now traces to an executed cell rather than to a dry run.
 - **What this changed:** executed outputs committed for `notebook/06_analysis.ipynb`; Phase 1 closed in the remediation plan.
+
+### Entry 7.41
+- **Date:** 2026-08-17
+- **What was going on:** I swapped the reference slide with the recommendation in PowerPoint, so the data sources are now slide 16 and the recommendation closes at 17.
+- **The reason is simple and I should have seen it when the slide was added:** you do not end a talk on a bibliography. The last thing on screen while the room starts asking questions should be the three products and the boundary, not five citations. The reference slide earns its place as context *before* the close, not as the close.
+- **It also fixes the bookend.** The title now says "Rank the ground, not the fire" and the final slide prints the same words — with the reference slide last, the deck opened and closed on different things and the rhyme was buried one slide from the end.
+- **What the swap cost in maintenance**, which the agent handled: two script sections exchanged and renumbered, three cross-references repointed (the title's rhyme note and slide 6's "ranks well, not accurate" line both named the closing slide by number), the timing table regenerated, and all eighteen notes panes re-synced. Verified: 18 slides, 18 sections, 17 figures hash-identical, no empty notes.
+- **The audit is now cheap enough that I reorder without hesitating**, which was not true three weeks ago. Reordering used to mean hand-checking every reference; it now means one command and a pass/fail.
+- **What this changed:** slides 16 and 17 exchanged in deck and script; three cross-references; timing table; all notes panes.

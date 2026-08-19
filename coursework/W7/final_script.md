@@ -2,7 +2,7 @@
 
 **Authoritative text for the W7 dry run and the W8 final.** Where this file and `coursework/W7/MSDS696_W7_Deck.pptx` disagree, this file wins and the deck is corrected to match. It supersedes the storyboard table in the W6 status report as the source of headline and note text. (`src/build_deck.py`, which generated the W6 deck from that storyboard, was deleted in W7 — the deck is now maintained directly and this file is its source.)
 
-Eighteen slides, numbered 0–17 in delivery order, matching the deck. Slide 17 is a data-sources reference, delivered after the recommendation. The final is fifteen minutes with five for questions; the W7 dry run targets about ten minutes of talking, which is **~30 seconds per slide**.
+Eighteen slides, numbered 0–17 in delivery order, matching the deck. Slide 16 is a data-sources reference; the recommendation closes at 17, so the talk ends on what to do rather than on a bibliography. The final is fifteen minutes with five for questions; the W7 dry run targets about ten minutes of talking, which is **~30 seconds per slide**.
 
 **Be declarative. The headline has already made the claim** — a SAY block that opens by asking whether the claim is true ("So can you forecast that mix?") re-opens a question the slide has settled, and spends words doing it. Open on the substance instead. The same applies to deictics: the figures are captioned, so "the national average" points at its own tile and "notice the middle tile" is both redundant and a chance to point at the wrong one.
 
@@ -76,7 +76,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - The missing-cause quarter is stated **here, voluntarily**, because a challenger will find it. Saying it first converts it from an ambush into evidence of rigor, and slide 15 pays it off as a product.
 - **Both denominators are said aloud on purpose.** Exact figures: **566,210 of 2,271,343 fires = 24.9% by count**, but **33.2M of 179.4M acres = 18.5% by acres** — the missing fires are smaller than average. Slide 15's headline says "nearly a fifth of burned acres" and Tier 1's Unknown class is 18.5%; without the acres half of this sentence, an attentive listener hears slide 0 and slide 15 contradict each other. They do not — they are two correct numbers on different denominators.
 - A TARGETING claim, not an efficacy one. Nothing in this project measures what a treatment achieves; the ranking says where fire is most likely to arrive, which is a necessary condition for sited work to pay off and not a sufficient one. **"Rank the ground" is the honest verb** — it promises an ordering, where "target" edged toward promising an outcome.
-- **The title rhymes with slide 16's closing boundary, deliberately.** "Rank the ground, not the fire" and "trust the order, not the number" are the same shape and the same claim: every product is a **ranking**, and rankings are what this data supports. The bookend is that rhyme, not a repeated sentence.
+- **The title rhymes with slide 17's closing boundary, deliberately.** "Rank the ground, not the fire" and "trust the order, not the number" are the same shape and the same claim: every product is a **ranking**, and rankings are what this data supports. The bookend is that rhyme, not a repeated sentence.
 - **"Pre-season" is the scope of every null in this deck and it is load-bearing.** Same-day conditions — wind, timing, suppression availability — were never tested. Never let the claim widen to "the largest fires are unpredictable": that is a much bigger statement than anything measured here.
 - **The second sentence is where the deck's whole argument sits**: where fires start is predictable, how big they get is not — with "before the season" carried by the "for pre-season planning" line above it. Both nulls and both wins hang off that split, so it is worth saying slowly.
 
@@ -283,7 +283,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
   - **The typical miss gets worse: 0.43 → 0.77 fires per cell** (mean absolute error — average size of the gap between predicted and actual, in the units of the thing predicted). The shuffled version is worse than **0.70**, which is what you get predicting the same national average everywhere. Misplaced predictions are worse than no predictions.
   - **Why shuffling rather than random numbers:** it preserves everything — the same values, the same total, the same distribution — and breaks only which cell each one is attached to. So whatever collapses was being done by the placement, and nothing else.
   - **Have `img/w6_shuffled_control.png` ready to pull up.** Predicted starts along the bottom, what actually happened up the side, twenty groups of cells. The forecast line climbs; the shuffled line is **flat at about 0.4** — the all-hex average — not low. Flat is the tell: it means the prediction carries no information about which cell is which.
-- **Say "it ranks well," never "it is accurate."** On that same figure the forecast line runs *below* the diagonal and under-predicts the busiest hexes — top stratum predicted 4.7 against 3.7 observed. The product is an ordering, not a promised count, and slide 16's closing line says the same thing about all three branches.
+- **Say "it ranks well," never "it is accurate."** On that same figure the forecast line runs *below* the diagonal and under-predicts the busiest hexes — top stratum predicted 4.7 against 3.7 observed. The product is an ordering, not a promised count, and slide 17's closing line says the same thing about all three branches.
 - Q&A companions: `img/w6_capture_curve.png` (the full decay curve) and `img/w6_shuffled_control.png` (the permutation control).
 
 **TIME —** 0:35
@@ -570,34 +570,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 ---
 
-## Slide 16 — Target causes by region. Site the pre-season work by ignition. Fix the record where it says neither.
-
-*Figure:* `img/w6_recommendation.png`
-
-**SAY**
-
-> Three products, one per class, ordered by where the acres are. For lightning — the majority of the burn — rank the ground and treat what ignites. For human fire, rank the causes by the acres they drive. And where the record says neither, fix the record.
->
-> One boundary on all three: **trust the order, not the number.** These will tell you which region, which cause, which ground comes first. They won't tell you how many acres you'll save.
-
-**EVIDENCE**
-
-- Three rows, one per Tier-1 class, ordered by share so the top row is where the acres are: Natural 58.9%, site by ignition, hex-season; Human 22.7%, rank causes by the acres they drive, ecoregion-season; Unknown 18.5%, fix the record underneath, ecoregion-season.
-- The line beneath states the finding the recommendation rests on: where fires start is predictable; how big they get, before the season, is not. **The boundary — trust the order, not the number — is spoken only**, so it is the one thing on this slide the audience cannot read for themselves.
-
-**WATCH**
-
-- A TARGETING claim, not an efficacy one. Nothing here measures what a treatment achieves — no before/after, no control, no counterfactual.
-- If asked "so if we treat those hexes, we cut the burn?" — say no, plainly. Davis et al. (2024) on severity reduction is separate evidence from someone else's study; cite it if asked, do not fold it in.
-- If they remember one thing: site the work against where fires start, because that is the one stage of the escalation this data can see in advance.
-- **The figure now prints the title verbatim — "Rank the ground, not the fire" — so the bookend is visual and costs no speaking time.** Do not read it aloud; the SAY's boundary line is what the screen does not say. The figure's subtitle carries the finding underneath ("where fires start is predictable; how big they get, before the season, is not"), which is also not worth reading out.
-- **"Trust the order, not the number" is the deck's most important limitation and this is its last statement.** Every product ships as a ranking. The Human branch's composed acre level runs 2x low at p10 and 8x high at p90; the ignition surface ranks well and under-predicts the busiest cells. Rankings are scale-invariant and survive that; acre counts do not.
-
-**TIME —** 0:35
-
----
-
-## Slide 17 — We started with one record of every U.S. wildfire, then layered on what it could not see.
+## Slide 16 — We started with one record of every U.S. wildfire, then layered on what it could not see.
 
 *Figure:* `img/w6_data_sources.png`
 
@@ -629,6 +602,33 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 ---
 
+## Slide 17 — Target causes by region. Site the pre-season work by ignition. Fix the record where it says neither.
+
+*Figure:* `img/w6_recommendation.png`
+
+**SAY**
+
+> Three products, one per class, ordered by where the acres are. For lightning — the majority of the burn — rank the ground and treat what ignites. For human fire, rank the causes by the acres they drive. And where the record says neither, fix the record.
+>
+> One boundary on all three: **trust the order, not the number.** These will tell you which region, which cause, which ground comes first. They won't tell you how many acres you'll save.
+
+**EVIDENCE**
+
+- Three rows, one per Tier-1 class, ordered by share so the top row is where the acres are: Natural 58.9%, site by ignition, hex-season; Human 22.7%, rank causes by the acres they drive, ecoregion-season; Unknown 18.5%, fix the record underneath, ecoregion-season.
+- The line beneath states the finding the recommendation rests on: where fires start is predictable; how big they get, before the season, is not. **The boundary — trust the order, not the number — is spoken only**, so it is the one thing on this slide the audience cannot read for themselves.
+
+**WATCH**
+
+- A TARGETING claim, not an efficacy one. Nothing here measures what a treatment achieves — no before/after, no control, no counterfactual.
+- If asked "so if we treat those hexes, we cut the burn?" — say no, plainly. Davis et al. (2024) on severity reduction is separate evidence from someone else's study; cite it if asked, do not fold it in.
+- If they remember one thing: site the work against where fires start, because that is the one stage of the escalation this data can see in advance.
+- **The figure now prints the title verbatim — "Rank the ground, not the fire" — so the bookend is visual and costs no speaking time.** Do not read it aloud; the SAY's boundary line is what the screen does not say. The figure's subtitle carries the finding underneath ("where fires start is predictable; how big they get, before the season, is not"), which is also not worth reading out.
+- **"Trust the order, not the number" is the deck's most important limitation and this is its last statement.** Every product ships as a ranking. The Human branch's composed acre level runs 2x low at p10 and 8x high at p90; the ignition surface ranks well and under-predicts the busiest cells. Rankings are scale-invariant and survive that; acre counts do not.
+
+**TIME —** 0:35
+
+---
+
 ## Timing
 
 **Derived from the SAY blocks, not maintained by hand.** Budgets are the measured word count at 150 wpm rounded up to five seconds. Re-derive after any edit rather than adjusting a cell.
@@ -651,8 +651,8 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 | 13 | 85 | 0:35 | Predicting where fires start needed a fine |
 | 14 | 100 | 0:40 | One ignition is enough |
 | 15 | 92 | 0:40 | Nearly a fifth of burned acres have no spe |
-| 16 | 77 | 0:35 | Target causes by region. Site the pre-seas |
-| 17 | 81 | 0:35 | We started with one record of every U.S. w |
+| 16 | 81 | 0:35 | We started with one record of every U.S. w |
+| 17 | 77 | 0:35 | Target causes by region. Site the pre-seas |
 | **Total** | **1405** | **10:20** | against a ~10:00 target |
 
 **1405 spoken words, cut from 1,746 in the W7 content pass.** The rounded budget total is 10:20; raw prose is shorter, because per-slide rounding adds about a minute of slack across 18 slides.
