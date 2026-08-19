@@ -66,7 +66,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 > This is for a state or regional fire planner deciding, before the season starts, where to concentrate a fixed prevention and mitigation budget.
 >
-> It comes out of the federal record of U.S. wildfire occurrence — two point three million fires, 1992 through 2020, each with a date, a location, a size, and a cause. A quarter have no cause recorded; by acres, nearly a fifth.
+> It comes out of the federal record of U.S. wildfire occurrence — two point three million fires, 1992 through 2020, each with a date, a location, a size, and a cause. A quarter have no cause recorded; by acres burned, nearly a fifth.
 >
 > The recommendation, up front: **for pre-season planning, rank the ground — not the fire.** Where fires start is predictable. How big they get, before the season, is not.
 
@@ -118,9 +118,9 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> Fire follows terrain, vegetation and climate — so every fire is placed into an EPA Level III ecoregion. A hundred and five cover the country.
+> Fire follows terrain, vegetation and climate, not state borders, so every fire is placed into an EPA Level III ecoregion. A hundred and five cover the country.
 >
-> Shade each by how much of its burned area is lightning-caused and the map splits at about the hundredth meridian — natural in the West, human in the East.
+> If we shade each by how much of its burned area is of natural causes — lightning, mostly — then the map splits at about the hundredth meridian — natural in the West, human in the East.
 >
 > So there's no national answer to what starts fires. There are regional ones.
 
@@ -147,11 +147,11 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 **SAY**
 
-> The mix is three classes splitting a region-season's burned acres — **natural**, **human**, and **unknown**, the ones whose cause was never determined. Nationally: fifty-nine, twenty-three, eighteen. **Everything here is weighted by acres, not fire counts** — by count, the first two nearly swap.
+> The mix is three classes splitting a region-season's burned acres — **natural**, **human**, and **unknown**.
 >
-> Three ways to predict that mix, worst to best. The national average: forty-two percent of the acres land on the right cause. An even split, fifty-two. The region's own seasonal history — its own past summers, or winters — seventy-three. Ranges shown below.
+> We're looking at three ways to predict that mix. The national average, an even split across causes, and the region's own seasonal history.
 >
-> **We can tell in advance which end a region-season lands on** — a settled history forecasts well, a swinging one doesn't.
+> Some region-seasons are more stable than others. **A settled history forecasts well, a swinging one doesn't.**
 
 **EVIDENCE**
 
@@ -172,11 +172,11 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **State its limit in the same breath: it ranks confidence, it does not calibrate it.** "This cell is in the steadiest quartile, which historically scored 83%" — never "83% likely to be right." And 36 of 986 steadiest-quartile cells still scored below 25%, several at dispersion exactly 0.000: a settled history can precede a regime break.
 - **Unknown is a predicted class, not a discard.** It holds the missing-cause acre mass, and its share is a regional attribution-quality signal — which is what makes slide 15 a product rather than an apology. Do not describe the model as predicting "two causes plus leftovers."
 - **The comparison carries the weight, not any one tile:** the national mix (42%, left) is worse than the even split (52%, middle) — using the national average is worse than assuming you know nothing, which is slide 2 reappearing as forecast error. Do not say "the middle tile" for this point; the middle tile is the even split, and the claim is about the left one losing to it.
-- The 18.5% here and the "nearly a fifth" on the title slide are the same number — the acres denominator. Keep them consistent.
+- **The Tier-1 shares are no longer said aloud** — the tiles carry them and the SAY names only the three classes. So the acres-vs-counts trap below is now purely a Q&A matter: it cannot be sprung by anything you say, only by something you are asked. The 18.5% Unknown share and the title slide's "nearly a fifth" are the same number on the same acres denominator.
 - **The single most confusable pair of numbers in the deck.** Tier-1 shares by acres are Human 22.7 / Natural 58.8 / Unknown 18.5; **by fire count they are Human 60.7 / Natural 14.4 / Unknown 24.9** — Human and Natural almost exactly swap. Both are true. Verified from `fires_clean.parquet`. Every target and every score in this project is **acres** (`panel.tier1_composition()` divides `human_ac`/`natural_ac`/`unknown_ac` by `total_ac`; fire counts appear only under `with_counts=True`, and only as model *features*, never as a target). Name the denominator whenever these numbers are said aloud.
 - If challenged "isn't most fire human-caused?" — yes, by count, 61%. Humans start most fires; lightning burns most acres. The deck is about acres because acres are what a mitigation budget is sized against.
 
-**TIME —** 0:45
+**TIME —** 0:25
 
 ---
 
@@ -247,7 +247,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - Keep this slide — it is the only one conceding a model was tried and lost, which is what keeps the nulls credible.
 - The bars are a **hit rate** — how often the leading cause is named right, out of 11 — so "of the time" is the correct phrasing here, unlike slide 3. The TVDs are in the evidence above but are **not what is plotted**; do not quote them off this figure.
 
-**TIME —** 0:20
+**TIME —** 0:15
 
 ---
 
@@ -322,7 +322,7 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 - **The full version, if pressed — two rules chosen per fire.** A fire linked to an **MTBS perimeter** has its acres split across the hexes the perimeter covers, weighted by intersected area. A **point-only** fire puts all its acres on the hex containing the ignition. Perimeter-linked fires are 0.6% of records but **81.6% of acres**; point-only fires average 14 acres against a 62,494-acre hex, so crediting them whole is accurate. Per-fire weights sum to 1, so the hex panel reconciles exactly to the ecoregion totals — this redistributes acres, it never restates them. `src/hex_burn.py`.
 - **Volunteer the limitation if the question goes a second round.** The point rule breaks in the tail: **2,710 point fires exceed 1,000 acres and carry 8.9% of all acres**, each landing entirely on one cell, and 23 rows assign more than a full hex to a single cell. So some of this curve's sharpness at the very tip is the attribution rule rather than fire behavior. The fix — imputing a circular burn from the ignition point and distributing it the same way — is designed and not built. **It does not move the argument:** the claim is about shape across the whole distribution, and slide 8's decile statistics are rank-based, so redistributing a few thousand cells changes neither direction nor conclusion.
 
-**TIME —** 0:20
+**TIME —** 0:15
 
 ---
 
@@ -661,14 +661,14 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 
 | slide | words | budget | |
 |---|---|---|---|
-| 0 | 90 | 0:40 | Title slide |
+| 0 | 91 | 0:40 | Title slide |
 | 1 | 80 | 0:35 | Wildfires are seasonal |
-| 2 | 65 | 0:30 | Cause is regional, not national |
-| 3 | 102 | 0:45 | A region's cause mix is stable enough to f |
+| 2 | 74 | 0:30 | Cause is regional, not national |
+| 3 | 53 | 0:25 | A region's cause mix is stable enough to f |
 | 4 | 64 | 0:30 | For human-cause wildfires, history names t |
-| 5 | 30 | 0:20 | A learned model made naming the leading ca |
+| 5 | 30 | 0:15 | A learned model made naming the leading ca |
 | 6 | 83 | 0:35 | Where fires start is predictable, at the s |
-| 7 | 32 | 0:20 | Almost all the area burned is in almost no |
+| 7 | 32 | 0:15 | Almost all the area burned is in almost no |
 | 8 | 93 | 0:40 | Up to a point, human and natural burned ar |
 | 9 | 72 | 0:30 | Where human fires start is predictable yea |
 | 10 | 87 | 0:35 | We tried to improve that with drought and  |
@@ -680,19 +680,19 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 | 16 | 81 | 0:35 | We started with one record of every U.S. w |
 | 17 | 77 | 0:35 | Target causes by region. Site the pre-seas |
 | 18 | 13 | 0:15 | Closing slide |
-| **Total** | **1418** | **10:35** | against a ~10:00 target |
+| **Total** | **1379** | **10:05** | against a ~10:00 target |
 
-**1418 spoken words, cut from 1,746 in the W7 content pass.** The rounded budget total is 10:35; raw prose is shorter, because per-slide rounding adds about a minute of slack across 19 slides.
+**1379 spoken words, cut from 1,746 in the W7 content pass.** The rounded budget total is 10:05; raw prose is shorter, because per-slide rounding adds about a minute of slack across 19 slides.
 
 **What it runs at, by pace.** The second column adds two seconds per slide for advancing and letting a claim land — 19 slides, so 38 seconds.
 
 | pace | prose | + transitions |
 |---|---|---|
-| 130 wpm | 10:54 | 11:32 |
-| 140 wpm | 10:07 | 10:45 |
-| **150 wpm** | **9:27** | **10:05** |
-| 160 wpm | 8:51 | 9:29 |
+| 130 wpm | 10:36 | 11:14 |
+| 140 wpm | 9:51 | 10:29 |
+| **150 wpm** | **9:11** | **9:49** |
+| 160 wpm | 8:37 | 9:15 |
 
-**Inside ten minutes at every pace tested**, including a deliberate 130 wpm. **Measure before cutting anything else:** record slide 3 alone — 102 words, the densest in the deck — and time it. Around 41 seconds means 150 wpm; 47 seconds means 130.
+**Inside ten minutes at every pace tested**, including a deliberate 130 wpm. **Measure before cutting anything else:** record the heaviest slide — 14 at 100 words — and time it against 40 seconds, which is what 150 wpm predicts.
 
-**Headroom exists.** The deck was 2:45 over before the content pass. Further cuts should be driven by what does not earn its place rather than by the clock. The heaviest remaining are slides **3** (102 words) and **14** (100).
+**Headroom exists.** The deck was 2:45 over before the content pass. Further cuts should be driven by what does not earn its place rather than by the clock. The heaviest remaining are slides **14** (100 words) and **8** (93).
