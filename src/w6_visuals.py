@@ -1073,14 +1073,16 @@ def plot_recommendation(out_path: Path, *,
     # The slide has to *land* the talk, not summarize it. An earlier version
     # closed on "three products, because the model has three classes" -- true,
     # and a specification rather than a conclusion. The recommendation is the
-    # change in what gets targeted, so that is what the closing line says; the
-    # reliability caveat follows it, because a recommendation without its
-    # boundary is the thing this deck has spent five beats refusing to do.
+    # The closing line repeats the title verbatim, so the deck opens and closes
+    # on the same words while the SPOKEN closer carries the boundary ("trust the
+    # order, not the number"). Printing the boundary here as well duplicated the
+    # narration in the same ten seconds; the subtitle now states the finding the
+    # recommendation rests on instead, which nothing else on this figure says.
     ax.text(0.018, 0.082,
-            "Stop targeting how big it gets. Target where it starts.",
+            "Rank the ground, not the fire.",
             fontsize=16.5, fontweight="bold", color=TEXT_PRIMARY, va="center")
     ax.text(0.018, 0.016,
-            "rank on all three \u2014 the order is trustworthy, the acre level much less so",
+            "where fires start is predictable; how big they get, before the season, is not",
             fontsize=12, color=TEXT_SECONDARY, style="italic", va="center")
 
     fig.savefig(out_path, dpi=200, facecolor=SURFACE, bbox_inches="tight",

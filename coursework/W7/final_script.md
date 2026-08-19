@@ -583,14 +583,14 @@ The one genuinely movable piece is **slide 9**, which is not part of the repair 
 **EVIDENCE**
 
 - Three rows, one per Tier-1 class, ordered by share so the top row is where the acres are: Natural 58.9%, site by ignition, hex-season; Human 22.7%, rank causes by the acres they drive, ecoregion-season; Unknown 18.5%, fix the record underneath, ecoregion-season.
-- The boundary, on the line beneath: rank on all three — the order is trustworthy and the acre level much less so.
+- The line beneath states the finding the recommendation rests on: where fires start is predictable; how big they get, before the season, is not. **The boundary — trust the order, not the number — is spoken only**, so it is the one thing on this slide the audience cannot read for themselves.
 
 **WATCH**
 
 - A TARGETING claim, not an efficacy one. Nothing here measures what a treatment achieves — no before/after, no control, no counterfactual.
 - If asked "so if we treat those hexes, we cut the burn?" — say no, plainly. Davis et al. (2024) on severity reduction is separate evidence from someone else's study; cite it if asked, do not fold it in.
 - If they remember one thing: site the work against where fires start, because that is the one stage of the escalation this data can see in advance.
-- **The figure prints "Stop targeting how big it gets. Target where it starts." beneath the three rows, and the SAY does not read it.** The title slide no longer carries that sentence — it says "rank the ground, not the fire" — so this is the only place the imperative appears, and it appears in writing. Saying it aloud is available if the room wants it landed, but the SAY's boundary line is the better use of the time.
+- **The figure now prints the title verbatim — "Rank the ground, not the fire" — so the bookend is visual and costs no speaking time.** Do not read it aloud; the SAY's boundary line is what the screen does not say. The figure's subtitle carries the finding underneath ("where fires start is predictable; how big they get, before the season, is not"), which is also not worth reading out.
 - **"Trust the order, not the number" is the deck's most important limitation and this is its last statement.** Every product ships as a ranking. The Human branch's composed acre level runs 2x low at p10 and 8x high at p90; the ignition surface ranks well and under-predicts the busiest cells. Rankings are scale-invariant and survive that; acre counts do not.
 
 **TIME —** 0:35

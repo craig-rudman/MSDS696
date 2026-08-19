@@ -1645,3 +1645,13 @@ Week 4 opens the modeling design against the cleaned analysis grain (`data/regio
 - **One stale note caught in the sweep.** Slide 16's WATCH still described the figure's printed line as a repetition of the title. It is no longer a repetition, so the note now says this is the only place that imperative appears and it appears in writing.
 - **Deck at 1,324 words**, 9:23 at 150 wpm with transitions, 10:45 at 130. The `.pptx` title slide is updated; the formal project title and byline are untouched.
 - **What this changed:** title slide text in the deck and script, slide 0's SAY and three WATCH lines, one WATCH line on slide 16, timing table.
+
+### Entry 7.35
+- **Date:** 2026-08-17
+- **What was going on:** I asked whether slide 16's graphic needed fixing after the retitle. It did, and for two reasons — one I expected and one I did not.
+- **The expected one:** the figure's bold closing line was still *"Stop targeting how big it gets. Target where it starts."* — the W6 title. With slide 0 now reading *Rank the ground, not the fire*, the closing figure was asserting a phrasing that appeared nowhere else in the deck.
+- **The one I did not expect, and it is the better catch:** the figure's subtitle already read *"rank on all three — the order is trustworthy, the acre level much less so."* That is **exactly what I had just written into the spoken closer** — "trust the order, not the number." I had rewritten slide 16's SAY specifically to say what the figure could not, and the figure was already saying it. Ten seconds of duplication I would have delivered without noticing.
+- **The fix swaps the roles.** The bold line now repeats the title verbatim, so the bookend is **visual and costs no speaking time**. The subtitle now states the finding the recommendation rests on — *where fires start is predictable; how big they get, before the season, is not* — which nothing else on the figure says. The spoken closer keeps the boundary to itself.
+- **The general rule this is the third instance of:** the figure and the narration should not carry the same sentence. Check the figure before writing the SAY, not after. Slides 5, 7 and now 16 were all cut for the same defect.
+- **The three product rows are untouched** — shares, actions and grains all unchanged. Only the two lines beneath moved.
+- **What this changed:** `plot_recommendation` in `src/w6_visuals.py` (both text lines and the comment explaining the old choice); `img/w6_recommendation.png` regenerated; three cells appended to `notebook/16_w7_visuals.ipynb`, **unexecuted**; two script notes that described the old figure. The notebook needs a run to populate them.
