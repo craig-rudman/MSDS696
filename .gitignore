@@ -5,6 +5,11 @@
 data/*.sqlite
 data/*.parquet
 data/*.baseline
+
+# ...but the acquisition manifest is tracked: it is how the un-vendored sources
+# stay defensible without committing 2.3G of third-party binaries.
+!data/SOURCES.md
+!data/checksums.sha256
 # Cached score tables (W6). Derived from the panel by src/hex_panel.py, not
 # inputs — the numbers they hold are reported in notebook/12 and quoted there.
 data/*.csv
@@ -22,7 +27,9 @@ data/us_eco_l3_state_boundaries/
 data/ak_eco_l3/
 
 # MTBS burned-area perimeters (W5) — redistributable from USGS/MTBS, not ours to
-# vendor. Fetched by src/mtbs.py; the join key (MTBS_ID) lives in the FPA-FOD source.
+# vendor, and 617M for the .shp alone, over GitHub's 100M hard limit. Downloaded
+# by hand per data/SOURCES.md, which pins the release by checksum; the join key
+# (MTBS_ID) lives in the FPA-FOD source and src/hex_burn.py does the join.
 data/mtbs_perimeters/
 
 # MODIS vegetation-index cache (W5) — reduced hex means, reproducible from src/modis.py.
