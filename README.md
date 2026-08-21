@@ -1,5 +1,10 @@
 # Predicting Region-Season Wildfire Cause Patterns to Target Prevention and Mitigation
 
+**Craig Rudman** · crudman@regis.edu<br>
+MSDS 696 — Data Science Practicum II · Regis University<br>
+Instructor: Dr. Mike Busch · August 21, 2026
+
+
 MSDS696 Practicum II — a two-tier model of U.S. wildfire cause and ignition, built on the Fire Program Analysis Fire-Occurrence Database (FPA-FOD, 6th Edition), 1992–2020.
 
 Prevention and mitigation resources are limited, and wildfires don't start — or burn — the same way everywhere. This project identifies regional and seasonal patterns in wildfire cause so that a state or regional fire-agency planner can match the intervention to the pattern instead of spreading effort uniformly.
@@ -297,6 +302,16 @@ The analysis is the product of eight weeks of scoping, and several of the strong
 | **W6** | Hex-grain modeling. Five covariate nulls on ignition; the one verified gain lands where it does not help. Prevention/mitigation re-partitioned **by lever, not by cause**, correcting an earlier compression error. The point-attribution defect found while sanity-checking cell acreages. |
 | **W7** | Per-cell confidence from pre-season dispersion — the one new result, and free from the baseline already in use. The model-family question closed by running a linear rung: ridge beats the booster and still loses to the trailing mean. Repository hygiene and verification. |
 | **W8** | Final deck, per-slide notes, acquisition manifest, and this README. |
+
+---
+
+## Attribution
+
+This project was built in collaboration with **Claude Code** (Anthropic), used for code generation and research assistance throughout — pipeline modules in `src/`, notebook cells, figure rendering, and drafting of written work products including this README.
+
+The work is directed and verified by the author. Research questions, method choices, and every conclusion stated here are the author's; the agent proposed, implemented, and was frequently overridden. Analytical claims were checked against the data rather than accepted from the model, and several agent-proposed framings were rejected outright — the prevention/mitigation partition was corrected from a compression error the agent introduced, and the per-cell confidence result came from rejecting the agent's first, wrong formulation of the question.
+
+The full record is [`coursework/collaboration_log.md`](coursework/collaboration_log.md) — 149 entries written contemporaneously with the decisions, which is the authority when documents disagree. [`coursework/W8/MSDS696_LLM_Reflection.md`](coursework/W8/MSDS696_LLM_Reflection.md) assesses where the LLM was wrong, where it was overridden, and what had to be verified.
 
 ---
 
