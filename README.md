@@ -199,7 +199,6 @@ literature/        literature review, with its own citation and sourcing rules
 data/              inputs and generated artifacts (not tracked)
 img/               figures
 tests/             regression suite for the pipeline modules
-archive/           superseded documents kept for history
 ```
 
 **Pipeline order** — cleaning ([04](notebook/04_cleaning.ipynb)), EDA

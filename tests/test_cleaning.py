@@ -388,7 +388,7 @@ def test_exclusion_already_applied_to_the_artifact(fires):
 
 @pytest.mark.requires_data
 def test_boundary_fires_are_a_negligible_share_of_acres(fires):
-    """Bounds the geodetic sensitivity documented in FINDINGS.md.
+    """Bounds a known geodetic sensitivity in the ecoregion join.
 
     14 fires sit within centimetres of an ecoregion seam (0.06m-0.31m from the
     adjacent polygon). The CONUS layer ships 1,631 polygons for 85 distinct Level

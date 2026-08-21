@@ -29,7 +29,6 @@ The log is written contemporaneously with decisions, which makes it **the author
 - `coursework/W1`–`W8` — weekly assignments and work products. Each week's requirements are in that week's `assignment.md`. There is no central rubric or template directory: **the report template is the most recent status report** — copy its structure forward.
 - `notebook/` — analysis notebooks, numbered in pipeline order (`01_feasibility.ipynb` … `11_w5_visuals.ipynb`).
 - `src/` — extracted modules. `literature/` — literature review, with its own scoped instructions for citation and sourcing rules.
-- `archive/` — superseded documents kept for history. **Do not treat anything in `archive/` as current**; its live content has been absorbed here.
 
 ## The Project
 
@@ -69,7 +68,7 @@ Therefore: report cause as **shares, not counts**; treat the seasonal signal as 
 
 ## Architecture
 
-The model is **hierarchical**, not a flat 12-cause classifier. Agentic behavior must assume this structure. (Full W4 rationale: `archive/design_refinement.md`, superseded on the Natural branch by the W6 redefinition below.)
+The model is **hierarchical**, not a flat 12-cause classifier. Agentic behavior must assume this structure. (The full W4 rationale lived in a `design_refinement.md` that has since been deleted; it survives only in git history, and was superseded on the Natural branch by the W6 redefinition below. What is load-bearing from it is restated here.)
 
 **Tier 1 — coarse allocator.** For a region-season, predict burned-area composition across three classes: **Human / Natural / Unknown**, on a *total-acres* denominator (resolved + missing) so the three shares sum to 1. Class shares over the full record: **Natural 58.9%, Human 22.7%, Unknown 18.5%** (179.3M acres). "Unknown" is a **predicted class in its own right** — it holds the missing-cause mass (`missing_acres`) and its share is a regional attribution-quality signal.
 
