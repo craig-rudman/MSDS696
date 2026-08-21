@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MSDS696_W7_Executive_Challenge.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="executive-challenge">Executive Challenge</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th></th>
+<th>Week / Date</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Craig Rudman</td>
+<td></td>
+<td>Week 7 / 2026-08-20</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="project-title">Project title</h2>
+<p>Predicting Region-Season Wildfire Cause Patterns to Target Prevention and Mitigation</p>
+<h2 id="audience">Audience</h2>
+<p>A <strong>state or regional fire-agency planner</strong> deciding, before the season opens, where to concentrate a fixed prevention and mitigation budget. The questions below are in that budget-holder's voice: what the work is worth and what can be done with it on Monday.</p>
+<h2 id="the-three-challenges">The three challenges</h2>
+<h3 id="challenge-1">Challenge 1</h3>
+<blockquote>
+<p>You have told me five things did not work. What does the agency have at the end of it?</p>
+</blockquote>
+<p>Slides 10 through 13 are four consecutive negative results, and slide 13's figure plots no data at all. Roughly two of the ten talking minutes go to things that failed. Delivered in a block, the nulls read cumulatively, and a listener tracking the spend hears a project that did not produce.</p>
+<p><strong>Answer.</strong> Three products, and none of them depends on the covariates that failed. The first is a ranked list of where to site mitigation work, at a scale of about ninety-seven square miles per cell. It beats the national average, an even split, and every covariate-assisted version I tested, and the same test on shuffled data scores effectively zero, so the ordering is real and not an artifact of the scoring. The second is a ranked cause profile for each region and season, so prevention effort goes at the causes that drive the acres in that region, rather than the ones that start the most fires. The third is a worklist of the region-seasons where the most burned acres will go unattributed next season.</p>
+<p>The five negative results are a separate kind of return. I tested drought and fuel-density data as predictors of where fires start, on both branches, and the best gain was four thousandths on a zero-based axis. That is a procurement finding: those feeds do not need to be bought, built, or maintained for this purpose. The reason is measurable rather than a guess — strip out which cell you are looking at and the drought correlation halves, from −0.137 to −0.073, and the vegetation correlation halves as well. Those covariates identify dry places, and history already knows where the dry places are.</p>
+<h3 id="challenge-2">Challenge 2</h3>
+<blockquote>
+<p>If we treat the ground you rank, how many acres do we save?</p>
+</blockquote>
+<p>Slide 17 recommends siting pre-season work by ignition, which is an instruction to spend money on specific ground. Nothing in the project measures what a treatment achieves — there is no before and after, no control, no counterfactual. The claim is targeting, not efficacy, so the number this question asks for does not exist in the work.</p>
+<p><strong>Answer.</strong> I cannot give you that number, and any number I did give you would be invented. Measuring acres saved requires treating some ground and not treating comparable ground, then comparing outcomes. This project has no treatment, no control, and no counterfactual — it observes twenty-nine years of the federal fire record and predicts what the next season looks like.</p>
+<p>What the work supplies is the input that an efficacy estimate requires. Fuel treatment, defensible space, and pre-positioned suppression are all sited works: they pay off only if fire arrives where they were placed. A cell that ignites at all is about twenty times more likely to produce a thousand-acre fire than one that does not, so ranking ground by ignition puts the work where fire is most likely to arrive. That is a necessary condition for a treatment to return anything, and it is not a sufficient one. Your own people can estimate what a treatment achieves per acre. What they did not have is a defensible order to spend in.</p>
+<h3 id="challenge-3">Challenge 3</h3>
+<blockquote>
+<p>A quarter of your records have no cause. You built a cause model on data that is missing the cause. Why isn't that fatal?</p>
+</blockquote>
+<p>The missingness is not evenly spread across regions, which leaves open whether it distorts the regional cause contrast the deck is built on.</p>
+<p><strong>Answer.</strong> The missing quarter is not dropped and it is not imputed. It is one of the three classes the model predicts, alongside Human and Natural, on a denominator of total acres so the three shares sum to one. A region-season's predicted Unknown share is a statement about the quality of that region's records, which is what makes the third product possible at all.</p>
+<p>On whether it distorts the regional contrast: the missingness runs against the deck's main claim rather than manufacturing it. Missing share correlates negatively with Natural share across ecoregions, about −0.64 — the gap concentrates in low-Natural, human-dominated country, while the most lightning-dominated regions have almost no missing cause at all. So the claim that lightning drives most of the burn is not an artifact of unattributed acres hiding inside the Natural class, and the Human share of 22.7 percent is a floor rather than an estimate. If those unattributed acres were resolved tomorrow, the Human share would go up, not down.</p>
+<p>Two limits I hold to because of this. Cause is reported as shares rather than counts, so a region with poor reporting does not look like a region with little fire. And the seasonal pattern is clean, while the regional pattern is directionally reliable with its magnitudes caveated. What I have not established is why attribution fails where it does — the pattern is agency-shaped, and identifying which reporting streams drive it is open work.</p>
+
+</body>
+</html>
