@@ -1287,6 +1287,8 @@ Week 4 opens the modeling design against the cleaned analysis grain (`data/regio
 - **The title slide carries notes too**, and they are the ones that matter most to get right: the targeting-not-efficacy boundary, stated before the first claim rather than after the last. That caution has been in `talk_notes.md` since the BLUF was reworded; it now sits on the slide where an audience first forms its expectation.
 - **What this changed:** `src/build_deck.py` (`add_title_slide`, title constants, docstring); both .pptx files rebuilt — 20 slides and 10. Verified geometry unchanged on the beat slides: zero overflows, still two visible shapes each.
 
+## Week 7
+
 ### Entry 7.1
 - **Date:** 2026-08-15
 - **What was going on:** Reviewing the W6 deck ahead of the W7 dry run, I noticed the deck on disk had been edited in PowerPoint after `build_deck.py` generated it, and that I had deleted one slide along the way — beat 6, "A learned model made it worse."
