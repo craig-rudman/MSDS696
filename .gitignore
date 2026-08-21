@@ -53,3 +53,13 @@ __pycache__/
 # course LMS, not the repo.
 *.mp4
 *.mov
+
+# Derived exports. Status reports, challenge write-ups and the like are authored
+# as Markdown and printed to PDF/HTML from the editor; the print is a render of a
+# tracked source, so committing it means a second copy that goes stale silently.
+# One did in W7 -- a correction landed in the .md and the .pdf kept the old
+# wording (collaboration log 7.48). Export for submission, don't commit.
+*.pdf
+*.html
+# Source papers are inputs, not renders -- nothing in the repo generates them.
+!literature/pdf/**
