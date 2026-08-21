@@ -300,8 +300,23 @@ The analysis is the product of eight weeks of scoping, and several of the strong
 
 ---
 
-## Source
+## Sources
 
-Short, Karen C. 2022. *Spatial wildfire occurrence data for the United States, 1992–2020: FPA_FOD_20221014* (6th Edition). Forest Service Research Data Archive. `doi:10.2737/RDS-2013-0009.6`
+**FPA-FOD, 6th edition** — the spine: 2.27M fires, 1992–2020, with date, location, size and cause.
+Short (2022) · Forest Service Research Data Archive · `doi.org/10.2737/RDS-2013-0009.6`
 
-Burned-area perimeters: MTBS (USGS / USDA Forest Service). Ecoregions: US EPA Level III, CONUS and Alaska layers. Climate: TerraClimate. Vegetation: MODIS via the Microsoft Planetary Computer.
+Joined onto it:
+
+**EPA Level III ecoregions** — the regional unit: 105 regions, drawn from terrain, vegetation and climate.
+U.S. EPA (2025) · Omernik & Griffith (2014) · `epa.gov/eco-research/ecoregions`
+
+**MTBS burned-area perimeters** — fire as an area, not a point: 81.6% of acres, spread across cells.
+Eidenshink et al. (2007) · USGS · `doi.org/10.5066/P9IED7RZ`
+
+**TerraClimate** — drought before the season: PDSI, soil moisture, deficit, VPD.
+Abatzoglou et al. (2018) · Climatology Lab · `climatologylab.org/terraclimate`
+
+**MODIS MOD13A1 v6.1** — fuel load: 500 m vegetation index, via Microsoft Planetary Computer.
+Didan (2021) · NASA LP DAAC · `doi.org/10.5067/MODIS/MOD13A1.061`
+
+Access dates, file names and per-file checksums are in [`data/SOURCES.md`](data/SOURCES.md).
