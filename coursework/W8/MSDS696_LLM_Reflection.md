@@ -4,6 +4,21 @@ crudman@regis.edu<br>
 
 I worked with an LLM agent on every part of this practicum, from the Week 1 problem statement to the final deck. The record is 149 contemporaneous entries in [collaboration_log.md](../collaboration_log.md), written alongside the work rather than reconstructed at the end. This is what I take from it.
 
+## How this document was produced
+
+Since this reflection is about a method, it should say how it was itself made.
+
+I directed the agent to read the full collaboration log and then **interview me**, rather than to summarize the log into a reflection. That distinction is the point. A reflection drafted from the log alone would have recovered what happened — the log is thorough about that — but it would have recovered only my contemporaneous readings of events, restated. What it could not supply is what the experience was like, what I would do differently, and which of my own recorded framings I no longer stand behind. Those had to be asked for.
+
+The interview ran in three rounds of questions, each round shaped by the previous answers, with the agent drafting only after the last one. **Two of my answers rejected the question rather than answering it**, and both corrections changed the document:
+
+- Asked which moment felt most like real collaboration, with four candidate moments offered, I said none of them: it worked best when I resisted the agent's preference for producing and paused to consider options instead. That answer became the reflection's opening section, displacing the framing the question had assumed.
+- Asked twice to name the agent's most significant independent contribution, I said the question was wrong — it makes the LLM sound like a cat bringing in dead birds, laying out trophies for evaluation. The actual shape was that I asked questions and asked for options, and the agent followed up on the chosen option. That correction became the research-and-lab-assistant section.
+
+I also rejected the agent's characterization of my own stated cost. I had said the collaboration made me "a reviewer, not an analyst"; on reflection that framing is imperfect, and the accurate version — that the collaboration raised the level of abstraction, with benefits and a real distancing from implementation — is what the document now argues.
+
+The agent wrote the prose. The claims, the corrections, and the decisions about what this term actually taught me are mine, and the two places where I rejected the question outright are the clearest evidence of the division. This is the same working pattern the reflection goes on to describe, applied to the reflection itself.
+
 ## The collaboration worked best when I stopped it from producing
 
 The obvious thing to expect from an LLM is throughput, and the throughput was real — two modeling grains, five covariate layers, nineteen figures, a generated deck. But looking back at the entries where the project actually turned, almost none of them are entries where something got made. They are entries where I paused and we discussed options.
