@@ -311,6 +311,8 @@ This project was built in collaboration with **Claude Code** (Anthropic), used f
 
 The work is directed and verified by the author. Research questions, method choices, and every conclusion stated here are the author's; the agent proposed, implemented, and was frequently overridden. Analytical claims were checked against the data rather than accepted from the model, and several agent-proposed framings were rejected outright — the prevention/mitigation partition was corrected from a compression error the agent introduced, and the per-cell confidence result came from rejecting the agent's first, wrong formulation of the question.
 
+The agent worked under standing written direction in [`CLAUDE.md`](CLAUDE.md), which is itself part of the evidence: it carries the working agreements the agent had to follow (defer to the student's judgment; never assert current fire policy; verify before recommending), the architecture it was required to assume, and a running record of questions settled and closed so that resolved decisions could not be quietly reopened in a later session. Much of it was written in response to the agent getting something wrong.
+
 The full record is [`coursework/collaboration_log.md`](coursework/collaboration_log.md) — 149 entries written contemporaneously with the decisions, which is the authority when documents disagree. [`coursework/W8/MSDS696_LLM_Reflection.md`](coursework/W8/MSDS696_LLM_Reflection.md) assesses where the LLM was wrong, where it was overridden, and what had to be verified.
 
 ---
